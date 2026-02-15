@@ -1,146 +1,128 @@
 import Link from "next/link";
-import {
-  MapPin,
-  Phone,
-  ShieldCheck,
-  Mail,
-} from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { MapPin, Phone, MessageCircle, ShieldCheck } from "lucide-react";
 
 const BRAND = "Core Pro Egypt";
 const PHONE = "01055550195";
 const WHATSAPP = "https://wa.me/201055550195";
-const EMAIL = "info@corepro-eg.com";
-const ADDRESS = "القاهرة الكبرى - مصر";
+const ADDRESS_TEXT = "القاهرة الكبرى";
 const YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="relative mt-20 border-t border-black/10 bg-slate-950 text-white pb-40 md:pb-24">
-      <div className="mx-auto max-w-6xl px-4 py-14">
-
-        {/* Top Grid */}
-        <div className="grid gap-10 md:grid-cols-4">
-
+    <footer className="relative mt-20 border-t border-black/10 bg-slate-950 text-white">
+      {/* padding bottom كبير على الموبايل عشان شريط الواتس/الاتصال */}
+      <div className="mx-auto max-w-6xl px-4 py-12 pb-36 md:pb-12">
+        <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
-          <div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
             <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-slate-900 font-extrabold">
+              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-slate-950 font-extrabold">
                 CP
               </div>
-              <div className="text-lg font-extrabold">{BRAND}</div>
+              <div>
+                <div className="font-extrabold">{BRAND}</div>
+                <div className="mt-1 flex items-center gap-2 text-sm text-white/70">
+                  <MapPin className="h-4 w-4" />
+                  <span>{ADDRESS_TEXT}</span>
+                </div>
+              </div>
             </div>
 
-            <p className="mt-4 text-slate-400 leading-7">
-              شركة متخصصة في قص الخرسانة بالمنشار، تخريم الكور،
-              واير تقطيع خرسانة، وتركيب الشفاطات داخل القاهرة والجيزة.
-              دقة هندسية وأمان كامل في التنفيذ.
+            <p className="mt-4 text-white/75 leading-7">
+              شركة متخصصة في قص الخرسانة بالمنشار، تخريم الكور، واير تقطيع خرسانة،
+              وتركيب شفاطات مطابخ وحمامات. تنفيذ نظيف وسريع داخل القاهرة والجيزة.
             </p>
 
-            <div className="mt-5 space-y-2 text-sm text-slate-400">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                {ADDRESS}
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                {PHONE}
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                {EMAIL}
-              </div>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <div className="text-lg font-extrabold mb-4">الخدمات</div>
-            <div className="space-y-2 text-slate-400 text-sm">
-              <Link href="/core" className="block hover:text-white transition">
-                تخريم الخرسانة بالكور
-              </Link>
-              <Link href="/saw" className="block hover:text-white transition">
-                قص الخرسانة بالمنشار
-              </Link>
-              <Link href="/wire" className="block hover:text-white transition">
-                واير تقطيع خرسانة
-              </Link>
-              <Link href="/hoods" className="block hover:text-white transition">
-                تركيب الشفاطات
-              </Link>
-            </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <div className="text-lg font-extrabold mb-4">الشركة</div>
-            <div className="space-y-2 text-slate-400 text-sm">
-              <Link href="/about" className="block hover:text-white transition">
-                من نحن
-              </Link>
-              <Link href="/privacy" className="block hover:text-white transition">
-                سياسة الخصوصية
-              </Link>
-              <Link href="/terms" className="block hover:text-white transition">
-                شروط الاستخدام
-              </Link>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div>
-            <div className="text-lg font-extrabold mb-4">
-              احجز معاينة الآن
-            </div>
-
-            <div className="space-y-3">
+            <div className="mt-5 flex flex-wrap gap-2">
               <a
                 href={`tel:${PHONE}`}
-                className="flex items-center justify-center gap-2 rounded-2xl bg-white text-slate-900 py-3 font-extrabold hover:bg-slate-200 transition"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-extrabold text-white hover:bg-white/15 transition"
+                aria-label={`اتصال على ${PHONE}`}
               >
                 <Phone className="h-4 w-4" />
-                اتصال مباشر
+                {PHONE}
               </a>
-
               <a
                 href={WHATSAPP}
-                className="flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 py-3 font-extrabold hover:bg-emerald-700 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-2xl bg-emerald-700 px-4 py-2.5 text-sm font-extrabold text-white hover:bg-emerald-800 transition"
+                aria-label="واتساب"
               >
-                <FaWhatsapp className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" />
                 واتساب
               </a>
             </div>
+          </div>
 
-            <div className="mt-6 flex items-start gap-2 text-slate-400 text-sm">
-              <ShieldCheck className="h-4 w-4 mt-1 text-emerald-500" />
-              تنفيذ آمن بدون اهتزاز أو تكسير عشوائي.
+          {/* Links */}
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="font-extrabold">روابط سريعة</div>
+            <div className="mt-4 grid gap-2">
+              {[
+                { href: "/core", label: "تخريم الخرسانة بالكور" },
+                { href: "/saw", label: "قص الخرسانة بالمنشار" },
+                { href: "/wire", label: "واير تقطيع خرسانة" },
+                { href: "/hoods", label: "تركيب الشفاطات" },
+              ].map((x) => (
+                <Link
+                  key={x.href}
+                  href={x.href}
+                  className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 font-bold text-white hover:bg-white/15 transition"
+                >
+                  {x.label}
+                </Link>
+              ))}
             </div>
+
+            <div className="mt-6 font-extrabold">صفحات مهمة</div>
+            <div className="mt-4 grid gap-2">
+              {[
+                { href: "/about", label: "من نحن" },
+                { href: "/privacy-policy", label: "سياسة الخصوصية" },
+                { href: "/terms", label: "شروط الاستخدام" },
+              ].map((x) => (
+                <Link
+                  key={x.href}
+                  href={x.href}
+                  className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 font-bold text-white hover:bg-white/15 transition"
+                >
+                  {x.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Trust */}
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="font-extrabold">لماذا نحن؟</div>
+            <ul className="mt-4 space-y-3">
+              {[
+                "دقة عالية وتشطيب نظيف بدون تكسير",
+                "تقليل الغبار باستخدام التبريد بالمياه",
+                "التزام بالسلامة ومعاينة قبل التنفيذ",
+                "خدمة سريعة ودعم عبر الهاتف والواتساب",
+              ].map((t) => (
+                <li
+                  key={t}
+                  className="flex gap-2 rounded-2xl border border-white/10 bg-white/10 p-4"
+                >
+                  <ShieldCheck className="mt-0.5 h-5 w-5 text-emerald-300" />
+                  <span className="text-white/80 leading-7">{t}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-slate-500 text-sm">
-          <div>
-            © {YEAR} {BRAND}. جميع الحقوق محفوظة.
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <Link href="/" className="hover:text-white transition">
-              الرئيسية
-            </Link>
-            <Link href="/core" className="hover:text-white transition">
-              الكور
-            </Link>
-            <Link href="/saw" className="hover:text-white transition">
-              القص
-            </Link>
-            <Link href="/wire" className="hover:text-white transition">
-              الواير
-            </Link>
-            <Link href="/hoods" className="hover:text-white transition">
-              الشفاطات
-            </Link>
+        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
+          <div>© {YEAR} {BRAND}. جميع الحقوق محفوظة.</div>
+          <div className="flex flex-wrap gap-3">
+            <Link className="hover:text-white transition" href="/">الرئيسية</Link>
+            <Link className="hover:text-white transition" href="/core">الكور</Link>
+            <Link className="hover:text-white transition" href="/saw">القص</Link>
+            <Link className="hover:text-white transition" href="/wire">الواير</Link>
+            <Link className="hover:text-white transition" href="/hoods">الشفاطات</Link>
           </div>
         </div>
       </div>
