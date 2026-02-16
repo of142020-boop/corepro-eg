@@ -36,10 +36,10 @@ const ADDRESS_TEXT = "القاهرة الكبرى";
 const SERVICE_NAME = "تخريم الخرسانة بالكور";
 const FOCUS_KEYWORD = "صنايعي كور";
 
-const IMG_HERO = "/images/core/hero.webp"; // optional
-const IMG_1 = "/images/core/work-1.webp"; // optional
-const IMG_2 = "/images/core/work-2.webp"; // optional
-const IMG_3 = "/images/core/work-3.webp"; // optional
+const IMG_HERO = "/images/core/hero.webp";
+const IMG_1 = "/images/core/work-1.webp";
+const IMG_2 = "/images/core/work-2.webp";
+const IMG_3 = "/images/core/work-3.webp";
 
 export const metadata: Metadata = {
   title: "صنايعي كور في مصر 01055550195",
@@ -57,10 +57,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
 
 function Section({
   title,
@@ -100,13 +96,7 @@ function Section({
   );
 }
 
-function StatPill({
-  icon,
-  text,
-}: {
-  icon: React.ReactNode;
-  text: string;
-}) {
+function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
       {icon}
@@ -137,32 +127,6 @@ function MiniCard({
   );
 }
 
-function SafeImage({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  // تمنع أخطاء لو الصورة مش موجودة (Next Image أحيانًا يزعّل لو 404)
-  // الحل الأبسط: نخليها عادية ب fallback placeholder عبر div
-  return (
-    <div className={cn("relative overflow-hidden", className)}>
-      <Image
-        src={src}
-        alt={alt}
-        width={1400}
-        height={900}
-        sizes="(max-width: 1024px) 100vw, 50vw"
-        className="h-full w-full object-cover"
-        priority={false}
-      />
-    </div>
-  );
-}
-
 export default function CorePage() {
   const faq = [
     {
@@ -187,7 +151,6 @@ export default function CorePage() {
     },
   ];
 
-  // ===== JSON-LD =====
   const jsonLdLocalBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -267,7 +230,7 @@ export default function CorePage() {
   };
 
   return (
-    <main className="bg-slate-50">
+    <main className="bg-slate-50" dir="rtl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -282,7 +245,6 @@ export default function CorePage() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        {/* خلفية لطيفة */}
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(14,165,233,0.14),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(34,197,94,0.14),transparent_55%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-50" />
 
@@ -295,26 +257,23 @@ export default function CorePage() {
               </div>
 
               <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-                صنايعي كور في مصر: خدمات تخريم الخرسانة وعمل فتحات كور بدقة ليزر
-                (بدون تكسير)
+                صنايعي كور في مصر: خدمات تخريم الخرسانة وعمل فتحات كور بدقة ليزر (بدون تكسير)
               </h1>
 
               <p className="mt-5 text-slate-700 leading-8">
                 هل تبحث عن <strong>صنايعي كور</strong> محترف لتنفيذ{" "}
-                <strong>عمل فتحات في الخرسانة</strong> بدقة متناهية ودون الإضرار
-                بسلامة المبنى؟ نحن في <strong>{BRAND}</strong> نقدم لك الحل الأمثل.
-                نعتمد على أحدث <strong>ماكينة كور تخريم الخرسانة</strong> لعمل فتحات
-                دائرية منتظمة في الأسقف، الحوائط، والكمرات الخرسانية.
+                <strong>عمل فتحات في الخرسانة</strong> بدقة متناهية ودون الإضرار بسلامة المبنى؟
+                نحن في <strong>{BRAND}</strong> نقدم لك الحل الأمثل. نعتمد على أحدث{" "}
+                <strong>ماكينة كور تخريم الخرسانة</strong> لعمل فتحات دائرية منتظمة في الأسقف،
+                الحوائط، والكمرات الخرسانية.
               </p>
 
               <p className="mt-3 text-slate-700 leading-8">
                 سواء كنت تحتاج إلى <strong>عمل فتحات الغاز</strong>، أو تجهيز مسارات{" "}
-                <strong>التكييف والسباكة</strong>، أو حتى{" "}
-                <strong>عمل فتحة مدخنة السخان</strong> — فإننا نضمن لك{" "}
-                <strong>فتحة الكور</strong> النظيفة الجاهزة للتركيب فورًا، مع الحفاظ
-                على حديد التسليح والخرسانة من الاهتزازات التي تسببها طرق التكسير
-                التقليدية. نحن من <strong>شركات تخريم الخرسانة بالكور</strong>{" "}
-                المتخصصة في تنفيذ أصعب الفتحات الهندسية.
+                <strong>التكييف والسباكة</strong>، أو{" "}
+                <strong>عمل فتحة مدخنة السخان</strong> — نضمن لك{" "}
+                <strong>فتحة كور</strong> نظيفة جاهزة للتركيب فورًا مع الحفاظ على حديد التسليح
+                وتقليل الاهتزازات مقارنة بالتكسير التقليدي.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-3">
@@ -357,9 +316,10 @@ export default function CorePage() {
               </div>
             </div>
 
+            {/* صور الأعمال */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <div className="font-extrabold text-slate-900">صور أعمال (اختياري)</div>
                   <div className="text-sm text-slate-600">
                     ضع الصور داخل <span className="font-mono">public/images/core</span>
@@ -367,18 +327,16 @@ export default function CorePage() {
                 </div>
               </div>
 
-              {/* لو الصور مش موجودة هتطلع 404 في الكونسول فقط، الصفحة شغالة */}
-              <div className="grid grid-cols-1">
-                <div className="relative h-64 md:h-80 bg-slate-100">
-                  <Image
-                    src={IMG_HERO}
-                    alt="تخريم الخرسانة بالكور - Core Pro Egypt"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
+              {/* HERO IMAGE - نسبة ثابتة عشان تبقى مظبوطة على كل الشاشات */}
+              <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
+                <Image
+                  src={IMG_HERO}
+                  alt="تخريم الخرسانة بالكور - Core Pro Egypt"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
               </div>
 
               <div className="p-5 grid gap-3">
@@ -412,14 +370,18 @@ export default function CorePage() {
                   </div>
                 </div>
 
+                {/* THUMBNAILS - object-contain عشان ما تتقصش */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
-                    <div key={i} className="relative h-28 rounded-2xl overflow-hidden bg-slate-100 border border-black/10">
+                    <div
+                      key={i}
+                      className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-black/10"
+                    >
                       <Image
                         src={src}
                         alt={`صور تخريم كور - ${BRAND} ${i + 1}`}
                         fill
-                        className="object-cover"
+                        className="object-contain p-3"
                         sizes="(max-width: 1024px) 100vw, 33vw"
                       />
                     </div>
@@ -476,7 +438,10 @@ export default function CorePage() {
                       ic: <Clock className="h-5 w-5 text-amber-600" />,
                     },
                   ].map((x) => (
-                    <div key={x.t} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x.t}
+                      className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <div className="mt-0.5">{x.ic}</div>
                       <div>
                         <div className="font-bold text-slate-900">{x.t}</div>
@@ -508,8 +473,8 @@ export default function CorePage() {
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
                       متخصصون في <strong>عمل فتحات بالكور</strong> لتمرير مواسير النحاس للتكييفات
-                      (السبليت والكونسيلد). نضبط زاوية الميل (Slope) لضمان صرف المياه وتجهيز
-                      فتحات الجريلات ومخارج الهواء المركزية.
+                      (السبليت والكونسيلد). نضبط زاوية الميل لضمان صرف المياه وتجهيز فتحات
+                      مخارج الهواء.
                     </p>
                   </div>
 
@@ -519,7 +484,7 @@ export default function CorePage() {
                       2) عمل فتحات الغاز الطبيعي
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      نقوم بـ <strong>عمل فتحات الغاز</strong> (الهوايات) في الحوائط والأسقف الخرسانية
+                      نقوم بـ <strong>عمل فتحات الغاز</strong> في الحوائط والأسقف الخرسانية
                       بقطر مثالي يسمح بالتهوية الآمنة دون تشويه واجهة المبنى.
                     </p>
                   </div>
@@ -530,9 +495,8 @@ export default function CorePage() {
                       3) السباكة والصرف (فتحات الكور للحمامات والمطابخ)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      ننفذ <strong>فتحات كور</strong> لأنابيب الصرف (4 و6 بوصة) ومواسير التغذية.
-                      تقنية الكور تضمن عدم تسرب المياه مستقبلًا لأن <strong>فتحة كور</strong> تكون
-                      دائرية ومحكمة.
+                      ننفذ <strong>فتحات كور</strong> لأنابيب الصرف (4 و6 بوصة) ومواسير التغذية،
+                      وتكون فتحة الكور دائرية ومحكمة.
                     </p>
                   </div>
 
@@ -542,8 +506,8 @@ export default function CorePage() {
                       4) فتحة مدخنة السخان والشفاطات
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      نفتح المسارات المطلوبة للهـود والشفاطات والسخانات بسرعة وبقطر مناسب،
-                      لتسهيل <strong>عمل فتحة مدخنة السخان</strong> وتركيب المدخنة فورًا.
+                      نفتح المسارات المطلوبة للهـود والشفاطات والسخانات بسرعة وبقطر مناسب
+                      لتسهيل التركيب فورًا.
                     </p>
                   </div>
 
@@ -553,9 +517,8 @@ export default function CorePage() {
                       5) التطبيقات الإنشائية المعقدة (الكمر والسقف)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      نقوم بـ <strong>فتح كور في الكمر</strong> و<strong>تخريم السقف</strong> لتمرير الكابلات
-                      الرئيسية أو فتحات خدمات خاصة، مع مراعاة أماكن حديد التسليح الرئيسي لتجنب قطعه إلا
-                      للضرورة وبإشراف هندسي عند الحاجة.
+                      نقوم بـ <strong>فتح كور في الكمر</strong> و<strong>تخريم السقف</strong>{" "}
+                      لتمرير الكابلات الرئيسية أو فتحات خدمات خاصة، مع مراعاة أماكن حديد التسليح.
                     </p>
                   </div>
                 </div>
@@ -570,8 +533,8 @@ export default function CorePage() {
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  نحن لا نستخدم معدات متهالكة. أسطولنا يضم أحدث <strong>ماكينة تخريم خرسانة</strong> من
-                  ماركات عالمية (مثل Hilti و Bosch).
+                  نحن لا نستخدم معدات متهالكة. أسطولنا يضم أحدث <strong>ماكينة تخريم خرسانة</strong>{" "}
+                  من ماركات عالمية.
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
@@ -588,12 +551,12 @@ export default function CorePage() {
                     },
                     {
                       t: "تبريد مائي",
-                      d: "تقليل الغبار وحماية الحديد من الحرارة الزائدة أثناء القص.",
+                      d: "تقليل الغبار وحماية الحديد من الحرارة الزائدة أثناء التخريم.",
                       ic: <Droplets className="h-5 w-5 text-sky-600" />,
                     },
                     {
                       t: "قياس مضبوط",
-                      d: "تحديد السنتر والمقاس بدقة بالملليمتر قبل التنفيذ.",
+                      d: "تحديد السنتر والمقاس بدقة قبل التنفيذ.",
                       ic: <Ruler className="h-5 w-5 text-amber-600" />,
                     },
                   ].map((x) => (
@@ -617,23 +580,21 @@ export default function CorePage() {
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  الكثير يبحث عن <strong>اسعار فتحات الكور</strong> أو يسأل عن{" "}
-                  <strong>أسعار ماكينة كور تخريم الخرسانة</strong> ظنًا أن الشراء أوفر.
-                  الحقيقة أن الاستعانة بشركة متخصصة أوفر لأن المعدات باهظة وتحتاج صيانة.
-                </p>
-
-                <p className="font-bold text-slate-900">
-                  نحن في {BRAND} نقدم نظام تسعير شفاف يعتمد على:
+                  نحن في {BRAND} نقدم نظام تسعير شفاف يعتمد على: قطر الفتحة، سمك الخرسانة،
+                  نوع العنصر الإنشائي، والكمية.
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
-                    "قطر الفتحة (البوصة): كلما زاد القطر زاد الجهد واستهلاك الماكينة.",
-                    "سمك الخرسانة: تخريم السقف بسمك 25 سم يختلف عن حائط 12 سم.",
-                    "نوع العنصر الإنشائي: فتح كور في الكمر أصعب من الحائط العادي.",
-                    "الكمية: خصومات للمشاريع الكبيرة وعدد الفتحات الكثير.",
+                    "قطر الفتحة (البوصة).",
+                    "سمك الخرسانة.",
+                    "نوع العنصر الإنشائي (حائط/سقف/كمر).",
+                    "عدد الفتحات وخصومات المشاريع.",
                   ].map((x) => (
-                    <div key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x}
+                      className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
                       <span className="text-slate-600 leading-7">{x}</span>
                     </div>
@@ -643,8 +604,7 @@ export default function CorePage() {
                 <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
                   <div className="font-bold text-amber-900">نصيحة</div>
                   <p className="mt-1 text-amber-800 leading-7">
-                    لا تبحث عن الأرخص فقط — ابحث عن من يضمن عدم تكسير الواجهة أو قطع كابلات الكهرباء
-                    المدفونة أثناء تخريم الخرسانة.
+                    لا تبحث عن الأرخص فقط — ركّز على أمان التنفيذ وعدم الإضرار بالمبنى.
                   </p>
                 </div>
               </div>
@@ -658,22 +618,10 @@ export default function CorePage() {
             >
               <ol className="space-y-3">
                 {[
-                  {
-                    t: "المعاينة",
-                    d: "تحديد أماكن فتحات الكور والتأكد من خلوها من تمديدات الكهرباء المخفية.",
-                  },
-                  {
-                    t: "التجهيز",
-                    d: "تحديد السنتر وتثبيت قاعدة جهاز تخريم الخرسانه.",
-                  },
-                  {
-                    t: "التنفيذ",
-                    d: "بدء تخريم كور باستخدام التبريد المائي وسحب المخلفات أولاً بأول.",
-                  },
-                  {
-                    t: "التسليم",
-                    d: "إخراج قلب الخرسانة وتسليم فتحة الكور نظيفة وجاهزة.",
-                  },
+                  { t: "المعاينة", d: "تحديد أماكن فتحات الكور والتأكد من خلوها من تمديدات مخفية." },
+                  { t: "التجهيز", d: "تحديد السنتر وتثبيت قاعدة جهاز الكور." },
+                  { t: "التنفيذ", d: "تخريم كور بالتبريد المائي وسحب المخلفات." },
+                  { t: "التسليم", d: "تسليم فتحة الكور نظيفة وجاهزة للتركيب." },
                 ].map((s, idx) => (
                   <li
                     key={idx}
@@ -722,17 +670,7 @@ export default function CorePage() {
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
                   نحن نغطي القاهرة الكبرى والجيزة، بما في ذلك:{" "}
-                  <strong>
-                    التجمع الخامس، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية، القليوبية
-                  </strong>
-                  . أينما كنت، يصلك أقرب <strong>صنايعي كور</strong> بمعداته الكاملة.
-                </p>
-
-                <p>
-                  لا تغامر بسلامة منزلك بالتكسير العشوائي. تواصل الآن مع أفضل{" "}
-                  <strong>شركات تخريم الخرسانة بالكور</strong> في مصر. احصل على معاينة سريعة
-                  وتنفيذ فوري لـ <strong>عمل فتحات كور خرسانة</strong>، <strong>تخريم السقف</strong>،
-                  وجميع أعمال <strong>تخريم الخرسانة المسلحة</strong>.
+                  <strong>التجمع الخامس، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية، القليوبية</strong>.
                 </p>
 
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
@@ -767,9 +705,7 @@ export default function CorePage() {
                   <HardHat className="h-5 w-5 text-slate-700" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-lg text-slate-900">
-                    لماذا {BRAND}؟
-                  </div>
+                  <div className="font-extrabold text-lg text-slate-900">لماذا {BRAND}؟</div>
                   <div className="text-slate-600 text-sm">تنفيذ نظيف + معدات قوية + التزام</div>
                 </div>
               </div>
@@ -824,9 +760,7 @@ export default function CorePage() {
                 مهم للمقاولين
               </div>
               <p className="mt-3 text-slate-600 leading-7">
-                إذا كنت تبحث عن <strong>مقاول فتحات كور</strong> أو تقارن بين{" "}
-                <strong>شركات تخريم الخرسانة بالكور</strong>، ركّز على دقة المقاس وجودة التشطيب
-                وأمان <strong>تخريم الخرسانة المسلحة</strong>.
+                إذا كنت تقارن بين الشركات، ركّز على دقة المقاس وجودة التشطيب وأمان تخريم الخرسانة المسلحة.
               </p>
             </div>
           </aside>

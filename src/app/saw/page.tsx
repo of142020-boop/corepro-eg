@@ -226,7 +226,7 @@ export default function SawPage() {
   };
 
   return (
-    <main className="bg-slate-50">
+    <main className="bg-slate-50" dir="rtl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -266,15 +266,16 @@ export default function SawPage() {
 
               <p className="mt-3 text-slate-700 leading-8">
                 سواء كنت تحتاج إلى تعديل في تصميم منزلك، أو فتح باب جديد في جدار خرساني،
-                أو إزالة جزء من سقف لعمل سلم داخلي — فإن <strong>قص الخرسانة المسلحة</strong>{" "}
-                بالمعدات الحديثة هو الخيار الذي يضمن سلامة المبنى. نستخدم أحدث{" "}
-                <strong>منشار قص الخرسانة</strong> و<strong>ماكينة قص الخرسانة</strong>{" "}
-                لقطع بخطوط مستقيمة دون شروخ شعرية ودون اهتزازات عنيفة.
+                أو إزالة جزء من سقف لعمل سلم داخلي — فإن{" "}
+                <strong>قص الخرسانة المسلحة</strong> بالمعدات الحديثة هو الخيار الذي يضمن
+                سلامة المبنى. نستخدم أحدث <strong>منشار قص الخرسانة</strong> و{" "}
+                <strong>ماكينة قص الخرسانة</strong> لقطع بخطوط مستقيمة دون شروخ شعرية ودون
+                اهتزازات عنيفة.
               </p>
 
               <p className="mt-3 text-slate-700 leading-8">
                 بصفتنا <strong>شركة قص خرسانة</strong> رائدة، نعرف أن العميل يريد:{" "}
-                <strong>الدقة</strong> (قص خرسانة ليزر)، <strong>السرعة</strong>، و
+                <strong>الدقة</strong> (قص خرسانة ليزر)، <strong>السرعة</strong>، و{" "}
                 <strong>النظافة</strong>. وهذا ما نوفره بفريق محترف ومعدات مناسبة لمشاريع
                 كبرى ومنازل خاصة.
               </p>
@@ -318,9 +319,10 @@ export default function SawPage() {
               </div>
             </div>
 
+            {/* صور الأعمال - بنفس طريقة صفحة /core */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <div className="font-extrabold text-slate-900">صور أعمال (اختياري)</div>
                   <div className="text-sm text-slate-600">
                     ضعها في <span className="font-mono">public/images/saw</span>
@@ -328,7 +330,8 @@ export default function SawPage() {
                 </div>
               </div>
 
-              <div className="relative h-64 md:h-80 bg-slate-100">
+              {/* HERO IMAGE - نسبة ثابتة */}
+              <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
                 <Image
                   src={IMG_HERO}
                   alt="قص الخرسانة بالمنشار - Core Pro Egypt"
@@ -370,17 +373,18 @@ export default function SawPage() {
                   </div>
                 </div>
 
+                {/* THUMBNAILS - بدون قص */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
                     <div
                       key={i}
-                      className="relative h-28 rounded-2xl overflow-hidden bg-slate-100 border border-black/10"
+                      className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-black/10"
                     >
                       <Image
                         src={src}
                         alt={`قص خرسانة بالمنشار - ${BRAND} ${i + 1}`}
                         fill
-                        className="object-cover"
+                        className="object-contain p-3"
                         sizes="(max-width: 1024px) 100vw, 33vw"
                       />
                     </div>
@@ -404,10 +408,11 @@ export default function SawPage() {
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  قد تسمع مصطلح <strong>قص الخرسانة بالليزر</strong> أو <strong>قص خرسانة ليزر</strong>.
-                  في الحقيقة لا يُستخدم ضوء الليزر للقطع نفسه، لكنه وصف لدقة الاستقامة.
-                  نحن نستخدم <strong>منشار قص خرسانة</strong> على مسارات (Tracks) يتم ضبطها
-                  بميزان الليزر، فتخرج النتيجة مستقيمة للغاية.
+                  قد تسمع مصطلح <strong>قص الخرسانة بالليزر</strong> أو{" "}
+                  <strong>قص خرسانة ليزر</strong>. في الحقيقة لا يُستخدم ضوء الليزر للقطع
+                  نفسه، لكنه وصف لدقة الاستقامة. نحن نستخدم{" "}
+                  <strong>منشار قص خرسانة</strong> على مسارات (Tracks) يتم ضبطها بميزان
+                  الليزر، فتخرج النتيجة مستقيمة للغاية.
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
@@ -433,7 +438,10 @@ export default function SawPage() {
                       ic: <Ruler className="h-5 w-5 text-sky-600" />,
                     },
                   ].map((x) => (
-                    <div key={x.t} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x.t}
+                      className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <div className="mt-0.5">{x.ic}</div>
                       <div>
                         <div className="font-bold text-slate-900">{x.t}</div>
@@ -475,8 +483,8 @@ export default function SawPage() {
                       2) قص خرسانة السقف (Slab Sawing)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      لعمل سلم داخلي (دوبلكس)، تركيب مصعد، منور سماوي… نستخدم ماكينة قص أرضية
-                      بعمق كبير مع تدعيم وتأمين لضمان الأمان أثناء القص.
+                      لعمل سلم داخلي (دوبلكس)، تركيب مصعد، منور سماوي… نستخدم ماكينة قص
+                      أرضية بعمق كبير مع تدعيم وتأمين لضمان الأمان أثناء القص.
                     </p>
                   </div>
 
@@ -486,8 +494,8 @@ export default function SawPage() {
                       3) قص الخرسانة المسلحة (الجسور والكمرات)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      قص أجزاء من الكمر أو الأعمدة لتمرير دكتات التكييف أو تعديل تصميم (عند الحاجة)
-                      مع الالتزام بالاشتراطات وتحت إشراف هندسي صارم.
+                      قص أجزاء من الكمر أو الأعمدة لتمرير دكتات التكييف أو تعديل تصميم
+                      (عند الحاجة) مع الالتزام بالاشتراطات وتحت إشراف هندسي صارم.
                     </p>
                   </div>
 
@@ -513,7 +521,8 @@ export default function SawPage() {
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  بصفتنا <strong>شركة قص خرسانة</strong> محترفة، نمتلك معدات متنوعة تناسب كل موقع:
+                  بصفتنا <strong>شركة قص خرسانة</strong> محترفة، نمتلك معدات متنوعة تناسب كل
+                  موقع:
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
@@ -539,7 +548,10 @@ export default function SawPage() {
                       ic: <Hammer className="h-5 w-5 text-amber-600" />,
                     },
                   ].map((x) => (
-                    <div key={x.t} className="rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x.t}
+                      className="rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <div className="flex items-center gap-2 font-bold text-slate-900">
                         {x.ic}
                         <span>{x.t}</span>
@@ -559,8 +571,8 @@ export default function SawPage() {
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  سؤال “بكام المتر؟” طبيعي، لكن <strong>اسعار قص الخرسانة</strong> ليست رقمًا ثابتاً.
-                  يتم التقييم فنيًا لضمان أفضل نتيجة:
+                  سؤال “بكام المتر؟” طبيعي، لكن <strong>اسعار قص الخرسانة</strong> ليست رقمًا
+                  ثابتاً. يتم التقييم فنيًا لضمان أفضل نتيجة:
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
@@ -570,7 +582,10 @@ export default function SawPage() {
                     "طول القطع: غالبًا يتم الحساب بالمتر الطولي مع أسعار خاصة للمشاريع الكبيرة.",
                     "صعوبة الموقع: أدوار عليا، سقالات، ضيق مكان… وتحديد هل نستخدم المنشار الكبير أم الصاروخ.",
                   ].map((x) => (
-                    <div key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x}
+                      className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
                       <span className="text-slate-600 leading-7">{x}</span>
                     </div>
@@ -615,7 +630,10 @@ export default function SawPage() {
                     d: "تأمين البلوك الخرساني بدعامات/ونش قبل الفصل النهائي ثم إنزاله بأمان ونقل المخلفات.",
                   },
                 ].map((s, idx) => (
-                  <li key={idx} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
+                  <li
+                    key={idx}
+                    className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                  >
                     <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-black/5">
                       <BadgeCheck className="h-5 w-5 text-emerald-600" />
                     </div>
@@ -636,7 +654,10 @@ export default function SawPage() {
             >
               <div className="space-y-3">
                 {faq.map((item, i) => (
-                  <details key={i} className="group rounded-2xl border border-black/10 bg-white p-4">
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-black/10 bg-white p-4"
+                  >
                     <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
                       <span>{item.q}</span>
                       <span className="text-slate-500 group-open:rotate-180 transition">⌄</span>
@@ -660,8 +681,11 @@ export default function SawPage() {
                 </p>
 
                 <p>
-                  نغطي: <strong>القاهرة الكبرى، الجيزة، التجمع الخامس، العاصمة الإدارية، 6 أكتوبر، الشيخ زايد</strong>.
-                  لا تغامر بسلامة منشأتك — تواصل مع <strong>مقاول قص خرسانة</strong> متخصص.
+                  نغطي:{" "}
+                  <strong>
+                    القاهرة الكبرى، الجيزة، التجمع الخامس، العاصمة الإدارية، 6 أكتوبر، الشيخ زايد
+                  </strong>
+                  . لا تغامر بسلامة منشأتك — تواصل مع <strong>مقاول قص خرسانة</strong> متخصص.
                 </p>
 
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
@@ -712,7 +736,10 @@ export default function SawPage() {
                   "حواف ملساء تقلل مصاريف المحارة والترميم",
                   "تأمين البلوك الخرساني قبل الإنزال لضمان السلامة",
                 ].map((x) => (
-                  <li key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3">
+                  <li
+                    key={x}
+                    className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3"
+                  >
                     <BadgeCheck className="mt-0.5 h-5 w-5 text-emerald-600" />
                     <span className="text-slate-700">{x}</span>
                   </li>

@@ -224,7 +224,7 @@ export default function HoodsPage() {
   };
 
   return (
-    <main className="bg-slate-50">
+    <main className="bg-slate-50" dir="rtl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -263,10 +263,10 @@ export default function HoodsPage() {
 
               <p className="mt-3 text-slate-700 leading-8">
                 نحن في <strong>{BRAND}</strong> نقدم خدمات تهوية متكاملة:{" "}
-                <strong>تركيب شفاط جديد</strong>، <strong>تأسيس شفاط أثناء التشطيب</strong>،
-                و<strong>صيانة وإصلاح</strong>. نتعامل مع جميع الماركات (توشيبا، فريش،
-                تورنيدو، باناسونيك…)، ونوفر حلولاً للمطابخ بدون مدخنة عبر{" "}
-                <strong>الفلاتر الكربونية</strong>.
+                <strong>تركيب شفاط جديد</strong>،{" "}
+                <strong>تأسيس شفاط أثناء التشطيب</strong>، و<strong>صيانة وإصلاح</strong>.
+                نتعامل مع جميع الماركات (توشيبا، فريش، تورنيدو، باناسونيك…)، ونوفر حلولاً
+                للمطابخ بدون مدخنة عبر <strong>الفلاتر الكربونية</strong>.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-3">
@@ -300,10 +300,10 @@ export default function HoodsPage() {
               </div>
             </div>
 
-            {/* right card */}
+            {/* right card - بنفس طريقة /core */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <div className="font-extrabold text-slate-900">صور أعمال (اختياري)</div>
                   <div className="text-sm text-slate-600">
                     <span className="font-mono">public/images/hoods</span>
@@ -311,7 +311,8 @@ export default function HoodsPage() {
                 </div>
               </div>
 
-              <div className="relative h-64 md:h-80 bg-slate-100">
+              {/* HERO IMAGE - نسبة ثابتة */}
+              <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
                 <Image
                   src={IMG_HERO}
                   alt="تركيب شفاطات المطبخ والحمام - Core Pro Egypt"
@@ -353,17 +354,18 @@ export default function HoodsPage() {
                   </div>
                 </div>
 
+                {/* THUMBNAILS - بدون قص */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
                     <div
                       key={i}
-                      className="relative h-28 rounded-2xl overflow-hidden bg-slate-100 border border-black/10"
+                      className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-black/10"
                     >
                       <Image
                         src={src}
                         alt={`أعمال شفاطات - ${BRAND} ${i + 1}`}
                         fill
-                        className="object-cover"
+                        className="object-contain p-3"
                         sizes="(max-width: 1024px) 100vw, 33vw"
                       />
                     </div>
@@ -386,9 +388,7 @@ export default function HoodsPage() {
               icon={<Fan className="h-5 w-5 text-emerald-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  يختلف نوع الشفاط حسب تصميم المطبخ واحتياجاتك، ونحن نتعامل مع جميع الأنواع:
-                </p>
+                <p>يختلف نوع الشفاط حسب تصميم المطبخ واحتياجاتك، ونحن نتعامل مع جميع الأنواع:</p>
 
                 <div className="space-y-4">
                   <div className="rounded-2xl border border-black/10 bg-white p-5">
@@ -494,9 +494,7 @@ export default function HoodsPage() {
               icon={<BadgeCheck className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  لدينا خبرة في صيانة وتركيب معظم الموديلات في السوق المصري:
-                </p>
+                <p>لدينا خبرة في صيانة وتركيب معظم الموديلات في السوق المصري:</p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   <div className="rounded-2xl border border-black/10 bg-white p-5">
@@ -556,9 +554,7 @@ export default function HoodsPage() {
               icon={<Droplets className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  تهوية الحمام ضرورية لمنع العفن وتآكل المرايا. نقدم:
-                </p>
+                <p>تهوية الحمام ضرورية لمنع العفن وتآكل المرايا. نقدم:</p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
@@ -602,9 +598,7 @@ export default function HoodsPage() {
               icon={<Wrench className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  لو الشفاط لا يعمل أو صوته عالي — نوفر صيانة شاملة:
-                </p>
+                <p>لو الشفاط لا يعمل أو صوته عالي — نوفر صيانة شاملة:</p>
 
                 <div className="space-y-3">
                   {[
@@ -634,7 +628,10 @@ export default function HoodsPage() {
                       ic: <Hammer className="h-5 w-5 text-slate-700" />,
                     },
                   ].map((x) => (
-                    <div key={x.t} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x.t}
+                      className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-black/5">
                         {x.ic}
                       </div>
@@ -655,16 +652,14 @@ export default function HoodsPage() {
               icon={<Ruler className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  التكلفة تنقسم لجزئين:
-                </p>
+                <p>التكلفة تنقسم لجزئين:</p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   <div className="rounded-2xl border border-black/10 bg-white p-5">
                     <div className="font-extrabold text-slate-900">1) سعر الجهاز</div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      يختلف حسب الماركة والمقاس (مثلاً توشيبا 25 غير بلت ان فريش).
-                      نساعدك في اختيار الأنسب وشراءه من موزعين معتمدين.
+                      يختلف حسب الماركة والمقاس (مثلاً توشيبا 25 غير بلت ان فريش). نساعدك
+                      في اختيار الأنسب وشراءه من موزعين معتمدين.
                     </p>
                   </div>
 
@@ -680,7 +675,8 @@ export default function HoodsPage() {
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
                   <div className="font-bold text-emerald-900">عرض سعر سريع</div>
                   <p className="mt-1 text-emerald-800 leading-7">
-                    اتصل بنا على <strong>{PHONE}</strong> وقل لنا نوع الشفاط وطريقة التركيب، وسنخبرك بتكلفة دقيقة فوراً.
+                    اتصل بنا على <strong>{PHONE}</strong> وقل لنا نوع الشفاط وطريقة التركيب،
+                    وسنخبرك بتكلفة دقيقة فوراً.
                   </p>
                 </div>
               </div>
@@ -694,7 +690,10 @@ export default function HoodsPage() {
             >
               <div className="space-y-3">
                 {faq.map((item, i) => (
-                  <details key={i} className="group rounded-2xl border border-black/10 bg-white p-4">
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-black/10 bg-white p-4"
+                  >
                     <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
                       <span>{item.q}</span>
                       <span className="text-slate-500 group-open:rotate-180 transition">⌄</span>
@@ -714,11 +713,13 @@ export default function HoodsPage() {
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
                   نحن نغطي جميع احتياجات التهوية في منزلك. لا تترك مطبخك فريسة للدهون والروائح.
-                  تواصل مع أفضل <strong>فني تركيب شفاطات</strong> في مصر لخدمات التركيب والتأسيس والصيانة.
+                  تواصل مع أفضل <strong>فني تركيب شفاطات</strong> في مصر لخدمات التركيب
+                  والتأسيس والصيانة.
                 </p>
 
                 <p>
-                  نخدم: <strong>القاهرة الكبرى، التجمع، الشيخ زايد، 6 أكتوبر، والعاصمة الإدارية</strong>.
+                  نخدم:{" "}
+                  <strong>القاهرة الكبرى، التجمع، الشيخ زايد، 6 أكتوبر، والعاصمة الإدارية</strong>.
                 </p>
 
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
@@ -770,7 +771,10 @@ export default function HoodsPage() {
                   "فلتر كربوني للمطابخ بدون فتحة خارجية",
                   "صيانة وتنظيف وتغيير فلاتر وأعطال كهرباء",
                 ].map((x) => (
-                  <li key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3">
+                  <li
+                    key={x}
+                    className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3"
+                  >
                     <BadgeCheck className="mt-0.5 h-5 w-5 text-emerald-600" />
                     <span className="text-slate-700">{x}</span>
                   </li>

@@ -115,12 +115,12 @@ function ServiceCard({
 }) {
   return (
     <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-sm overflow-hidden">
-      <div className="relative h-40 bg-slate-100">
+      <div className="relative aspect-[4/3] bg-white overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover"
+          className="object-contain bg-white p-4"
           sizes="(max-width: 1024px) 100vw, 33vw"
         />
       </div>
