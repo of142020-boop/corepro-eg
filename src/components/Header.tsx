@@ -1,10 +1,17 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
+import {
+  Phone,
+  MapPin,
+  Menu,
+  X,
+  ChevronLeft,
+  ChevronDown,
+} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const BRAND = "Core Pro Egypt";
@@ -31,28 +38,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
 
-  const drawerId = useId();
   const isActive = (href: string) => pathname === href;
-
-  // منع سكرول الصفحة لما الدروار مفتوح
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [open]);
-
-  // غلق الدروار بـ ESC
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
 
   return (
     <>
@@ -60,21 +46,25 @@ export default function Header() {
       <div className="hidden md:block bg-slate-900 text-white text-sm">
         <div className="mx-auto max-w-6xl px-4 flex justify-between items-center h-10">
           <div className="flex items-center gap-4">
-            <a href={`tel:${PHONE}`} className="flex items-center gap-2">
+            <a
+              href={`tel:${PHONE}`}
+              className="flex items-center gap-2 hover:opacity-80 transition"
+            >
               <Phone className="h-4 w-4" />
               {PHONE}
             </a>
+
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-emerald-400"
-              aria-label="محادثة واتساب"
+              className="flex items-center gap-2 text-emerald-400 hover:opacity-80 transition"
             >
               <FaWhatsapp className="h-4 w-4" />
               واتساب
             </a>
           </div>
+
           <div className="flex items-center gap-2 text-slate-300">
             <MapPin className="h-4 w-4" />
             {ADDRESS}
@@ -83,25 +73,29 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <header dir="rtl" className="sticky top-0 z-50 border-b bg-white">
+      <header
+        dir="rtl"
+        className="sticky top-0 z-50 border-b bg-white"
+      >
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex h-16 items-center justify-between">
+
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3" aria-label={`${BRAND} - الرئيسية`}>
+            <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/logo.png"
+                src="/logo-header-116x154.webp" // استخدم نسخة مصغرة خفيفة
                 alt="Core Pro Egypt - قص وتخريم الخرسانة"
                 width={90}
-                height={44}
+                height={77}
                 priority
-                // ✅ مهم لتقليل حجم التحميل
                 sizes="90px"
                 className="h-11 w-auto object-contain"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 relative" aria-label="روابط الموقع">
+            <nav className="hidden lg:flex items-center gap-1 relative">
+
               {nav.map((item) => (
                 <Link
                   key={item.href}
@@ -111,7 +105,6 @@ export default function Header() {
                       ? "bg-slate-900 text-white"
                       : "text-slate-700 hover:bg-slate-100"
                   }`}
-                  aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
@@ -125,25 +118,21 @@ export default function Header() {
               >
                 <button
                   type="button"
+                  aria-haspopup="true"
+                  aria-expanded={megaOpen}
                   className="px-4 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100"
-                  aria-haspopup="menu"
-                  aria-expanded={megaOpen ? "true" : "false"}
                 >
                   صفحات مهمة
                   <ChevronDown className="h-4 w-4" />
                 </button>
 
                 {megaOpen && (
-                  <div
-                    className="absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2"
-                    role="menu"
-                  >
+                  <div className="absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2">
                     {extraPages.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
                         className="block px-4 py-2 rounded-xl hover:bg-slate-100 font-bold text-slate-700"
-                        role="menuitem"
                       >
                         {item.label}
                       </Link>
@@ -155,45 +144,36 @@ export default function Header() {
 
             {/* Mobile Button */}
             <button
-              type="button"
               onClick={() => setOpen(true)}
-              className="lg:hidden p-2 rounded-xl border"
               aria-label="فتح القائمة"
-              aria-expanded={open ? "true" : "false"}
-              aria-controls={drawerId}
+              className="lg:hidden p-2 rounded-xl border border-black/10"
             >
               <Menu className="h-6 w-6" />
             </button>
+
           </div>
         </div>
       </header>
 
       {/* Mobile Drawer */}
       {open && (
-        <div
-          id={drawerId}
-          className="lg:hidden fixed inset-0 z-[999] bg-white"
-          role="dialog"
-          aria-modal="true"
-          aria-label="قائمة التنقل"
-        >
+        <div className="lg:hidden fixed inset-0 z-[999] bg-white">
+
           <div className="flex items-center justify-between border-b p-4">
-            <Link href="/" onClick={() => setOpen(false)} aria-label={`${BRAND} - الرئيسية`}>
+            <Link href="/" onClick={() => setOpen(false)}>
               <Image
-                src="/logo.png"
+                src="/logo-header-116x154.webp"
                 alt="Core Pro Egypt"
                 width={80}
-                height={40}
+                height={70}
                 sizes="80px"
                 className="h-10 w-auto object-contain"
               />
             </Link>
 
             <button
-              type="button"
               onClick={() => setOpen(false)}
               aria-label="إغلاق القائمة"
-              className="p-2 rounded-xl border border-black/10"
             >
               <X className="h-6 w-6" />
             </button>
@@ -210,26 +190,11 @@ export default function Header() {
                     ? "bg-slate-900 text-white"
                     : "bg-white text-slate-800 border-black/10"
                 }`}
-                aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.label}
                 <ChevronLeft className="h-4 w-4 opacity-60" />
               </Link>
             ))}
-
-            <div className="pt-2 border-t border-black/10">
-              {extraPages.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-between px-4 py-3 rounded-2xl border border-black/10 font-bold text-slate-800"
-                >
-                  {item.label}
-                  <ChevronLeft className="h-4 w-4 opacity-60" />
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
       )}
