@@ -1,17 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  Phone,
-  MapPin,
-  Menu,
-  X,
-  ChevronLeft,
-  ChevronDown,
-} from "lucide-react";
+import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const BRAND = "Core Pro Egypt";
@@ -29,7 +22,7 @@ const nav = [
 
 const extraPages = [
   { href: "/about", label: "من نحن" },
-  { href: "/privacy", label: "سياسة الخصوصية" },
+  { href: "/privacy-policy", label: "سياسة الخصوصية" },
   { href: "/terms", label: "شروط الاستخدام" },
 ];
 
@@ -38,7 +31,28 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
 
+  const drawerId = useId();
   const isActive = (href: string) => pathname === href;
+
+  // منع سكرول الصفحة لما الدروار مفتوح
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  // غلق الدروار بـ ESC
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <>
@@ -53,7 +67,9 @@ export default function Header() {
             <a
               href={WHATSAPP}
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-emerald-400"
+              aria-label="محادثة واتساب"
             >
               <FaWhatsapp className="h-4 w-4" />
               واتساب
@@ -70,22 +86,22 @@ export default function Header() {
       <header dir="rtl" className="sticky top-0 z-50 border-b bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex h-16 items-center justify-between">
-
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3" aria-label={`${BRAND} - الرئيسية`}>
               <Image
                 src="/logo.png"
                 alt="Core Pro Egypt - قص وتخريم الخرسانة"
-                width={160}
-                height={50}
+                width={90}
+                height={44}
                 priority
+                // ✅ مهم لتقليل حجم التحميل
+                sizes="90px"
                 className="h-11 w-auto object-contain"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 relative">
-
+            <nav className="hidden lg:flex items-center gap-1 relative" aria-label="روابط الموقع">
               {nav.map((item) => (
                 <Link
                   key={item.href}
@@ -95,6 +111,7 @@ export default function Header() {
                       ? "bg-slate-900 text-white"
                       : "text-slate-700 hover:bg-slate-100"
                   }`}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
@@ -106,18 +123,27 @@ export default function Header() {
                 onMouseLeave={() => setMegaOpen(false)}
                 className="relative"
               >
-                <button className="px-4 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100">
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100"
+                  aria-haspopup="menu"
+                  aria-expanded={megaOpen ? "true" : "false"}
+                >
                   صفحات مهمة
                   <ChevronDown className="h-4 w-4" />
                 </button>
 
                 {megaOpen && (
-                  <div className="absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2">
+                  <div
+                    className="absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2"
+                    role="menu"
+                  >
                     {extraPages.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
                         className="block px-4 py-2 rounded-xl hover:bg-slate-100 font-bold text-slate-700"
+                        role="menuitem"
                       >
                         {item.label}
                       </Link>
@@ -129,32 +155,46 @@ export default function Header() {
 
             {/* Mobile Button */}
             <button
+              type="button"
               onClick={() => setOpen(true)}
               className="lg:hidden p-2 rounded-xl border"
+              aria-label="فتح القائمة"
+              aria-expanded={open ? "true" : "false"}
+              aria-controls={drawerId}
             >
               <Menu className="h-6 w-6" />
             </button>
-
           </div>
         </div>
       </header>
 
       {/* Mobile Drawer */}
       {open && (
-        <div className="lg:hidden fixed inset-0 z-[999] bg-white">
-
+        <div
+          id={drawerId}
+          className="lg:hidden fixed inset-0 z-[999] bg-white"
+          role="dialog"
+          aria-modal="true"
+          aria-label="قائمة التنقل"
+        >
           <div className="flex items-center justify-between border-b p-4">
-            <Link href="/" onClick={() => setOpen(false)}>
+            <Link href="/" onClick={() => setOpen(false)} aria-label={`${BRAND} - الرئيسية`}>
               <Image
                 src="/logo.png"
                 alt="Core Pro Egypt"
-                width={140}
+                width={80}
                 height={40}
+                sizes="80px"
                 className="h-10 w-auto object-contain"
               />
             </Link>
 
-            <button onClick={() => setOpen(false)}>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="إغلاق القائمة"
+              className="p-2 rounded-xl border border-black/10"
+            >
               <X className="h-6 w-6" />
             </button>
           </div>
@@ -170,13 +210,27 @@ export default function Header() {
                     ? "bg-slate-900 text-white"
                     : "bg-white text-slate-800 border-black/10"
                 }`}
+                aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.label}
                 <ChevronLeft className="h-4 w-4 opacity-60" />
               </Link>
             ))}
-          </div>
 
+            <div className="pt-2 border-t border-black/10">
+              {extraPages.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between px-4 py-3 rounded-2xl border border-black/10 font-bold text-slate-800"
+                >
+                  {item.label}
+                  <ChevronLeft className="h-4 w-4 opacity-60" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </>

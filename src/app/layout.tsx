@@ -16,8 +16,7 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   metadataBase: new URL("https://corepro-eg.com"),
   title: {
-    default:
-      "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
+    default: "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
     template: "%s | Core Pro Egypt",
   },
   description:
@@ -25,18 +24,21 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.className}>
-      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
+    <html lang="ar" dir="rtl">
+      <body className={`${cairo.className} min-h-screen bg-slate-50 text-slate-900 antialiased`}>
+        {/* Skip link for accessibility */}
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:shadow"
+        >
+          تخطي إلى المحتوى
+        </a>
 
         <Header />
 
-        <main className="mx-auto w-full max-w-6xl px-4 py-10">
+        <main id="content" className="min-h-[60vh]">
           {children}
         </main>
 
@@ -44,7 +46,6 @@ export default function RootLayout({
 
         <StickyActions />
         <ScrollToTop />
-
       </body>
     </html>
   );
