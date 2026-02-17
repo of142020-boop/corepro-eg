@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import { Cairo } from "next/font/google";
@@ -15,19 +16,35 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://corepro-eg.com"),
-  title: {
-    default: "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
-    template: "%s | Core Pro Egypt",
-  },
+
+  // ✅ عنوان افتراضي للموقع فقط (للصفحات اللي ما حطّتش title)
+  // ✅ بدون template نهائيًا، عشان ما يضيفش "Core Pro Egypt" على أي صفحة
+  title: "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
+
   description:
     "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام.",
+
   robots: { index: true, follow: true },
+
+  // (اختياري) لو حابب تضيف OG افتراضي للموقع
+  // openGraph: {
+  //   type: "website",
+  //   url: "https://corepro-eg.com",
+  //   siteName: "Core Pro Egypt",
+  //   locale: "ar_EG",
+  // },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={`${cairo.className} min-h-screen bg-slate-50 text-slate-900 antialiased`}>
+      <body
+        className={`${cairo.className} min-h-screen bg-slate-50 text-slate-900 antialiased`}
+      >
         {/* Skip link for accessibility */}
         <a
           href="#content"
