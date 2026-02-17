@@ -42,14 +42,14 @@ const IMG_2 = "/images/core/work-2.webp";
 const IMG_3 = "/images/core/work-3.webp";
 
 export const metadata: Metadata = {
-  title: "صنايعي كور في مصر 01055550195",
+  title: "صنايعي كور في مصر - 01055550195",
   description:
     "أفضل صنايعي كور في مصر لعمل فتحات في الخرسانة وتخريم السقف والكمر بدقة. نستخدم ماكينة كور تخريم الخرسانة لعمل فتحات الغاز، التكييف، والسباكة بأسعار تنافسية وبدون تكسير.",
   alternates: { canonical: CANONICAL },
   openGraph: {
     type: "website",
     url: CANONICAL,
-    title: "صنايعي كور في مصر 01055550195",
+    title: "صنايعي كور في مصر - 01055550195",
     description:
       "أفضل صنايعي كور في مصر لعمل فتحات في الخرسانة وتخريم السقف والكمر بدقة. نستخدم ماكينة كور تخريم الخرسانة لعمل فتحات الغاز، التكييف، والسباكة بأسعار تنافسية وبدون تكسير.",
     siteName: BRAND,
@@ -320,9 +320,9 @@ export default function CorePage() {
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="font-extrabold text-slate-900">صور أعمال (اختياري)</div>
+                  <div className="font-extrabold text-slate-900">صور أعمال</div>
                   <div className="text-sm text-slate-600">
-                    ضع الصور داخل <span className="font-mono">public/images/core</span>
+                     <span className="font-mono">CORE PRO</span>
                   </div>
                 </div>
               </div>

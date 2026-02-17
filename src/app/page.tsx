@@ -35,14 +35,14 @@ const IMG_SAW = "/images/home/saw.webp"; // optional
 const IMG_HOODS = "/images/home/hoods.webp"; // optional
 
 export const metadata: Metadata = {
-  title: "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
+  title: "قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
   description:
     "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام. دقة، أمان، وأفضل سعر.",
   alternates: { canonical: CANONICAL },
   openGraph: {
     type: "website",
     url: CANONICAL,
-    title: "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
+    title: "قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
     description:
       "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام. دقة، أمان، وأفضل سعر.",
     siteName: BRAND,

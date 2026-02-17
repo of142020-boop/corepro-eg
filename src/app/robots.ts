@@ -9,16 +9,14 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-      },
-      {
-        userAgent: "*",
         disallow: [
           "/api/",
           "/_next/",
           "/admin/",
+          "/studio/", // ✅ منع فهرسة الستوديو
         ],
       },
     ],
-    sitemap: `${DOMAIN}/sitemap.xml`,
+    sitemap: `${DOMAIN}/sitemap_index.xml`,
   };
 }

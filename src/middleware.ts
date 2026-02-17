@@ -1,0 +1,64 @@
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+
+function unauthorized() {
+  return new NextResponse("Authentication required.", {
+    status: 401,
+    headers: {
+      "WWW-Authenticate": 'Basic realm="Core Pro Studio", charset="UTF-8"',
+      "Cache-Control": "no-store",
+    },
+  });
+}
+
+// مقارنة آمنة ضد timing attacks
+function safeEqual(a: string, b: string) {
+  if (a.length !== b.length) return false;
+  let out = 0;
+  for (let i = 0; i < a.length; i++) out |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return out === 0;
+}
+
+export function middleware(req: NextRequest) {
+  const pathname = req.nextUrl.pathname;
+
+  // ✅ حماية أي شيء تحت /studio
+  if (!pathname.startsWith("/studio")) {
+    return NextResponse.next();
+  }
+
+  const USER = process.env.STUDIO_BASIC_USER || "";
+  const PASS = process.env.STUDIO_BASIC_PASS || "";
+
+  // لو المتغيرات مش موجودة، امنع الوصول (أفضل من فتحه)
+  if (!USER || !PASS) return unauthorized();
+
+  const auth = req.headers.get("authorization") || "";
+  if (!auth.startsWith("Basic ")) return unauthorized();
+
+  const b64 = auth.slice("Basic ".length).trim();
+
+  let decoded = "";
+  try {
+    decoded = atob(b64);
+  } catch {
+    return unauthorized();
+  }
+
+  const sep = decoded.indexOf(":");
+  if (sep === -1) return unauthorized();
+
+  const user = decoded.slice(0, sep);
+  const pass = decoded.slice(sep + 1);
+
+  if (!safeEqual(user, USER) || !safeEqual(pass, PASS)) return unauthorized();
+
+  // ✅ إضافة noindex زيادة أمان
+  const res = NextResponse.next();
+  res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  return res;
+}
+
+export const config = {
+  matcher: ["/studio/:path*"],
+};

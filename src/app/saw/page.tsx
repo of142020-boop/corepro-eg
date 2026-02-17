@@ -40,14 +40,14 @@ const IMG_2 = "/images/saw/work-2.webp"; // optional
 const IMG_3 = "/images/saw/work-3.webp"; // optional
 
 export const metadata: Metadata = {
-  title: "قص الخرسانة بالمنشار في مصر 01055550195 (قص ليزر)",
+  title: "قص الخرسانة بالمنشار - 01055550195 - قص ليزر",
   description:
     "أفضل شركة قص خرسانة لتقطيع الخرسانة المسلحة باستخدام منشار قص الخرسانة وماكينة قص الجدار. مقاول قص خرسانة متخصص في قص خرسانة السقف، فتح أبواب وشبابيك بدقة ليزر وبدون اهتزاز.",
   alternates: { canonical: CANONICAL },
   openGraph: {
     type: "website",
     url: CANONICAL,
-    title: "قص الخرسانة بالمنشار في مصر 01055550195 (قص ليزر)",
+    title: "قص الخرسانة بالمنشار - 01055550195 - قص ليزر",
     description:
       "أفضل شركة قص خرسانة لتقطيع الخرسانة المسلحة باستخدام منشار قص الخرسانة وماكينة قص الجدار. مقاول قص خرسانة متخصص في قص خرسانة السقف، فتح أبواب وشبابيك بدقة ليزر وبدون اهتزاز.",
     siteName: BRAND,
@@ -323,9 +323,9 @@ export default function SawPage() {
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="font-extrabold text-slate-900">صور أعمال (اختياري)</div>
+                  <div className="font-extrabold text-slate-900">صور أعمال </div>
                   <div className="text-sm text-slate-600">
-                    ضعها في <span className="font-mono">public/images/saw</span>
+                    <span className="font-mono">CORE PRO</span>
                   </div>
                 </div>
               </div>
