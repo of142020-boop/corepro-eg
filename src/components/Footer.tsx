@@ -14,7 +14,7 @@ const BRAND = "Core Pro Egypt";
 const PHONE = "01055550195";
 const WHATSAPP = "https://wa.me/201055550195";
 const EMAIL = "info@corepro-eg.com";
-const ADDRESS = "القاهرة الكبرى - مصر";
+const ADDRESS = "الحي العاشر مدينة نصر - مصر";
 const YEAR = new Date().getFullYear();
 
 // ✅ يوزر موحد (حسب طلبك)

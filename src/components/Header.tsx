@@ -10,7 +10,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const BRAND = "Core Pro Egypt";
 const PHONE = "01055550195";
 const WHATSAPP = "https://wa.me/201055550195";
-const ADDRESS = "القاهرة الكبرى";
+const ADDRESS = "الحي العاشر مدينة نصر ";
 
 const nav = [
   { href: "/", label: "الرئيسية" },
