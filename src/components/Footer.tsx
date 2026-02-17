@@ -1,6 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, ShieldCheck, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok,
+  FaYoutube,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 const BRAND = "Core Pro Egypt";
 const PHONE = "01055550195";
@@ -8,6 +16,37 @@ const WHATSAPP = "https://wa.me/201055550195";
 const EMAIL = "info@corepro-eg.com";
 const ADDRESS = "القاهرة الكبرى - مصر";
 const YEAR = new Date().getFullYear();
+
+// ✅ يوزر موحد (حسب طلبك)
+const SOCIAL_USER = "corproeg";
+
+const SOCIAL = [
+  {
+    name: "Facebook",
+    href: `https://www.facebook.com/${SOCIAL_USER}`,
+    icon: <FaFacebookF className="h-4 w-4" />,
+  },
+  {
+    name: "Instagram",
+    href: `https://www.instagram.com/${SOCIAL_USER}`,
+    icon: <FaInstagram className="h-4 w-4" />,
+  },
+  {
+    name: "TikTok",
+    href: `https://www.tiktok.com/@${SOCIAL_USER}`,
+    icon: <FaTiktok className="h-4 w-4" />,
+  },
+  {
+    name: "YouTube",
+    href: `https://www.youtube.com/@${SOCIAL_USER}`,
+    icon: <FaYoutube className="h-4 w-4" />,
+  },
+  {
+    name: "X",
+    href: `https://x.com/${SOCIAL_USER}`,
+    icon: <FaXTwitter className="h-4 w-4" />,
+  },
+];
 
 export default function Footer() {
   return (
@@ -18,36 +57,76 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-slate-900 font-extrabold">
-                CP
+              {/* ✅ اللوجو داخل إطار وخلفية بيضاء */}
+              <div className="h-12 w-12 rounded-2xl bg-white border border-black/10 shadow-sm grid place-items-center overflow-hidden">
+                <Image
+                  src="/logo-header-116x154.webp"
+                  alt={`${BRAND} logo`}
+                  width={40}
+                  height={40}
+                  sizes="40px"
+                  className="h-10 w-auto object-contain"
+                />
               </div>
+
               <div className="text-lg font-extrabold">{BRAND}</div>
             </div>
 
-            {/* ✅ رفع التباين */}
             <p className="mt-4 text-white/85 leading-7">
               شركة متخصصة في قص الخرسانة بالمنشار، تخريم الكور، واير تقطيع خرسانة،
               وتركيب الشفاطات داخل القاهرة والجيزة. دقة هندسية وأمان كامل في التنفيذ.
             </p>
 
-            {/* ✅ رفع التباين + الروابط قابلة للقراءة */}
             <div className="mt-5 space-y-2 text-sm text-white/85">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-white/80" />
                 <span>{ADDRESS}</span>
               </div>
+
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-white/80" />
-                <a className="hover:text-white underline-offset-4 hover:underline" href={`tel:${PHONE}`}>
+                <a
+                  className="hover:text-white underline-offset-4 hover:underline"
+                  href={`tel:${PHONE}`}
+                >
                   {PHONE}
                 </a>
               </div>
+
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-white/80" />
-                <a className="hover:text-white underline-offset-4 hover:underline" href={`mailto:${EMAIL}`}>
+                <a
+                  className="hover:text-white underline-offset-4 hover:underline"
+                  href={`mailto:${EMAIL}`}
+                >
                   {EMAIL}
                 </a>
               </div>
+            </div>
+
+            {/* ✅ أزرار السوشيال */}
+            <div className="mt-6">
+              <div className="text-sm font-extrabold text-white mb-3">
+                تواصل معنا
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {SOCIAL.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.name}
+                    title={s.name}
+                    className="inline-flex items-center justify-center h-11 w-11 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/25 transition"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
+
+              <div className="mt-3 text-xs text-white/70">@{SOCIAL_USER}</div>
             </div>
           </div>
 
@@ -77,14 +156,17 @@ export default function Footer() {
               <Link href="/about" className="block hover:text-white transition">
                 من نحن
               </Link>
-
-              {/* ✅ تصحيح المسار حسب مشروعك: privacy-policy */}
-              <Link href="/privacy-policy" className="block hover:text-white transition">
+              <Link
+                href="/privacy-policy"
+                className="block hover:text-white transition"
+              >
                 سياسة الخصوصية
               </Link>
-
               <Link href="/terms" className="block hover:text-white transition">
                 شروط الاستخدام
+              </Link>
+              <Link href="/blog" className="block hover:text-white transition">
+                المدونة
               </Link>
             </div>
           </div>
@@ -122,7 +204,9 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 border-t border-white/10 pt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-white/85">
-          <div>© {YEAR} {BRAND}. جميع الحقوق محفوظة.</div>
+          <div>
+            © {YEAR} {BRAND}. جميع الحقوق محفوظة.
+          </div>
 
           <div className="flex flex-wrap gap-4">
             <Link href="/" className="hover:text-white transition">
@@ -139,6 +223,9 @@ export default function Footer() {
             </Link>
             <Link href="/hoods" className="hover:text-white transition">
               الشفاطات
+            </Link>
+            <Link href="/blog" className="hover:text-white transition">
+              المدونة
             </Link>
           </div>
         </div>

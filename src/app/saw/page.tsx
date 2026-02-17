@@ -15,8 +15,6 @@ import {
   Building2,
   HardHat,
   Settings,
-  Phone,
-  MessageCircle,
   Layers,
   Hammer,
   Maximize2,
@@ -55,10 +53,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
 
 function Section({
   title,
@@ -281,40 +275,32 @@ export default function SawPage() {
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-3">
-                <StatPill
-                  icon={<Target className="h-4 w-4 text-sky-600" />}
-                  text="استقامة عالية (ليزر)"
-                />
-                <StatPill
-                  icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />}
-                  text="بدون اهتزاز"
-                />
-                <StatPill
-                  icon={<Clock className="h-4 w-4 text-amber-600" />}
-                  text="تنفيذ سريع"
-                />
+                <StatPill icon={<Target className="h-4 w-4 text-sky-600" />} text="استقامة عالية (ليزر)" />
+                <StatPill icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />} text="بدون اهتزاز" />
+                <StatPill icon={<Clock className="h-4 w-4 text-amber-600" />} text="تنفيذ سريع" />
               </div>
 
+              {/* ✅ حذف أزرار واتساب/اتصال - الاعتماد على الزر العائم */}
               <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white shadow-sm hover:bg-emerald-700 transition"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  واتساب
-                </a>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
-                >
-                  <Phone className="h-5 w-5" />
-                  اتصال: {PHONE}
-                </a>
                 <Link
                   href="/"
                   className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
                 >
                   الرئيسية
+                </Link>
+
+                <Link
+                  href="#areas"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
+                >
+                  مناطق الخدمة
+                </Link>
+
+                <Link
+                  href="/core"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-bold text-white shadow-sm hover:bg-slate-950 transition"
+                >
+                  خدمة التخريم بالكور
                 </Link>
               </div>
             </div>
@@ -323,14 +309,13 @@ export default function SawPage() {
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="font-extrabold text-slate-900">صور أعمال </div>
+                  <div className="font-extrabold text-slate-900">صور أعمال</div>
                   <div className="text-sm text-slate-600">
                     <span className="font-mono">CORE PRO</span>
                   </div>
                 </div>
               </div>
 
-              {/* HERO IMAGE - نسبة ثابتة */}
               <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
                 <Image
                   src={IMG_HERO}
@@ -353,6 +338,7 @@ export default function SawPage() {
                       مقاسات مضبوطة وحواف جاهزة للتشطيب.
                     </p>
                   </div>
+
                   <div className="rounded-2xl border border-black/10 bg-white p-4">
                     <div className="flex items-center gap-2 font-bold text-slate-900">
                       <ShieldCheck className="h-5 w-5 text-emerald-600" />
@@ -362,6 +348,7 @@ export default function SawPage() {
                       بدون دقدقة أو اهتزازات تؤثر على العناصر المجاورة.
                     </p>
                   </div>
+
                   <div className="rounded-2xl border border-black/10 bg-white p-4">
                     <div className="flex items-center gap-2 font-bold text-slate-900">
                       <Sparkles className="h-5 w-5 text-amber-600" />
@@ -373,7 +360,6 @@ export default function SawPage() {
                   </div>
                 </div>
 
-                {/* THUMBNAILS - بدون قص */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
                     <div
@@ -548,10 +534,7 @@ export default function SawPage() {
                       ic: <Hammer className="h-5 w-5 text-amber-600" />,
                     },
                   ].map((x) => (
-                    <div
-                      key={x.t}
-                      className="rounded-2xl border border-black/10 bg-white p-4"
-                    >
+                    <div key={x.t} className="rounded-2xl border border-black/10 bg-white p-4">
                       <div className="flex items-center gap-2 font-bold text-slate-900">
                         {x.ic}
                         <span>{x.t}</span>
@@ -582,10 +565,7 @@ export default function SawPage() {
                     "طول القطع: غالبًا يتم الحساب بالمتر الطولي مع أسعار خاصة للمشاريع الكبيرة.",
                     "صعوبة الموقع: أدوار عليا، سقالات، ضيق مكان… وتحديد هل نستخدم المنشار الكبير أم الصاروخ.",
                   ].map((x) => (
-                    <div
-                      key={x}
-                      className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4"
-                    >
+                    <div key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4">
                       <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
                       <span className="text-slate-600 leading-7">{x}</span>
                     </div>
@@ -609,31 +589,13 @@ export default function SawPage() {
             >
               <ol className="space-y-3">
                 {[
-                  {
-                    t: "المعاينة والقياس",
-                    d: "تحديد أماكن القص بدقة والتأكد من عدم وجود كابلات أو مواسير في المسار.",
-                  },
-                  {
-                    t: "تخطيط الليزر",
-                    d: "رسم خطوط القص على الحائط/السقف باستخدام ميزان الليزر لضمان الاستقامة.",
-                  },
-                  {
-                    t: "تثبيت الماكينة",
-                    d: "تثبيت المسار (السكة) بمسامير فيشر قوية لضمان ثبات المنشار.",
-                  },
-                  {
-                    t: "عملية القص",
-                    d: "قص تدريجي مع تبريد مائي لمنع الغبار والحفاظ على جودة القطع.",
-                  },
-                  {
-                    t: "التأمين والإزالة",
-                    d: "تأمين البلوك الخرساني بدعامات/ونش قبل الفصل النهائي ثم إنزاله بأمان ونقل المخلفات.",
-                  },
+                  { t: "المعاينة والقياس", d: "تحديد أماكن القص بدقة والتأكد من عدم وجود كابلات أو مواسير في المسار." },
+                  { t: "تخطيط الليزر", d: "رسم خطوط القص على الحائط/السقف باستخدام ميزان الليزر لضمان الاستقامة." },
+                  { t: "تثبيت الماكينة", d: "تثبيت المسار (السكة) بمسامير فيشر قوية لضمان ثبات المنشار." },
+                  { t: "عملية القص", d: "قص تدريجي مع تبريد مائي لمنع الغبار والحفاظ على جودة القطع." },
+                  { t: "التأمين والإزالة", d: "تأمين البلوك الخرساني بدعامات/ونش قبل الفصل النهائي ثم إنزاله بأمان ونقل المخلفات." },
                 ].map((s, idx) => (
-                  <li
-                    key={idx}
-                    className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
-                  >
+                  <li key={idx} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
                     <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-black/5">
                       <BadgeCheck className="h-5 w-5 text-emerald-600" />
                     </div>
@@ -654,10 +616,7 @@ export default function SawPage() {
             >
               <div className="space-y-3">
                 {faq.map((item, i) => (
-                  <details
-                    key={i}
-                    className="group rounded-2xl border border-black/10 bg-white p-4"
-                  >
+                  <details key={i} className="group rounded-2xl border border-black/10 bg-white p-4">
                     <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
                       <span>{item.q}</span>
                       <span className="text-slate-500 group-open:rotate-180 transition">⌄</span>
@@ -688,29 +647,16 @@ export default function SawPage() {
                   . لا تغامر بسلامة منشأتك — تواصل مع <strong>مقاول قص خرسانة</strong> متخصص.
                 </p>
 
+                {/* ✅ حذف أزرار واتساب/اتصال - الاعتماد على الزر العائم */}
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
                   <div className="font-extrabold text-slate-900">احجز معاينتك الآن</div>
                   <div className="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
                   <p className="mt-2 text-slate-600 leading-7">
                     خدمة العملاء متاحة 24/7 للرد على استفساراتكم حول اسعار قص الخرسانة وتفاصيل التنفيذ.
                   </p>
-
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <a
-                      href={WHATSAPP}
-                      className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                      واتساب
-                    </a>
-                    <a
-                      href={`tel:${PHONE}`}
-                      className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition"
-                    >
-                      <Phone className="h-5 w-5" />
-                      اتصال
-                    </a>
-                  </div>
+                  <p className="mt-3 text-sm text-slate-600">
+                    للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
+                  </p>
                 </div>
               </div>
             </Section>
@@ -736,10 +682,7 @@ export default function SawPage() {
                   "حواف ملساء تقلل مصاريف المحارة والترميم",
                   "تأمين البلوك الخرساني قبل الإنزال لضمان السلامة",
                 ].map((x) => (
-                  <li
-                    key={x}
-                    className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3"
-                  >
+                  <li key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3">
                     <BadgeCheck className="mt-0.5 h-5 w-5 text-emerald-600" />
                     <span className="text-slate-700">{x}</span>
                   </li>

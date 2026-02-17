@@ -1,3 +1,4 @@
+// src/app/hoods/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,8 +11,6 @@ import {
   CheckCircle2,
   HelpCircle,
   MapPin,
-  Phone,
-  MessageCircle,
   Fan,
   Wind,
   Settings,
@@ -275,21 +274,22 @@ export default function HoodsPage() {
                 <StatPill icon={<Clock className="h-4 w-4 text-amber-600" />} text="خدمة سريعة" />
               </div>
 
+              {/* ✅ Removed WhatsApp/Phone buttons (use floating button instead) */}
               <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white shadow-sm hover:bg-emerald-700 transition"
+                <Link
+                  href="#pricing"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-bold text-white shadow-sm hover:bg-slate-950 transition"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  واتساب
-                </a>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
+                  الأسعار
+                </Link>
+
+                <Link
+                  href="#faq"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
                 >
-                  <Phone className="h-5 w-5" />
-                  اتصال: {PHONE}
-                </a>
+                  الأسئلة الشائعة
+                </Link>
+
                 <Link
                   href="/"
                   className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
@@ -300,18 +300,17 @@ export default function HoodsPage() {
               </div>
             </div>
 
-            {/* right card - بنفس طريقة /core */}
+            {/* right card */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
                 <div className="flex items-center justify-between gap-4">
-                  <div className="font-extrabold text-slate-900">صور أعمال </div>
+                  <div className="font-extrabold text-slate-900">صور أعمال</div>
                   <div className="text-sm text-slate-600">
                     <span className="font-mono">CORE PRO</span>
                   </div>
                 </div>
               </div>
 
-              {/* HERO IMAGE - نسبة ثابتة */}
               <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
                 <Image
                   src={IMG_HERO}
@@ -330,18 +329,14 @@ export default function HoodsPage() {
                       <Wind className="h-5 w-5 text-sky-600" />
                       بمدخنة/بدون
                     </div>
-                    <p className="mt-2 text-slate-600 leading-7">
-                      اختيار أفضل نظام حسب المكان.
-                    </p>
+                    <p className="mt-2 text-slate-600 leading-7">اختيار أفضل نظام حسب المكان.</p>
                   </div>
                   <div className="rounded-2xl border border-black/10 bg-white p-4">
                     <div className="flex items-center gap-2 font-bold text-slate-900">
                       <Filter className="h-5 w-5 text-emerald-600" />
                       فلتر كربوني
                     </div>
-                    <p className="mt-2 text-slate-600 leading-7">
-                      للمطابخ بدون فتحة خارجية.
-                    </p>
+                    <p className="mt-2 text-slate-600 leading-7">للمطابخ بدون فتحة خارجية.</p>
                   </div>
                   <div className="rounded-2xl border border-black/10 bg-white p-4">
                     <div className="flex items-center gap-2 font-bold text-slate-900">
@@ -354,7 +349,6 @@ export default function HoodsPage() {
                   </div>
                 </div>
 
-                {/* THUMBNAILS - بدون قص */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
                     <div
@@ -672,11 +666,11 @@ export default function HoodsPage() {
                   </div>
                 </div>
 
+                {/* ✅ Removed phone/whatsapp CTAs */}
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
                   <div className="font-bold text-emerald-900">عرض سعر سريع</div>
                   <p className="mt-1 text-emerald-800 leading-7">
-                    اتصل بنا على <strong>{PHONE}</strong> وقل لنا نوع الشفاط وطريقة التركيب،
-                    وسنخبرك بتكلفة دقيقة فوراً.
+                    للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
                   </p>
                 </div>
               </div>
@@ -722,25 +716,12 @@ export default function HoodsPage() {
                   <strong>القاهرة الكبرى، التجمع، الشيخ زايد، 6 أكتوبر، والعاصمة الإدارية</strong>.
                 </p>
 
+                {/* ✅ Removed WhatsApp/Phone block */}
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
                   <div className="font-extrabold text-slate-900">تواصل الآن</div>
-                  <div className="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <a
-                      href={WHATSAPP}
-                      className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                      واتساب
-                    </a>
-                    <a
-                      href={`tel:${PHONE}`}
-                      className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition"
-                    >
-                      <Phone className="h-5 w-5" />
-                      اتصال
-                    </a>
-                  </div>
+                  <p className="mt-2 text-slate-600 leading-7">
+                    للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
+                  </p>
                 </div>
 
                 <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
@@ -820,16 +801,13 @@ export default function HoodsPage() {
                 طلب سريع
               </div>
               <p className="mt-3 text-slate-600 leading-7">
-                ابعت على واتساب نوع الشفاط (هرمي/بلت ان/25×25/30×30) وهل فيه فتحة خارجية،
-                ونرد عليك بعرض سعر مناسب.
+                ابعت نوع الشفاط (هرمي/بلت ان/25×25/30×30) وهل فيه فتحة خارجية، ونرد عليك بعرض سعر مناسب.
               </p>
-              <a
-                href={WHATSAPP}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-              >
-                <MessageCircle className="h-5 w-5" />
-                واتساب الآن
-              </a>
+
+              {/* ✅ Removed WhatsApp button */}
+              <div className="mt-4 rounded-2xl border border-black/10 bg-white p-4 text-slate-700">
+                للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
+              </div>
             </div>
           </aside>
         </div>

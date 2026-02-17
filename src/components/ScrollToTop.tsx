@@ -23,9 +23,11 @@ export default function ScrollToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={[
         "fixed z-50",
-        "md:bottom-[220px] md:right-6", // فوق كارت التواصل
-        "bottom-20 right-4", // موبايل فوق الشريط
-        "h-12 w-12 rounded-3xl",
+        // ✅ Desktop: فوق أيقونات التواصل مباشرة
+        "md:right-6 md:bottom-[145px]",
+        // ✅ Mobile: فوق الشريط السفلي
+        "right-4 bottom-20",
+        "h-12 w-12 rounded-full",
         "border border-black/10 bg-white/90 backdrop-blur-xl",
         "shadow-[0_16px_60px_rgba(0,0,0,0.18)]",
         "grid place-items-center",

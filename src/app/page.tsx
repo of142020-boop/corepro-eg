@@ -7,14 +7,11 @@ import {
   Target,
   CheckCircle2,
   ArrowRight,
-  Phone,
-  MessageCircle,
   MapPin,
   Wrench,
   Ruler,
   Building2,
   Fan,
-  Wind,
   Hammer,
   BadgeCheck,
   Layers,
@@ -170,7 +167,7 @@ export default function HomePage() {
     },
     {
       q: "كيف يتم تحديد السعر؟",
-      a: "السعر يتحدد حسب نوع الخدمة (قص/كور/تركيب)، سمك الخرسانة، وعدد الفتحات أو الأمتار. اتصل بنا للحصول على معاينة وعرض سعر فوري.",
+      a: "السعر يتحدد حسب نوع الخدمة (قص/كور/تركيب)، سمك الخرسانة، وعدد الفتحات أو الأمتار. تواصل معنا للحصول على معاينة وعرض سعر فوري.",
     },
   ];
 
@@ -217,7 +214,9 @@ export default function HomePage() {
   const jsonLdBreadcrumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN }],
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
+    ],
   };
 
   const jsonLdServices = [
@@ -225,7 +224,12 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "Service",
       name: "قص الخرسانة بالمنشار (قص ليزر)",
-      provider: { "@type": "LocalBusiness", name: BRAND, url: DOMAIN, telephone: PHONE_INT },
+      provider: {
+        "@type": "LocalBusiness",
+        name: BRAND,
+        url: DOMAIN,
+        telephone: PHONE_INT,
+      },
       url: `${DOMAIN}/saw`,
       areaServed: ["القاهرة الكبرى", "الجيزة"],
       description:
@@ -235,7 +239,12 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "Service",
       name: "تخريم الخرسانة بالكور (Core Drilling)",
-      provider: { "@type": "LocalBusiness", name: BRAND, url: DOMAIN, telephone: PHONE_INT },
+      provider: {
+        "@type": "LocalBusiness",
+        name: BRAND,
+        url: DOMAIN,
+        telephone: PHONE_INT,
+      },
       url: `${DOMAIN}/core`,
       areaServed: ["القاهرة الكبرى", "الجيزة"],
       description:
@@ -245,7 +254,12 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "Service",
       name: "تركيب الشفاطات والتهوية",
-      provider: { "@type": "LocalBusiness", name: BRAND, url: DOMAIN, telephone: PHONE_INT },
+      provider: {
+        "@type": "LocalBusiness",
+        name: BRAND,
+        url: DOMAIN,
+        telephone: PHONE_INT,
+      },
       url: `${DOMAIN}/hoods`,
       areaServed: ["القاهرة الكبرى", "الجيزة"],
       description:
@@ -258,7 +272,12 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([jsonLdLocalBusiness, jsonLdFaq, jsonLdBreadcrumbs, ...jsonLdServices]),
+          __html: JSON.stringify([
+            jsonLdLocalBusiness,
+            jsonLdFaq,
+            jsonLdBreadcrumbs,
+            ...jsonLdServices,
+          ]),
         }}
       />
 
@@ -284,38 +303,41 @@ export default function HomePage() {
               </p>
 
               <p className="mt-5 text-slate-700 leading-8">
-                مرحباً بكم في <strong>{BRAND}</strong>، شريكك الموثوق للمهمات الصعبة.
-                نجمع بين الدقة الهندسية في قص وتخريم الخرسانة المسلحة وبين الاحترافية الفنية
-                في تركيب أنظمة التهوية والشفاطات.
+                مرحباً بكم في <strong>{BRAND}</strong>، شريكك الموثوق للمهمات
+                الصعبة. نجمع بين الدقة الهندسية في قص وتخريم الخرسانة المسلحة وبين
+                الاحترافية الفنية في تركيب أنظمة التهوية والشفاطات.
               </p>
 
               <p className="mt-3 text-slate-700 leading-8">
-                سواء كنت مقاولاً تبحث عن شركة قص خرسانة لمشروع كبير، أو صاحب منزل يحتاج صنايعي
-                كور لعمل فتحة غاز، أو تبحث عن فني تركيب شفاط لضبط تهوية مطبخك — نحن هنا لخدمتك
-                بمعدات حديثة وفريق محترف يغطي القاهرة والجيزة.
+                سواء كنت مقاولاً تبحث عن شركة قص خرسانة لمشروع كبير، أو صاحب منزل
+                يحتاج صنايعي كور لعمل فتحة غاز، أو تبحث عن فني تركيب شفاط لضبط
+                تهوية مطبخك — نحن هنا لخدمتك بمعدات حديثة وفريق محترف يغطي القاهرة
+                والجيزة.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-3">
-                <Pill icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />} text="أمان إنشائي" />
-                <Pill icon={<Target className="h-4 w-4 text-sky-600" />} text="دقة عالية" />
-                <Pill icon={<Gauge className="h-4 w-4 text-amber-600" />} text="سرعة إنجاز" />
+                <Pill
+                  icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />}
+                  text="أمان إنشائي"
+                />
+                <Pill
+                  icon={<Target className="h-4 w-4 text-sky-600" />}
+                  text="دقة عالية"
+                />
+                <Pill
+                  icon={<Gauge className="h-4 w-4 text-amber-600" />}
+                  text="سرعة إنجاز"
+                />
               </div>
 
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white shadow-sm hover:bg-emerald-700 transition"
+              {/* ✅ تم حذف أزرار واتساب/اتصال من داخل الصفحة */}
+              <div className="mt-7">
+                <Link
+                  href="#cta"
+                  className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  واتساب مباشر
-                </a>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
-                >
-                  <Phone className="h-5 w-5" />
-                  اتصال: {PHONE}
-                </a>
+                  اطلب عرض سعر
+                </Link>
               </div>
 
               <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
@@ -467,7 +489,10 @@ export default function HomePage() {
               "العاصمة الإدارية الجديدة",
               "الجيزة بالكامل",
             ].map((x) => (
-              <div key={x} className="flex items-center gap-2 rounded-2xl border border-black/10 bg-white p-4">
+              <div
+                key={x}
+                className="flex items-center gap-2 rounded-2xl border border-black/10 bg-white p-4"
+              >
                 <CheckCircle2 className="h-5 w-5 text-emerald-600" />
                 <span className="text-slate-700">{x}</span>
               </div>
@@ -506,30 +531,18 @@ export default function HomePage() {
                 <strong>{BRAND}</strong> هي الحل الكامل: اطلب معلم قص جدار، أو صنايعي كور،
                 أو فني تركيب شفاطات — وكل ذلك من خلال فريق واحد ومعدات احترافية.
               </p>
-              <p className="mt-3">
-                اتصل الآن لطلب معاينة وعرض سعر فوري حسب طبيعة العمل.
-              </p>
+              <p className="mt-3">اطلب معاينة وعرض سعر فوري حسب طبيعة العمل.</p>
             </div>
 
             <div className="rounded-3xl border border-black/10 bg-white p-6">
               <div className="font-extrabold text-slate-900">تواصل الآن</div>
               <div className="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  واتساب مباشر
-                </a>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition"
-                >
-                  <Phone className="h-5 w-5" />
-                  اتصال
-                </a>
+
+              {/* ✅ تم حذف أزرار واتساب/اتصال من داخل الصفحة */}
+              <div className="mt-4 text-sm text-slate-600 leading-7">
+                تواصل معنا عبر زر التواصل العائم (واتساب/اتصال).
               </div>
+
               <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
                 <MapPin className="h-4 w-4" />
                 <span>{ADDRESS_TEXT} والجيزة</span>

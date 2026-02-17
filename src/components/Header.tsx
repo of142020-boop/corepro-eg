@@ -4,14 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  Phone,
-  MapPin,
-  Menu,
-  X,
-  ChevronLeft,
-  ChevronDown,
-} from "lucide-react";
+import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const BRAND = "Core Pro Egypt";
@@ -25,6 +18,7 @@ const nav = [
   { href: "/saw", label: "قص الخرسانة" },
   { href: "/wire", label: "واير تقطيع خرسانة" },
   { href: "/hoods", label: "الشفاطات" },
+  { href: "/blog", label: "المدونة" }, // ✅ تمت الإضافة هنا (واضحة وباينة)
 ];
 
 const extraPages = [
@@ -49,6 +43,7 @@ export default function Header() {
             <a
               href={`tel:${PHONE}`}
               className="flex items-center gap-2 hover:opacity-80 transition"
+              aria-label={`اتصال ${BRAND}`}
             >
               <Phone className="h-4 w-4" />
               {PHONE}
@@ -59,6 +54,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-emerald-400 hover:opacity-80 transition"
+              aria-label="واتساب"
             >
               <FaWhatsapp className="h-4 w-4" />
               واتساب
@@ -73,17 +69,13 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <header
-        dir="rtl"
-        className="sticky top-0 z-50 border-b bg-white"
-      >
+      <header dir="rtl" className="sticky top-0 z-50 border-b bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex h-16 items-center justify-between">
-
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3" aria-label={BRAND}>
               <Image
-                src="/logo-header-116x154.webp" // استخدم نسخة مصغرة خفيفة
+                src="/logo-header-116x154.webp" // نسخة مصغرة
                 alt="Core Pro Egypt - قص وتخريم الخرسانة"
                 width={90}
                 height={77}
@@ -95,7 +87,6 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 relative">
-
               {nav.map((item) => (
                 <Link
                   key={item.href}
@@ -120,7 +111,7 @@ export default function Header() {
                   type="button"
                   aria-haspopup="true"
                   aria-expanded={megaOpen}
-                  className="px-4 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100"
+                  className="px-4 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100 text-slate-700"
                 >
                   صفحات مهمة
                   <ChevronDown className="h-4 w-4" />
@@ -150,7 +141,6 @@ export default function Header() {
             >
               <Menu className="h-6 w-6" />
             </button>
-
           </div>
         </div>
       </header>
@@ -158,9 +148,8 @@ export default function Header() {
       {/* Mobile Drawer */}
       {open && (
         <div className="lg:hidden fixed inset-0 z-[999] bg-white">
-
           <div className="flex items-center justify-between border-b p-4">
-            <Link href="/" onClick={() => setOpen(false)}>
+            <Link href="/" onClick={() => setOpen(false)} aria-label={BRAND}>
               <Image
                 src="/logo-header-116x154.webp"
                 alt="Core Pro Egypt"
@@ -171,10 +160,7 @@ export default function Header() {
               />
             </Link>
 
-            <button
-              onClick={() => setOpen(false)}
-              aria-label="إغلاق القائمة"
-            >
+            <button onClick={() => setOpen(false)} aria-label="إغلاق القائمة">
               <X className="h-6 w-6" />
             </button>
           </div>
@@ -195,6 +181,42 @@ export default function Header() {
                 <ChevronLeft className="h-4 w-4 opacity-60" />
               </Link>
             ))}
+
+            {/* Extra pages (اختياري في الموبايل) */}
+            <div className="pt-3">
+              <div className="mb-2 px-2 text-sm font-bold text-slate-500">صفحات مهمة</div>
+              {extraPages.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between px-4 py-3 rounded-2xl border font-bold bg-white text-slate-800 border-black/10"
+                >
+                  {item.label}
+                  <ChevronLeft className="h-4 w-4 opacity-60" />
+                </Link>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="pt-4 grid gap-3">
+              <a
+                href={`tel:${PHONE}`}
+                className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 font-bold text-slate-900"
+              >
+                <Phone className="h-5 w-5" />
+                اتصال
+              </a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 font-bold text-white"
+              >
+                <FaWhatsapp className="h-5 w-5" />
+                واتساب
+              </a>
+            </div>
           </div>
         </div>
       )}

@@ -21,8 +21,6 @@ import {
   Droplets,
   Fan,
   Layers,
-  Phone,
-  MessageCircle,
 } from "lucide-react";
 
 const BRAND = "Core Pro Egypt";
@@ -291,27 +289,27 @@ export default function CorePage() {
                 />
               </div>
 
+              {/* ✅ تم حذف واتساب/اتصال من داخل الصفحة - الاعتماد على الزر العائم */}
               <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white shadow-sm hover:bg-emerald-700 transition"
+                <Link
+                  href="#areas"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  واتساب
-                </a>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
-                >
-                  <Phone className="h-5 w-5" />
-                  اتصال: {PHONE}
-                </a>
+                  مناطق الخدمة
+                </Link>
 
                 <Link
                   href="/"
                   className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
                 >
                   الرئيسية
+                </Link>
+
+                <Link
+                  href="/hoods"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-bold text-white shadow-sm hover:bg-slate-950 transition"
+                >
+                  خدمة الشفاطات
                 </Link>
               </div>
             </div>
@@ -322,12 +320,11 @@ export default function CorePage() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="font-extrabold text-slate-900">صور أعمال</div>
                   <div className="text-sm text-slate-600">
-                     <span className="font-mono">CORE PRO</span>
+                    <span className="font-mono">CORE PRO</span>
                   </div>
                 </div>
               </div>
 
-              {/* HERO IMAGE - نسبة ثابتة عشان تبقى مظبوطة على كل الشاشات */}
               <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
                 <Image
                   src={IMG_HERO}
@@ -370,7 +367,6 @@ export default function CorePage() {
                   </div>
                 </div>
 
-                {/* THUMBNAILS - object-contain عشان ما تتقصش */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
                     <div
@@ -670,28 +666,19 @@ export default function CorePage() {
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
                   نحن نغطي القاهرة الكبرى والجيزة، بما في ذلك:{" "}
-                  <strong>التجمع الخامس، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية، القليوبية</strong>.
+                  <strong>
+                    التجمع الخامس، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية، القليوبية
+                  </strong>
+                  .
                 </p>
 
+                {/* ✅ تم حذف كارت الأزرار (واتساب/اتصال) من هنا أيضاً */}
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
                   <div className="font-extrabold text-slate-900">رقم الهاتف</div>
                   <div className="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <a
-                      href={WHATSAPP}
-                      className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                      واتساب
-                    </a>
-                    <a
-                      href={`tel:${PHONE}`}
-                      className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition"
-                    >
-                      <Phone className="h-5 w-5" />
-                      اتصال
-                    </a>
-                  </div>
+                  <p className="mt-3 text-sm text-slate-600 leading-7">
+                    للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
+                  </p>
                 </div>
               </div>
             </Section>

@@ -10,13 +10,10 @@ import {
   Ruler,
   BadgeCheck,
   MapPin,
-  Phone,
-  MessageCircle,
   HelpCircle,
   CheckCircle2,
   Building2,
   Cable,
-  Waves,
   Construction,
 } from "lucide-react";
 
@@ -179,7 +176,12 @@ export default function WirePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumbs]),
+          __html: JSON.stringify([
+            jsonLdLocalBusiness,
+            jsonLdService,
+            jsonLdFaq,
+            jsonLdBreadcrumbs,
+          ]),
         }}
       />
 
@@ -202,37 +204,48 @@ export default function WirePage() {
               </h1>
 
               <p className="mt-5 text-slate-700 leading-8">
-                عندما يكون المطلوب <strong>قص خرسانة مسلحة</strong> بسماكات مترية أو كتل ضخمة لا
-                يستطيع المنشار القرصي التعامل معها، تكون تقنية{" "}
-                <strong>الواير الماسي (Diamond Wire Sawing)</strong> هي الحل الهندسي الأكثر أماناً.
+                عندما يكون المطلوب <strong>قص خرسانة مسلحة</strong> بسماكات مترية أو كتل
+                ضخمة لا يستطيع المنشار القرصي التعامل معها، تكون تقنية{" "}
+                <strong>الواير الماسي (Diamond Wire Sawing)</strong> هي الحل الهندسي
+                الأكثر أماناً.
               </p>
 
               <p className="mt-3 text-slate-700 leading-8">
-                نحن في <strong>{BRAND}</strong> نقدم خدمة <strong>قص بالواير</strong> للمشاريع الكبرى
-                مع <strong>تأمين كامل للموقع</strong> وتنظيم الرفع والإزالة.
+                نحن في <strong>{BRAND}</strong> نقدم خدمة <strong>قص بالواير</strong>{" "}
+                للمشاريع الكبرى مع <strong>تأمين كامل للموقع</strong> وتنظيم الرفع
+                والإزالة.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-3">
-                <StatPill icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />} text="بدون اهتزاز" />
-                <StatPill icon={<Target className="h-4 w-4 text-sky-600" />} text="عمق قص كبير" />
-                <StatPill icon={<Sparkles className="h-4 w-4 text-amber-600" />} text="سطح أملس" />
+                <StatPill
+                  icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />}
+                  text="بدون اهتزاز"
+                />
+                <StatPill
+                  icon={<Target className="h-4 w-4 text-sky-600" />}
+                  text="عمق قص كبير"
+                />
+                <StatPill
+                  icon={<Sparkles className="h-4 w-4 text-amber-600" />}
+                  text="سطح أملس"
+                />
               </div>
 
+              {/* ✅ Removed WhatsApp/Phone buttons (use floating button instead) */}
               <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={WHATSAPP}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white shadow-sm hover:bg-emerald-700 transition"
+                <Link
+                  href="#pricing"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 font-bold text-white shadow-sm hover:bg-slate-950 transition"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  واتساب
-                </a>
-                <a
-                  href={`tel:${PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
+                  الأسعار والتكلفة
+                </Link>
+
+                <Link
+                  href="#faq"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
                 >
-                  <Phone className="h-5 w-5" />
-                  اتصال: {PHONE}
-                </a>
+                  الأسئلة الشائعة
+                </Link>
 
                 <Link
                   href="/saw"
@@ -243,18 +256,18 @@ export default function WirePage() {
               </div>
             </div>
 
-            {/* RIGHT: ✅ نفس كارت الصور بتاع الكور/القص */}
+            {/* RIGHT: صور الأعمال */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
                 <div className="flex items-center justify-between gap-4">
                   <div className="font-extrabold text-slate-900">صور أعمال</div>
                   <div className="text-sm text-slate-600">
-                   <span className="font-mono">CORE PRO</span>
+                    <span className="font-mono">CORE PRO</span>
                   </div>
                 </div>
               </div>
 
-              {/* HERO IMAGE - ✅ نسبة ثابتة زي الكور */}
+              {/* HERO IMAGE */}
               <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
                 <Image
                   src={IMG_HERO}
@@ -300,7 +313,7 @@ export default function WirePage() {
                   </div>
                 </div>
 
-                {/* THUMBNAILS - ✅ نفس ستايل الكور: object-contain عشان ما تتقصش */}
+                {/* THUMBNAILS */}
                 <div className="grid gap-3 md:grid-cols-3">
                   {[IMG_1, IMG_2, IMG_3].map((src, i) => (
                     <div
@@ -321,7 +334,7 @@ export default function WirePage() {
             </div>
           </div>
 
-          {/* شريط صغير تحت الهيرو (اختياري) */}
+          {/* شريط صغير تحت الهيرو */}
           <div className="mt-6 rounded-3xl border border-black/10 bg-white/70 p-4 text-slate-700 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2 font-bold">
@@ -375,7 +388,10 @@ export default function WirePage() {
                       ic: <Sparkles className="h-5 w-5 text-amber-600" />,
                     },
                   ].map((x) => (
-                    <div key={x.t} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x.t}
+                      className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <div className="mt-0.5">{x.ic}</div>
                       <div>
                         <div className="font-bold text-slate-900">{x.t}</div>
@@ -446,28 +462,19 @@ export default function WirePage() {
                     "كثافة التسليح والحديد.",
                     "تنظيم الرفع والإزالة وتأمين الموقع.",
                   ].map((x) => (
-                    <div key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x}
+                      className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
                       <span className="text-slate-600 leading-7">{x}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <a
-                    href={WHATSAPP}
-                    className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-                  >
-                    <MessageCircle className="h-5 w-5" />
-                    اطلب معاينة على واتساب
-                  </a>
-                  <a
-                    href={`tel:${PHONE}`}
-                    className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition"
-                  >
-                    <Phone className="h-5 w-5" />
-                    اتصال: {PHONE}
-                  </a>
+                {/* ✅ Removed WhatsApp/Phone buttons (use floating button instead) */}
+                <div className="mt-4 rounded-2xl border border-black/10 bg-white p-4 text-slate-700">
+                  للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
                 </div>
               </div>
             </Section>
@@ -480,10 +487,15 @@ export default function WirePage() {
             >
               <div className="space-y-3">
                 {faq.map((item, i) => (
-                  <details key={i} className="group rounded-2xl border border-black/10 bg-white p-4">
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-black/10 bg-white p-4"
+                  >
                     <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
                       <span>{item.q}</span>
-                      <span className="text-slate-500 group-open:rotate-180 transition">⌄</span>
+                      <span className="text-slate-500 group-open:rotate-180 transition">
+                        ⌄
+                      </span>
                     </summary>
                     <p className="mt-3 text-slate-600 leading-7">{item.a}</p>
                   </details>
@@ -500,8 +512,12 @@ export default function WirePage() {
                   <BadgeCheck className="h-5 w-5 text-slate-700" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-lg text-slate-900">لماذا {BRAND}؟</div>
-                  <div className="text-slate-600 text-sm">معدات قوية + تأمين + دقة</div>
+                  <div className="font-extrabold text-lg text-slate-900">
+                    لماذا {BRAND}؟
+                  </div>
+                  <div className="text-slate-600 text-sm">
+                    معدات قوية + تأمين + دقة
+                  </div>
                 </div>
               </div>
 
@@ -512,7 +528,10 @@ export default function WirePage() {
                   "تنظيم الرفع والإزالة بأمان",
                   "سطح قص أملس يقلل التشطيب",
                 ].map((x) => (
-                  <li key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3">
+                  <li
+                    key={x}
+                    className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3"
+                  >
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-600" />
                     <span className="text-slate-700">{x}</span>
                   </li>
@@ -527,14 +546,18 @@ export default function WirePage() {
                   href="/saw"
                   className="flex items-center justify-between rounded-2xl border border-black/10 bg-white p-4 hover:bg-slate-50 transition"
                 >
-                  <span className="font-bold text-slate-900">قص الخرسانة بالمنشار</span>
+                  <span className="font-bold text-slate-900">
+                    قص الخرسانة بالمنشار
+                  </span>
                   <span className="text-slate-500">←</span>
                 </Link>
                 <Link
                   href="/core"
                   className="flex items-center justify-between rounded-2xl border border-black/10 bg-white p-4 hover:bg-slate-50 transition"
                 >
-                  <span className="font-bold text-slate-900">تخريم الخرسانة بالكور</span>
+                  <span className="font-bold text-slate-900">
+                    تخريم الخرسانة بالكور
+                  </span>
                   <span className="text-slate-500">←</span>
                 </Link>
               </div>
@@ -549,13 +572,11 @@ export default function WirePage() {
                 نخدم المشاريع الكبرى في جميع أنحاء مصر: القاهرة، الجيزة، العاصمة الإدارية،
                 المحاور والكباري، المناطق الصناعية.
               </p>
-              <a
-                href={WHATSAPP}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white hover:bg-emerald-700 transition"
-              >
-                <MessageCircle className="h-5 w-5" />
-                واتساب الآن
-              </a>
+
+              {/* ✅ Removed WhatsApp button (use floating button instead) */}
+              <div className="mt-4 rounded-2xl border border-black/10 bg-white p-4 text-slate-700">
+                للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
+              </div>
             </div>
           </aside>
         </div>
