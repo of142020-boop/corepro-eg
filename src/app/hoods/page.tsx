@@ -32,7 +32,7 @@ const CANONICAL = `${DOMAIN}/hoods`;
 const PHONE = "01055550195";
 const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201055550195";
-const ADDRESS_TEXT = "القاهرة الكبرى";
+const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 
 const SERVICE_NAME = "تركيب شفاطات المطبخ والحمام";
 const IMG_HERO = "/images/hoods/hero.webp"; // optional

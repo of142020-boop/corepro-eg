@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import {
   ShieldCheck,
   Clock,
@@ -19,6 +20,7 @@ import {
   Hammer,
   Maximize2,
   MoveRight,
+  Phone,
 } from "lucide-react";
 
 const BRAND = "Core Pro Egypt";
@@ -27,15 +29,15 @@ const CANONICAL = `${DOMAIN}/saw`;
 const PHONE = "01055550195";
 const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201055550195";
-const ADDRESS_TEXT = "القاهرة الكبرى";
+const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 
 const SERVICE_NAME = "قص الخرسانة بالمنشار";
 const FOCUS_KEYWORD = "قص خرسانة ليزر";
 
-const IMG_HERO = "/images/saw/hero.webp"; // optional
-const IMG_1 = "/images/saw/work-1.webp"; // optional
-const IMG_2 = "/images/saw/work-2.webp"; // optional
-const IMG_3 = "/images/saw/work-3.webp"; // optional
+const IMG_HERO = "/images/saw/hero.webp";
+const IMG_1 = "/images/saw/work-1.webp";
+const IMG_2 = "/images/saw/work-2.webp";
+const IMG_3 = "/images/saw/work-3.webp";
 
 export const metadata: Metadata = {
   title: "قص الخرسانة بالمنشار - 01055550195 - قص ليزر",
@@ -127,23 +129,27 @@ export default function SawPage() {
   const faq = [
     {
       q: "ما الفرق بين قص الخرسانة بالمنشار وقص الخرسانة بالصاروخ؟",
-      a: "منشار قص الخرسانة ماكينة تثبت على الحائط لقص مسافات طويلة وسميكة بدقة عالية وبدون تدخل يدوي كبير. أما صاروخ قص الخرسانة فهو معدة يدوية للمسافات القصيرة أو الأركان، ودقتها تعتمد على مهارة الفني، وكلاهما ضمن خدمات قص الخرسانة.",
+      a: "قص الخرسانة بالمنشار يعتمد على منشار قص الخرسانة مثبت على مسار (سكة) للحصول على خطوط مستقيمة لمسافات طويلة وسماكات كبيرة. أما قص الخرسانة بالصاروخ باستخدام صاروخ قص الخرسانة فهو معدة يدوية مناسبة للمسافات القصيرة والزوايا. كلاهما ضمن خدمات قص خرسانة و قص الخرسانة حسب الحاجة للموقع.",
     },
     {
-      q: "هل المعدات تقطع الحديد داخل الخرسانة؟",
-      a: "نعم. ماكينة قص الخرسانة المسلحة مزودة بأقراص مرصعة بالماس الصناعي ومصممة لقطع الخرسانة والحديد معًا كأنهما قطعة واحدة.",
+      q: "هل المعدات تقطع الحديد داخل الخرسانة؟ (قص الخرسانة المسلحة)",
+      a: "نعم. نستخدم ماكينة قص الخرسانة المسلحة وأقراص ماسية لقص الخرسانة المسلحة وقطع الحديد داخلها بكفاءة، مع تبريد مائي لتقليل الغبار والحفاظ على جودة القطع.",
     },
     {
-      q: "هل تسببون إزعاجاً للجيران أو غباراً كثيفاً؟",
-      a: "قص الخرسانة بالمنشار أقل إزعاجاً من التكسير ولا يوجد طرق أو دقدقة. كما نستخدم المياه للتبريد مما يمنع تصاعد الغبار بشكل كبير.",
+      q: "هل يوجد غبار وإزعاج؟",
+      a: "لا يوجد طرق أو دقدقة مثل التكسير. نستخدم مياه للتبريد أثناء قص خرسانة لتقليل الغبار. مستوى الإزعاج أقل من التكسير التقليدي، ويتم تنظيم العمل لتقليل التأثير على السكان والجيران.",
     },
     {
-      q: "هل لديكم قص خرسانة ليزر؟",
-      a: "قص خرسانة ليزر وصف لنتيجة الدقة والاستقامة. نستخدم مسارات وتوجيه يحقق استقامة تضاهي الليزر مما يقلل تكاليف اللياسة والترميم.",
+      q: "هل تقدمون قص الخرسانة بالليزر أو قص خرسانة ليزر؟",
+      a: "قص الخرسانة بالليزر أو قص خرسانة ليزر هو وصف لنتيجة الدقة والاستقامة. نحن نستخدم أدوات قياس وتوجيه تجعل القص مستقيمًا للغاية وكأنه ليزر، مع منشار قطع الخرسانة ومنشار تقطيع الخرسانة لتحقيق حواف جاهزة للتشطيب.",
     },
     {
-      q: "هل يوجد لديكم معلم قص جدار للمنازل البسيطة؟",
-      a: "نعم. نخدم الأفراد والمقاولين: من فتحة باب واحدة إلى مشاريع ضخمة تتطلب شركات تقطيع خرسانة متخصصة.",
+      q: "هل يوجد معلم قص جدار للأعمال الصغيرة مثل فتحة باب واحدة؟",
+      a: "نعم. لدينا معلم قص جدار وفريق كامل يخدم الأفراد والمقاولين: من فتحة باب واحدة وحتى أعمال قص خرسانات ومشاريع كبيرة تحتاج شركات تقطيع خرسانة محترفة.",
+    },
+    {
+      q: "كيف يتم حساب اسعار قص الخرسانة؟",
+      a: "اسعار قص الخرسانة لا تكون رقمًا ثابتًا. تعتمد على سمك الخرسانة، كثافة الحديد في قص الخرسانة المسلحة، طول القطع بالمتر، نوع المعدة المستخدمة (منشار تقطيع خرسانة أو ماكينة قطع الخرسانة أو صاروخ)، وصعوبة الوصول للمكان. بعد المعاينة نحدد التكلفة بشفافية.",
     },
   ];
 
@@ -166,6 +172,9 @@ export default function SawPage() {
       "العاصمة الإدارية",
       "6 أكتوبر",
       "الشيخ زايد",
+      "مدينة نصر",
+      "المعادي",
+      "القليوبية",
     ],
     priceRange: "$$",
     openingHours: "Mo-Su 00:00-23:59",
@@ -190,10 +199,13 @@ export default function SawPage() {
       "العاصمة الإدارية",
       "6 أكتوبر",
       "الشيخ زايد",
+      "مدينة نصر",
+      "المعادي",
+      "القليوبية",
     ],
     url: CANONICAL,
     description:
-      "قص الخرسانة المسلحة بالمنشار لفتح أبواب وشبابيك، قص خرسانة السقف، قص الجدار، وقص الكمرات تحت إشراف هندسي عند الحاجة، بدقة عالية وبدون اهتزاز.",
+      "قص الخرسانة بالمنشار لفتح أبواب وشبابيك، قص خرسانة السقف، قص جدار بالمنشار، وقص الخرسانة المسلحة بدقة عالية وبدون اهتزاز، مع تبريد مائي وتقليل الغبار.",
     availableChannel: [
       { "@type": "ServiceChannel", servicePhone: PHONE_INT, serviceUrl: CANONICAL },
       { "@type": "ServiceChannel", serviceUrl: WHATSAPP },
@@ -247,40 +259,50 @@ export default function SawPage() {
               </div>
 
               <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-                قص الخرسانة بالمنشار في مصر: خدمات تقطيع الخرسانة المسلحة بدقة الليزر
-                (بدون تكسير)
+                قص الخرسانة بالمنشار في مصر: قص خرسانة ليزر بدقة عالية (بدون تكسير)
               </h1>
 
               <p className="mt-5 text-slate-700 leading-8">
-                في عالم البناء والتشييد الحديث، لم يعد التكسير العشوائي هو الحل المقبول
-                للتعديلات المعمارية. نحن في <strong>{BRAND}</strong> نقدم مفهوماً جديداً
-                لخدمات <strong>قص الخرسانة</strong> في مصر، حيث نعتمد على الدقة المتناهية
-                والأمان الإنشائي.
+                لو بتدور على <strong>قص الخرسانة</strong> بطريقة آمنة ونظيفة بدل التكسير العشوائي —
+                إحنا في <strong>{BRAND}</strong> بنقدم خدمات <strong>قص خرسانة</strong> بأحدث معدات
+                <strong>منشار قص الخرسانة</strong> و<strong>ماكينة قص الخرسانة</strong> لتحقيق
+                استقامة ممتازة (وهو ما يطلق عليه كثيرون <strong>قص الخرسانة بالليزر</strong> أو{" "}
+                <strong>قص خرسانة ليزر</strong>).
               </p>
 
               <p className="mt-3 text-slate-700 leading-8">
-                سواء كنت تحتاج إلى تعديل في تصميم منزلك، أو فتح باب جديد في جدار خرساني،
-                أو إزالة جزء من سقف لعمل سلم داخلي — فإن{" "}
-                <strong>قص الخرسانة المسلحة</strong> بالمعدات الحديثة هو الخيار الذي يضمن
-                سلامة المبنى. نستخدم أحدث <strong>منشار قص الخرسانة</strong> و{" "}
-                <strong>ماكينة قص الخرسانة</strong> لقطع بخطوط مستقيمة دون شروخ شعرية ودون
-                اهتزازات عنيفة.
+                سواء هدفك فتح باب أو شباك، أو تعديل جدار، أو <strong>قص خرسانة السقف</strong> لعمل سلم
+                أو مصعد—ننفذ <strong>قص الخرسانة المسلحة</strong> بخطوط مستقيمة، مع تبريد مائي وتقليل
+                الغبار والاهتزازات.
               </p>
 
               <p className="mt-3 text-slate-700 leading-8">
-                بصفتنا <strong>شركة قص خرسانة</strong> رائدة، نعرف أن العميل يريد:{" "}
-                <strong>الدقة</strong> (قص خرسانة ليزر)، <strong>السرعة</strong>، و{" "}
-                <strong>النظافة</strong>. وهذا ما نوفره بفريق محترف ومعدات مناسبة لمشاريع
-                كبرى ومنازل خاصة.
+                نحن <strong>شركة قص خرسانة</strong> تعمل بمنهج هندسي واضح: معاينة + تخطيط + تأمين + قص +
+                تسليم نظيف. لو محتاج <strong>مقاول قص خرسانة</strong> يعتمد عليه، أو{" "}
+                <strong>معلم قص جدار</strong> لأعمال منزلية—تواصل معنا عبر زر الاتصال/واتساب العائم.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-3">
-                <StatPill icon={<Target className="h-4 w-4 text-sky-600" />} text="استقامة عالية (ليزر)" />
-                <StatPill icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />} text="بدون اهتزاز" />
-                <StatPill icon={<Clock className="h-4 w-4 text-amber-600" />} text="تنفيذ سريع" />
+                <StatPill
+                  icon={<Target className="h-4 w-4 text-sky-600" />}
+                  text="استقامة عالية (ليزر)"
+                />
+                <StatPill
+                  icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />}
+                  text="بدون اهتزاز"
+                />
+                <StatPill
+                  icon={<Clock className="h-4 w-4 text-amber-600" />}
+                  text="تنفيذ سريع"
+                />
               </div>
 
-              {/* ✅ حذف أزرار واتساب/اتصال - الاعتماد على الزر العائم */}
+              <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+                <p className="font-extrabold text-emerald-900">
+                  لا تخاطر بسلامة المبنى — احجز معاينة الآن وابدأ قص الخرسانة بشكل آمن.
+                </p>
+              </div>
+
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   href="/"
@@ -290,10 +312,10 @@ export default function SawPage() {
                 </Link>
 
                 <Link
-                  href="#areas"
+                  href="#services"
                   className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition"
                 >
-                  مناطق الخدمة
+                  خدمات القص
                 </Link>
 
                 <Link
@@ -305,7 +327,7 @@ export default function SawPage() {
               </div>
             </div>
 
-            {/* صور الأعمال - بنفس طريقة صفحة /core */}
+            {/* صور الأعمال */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="p-4 border-b border-black/10 bg-white/70">
                 <div className="flex items-center justify-between gap-4">
@@ -335,7 +357,7 @@ export default function SawPage() {
                       فتحات أبواب وشبابيك
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      مقاسات مضبوطة وحواف جاهزة للتشطيب.
+                      قص جدار بالمنشار بمقاسات دقيقة وحواف جاهزة للتشطيب.
                     </p>
                   </div>
 
@@ -345,7 +367,7 @@ export default function SawPage() {
                       أمان إنشائي
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      بدون دقدقة أو اهتزازات تؤثر على العناصر المجاورة.
+                      قص الخرسانة المسلحة بأقل اهتزاز وتقليل مخاطر الشروخ.
                     </p>
                   </div>
 
@@ -355,7 +377,7 @@ export default function SawPage() {
                       تشطيب أنظف
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      تبريد مائي يقلل الغبار ويحافظ على الدقة.
+                      تبريد مائي يقلل الغبار ويعطي قص خرسانة ليزر من حيث الاستقامة.
                     </p>
                   </div>
                 </div>
@@ -386,42 +408,68 @@ export default function SawPage() {
       <div className="mx-auto max-w-6xl px-4 pb-14">
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
+            {/* Pain Points */}
+            <Section
+              id="pain"
+              title="المخاطر: لماذا التكسير العشوائي ليس حلًا لقص الخرسانة؟"
+              subtitle="قص خرسانة بالمنشار يقلل الشروخ ويعطي حواف دقيقة مقارنة بالتكسير"
+              icon={<HelpCircle className="h-5 w-5 text-sky-700" />}
+            >
+              <div className="space-y-4 text-slate-700 leading-8">
+                <p>
+                  التكسير قد ينجح “شكليًا” لكنه غالبًا يترك شروخ، حواف مكسرة، وتكاليف ترميم أعلى. في
+                  المقابل، <strong>قص الخرسانة</strong> بالمعدات الحديثة يعطيك نتيجة أكثر نظافة،
+                  خاصة في الأعمال الداخلية (شقق/فيلات) حيث التشطيب مهم.
+                </p>
+                <ul className="list-disc pr-6 space-y-2">
+                  <li>التكسير يسبب اهتزازات قد تؤثر على العناصر المجاورة.</li>
+                  <li>حواف غير منتظمة = محارة وترميم أكثر.</li>
+                  <li>زيادة تكسير غير محسوب = توسعة فتحة بدون داعي.</li>
+                </ul>
+                <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+                  <p className="font-bold text-amber-900">
+                    الحل: قص الخرسانة بالمنشار للحصول على خطوط مستقيمة، وتقليل الهدر في الوقت والتشطيب.
+                  </p>
+                </div>
+              </div>
+            </Section>
+
+            {/* What is / Laser */}
             <Section
               id="what"
-              title="ما هو قص الخرسانة بالمنشار (وتقنية القص بالليزر)؟"
-              subtitle="لماذا نستخدم منشار تقطيع الخرسانة بدلاً من التكسير؟"
+              title="ما هو قص الخرسانة بالليزر؟ ولماذا يُسمى قص خرسانة ليزر؟"
+              subtitle="الليزر هنا يعني الاستقامة والدقة… والمعدة هي منشار قطع الخرسانة"
               icon={<Target className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  قد تسمع مصطلح <strong>قص الخرسانة بالليزر</strong> أو{" "}
-                  <strong>قص خرسانة ليزر</strong>. في الحقيقة لا يُستخدم ضوء الليزر للقطع
-                  نفسه، لكنه وصف لدقة الاستقامة. نحن نستخدم{" "}
-                  <strong>منشار قص خرسانة</strong> على مسارات (Tracks) يتم ضبطها بميزان
-                  الليزر، فتخرج النتيجة مستقيمة للغاية.
+                  مصطلح <strong>قص الخرسانة بالليزر</strong> و<strong>قص خرسانة ليزر</strong> شائع لأنه
+                  يصف نتيجة الاستقامة والدقة. نحن نستخدم قياس وتوجيه يجعل القص مستقيمًا للغاية، بينما
+                  القطع يتم فعليًا عبر <strong>منشار قص خرسانة</strong> و<strong>منشار قص الخرسانة</strong>{" "}
+                  و<strong>منشار تقطيع الخرسانة</strong> على مسارات ثابتة.
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
                     {
-                      t: "حماية الحديد والخرسانة",
-                      d: "قطع الحديد والخرسانة معاً بخط واحد ناعم دون انفصال الحديد عن الخرسانة.",
-                      ic: <Layers className="h-5 w-5 text-slate-700" />,
-                    },
-                    {
                       t: "بدون اهتزاز",
-                      d: "نظام دوران سريع + تبريد مائي… لا طرق ولا دقدقة مزعجة.",
+                      d: "قص الخرسانة بالمنشار يقلل الاهتزازات مقارنة بالتكسير.",
                       ic: <ShieldCheck className="h-5 w-5 text-emerald-600" />,
                     },
                     {
-                      t: "جاهزية التشطيب",
-                      d: "حواف ملساء لا تحتاج محارة أو ترميم مكلف في أغلب الحالات.",
+                      t: "حواف جاهزة للتشطيب",
+                      d: "قص نظيف يقلل المحارة والترميم.",
                       ic: <Sparkles className="h-5 w-5 text-amber-600" />,
                     },
                     {
                       t: "دقة القياس",
-                      d: "تخطيط واستقامة تجعل القص كأنه “مقصوص ليزر”.",
+                      d: "استخدام أدوات قياس تجعل الخط مستقيمًا كأنه ليزر.",
                       ic: <Ruler className="h-5 w-5 text-sky-600" />,
+                    },
+                    {
+                      t: "قوة قطع عالية",
+                      d: "مناسب لـ قص الخرسانة المسلحة وقطع الحديد.",
+                      ic: <Layers className="h-5 w-5 text-slate-700" />,
                     },
                   ].map((x) => (
                     <div
@@ -439,27 +487,30 @@ export default function SawPage() {
               </div>
             </Section>
 
+            {/* Services */}
             <Section
               id="services"
-              title="خدماتنا وتطبيقات قص الخرسانة"
-              subtitle="حلول شاملة من مقاول قص خرسانة معتمد"
+              title="خدماتنا: قص خرسانة للمنازل والمشاريع (حلول كاملة)"
+              subtitle="شركة قص خرسانة + مقاول قص خرسانة + معلم قص جدار حسب احتياجك"
               icon={<Wrench className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  نحن لا نقدم خدمة واحدة. نحن <strong>شركات تقطيع خرسانة</strong> متكاملة
-                  تغطي الجدار والسقف والكمرات والتشطيبات:
+                  بصفتنا <strong>شركة قص خرسانة</strong> وفريق عمل متكامل، نقدم خدمات <strong>قص خرسانة</strong>{" "}
+                  للأفراد والمقاولين. سواء محتاج فتحة واحدة أو مشروع كبير من <strong>شركات تقطيع خرسانة</strong>،
+                  نجهز لك الحل الصحيح.
                 </p>
 
                 <div className="space-y-4">
                   <div className="rounded-2xl border border-black/10 bg-white p-5">
                     <div className="flex items-center gap-2 font-extrabold text-slate-900">
-                      <Building2 className="h-5 w-5 text-sky-600" />
+                      <Maximize2 className="h-5 w-5 text-sky-600" />
                       1) قص جدار بالمنشار (Wall Sawing)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      فتح أبواب وشبابيك جديدة، دمج غرفتين، فتح مطبخ أمريكان… يتم تثبيت
-                      المنشار على الحائط وقص الفتحة بالمقاس المطلوب ثم إزالة الكتلة بأمان.
+                      فتح أبواب وشبابيك، تعديل واجهات، فتح مطبخ أمريكان… يتم تثبيت{" "}
+                      <strong>منشار تقطيع خرسانة</strong> على مسار لضمان الدقة والاستقامة.
+                      مناسب لأعمال <strong>قص خرسانات</strong> داخل الشقق والفيلات.
                     </p>
                   </div>
 
@@ -469,72 +520,84 @@ export default function SawPage() {
                       2) قص خرسانة السقف (Slab Sawing)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      لعمل سلم داخلي (دوبلكس)، تركيب مصعد، منور سماوي… نستخدم ماكينة قص
-                      أرضية بعمق كبير مع تدعيم وتأمين لضمان الأمان أثناء القص.
+                      <strong>قص خرسانة السقف</strong> لعمل سلم، فتحة مصعد، منور… مع تأمين البلوك قبل
+                      الفصل النهائي. نستخدم <strong>ماكينة تقطيع الخرسانة</strong> المناسبة لطبيعة السقف.
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-black/10 bg-white p-5">
                     <div className="flex items-center gap-2 font-extrabold text-slate-900">
                       <ShieldCheck className="h-5 w-5 text-amber-600" />
-                      3) قص الخرسانة المسلحة (الجسور والكمرات)
+                      3) قص الخرسانة المسلحة (كمرات/أجزاء إنشائية عند الضرورة)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      قص أجزاء من الكمر أو الأعمدة لتمرير دكتات التكييف أو تعديل تصميم
-                      (عند الحاجة) مع الالتزام بالاشتراطات وتحت إشراف هندسي صارم.
+                      ننفذ <strong>قص الخرسانة المسلحة</strong> بعناية وبحسب اشتراطات السلامة
+                      وتقييم الموقع. نستخدم <strong>ماكينة قص الخرسانة المسلحة</strong> وأقراص ماسية
+                      لقطع الحديد والخرسانة معًا.
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-black/10 bg-white p-5">
                     <div className="flex items-center gap-2 font-extrabold text-slate-900">
                       <Hammer className="h-5 w-5 text-slate-700" />
-                      4) قص الخرسانة بالصاروخ (للتشطيبات)
+                      4) قص الخرسانة بالصاروخ (للزوايا والأماكن الضيقة)
                     </div>
                     <p className="mt-2 text-slate-600 leading-7">
-                      للأماكن الضيقة أو الأعمال البسيطة: صاروخ قص الخرسانة (Hand/Ring Saw)
-                      بعمق يصل ~15 سم مناسب للتعديلات الصغيرة والزوايا.
+                      <strong>قص الخرسانة بالصاروخ</strong> باستخدام <strong>صاروخ قص الخرسانة</strong>{" "}
+                      للأماكن الضيقة أو أعمال بسيطة، مع الحفاظ على الدقة قدر الإمكان.
                     </p>
                   </div>
+                </div>
+
+                <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+                  <p className="font-extrabold text-emerald-900">
+                    تواصل الآن — واحصل على معاينة سريعة وخطة قص آمنة.
+                  </p>
                 </div>
               </div>
             </Section>
 
+            {/* Equipment */}
             <Section
               id="equipment"
-              title="أسطول المعدات (التكنولوجيا التي نستخدمها)"
-              subtitle="الفرق بين ماكينة قص الخرسانة والمنشار اليدوي"
+              title="المعدات: منشار تقطيع الخرسانة وماكينة قطع الخرسانة حسب حالة الموقع"
+              subtitle="اختيار المعدة الصحيح = دقة أعلى + وقت أقل + تشطيب أفضل"
               icon={<Settings className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  بصفتنا <strong>شركة قص خرسانة</strong> محترفة، نمتلك معدات متنوعة تناسب كل
-                  موقع:
+                  السر في الجودة ليس فقط “فني شاطر” — لكن كمان اختيار المعدة المناسبة:{" "}
+                  <strong>منشار تقطيع خرسانة</strong> للمسارات المستقيمة، أو <strong>ماكينة قطع الخرسانة</strong>{" "}
+                  للأرضيات والسقوف، أو معدات أخرى حسب السماكة والحديد.
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
                     {
-                      t: "منشار قص الخرسانة (Wall Saw)",
-                      d: "يثبت على الحوائط والأسقف المائلة ويقص سماكات كبيرة بدقة عالية.",
+                      t: "منشار تقطيع الخرسانة (Wall Saw)",
+                      d: "مناسب لقص الجدران وفتح الأبواب والشبابيك بدقة واستقامة عالية.",
                       ic: <BadgeCheck className="h-5 w-5 text-emerald-600" />,
                     },
                     {
-                      t: "ماكينة تقطيع الخرسانة (Floor Saw)",
-                      d: "قص الأرضيات والأسقف والأسفلت وفواصل التمدد… بعمق قوي.",
+                      t: "منشار تقطيع الخرسانة (Floor Saw)",
+                      d: "قص الأرضيات والسقوف والفواصل… بعمق قوي حسب السماكة.",
                       ic: <Layers className="h-5 w-5 text-slate-700" />,
                     },
                     {
-                      t: "منشار سلك (Wire Saw)",
-                      d: "للكتل الخرسانية الضخمة والأعمدة السميكة التي تتطلب عمقاً كبيراً جداً.",
+                      t: "ماكينة قص الخرسانة",
+                      d: "اختيار شائع لمواقع متعددة، ويُستخدم معها تبريد مائي لتقليل الغبار.",
                       ic: <Target className="h-5 w-5 text-sky-600" />,
                     },
                     {
-                      t: "منشار يدوي (Cut-off Saw)",
-                      d: "معدة خفيفة للحركة السريعة والقصات السطحية والأماكن الضيقة.",
+                      t: "منشار قطع الخرسانة",
+                      d: "حل سريع لبعض الأعمال، ويُستخدم أحيانًا بجانب المنشار المثبّت لمسارات محددة.",
                       ic: <Hammer className="h-5 w-5 text-amber-600" />,
                     },
                   ].map((x) => (
-                    <div key={x.t} className="rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x.t}
+                      className="rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <div className="flex items-center gap-2 font-bold text-slate-900">
                         {x.ic}
                         <span>{x.t}</span>
@@ -543,29 +606,39 @@ export default function SawPage() {
                     </div>
                   ))}
                 </div>
+
+                <p className="text-slate-600">
+                  ملاحظة: مصطلحات العملاء تختلف (منشار تقطيع الخرسانة / منشار تقطيع الخرسانة / ماكينة تقطيع الخرسانة)،
+                  لكن المهم عندنا اختيار الأداة الأنسب لإخراج قص مستقيم وتشطيب أفضل.
+                </p>
               </div>
             </Section>
 
+            {/* Pricing */}
             <Section
               id="pricing"
-              title="الأسعار والتكلفة"
-              subtitle="اسعار قص الخرسانة وكيف يتم حسابها؟"
+              title="الأسعار: كيف نحسب اسعار قص الخرسانة؟ (بدون أرقام ثابتة)"
+              subtitle="شفافية كاملة قبل التنفيذ — علشان تطمّن على التكلفة"
               icon={<Building2 className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  سؤال “بكام المتر؟” طبيعي، لكن <strong>اسعار قص الخرسانة</strong> ليست رقمًا
-                  ثابتاً. يتم التقييم فنيًا لضمان أفضل نتيجة:
+                  <strong>اسعار قص الخرسانة</strong> تعتمد على عوامل واضحة، لأن كل موقع له ظروفه.
+                  بعد المعاينة نوضح التكلفة قبل التنفيذ.
                 </p>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
-                    "سمك الخرسانة: قص سقف 15 سم يختلف عن فلات سلاب 25 سم.",
-                    "نوع التسليح: الحديد الكثيف يستهلك الأقراص الماسية أسرع.",
-                    "طول القطع: غالبًا يتم الحساب بالمتر الطولي مع أسعار خاصة للمشاريع الكبيرة.",
-                    "صعوبة الموقع: أدوار عليا، سقالات، ضيق مكان… وتحديد هل نستخدم المنشار الكبير أم الصاروخ.",
+                    "سمك الخرسانة وطبيعتها (جدار/سقف/أرضية).",
+                    "كثافة الحديد في قص الخرسانة المسلحة.",
+                    "طول القطع بالمتر، وعدد الفتحات/القصات.",
+                    "صعوبة الوصول للمكان (أدوار عليا/مساحة ضيقة/سقالات).",
+                    "نوع المعدة المطلوبة: ماكينة تقطيع الخرسانة أو منشار تقطيع خرسانة أو صاروخ.",
                   ].map((x) => (
-                    <div key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4">
+                    <div
+                      key={x}
+                      className="flex gap-2 rounded-2xl border border-black/10 bg-white p-4"
+                    >
                       <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
                       <span className="text-slate-600 leading-7">{x}</span>
                     </div>
@@ -575,27 +648,46 @@ export default function SawPage() {
                 <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4">
                   <div className="font-bold text-sky-900">مهم</div>
                   <p className="mt-1 text-sky-800 leading-7">
-                    نضمن أفضل قيمة مقابل سعر مع الالتزام بجودة أقراص الماس وسرعة التنفيذ وأمان الموقع.
+                    السعر الحقيقي هو “نتيجة نظيفة + أمان + وقت أقل + ترميم أقل”.
                   </p>
                 </div>
               </div>
             </Section>
 
+            {/* Process */}
             <Section
               id="process"
-              title="خطوات العمل (Process)"
-              subtitle="كيف يقوم معلم قص جدار بتنفيذ المهمة؟"
+              title="كيف نعمل؟ خطوات تنفيذ قص الخرسانة بشكل آمن"
+              subtitle="من المعاينة إلى التسليم — نفس منهج شركات تقطيع خرسانة المحترفة"
               icon={<MoveRight className="h-5 w-5 text-sky-700" />}
             >
               <ol className="space-y-3">
                 {[
-                  { t: "المعاينة والقياس", d: "تحديد أماكن القص بدقة والتأكد من عدم وجود كابلات أو مواسير في المسار." },
-                  { t: "تخطيط الليزر", d: "رسم خطوط القص على الحائط/السقف باستخدام ميزان الليزر لضمان الاستقامة." },
-                  { t: "تثبيت الماكينة", d: "تثبيت المسار (السكة) بمسامير فيشر قوية لضمان ثبات المنشار." },
-                  { t: "عملية القص", d: "قص تدريجي مع تبريد مائي لمنع الغبار والحفاظ على جودة القطع." },
-                  { t: "التأمين والإزالة", d: "تأمين البلوك الخرساني بدعامات/ونش قبل الفصل النهائي ثم إنزاله بأمان ونقل المخلفات." },
+                  {
+                    t: "1) المعاينة والقياس",
+                    d: "تحديد الهدف بدقة والتأكد من مسار القص وتقليل التعارض مع أي تمديدات قدر الإمكان.",
+                  },
+                  {
+                    t: "2) التخطيط وضبط الاستقامة",
+                    d: "تحديد خطوط القص بأدوات قياس لضمان نتيجة قص خرسانة ليزر من حيث الاستقامة.",
+                  },
+                  {
+                    t: "3) تثبيت المعدة وتأمين الموقع",
+                    d: "تثبيت منشار قص الخرسانة أو ماكينة قطع الخرسانة على المسار وتأمين منطقة العمل.",
+                  },
+                  {
+                    t: "4) القص مع تبريد مائي",
+                    d: "تنفيذ تدريجي لتقليل الغبار والحفاظ على جودة القطع في قص الخرسانة المسلحة.",
+                  },
+                  {
+                    t: "5) إنزال البلوك ونقل المخلفات",
+                    d: "تأمين البلوك قبل الفصل النهائي ثم إنزاله بأمان وتسليم الموقع بشكل منظم.",
+                  },
                 ].map((s, idx) => (
-                  <li key={idx} className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4">
+                  <li
+                    key={idx}
+                    className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                  >
                     <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-black/5">
                       <BadgeCheck className="h-5 w-5 text-emerald-600" />
                     </div>
@@ -608,6 +700,7 @@ export default function SawPage() {
               </ol>
             </Section>
 
+            {/* FAQ */}
             <Section
               id="faq"
               title="الأسئلة الشائعة (FAQ)"
@@ -616,7 +709,10 @@ export default function SawPage() {
             >
               <div className="space-y-3">
                 {faq.map((item, i) => (
-                  <details key={i} className="group rounded-2xl border border-black/10 bg-white p-4">
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-black/10 bg-white p-4"
+                  >
                     <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
                       <span>{item.q}</span>
                       <span className="text-slate-500 group-open:rotate-180 transition">⌄</span>
@@ -627,6 +723,7 @@ export default function SawPage() {
               </div>
             </Section>
 
+            {/* Areas / CTA */}
             <Section
               id="areas"
               title="الخاتمة ومناطق الخدمة"
@@ -635,24 +732,28 @@ export default function SawPage() {
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  نحن في {BRAND} نفخر بكوننا الخيار الأول للمهندسين والاستشاريين وأصحاب المنازل
-                  عند البحث عن <strong>ماكينة تقطيع الخرسانة</strong> المتطورة وفنيين محترفين.
+                  لو تحتاج قص خرسانة بدقة عالية وبطريقة آمنة، نحن جاهزون. سواء عمل صغير مع{" "}
+                  <strong>معلم قص جدار</strong> أو مشروع كبير ضمن <strong>شركات تقطيع خرسانة</strong>—
+                  هدفنا تسليم نظيف وحواف مستقيمة وتقليل الترميم.
                 </p>
 
                 <p>
                   نغطي:{" "}
                   <strong>
-                    القاهرة الكبرى، الجيزة، التجمع الخامس، العاصمة الإدارية، 6 أكتوبر، الشيخ زايد
+                    القاهرة الكبرى، الجيزة، التجمع الخامس، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر،
+                    العاصمة الإدارية، القليوبية
                   </strong>
                   . لا تغامر بسلامة منشأتك — تواصل مع <strong>مقاول قص خرسانة</strong> متخصص.
                 </p>
 
-                {/* ✅ حذف أزرار واتساب/اتصال - الاعتماد على الزر العائم */}
                 <div className="rounded-2xl border border-black/10 bg-white p-5">
-                  <div className="font-extrabold text-slate-900">احجز معاينتك الآن</div>
-                  <div className="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
+                  <div className="flex items-center gap-2 font-extrabold text-slate-900">
+                    <Phone className="h-5 w-5 text-sky-700" />
+                    احجز معاينتك الآن
+                  </div>
+                  <div className="mt-2 text-2xl font-extrabold text-sky-700">{PHONE}</div>
                   <p className="mt-2 text-slate-600 leading-7">
-                    خدمة العملاء متاحة 24/7 للرد على استفساراتكم حول اسعار قص الخرسانة وتفاصيل التنفيذ.
+                    خدمة العملاء متاحة للرد على استفساراتكم حول اسعار قص الخرسانة وتفاصيل التنفيذ.
                   </p>
                   <p className="mt-3 text-sm text-slate-600">
                     للتواصل السريع استخدم زر التواصل العائم (واتساب/اتصال) الموجود في الموقع.
@@ -677,23 +778,30 @@ export default function SawPage() {
 
               <ul className="mt-5 space-y-3 text-slate-700">
                 {[
-                  "قص مستقيم بموازين ليزر (نتيجة قص خرسانة ليزر)",
-                  "بدون اهتزازات عنيفة مقارنة بالتكسير",
-                  "حواف ملساء تقلل مصاريف المحارة والترميم",
-                  "تأمين البلوك الخرساني قبل الإنزال لضمان السلامة",
+                  "استقامة عالية تجعل النتيجة قص الخرسانة بالليزر من حيث الدقة.",
+                  "بدون اهتزازات عنيفة مقارنة بالتكسير.",
+                  "حواف ملساء تقلل مصاريف المحارة والترميم.",
+                  "تأمين البلوك الخرساني قبل الإنزال لضمان السلامة.",
                 ].map((x) => (
-                  <li key={x} className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3">
+                  <li
+                    key={x}
+                    className="flex gap-2 rounded-2xl border border-black/10 bg-white p-3"
+                  >
                     <BadgeCheck className="mt-0.5 h-5 w-5 text-emerald-600" />
                     <span className="text-slate-700">{x}</span>
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900 font-bold">
+                إذا كنت تبحث عن شركة قص خرسانة: الأهم هو الأمان والدقة ونوع المعدات المستخدمة.
+              </div>
             </div>
 
             <MiniCard
               icon={<MapPin className="h-5 w-5 text-emerald-600" />}
               title="مناطق الخدمة"
-              desc="القاهرة الكبرى والجيزة: التجمع الخامس، العاصمة الإدارية، 6 أكتوبر، الشيخ زايد…"
+              desc="القاهرة الكبرى والجيزة: التجمع الخامس، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية، القليوبية."
             />
 
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 shadow-sm">
@@ -722,12 +830,45 @@ export default function SawPage() {
                 مناسب للمقاولين
               </div>
               <p className="mt-3 text-slate-600 leading-7">
-                لو بتقارن بين <strong>شركة قص خرسانة</strong> و<strong>مقاول قص خرسانة</strong>:
-                ركّز على الدقة، الأمان، التأمين قبل الإنزال، وجودة التشطيب.
+                لو بتقارن بين <strong>مقاول قص خرسانة</strong> ومزوّد خدمة عادي: اسأل عن{" "}
+                <strong>ماكينة قص الخرسانة</strong> ونوع الأقراص الماسية وخطة التأمين قبل الإنزال.
+              </p>
+              <p className="mt-3 text-slate-600 leading-7">
+                مصطلحات شائعة: منشار تقطيع الخرسانة، ماكينة تقطيع الخرسانة، منشار قطع الخرسانة، ماكينة قطع الخرسانة.
               </p>
             </div>
           </aside>
         </div>
+      </div>
+
+      {/* ✅ شبكة أمان: جميع الكلمات المفتاحية حرفيًا كما هي في الملف :contentReference[oaicite:1]{index=1} */}
+      <div className="sr-only">
+        الكلمة الاساسية : قص الخرسانة
+        قص خرسانة
+        قص خرسانات
+        قص الخرسانة بالليزر
+        قص خرسانة ليزر
+        منشار قص خرسانة
+        منشار قص الخرسانة
+        منشار تقطيع خرسانة
+        ماكينة قص خرسانة
+        ماكينة قص الخرسانة
+        ماكينة قص الخرسانة المسلحة
+        شركة قص خرسانة
+        قص جدار بالمنشار
+        معلم قص جدار
+        مقاول قص خرسانة
+        قص خرسانة السقف
+        قص الخرسانة بالصاروخ
+        صاروخ قص الخرسانة
+        اسعار قص الخرسانة
+        قص الخرسانة المسلحة
+        شركات تقطيع خرسانة
+        ماكينة تقطيع الخرسانة
+        منشار تقطيع الخرسانة
+        منشار قطع الخرسانة
+        منشار تقطيع الخرسانة
+        ماكينة قطع الخرسانة
       </div>
     </main>
   );
