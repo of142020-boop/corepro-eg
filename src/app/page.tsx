@@ -348,13 +348,13 @@ export default function HomePage() {
 
             {/* HERO IMAGE */}
             <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
-              <div className="relative h-72 md:h-[420px] bg-slate-100">
+              <div className="relative aspect-square bg-slate-100 max-w-[1024px] mx-auto">
                 <Image
                   src={IMG_HERO}
                   alt={`${BRAND} - قص وتخريم الخرسانة وتركيب الشفاطات`}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
                   priority
                 />
               </div>

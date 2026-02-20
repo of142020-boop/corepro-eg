@@ -338,13 +338,13 @@ export default function SawPage() {
                 </div>
               </div>
 
-              <div className="relative aspect-[16/9] md:aspect-[16/10] bg-slate-100">
+              <div className="relative aspect-square bg-slate-100 max-w-[1024px] mx-auto">
                 <Image
                   src={IMG_HERO}
                   alt="قص الخرسانة بالمنشار - Core Pro Egypt"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
                   priority
                 />
               </div>
