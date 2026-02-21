@@ -21,7 +21,7 @@ type Post = {
   publishedAt?: string;
   readingTime?: number;
   excerpt?: string;
-  categories: Category[]; // ✅ غير اختيارية
+  categories: Category[];
   plain?: string;
 };
 
@@ -56,7 +56,7 @@ async function getPost(slug: string): Promise<Post | null> {
     mainImage: data.mainImage,
     body: data.body,
     publishedAt: data.publishedAt,
-    categories: Array.isArray(data.categories) ? data.categories : [], // ✅ دائمًا Array
+    categories: Array.isArray(data.categories) ? data.categories : [],
     readingTime: typeof data.readingTime === "number" ? data.readingTime : undefined,
     excerpt,
     plain,
@@ -77,9 +77,11 @@ function formatDate(date?: string) {
 }
 
 /** SEO لكل مقال */
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> }
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
 
@@ -91,8 +93,10 @@ export async function generateMetadata(
   }
 
   const canonical = `${DOMAIN}/blog/${slug}`;
+
+  // ✅ مربع 1024×1024 (للـ OG/Twitter)
   const img = post.mainImage
-    ? urlFor(post.mainImage).width(1200).height(630).quality(80).url()
+    ? urlFor(post.mainImage).width(1024).height(1024).fit("crop").quality(85).url()
     : undefined;
 
   return {
@@ -106,7 +110,7 @@ export async function generateMetadata(
       siteName: BRAND,
       type: "article",
       locale: "ar_EG",
-      images: img ? [{ url: img, width: 1200, height: 630 }] : undefined,
+      images: img ? [{ url: img, width: 1024, height: 1024 }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
@@ -132,9 +136,7 @@ const ptComponents: PortableTextComponents = {
       </h3>
     ),
     normal: ({ children }) => (
-      <p className="mb-6 text-base md:text-lg leading-8 text-slate-700">
-        {children}
-      </p>
+      <p className="mb-6 text-base md:text-lg leading-8 text-slate-700">{children}</p>
     ),
     blockquote: ({ children }) => (
       <blockquote className="my-8 rounded-2xl border-r-4 border-emerald-600 bg-emerald-50 px-5 py-4 text-slate-800">
@@ -173,10 +175,18 @@ const ptComponents: PortableTextComponents = {
   types: {
     image: ({ value }) => {
       if (!value) return null;
-      const src = urlFor(value as any).width(1400).quality(85).url();
+
+      // ✅ مربع 1024×1024 داخل المحتوى
+      const src = urlFor(value as any)
+        .width(1024)
+        .height(1024)
+        .fit("crop")
+        .quality(85)
+        .url();
+
       return (
         <figure className="my-10">
-          <div className="relative h-[260px] md:h-[520px] w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
+          <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
             <Image src={src} alt="" fill className="object-cover" sizes="100vw" />
           </div>
         </figure>
@@ -286,11 +296,13 @@ export default async function PostPage({
   }
 
   const canonical = `${DOMAIN}/blog/${slug}`;
+
+  // ✅ مربع 1024×1024 للعرض في الهيرو
   const heroImg = post.mainImage
-    ? urlFor(post.mainImage).width(1600).height(900).quality(85).url()
+    ? urlFor(post.mainImage).width(1024).height(1024).fit("crop").quality(85).url()
     : null;
 
-  const categories = post.categories; // ✅ دايمًا Array
+  const categories = post.categories;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -314,7 +326,8 @@ export default async function PostPage({
 
       <header className="bg-white">
         <div className="mx-auto max-w-5xl px-4 pt-8">
-          <div className="relative h-[240px] md:h-[420px] w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
+          {/* ✅ مربع 1:1 بدل ارتفاع ثابت */}
+          <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
             {heroImg ? (
               <>
                 <Image
@@ -345,7 +358,6 @@ export default async function PostPage({
               </span>
             </nav>
 
-            {/* ✅ Categories (مفيش undefined) */}
             {categories.length > 0 ? (
               <div className="mb-4 flex flex-wrap justify-end gap-2">
                 {categories.slice(0, 4).map((c) => (

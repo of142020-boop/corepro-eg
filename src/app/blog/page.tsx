@@ -61,10 +61,13 @@ async function getPosts(): Promise<Post[]> {
     const excerpt =
       typeof p.excerpt === "string" && p.excerpt.length
         ? p.excerpt
-        : (plain.slice(0, 180) ? plain.slice(0, 180) + "..." : "اقرأ المقال لمعرفة التفاصيل...");
+        : plain.slice(0, 180)
+        ? plain.slice(0, 180) + "..."
+        : "اقرأ المقال لمعرفة التفاصيل...";
 
+    // ✅ تحميل صورة مربعة 1024×1024 للكروت
     const imageUrl = p.mainImage
-      ? urlFor(p.mainImage).width(1200).height(800).quality(80).url()
+      ? urlFor(p.mainImage).width(1024).height(1024).fit("crop").quality(85).url()
       : null;
 
     return {

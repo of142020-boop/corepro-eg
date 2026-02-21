@@ -274,7 +274,7 @@ export default function CorePage() {
               </div>
 
               <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-                صنايعي كور في مصر: تخريم الخرسانة بالكور وعمل فتحات كور بدقة ليزر (بدون تكسير)
+                صنايعي كور في اي مكان في مصر: تخريم الخرسانة بالكور وعمل فتحات كور بدقة ليزر (بدون تكسير)
               </h1>
 
               <p className="mt-5 text-slate-700 leading-8">

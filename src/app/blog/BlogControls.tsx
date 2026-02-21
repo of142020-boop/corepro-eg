@@ -33,7 +33,8 @@ function PostCard({ post }: { post: Post }) {
       href={`/blog/${post.slug}`}
       className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative h-56 w-full bg-slate-100">
+      {/* ✅ مربع 1:1 */}
+      <div className="relative aspect-square w-full bg-slate-100">
         {post.imageUrl ? (
           <Image
             src={post.imageUrl}
