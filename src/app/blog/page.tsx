@@ -54,9 +54,11 @@ async function getPosts(): Promise<Post[]> {
     "readingTime": round(length(string::split(pt::text(body), " ")) / 200.0 * 10) / 10
   }`;
 
-  const data = await client.fetch(query);
+  const data: unknown = await client.fetch(query);
+  if (!Array.isArray(data)) return [];
 
-  return (data as any[]).map((p) => {
+  return data.map((row) => {
+    const p = row as Record<string, unknown>;
     const plain = typeof p.plain === "string" ? p.plain : "";
     const excerpt =
       typeof p.excerpt === "string" && p.excerpt.length
@@ -67,16 +69,21 @@ async function getPosts(): Promise<Post[]> {
 
     // ✅ تحميل صورة مربعة 1024×1024 للكروت
     const imageUrl = p.mainImage
-      ? urlFor(p.mainImage).width(1024).height(1024).fit("crop").quality(85).url()
+      ? urlFor(p.mainImage as Parameters<typeof urlFor>[0])
+          .width(1024)
+          .height(1024)
+          .fit("crop")
+          .quality(85)
+          .url()
       : null;
 
     return {
-      title: p.title ?? "بدون عنوان",
-      slug: p.slug,
+      title: typeof p.title === "string" ? p.title : "بدون عنوان",
+      slug: typeof p.slug === "string" ? p.slug : "",
       excerpt,
-      publishedAt: p.publishedAt,
+      publishedAt: typeof p.publishedAt === "string" ? p.publishedAt : undefined,
       readingTime: typeof p.readingTime === "number" ? p.readingTime : undefined,
-      categories: Array.isArray(p.categories) ? p.categories : [],
+      categories: Array.isArray(p.categories) ? (p.categories as Post["categories"]) : [],
       imageUrl,
     } as Post;
   });

@@ -4,8 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextComponents } from "@portabletext/react";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client, urlFor } from "../../../lib/sanity";
+import type { SanityImageSource } from "../../../lib/sanity";
 
 export const revalidate = 60;
 
@@ -158,7 +158,7 @@ const ptComponents: PortableTextComponents = {
   },
   marks: {
     link: ({ children, value }) => {
-      const href = (value as any)?.href || "#";
+      const href = (value as { href?: string } | undefined)?.href || "#";
       const isExternal = href.startsWith("http");
       return (
         <a
@@ -177,7 +177,7 @@ const ptComponents: PortableTextComponents = {
       if (!value) return null;
 
       // ✅ مربع 1024×1024 داخل المحتوى
-      const src = urlFor(value as any)
+      const src = urlFor(value as SanityImageSource)
         .width(1024)
         .height(1024)
         .fit("crop")
@@ -415,7 +415,7 @@ export default async function PostPage({
         ) : null}
 
         <div className="text-right">
-          <PortableText value={post.body as any} components={ptComponents} />
+          <PortableText value={post.body} components={ptComponents} />
         </div>
 
         <div className="mt-14 rounded-3xl border border-slate-200 bg-slate-900 p-7 text-white shadow-sm">

@@ -24,14 +24,12 @@ export const metadata: Metadata = {
     "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام.",
 
   robots: { index: true, follow: true },
-
-  // (اختياري) لو حابب تضيف OG افتراضي للموقع
-  // openGraph: {
-  //   type: "website",
-  //   url: "https://corepro-eg.com",
-  //   siteName: "Core Pro Egypt",
-  //   locale: "ar_EG",
-  // },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo-header-116x154.webp",
+  },
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#0f172a",
 };
 
 export default function RootLayout({

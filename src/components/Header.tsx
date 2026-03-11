@@ -80,6 +80,7 @@ export default function Header() {
                 width={90}
                 height={77}
                 priority
+                quality={80}
                 sizes="90px"
                 className="h-11 w-auto object-contain"
               />
@@ -155,6 +156,7 @@ export default function Header() {
                 alt="Core Pro Egypt"
                 width={80}
                 height={70}
+                quality={80}
                 sizes="80px"
                 className="h-10 w-auto object-contain"
               />

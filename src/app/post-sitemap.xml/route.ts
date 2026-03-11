@@ -7,7 +7,7 @@ type PostRow = {
   slug: string;
   publishedAt?: string;
   _updatedAt?: string;
-  mainImage?: any;
+  mainImage?: unknown;
 };
 
 function escapeXml(s: string) {
@@ -37,7 +37,7 @@ export async function GET() {
       // ✅ رابط الصورة الرئيسية (إن وجدت)
       let imageTag = "";
       if (p.mainImage) {
-        const imgUrl = urlFor(p.mainImage)
+        const imgUrl = urlFor(p.mainImage as Parameters<typeof urlFor>[0])
           .width(1200)
           .height(630)
           .fit("crop")

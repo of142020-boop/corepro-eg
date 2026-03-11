@@ -177,6 +177,8 @@ export default function HomePage() {
     "@type": "LocalBusiness",
     name: BRAND,
     url: DOMAIN,
+    logo: `${DOMAIN}/logo-header-116x154.webp`,
+    image: `${DOMAIN}/logo-header-116x154.webp`,
     telephone: PHONE_INT,
     address: {
       "@type": "PostalAddress",
@@ -357,7 +359,7 @@ export default function HomePage() {
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1024px"
                   priority
-                  quality={90}
+                  quality={80}
                 />
               </div>
               <div className="p-5 grid gap-3 md:grid-cols-3">
