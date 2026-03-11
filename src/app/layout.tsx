@@ -5,8 +5,14 @@ import { Cairo } from "next/font/google";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import StickyActions from "../components/StickyActions";
-import ScrollToTop from "../components/ScrollToTop";
+import dynamic from "next/dynamic";
+
+const StickyActions = dynamic(() => import("../components/StickyActions"), {
+  ssr: false,
+});
+const ScrollToTop = dynamic(() => import("../components/ScrollToTop"), {
+  ssr: false,
+});
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],

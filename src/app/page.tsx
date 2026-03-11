@@ -118,7 +118,8 @@ function ServiceCard({
           alt={title}
           fill
           className="object-contain bg-white p-4"
-          sizes="(max-width: 1024px) 100vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={80}
         />
       </div>
       <div className="p-6">
@@ -354,8 +355,9 @@ export default function HomePage() {
                   alt={`${BRAND} - قص وتخريم الخرسانة وتركيب الشفاطات`}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1024px"
                   priority
+                  quality={90}
                 />
               </div>
               <div className="p-5 grid gap-3 md:grid-cols-3">
