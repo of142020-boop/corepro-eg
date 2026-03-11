@@ -415,7 +415,7 @@ export default async function PostPage({
         ) : null}
 
         <div className="text-right">
-          <PortableText value={post.body} components={ptComponents} />
+          <PortableText value={post.body as any} components={ptComponents} />
         </div>
 
         <div className="mt-14 rounded-3xl border border-slate-200 bg-slate-900 p-7 text-white shadow-sm">

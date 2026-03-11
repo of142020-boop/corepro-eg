@@ -28,7 +28,11 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/logo-header-116x154.webp",
   },
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: "#0f172a",
 };
 
