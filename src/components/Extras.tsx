@@ -1,5 +1,5 @@
 "use client";
-
+// Unified client-side extras loader
 import dynamic from "next/dynamic";
 
 const StickyActions = dynamic(() => import("./StickyActions"), {
