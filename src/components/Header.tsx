@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
-const Image = ({ src, alt, className, width, height, ...rest }: any) => <img src={src} alt={alt} width={width} height={height} className={className} {...rest} />;
+const Image = ({ src, alt, className, width, height, ...rest }: any) => {
+  const actualSrc = typeof src === "object" ? src.src : src;
+  const actualW = width || (typeof src === "object" ? src.width : undefined);
+  const actualH = height || (typeof src === "object" ? src.height : undefined);
+  return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={className} {...rest} />;
+};
 import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -74,7 +79,7 @@ export default function Header({ currentPath = "" }: { currentPath?: string }) {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3" aria-label={BRAND}>
               <Image
-                src="/logo-header-116x154.webp" // نسخة مصغرة
+                src="/logo-header-116x154.webp" width={116} height={154} // نسخة مصغرة
                 alt="Core Pro Egypt - قص وتخريم الخرسانة"
                 width={90}
                 height={77}
@@ -151,7 +156,7 @@ export default function Header({ currentPath = "" }: { currentPath?: string }) {
           <div className="flex items-center justify-between border-b p-4">
             <Link href="/" onClick={() => setOpen(false)} aria-label={BRAND}>
               <Image
-                src="/logo-header-116x154.webp"
+                src="/logo-header-116x154.webp" width={116} height={154}
                 alt="Core Pro Egypt"
                 width={80}
                 height={70}

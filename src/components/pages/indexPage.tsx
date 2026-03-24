@@ -1,7 +1,10 @@
 import React from 'react';
 const Image = ({ src, alt, fill, className, width, height, priority, ...rest }: any) => {
+  const actualSrc = typeof src === "object" ? src.src : src;
+  const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
+  const actualH = height || (typeof src === "object" ? src.height : undefined) || (fill ? 800 : undefined);
   const fillClasses = fill ? "absolute inset-0 w-full h-full object-cover" : "";
-  return <img src={src} alt={alt} width={width} height={height} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} />;
+  return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} />;
 };
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
@@ -32,10 +35,10 @@ const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201055550195";
 const ADDRESS_TEXT = "القاهرة الكبرى";
 
-const IMG_HERO = "/images/home/hero.webp"; // optional
-const IMG_CORE = "/images/home/core.webp"; // optional
-const IMG_SAW = "/images/home/saw.webp"; // optional
-const IMG_HOODS = "/images/home/hoods.webp"; // optional
+const IMG_HERO = { src: "/images/home/hero.webp", width: 800, height: 800 }; // optional
+const IMG_CORE = { src: "/images/home/core.webp", width: 800, height: 800 }; // optional
+const IMG_SAW = { src: "/images/home/saw.webp", width: 800, height: 800 }; // optional
+const IMG_HOODS = { src: "/images/home/hoods.webp", width: 800, height: 800 }; // optional
 
 
 

@@ -1,5 +1,10 @@
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
-const Image = ({ src, alt, className, width, height, ...rest }: any) => <img src={src} alt={alt} width={width} height={height} className={className} {...rest} />;
+const Image = ({ src, alt, className, width, height, ...rest }: any) => {
+  const actualSrc = typeof src === "object" ? src.src : src;
+  const actualW = width || (typeof src === "object" ? src.width : undefined);
+  const actualH = height || (typeof src === "object" ? src.height : undefined);
+  return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={className} {...rest} />;
+};
 import { MapPin, Phone, ShieldCheck, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import {
@@ -60,7 +65,7 @@ export default function Footer() {
               {/* ✅ اللوجو داخل إطار وخلفية بيضاء */}
               <div className="h-12 w-12 rounded-2xl bg-white border border-black/10 shadow-sm grid place-items-center overflow-hidden">
                 <Image
-                  src="/logo-header-116x154.webp"
+                  src="/logo-header-116x154.webp" width={116} height={154}
                   alt={`${BRAND} logo`}
                   width={40}
                   height={40}

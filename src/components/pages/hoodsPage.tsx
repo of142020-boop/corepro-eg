@@ -1,7 +1,10 @@
 import React from 'react';
 const Image = ({ src, alt, fill, className, width, height, priority, ...rest }: any) => {
+  const actualSrc = typeof src === "object" ? src.src : src;
+  const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
+  const actualH = height || (typeof src === "object" ? src.height : undefined) || (fill ? 800 : undefined);
   const fillClasses = fill ? "absolute inset-0 w-full h-full object-cover" : "";
-  return <img src={src} alt={alt} width={width} height={height} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} />;
+  return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} />;
 };
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
@@ -42,10 +45,10 @@ const WHATSAPP = "https://wa.me/201055550195";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 
 const SERVICE_NAME = "تركيب شفاطات المطبخ والحمام";
-const IMG_HERO = "/images/hoods/hero.webp"; // optional
-const IMG_1 = "/images/hoods/work-1.webp"; // optional
-const IMG_2 = "/images/hoods/work-2.webp"; // optional
-const IMG_3 = "/images/hoods/work-3.webp"; // optional
+const IMG_HERO = { src: "/images/hoods/hero.webp", width: 800, height: 800 }; // optional
+const IMG_1 = { src: "/images/hoods/work-1.webp", width: 800, height: 800 }; // optional
+const IMG_2 = { src: "/images/hoods/work-2.webp", width: 800, height: 800 }; // optional
+const IMG_3 = { src: "/images/hoods/work-3.webp", width: 800, height: 800 }; // optional
 
 function Section({
   title,
