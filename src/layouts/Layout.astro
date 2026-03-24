@@ -27,6 +27,10 @@ const currentPath = Astro.url.pathname;
     <link rel="apple-touch-icon" href="/logo-header-116x154.webp" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
+
+    {currentPath === '/' && (
+      <link rel="preload" as="image" href="/images/home/hero.webp" fetchpriority="high" type="image/webp" />
+    )}
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
