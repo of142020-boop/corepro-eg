@@ -1,7 +1,7 @@
 import React from 'react';
-const Image = ({ src, alt, fill, className, priority, quality, sizes, ...rest }: any) => {
+const Image = ({ src, alt, fill, className, width, height, priority, ...rest }: any) => {
   const fillClasses = fill ? "absolute inset-0 w-full h-full object-cover" : "";
-  return <img src={src} alt={alt} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} />;
+  return <img src={src} alt={alt} width={width} height={height} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} />;
 };
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 

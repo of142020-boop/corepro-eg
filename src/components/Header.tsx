@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
-const Image = ({ src, alt, className, ...rest }: any) => <img src={src} alt={alt} className={className} />;
+const Image = ({ src, alt, className, width, height, ...rest }: any) => <img src={src} alt={alt} width={width} height={height} className={className} {...rest} />;
 import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
