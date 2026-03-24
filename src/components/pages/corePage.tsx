@@ -1,4 +1,5 @@
 import React from 'react';
+
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
   const actualSrc = typeof src === "object" ? src.src : src;
   const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
@@ -6,6 +7,7 @@ const Image = ({ src, alt, fill, className, width, height, priority, fetchpriori
   const fillClasses = fill ? "absolute inset-0 w-full h-full object-cover" : "";
   return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} fetchpriority={fetchpriority} />;
 };
+
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
 import {
@@ -140,7 +142,7 @@ export default function CorePage() {
     },
     {
       q: "كيف يتم تحديد اسعار فتحات الكور؟ وهل يوجد سعر فتحة الكور ثابت؟",
-      a: "لا نضع رقم ثابت لأن اسعار فتحات الكور تعتمد على قطر الفتحة، سمك الخرسانة، نوع العنصر (حائط/سقف/كمر)، عدد الفتحات، وسهولة الوصول للمكان. بعد المعاينة نوضح لك سعر فتحة الكور بشفافية قبل التنفيذ.",
+      a: "لا نضع رقم ثابت لأن اسعار فتحات الكور تعتمد على قطر الفتحة، سمك الخرسانة، نوع العنصر (حائط/سقف/كمر)، عدد الفتحات، وسهولة الوصول للمكان. وبعد المعاينة نوضح لك سعر فتحة الكور بشفافية قبل التنفيذ.",
     },
     {
       q: "هل أنتم مقاول فتحات كور؟ وما الذي يميزكم عن شركات تخريم الخرسانة بالكور؟",
@@ -181,11 +183,40 @@ export default function CorePage() {
     description: "تخريم الخرسانة بالكور وفتح فتحات كور خرسانة للأسقف والحوائط والكمر، لتمرير الغاز والتكييف والسباكة والدكت والمدخنة بدقة عالية وبدون تكسير.",
   };
 
+  const jsonLdFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((x) => ({
+      "@type": "Question",
+      name: x.q,
+      acceptedAnswer: { "@type": "Answer", text: x.a },
+    })),
+  };
+
+  const jsonLdBreadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
+      { "@type": "ListItem", position: 2, name: "تخريم كور", item: CANONICAL },
+    ],
+  };
+
   return (
     <main className="bg-slate-50" dir="rtl">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService]) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            jsonLdLocalBusiness,
+            jsonLdService,
+            jsonLdFaq,
+            jsonLdBreadcrumbs,
+          ]),
+        }}
+      />
 
-      {/* Hero Section */}
+      {/* HERO SECTION */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(14,165,233,0.14),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(34,197,94,0.14),transparent_55%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-50" />
@@ -203,99 +234,184 @@ export default function CorePage() {
               </h1>
 
               <p className="mt-5 text-slate-700 leading-8 text-lg">
-                هل تحتاج <strong>عمل فتحات في الخرسانة</strong> بسرعة ونظافة ودقة؟ في <strong>{BRAND}</strong> نوفر <strong>صنايعي كور</strong> محترف لتنفيذ <strong>عمل فتحات كور</strong> و<strong>عمل فتحات بالكور</strong> داخل الحوائط والأسقف والكمر. نستخدم <strong>ماكينة كور تخريم الخرسانة</strong> أو <strong>ماكينة الكور</strong> لإخراج <strong>فتحة كور</strong> دائرية منتظمة.
+                هل تحتاج <strong>عمل فتحات في الخرسانة</strong> بسرعة ونظافة ودقة؟ في <strong>{BRAND}</strong> نوفر <strong>صنايعي كور</strong> محترف لتنفيذ <strong>عمل فتحات كور</strong> و<strong>عمل فتحات بالكور</strong> داخل الحوائط والأسقف والكمر. نستخدم <strong>ماكينة كور تخريم الخرسانة</strong> أو <strong>ماكينة الكور</strong> لإخراج <strong>فتحة كور</strong> دائرية منتظمة بالمقاس المطلوب دون هبد أو شروخ.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <StatPill icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />} text="أمان تام" />
-                <StatPill icon={<Clock className="h-4 w-4 text-emerald-600" />} text="تنفيذ فوري" />
-                <StatPill icon={<MapPin className="h-4 w-4 text-emerald-600" />} text="كل المحافظات" />
+                <StatPill icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />} text="أمان بدون اهتزاز" />
+                <StatPill icon={<Clock className="h-4 w-4 text-emerald-600" />} text="تنفيذ سريع" />
+                <StatPill icon={<MapPin className="h-4 w-4 text-emerald-600" />} text="القاهرة والجيزة" />
               </div>
 
               <div className="mt-7 flex flex-wrap gap-4">
-                <Link href={WHATSAPP} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-8 py-4 font-bold text-white shadow-lg hover:bg-emerald-700 transition transform hover:-translate-y-1">اتصل بنا الآن</Link>
-                <Link href="#pricing" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-slate-200 px-8 py-4 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition">الأسعار</Link>
+                <Link
+                  href={WHATSAPP}
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-8 py-4 font-bold text-white shadow-lg hover:bg-emerald-700 transition transform hover:-translate-y-1"
+                >
+                  <Phone className="h-5 w-5" />
+                  اطلب الخدمة الآن
+                </Link>
+                <Link
+                  href="#pricing"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-slate-200 px-8 py-4 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
+                >
+                  الأسعار والتفاصيل
+                </Link>
               </div>
             </div>
 
-            <div className="relative aspect-square overflow-hidden rounded-[40px] border border-black/10 shadow-2xl">
-              <Image src={IMG_HERO} alt="عمل فتحات كور خرسانة" fill priority className="object-cover" />
+            <div className="rounded-[40px] border border-black/10 bg-white shadow-2xl overflow-hidden p-2">
+              <div className="relative aspect-square rounded-[32px] overflow-hidden bg-slate-100">
+                <Image src={IMG_HERO} alt="تخريم الخرسانة بالكور - Core Pro Egypt" fill priority className="object-cover" />
+              </div>
+              <div className="p-4 grid grid-cols-3 gap-2">
+                {[IMG_1, IMG_2, IMG_3].map((img, i) => (
+                  <div key={i} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-black/5">
+                    <Image src={img} alt={`أعمال تخريم كور ${i + 1}`} fill className="object-cover" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Full Keyword Sections */}
+      {/* CONTENT SECTIONS */}
       <div className="mx-auto max-w-6xl px-4 pb-20">
         <div className="grid gap-8 lg:grid-cols-3">
+          {/* MAIN COLUMN */}
           <div className="lg:col-span-2 space-y-8">
-            <Section id="services" title="خدمات تخريم الخرسانة المتكاملة" subtitle="نحن نوفر عمل فتحات الغاز والتكييف والسباكة بدقة عالية" icon={<Drill className="h-5 w-5 text-sky-700" />}>
+            <Section
+              id="services"
+              title="خدمات تخريم الخرسانة المتكاملة"
+              subtitle="نحن نوفر عمل فتحات الغاز والتكييف والسباكة بدقة عالية"
+              icon={<Drill className="h-5 w-5 text-sky-700" />}
+            >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  نحن كأفضل <strong>مقاول فتحات كور</strong> نقدم لكم خدمة <strong>تخريم الخرسانة</strong> المسلحة وغير المسلحة. نوفر <strong>عمل فتحة مدخنة السخان</strong> و<strong>عمل فتحات الغاز</strong> و<strong>تخريم السقف</strong> بكل سهولة. باستخدام <strong>جهاز تخريم الخرسانه</strong> المتطور، نضمن لك <strong>فتحات خرسانة</strong> نظيفة تماماً.
+                  نحن كأفضل <strong>مقاول فتحات كور</strong> نقدم لكم خدمة <strong>تخريم الخرسانة</strong> المسلحة وغير المسلحة. نوفر <strong>عمل فتحة مدخنة السخان</strong> و<strong>عمل فتحات الغاز</strong> و<strong>تخريم السقف</strong> بكل سهولة. باستخدام <strong>جهاز تخريم الخرسانه</strong> المتطور، نضمن لك <strong>فتحات خرسانة</strong> نظيفة تماماً دون تكسير.
                 </p>
                 <p>
-                  خدماتنا تشمل <strong>فتح كور في الكمر</strong> وتجهيز <strong>فتحات كور</strong> للتكييف. نستخدم <strong>ماكينة تخريم خرسانة</strong> قوية قادرة على التعامل مع أصعب الظروف الإنشائية، مما يوفر عليك الوقت والجهد في <strong>تخريم كور</strong> بشكل يدوي.
+                  خدماتنا تشمل <strong>فتح كور في الكمر</strong> وتجهيز <strong>فتحات كور</strong> للتكييف والتهوية. نستخدم <strong>ماكينة تخريم خرسانة</strong> قوية قادرة على التعامل مع أصعب الظروف الإنشائية، مما يوفر عليك الوقت والجهد في <strong>تخريم كور</strong> بشكل احترافي.
                 </p>
                 <div className="grid gap-4 md:grid-cols-2 mt-6">
-                  <div className="p-5 rounded-3xl bg-slate-100 border border-slate-200">
-                    <h3 className="font-extrabold md:text-xl mb-2 text-slate-900">تخريم الجدار والأسقف</h3>
-                    <p className="text-sm">نحن خبراء في <strong>تخريم الجدار</strong> و<strong>تخريم السقف</strong>، ونوفر <strong>عمل فتحات في الجدار</strong> و<strong>عمل فتحات في الجبس</strong> بدقة متناهية.</p>
+                  <div className="p-6 rounded-3xl bg-slate-100 border border-slate-200">
+                    <h3 className="font-extrabold text-xl mb-2 text-slate-900 border-b pb-2">تخريم الجدار والأسقف</h3>
+                    <p className="text-sm">نحن خبراء في <strong>تخريم الجدار</strong> و<strong>تخريم السقف</strong>، ونوفر <strong>عمل فتحات في الجدار</strong> و<strong>عمل فتحات في الجبس</strong> بدقة متناهية وبدون اهتزازات.</p>
                   </div>
-                  <div className="p-5 rounded-3xl bg-slate-100 border border-slate-200">
-                    <h3 className="font-extrabold md:text-xl mb-2 text-slate-900">تخريم الرخام والسيراميك</h3>
-                    <p className="text-sm">نوفر <strong>تخريم الرخام</strong> و<strong>تخريم السيراميك</strong> باستخدام <strong>بنط تخريم السيراميك</strong> و<strong>طريقة تخريم الرخام</strong> الصحيحة.</p>
+                  <div className="p-6 rounded-3xl bg-slate-100 border border-slate-200">
+                    <h3 className="font-extrabold text-xl mb-2 text-slate-900 border-b pb-2">تخريم الرخام والسيراميك</h3>
+                    <p className="text-sm">نوفر <strong>تخريم الرخام</strong> و<strong>تخريم السيراميك</strong> باستخدام <strong>بنط تخريم السيراميك</strong> المخصصة و<strong>طريقة تخريم الرخام</strong> الصحيحة لتجنب الكسر.</p>
                   </div>
                 </div>
               </div>
             </Section>
 
-            <Section id="tech" title="تكنولوجيا حفر الكور" subtitle="استخدام ماكينة حفر كور وماكينة كور دريل" icon={<Settings className="h-5 w-5 text-sky-700" />}>
+            <Section
+              id="tech"
+              title="تكنولوجيا حفر الكور والمعدات"
+              subtitle="استخدام ماكينة حفر كور وماكينة كور دريل وماكينة الكور"
+              icon={<Settings className="h-5 w-5 text-sky-700" />}
+            >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  نعتمد في عملنا على <strong>ماكينة حفر كور</strong> حديثة للقيام بمهام <strong>كور حفر</strong> و<strong>حفر كور</strong>. تقنياتنا تشمل <strong>تفتيح الخرسانة</strong> و<strong>تفتيح كور</strong> و<strong>كور تفتيح الخرسانه</strong> لضمان سلامة الهيكل الإنشائي.
+                  نعتمد في عملنا على <strong>ماكينة حفر كور</strong> حديثة للقيام بمهام <strong>كور حفر</strong> و<strong>حفر كور</strong>. تقنياتنا تشمل <strong>تفتيح الخرسانة</strong> و<strong>تفتيح كور</strong> و<strong>كور تفتيح الخرسانه</strong> لضمان سلامة الهيكل الإنشائي تماماً.
                 </p>
                 <p>
-                  سواء كنت تبحث عن <strong>ثقب كور</strong> أو استخدام <strong>ماكينة كور ثقب الخرسانة</strong>، فنحن نوفر لك أحدث الأجهزة. كما يمكنك الاستفسار عن <strong>سعر ماكينة كور دريل</strong> و<strong>سعر جهاز كور دريل</strong> و<strong>أسعار ماكينة كور دريل</strong> من خلالنا.
+                  سواء كنت تبحث عن <strong>ثقب كور</strong> أو استخدام <strong>ماكينة كور ثقب الخرسانة</strong>، فنحن نوفر لك أحدث الأجهزة الإسبانية والألمانية. كما يمكنك الاستفسار عن <strong>سعر ماكينة كور دريل</strong> و<strong>سعر جهاز كور دريل</strong> و<strong>أسعار ماكينة كور دريل</strong> من خلالنا.
                 </p>
                 <p>
-                  إن <strong>ماكينة الكور ماشين</strong> و<strong>كور ماشين</strong> و<strong>فتحات كور ماشين</strong> الخاصة بنا هي الأفضل في مصر، ونوفر <strong>سعر فتحات الكور</strong> و<strong>سعر فتحة الكور</strong> التنافسي للجميع.
+                  إن <strong>ماكينة الكور ماشين</strong> و<strong>كور ماشين</strong> و<strong>فتحات كور ماشين</strong> الخاصة بنا هي الأفضل في مصر حالياً، ونوفر <strong>سعر فتحات الكور</strong> و<strong>سعر فتحة الكور</strong> التنافسي للجميع مع جودة لا تقارن.
                 </p>
               </div>
             </Section>
 
-            <Section id="special" title="فتحات هندسية خاصة" subtitle="عمل فتحة في سقف خرساني قائم ومشاريع معقدة" icon={<Layers className="h-5 w-5 text-sky-700" />}>
+            <Section
+              id="special"
+              title="فتحات هندسية وتطبيقات خاصة"
+              subtitle="عمل فتحة في سقف خرساني قائم ومشاريع معقدة"
+              icon={<Layers className="h-5 w-5 text-sky-700" />}
+            >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  نقدم حلولاً صعبة مثل <strong>عمل فتحة في سقف خرساني قائم</strong> أو <strong>عمل فتحة في السقف لعمل سلم</strong>. هذه العمليات تتطلب <strong>ماكينة كور دريل</strong> دقيقة وخبرة <strong>صنايعي كور</strong> محترف.
+                  نقدم حلولاً صعبة مثل <strong>عمل فتحة في سقف خرساني قائم</strong> أو <strong>عمل فتحة في السقف لعمل سلم</strong>. هذه العمليات تتطلب <strong>ماكينة كور دريل</strong> دقيقة وخبرة <strong>صنايعي كور</strong> محترف لضمان عدم حدوث اهتزازات.
                 </p>
                 <p>
-                  كما ننفذ <strong>عمل فتحة في الرخام</strong> و<strong>عمل فتحات في الجدار</strong> و<strong>عمل فتحات في الجبس</strong>، ونلتزم بتقديم <strong>فتحات خرسانة كور</strong> وفقاً للمقاييس العالمية.
+                  كما ننفذ <strong>عمل فتحة في الرخام</strong> و<strong>عمل فتحات في الجدار</strong> و<strong>عمل فتحات في الجبس</strong>، ونلتزم بتقديم <strong>فتحات خرسانة كور</strong> و<strong>فتحات خرسانة</strong> مطابقة للمواصفات الهندسية.
                 </p>
+              </div>
+            </Section>
+
+            <Section
+              id="faq"
+              title="الأسئلة الشائعة (FAQ)"
+              subtitle="إجابات سريعة حول تخريم الخرسانة بالكور"
+              icon={<HelpCircle className="h-5 w-5 text-sky-700" />}
+            >
+              <div className="space-y-3">
+                {faq.map((item, i) => (
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-black/10 bg-white p-4 shadow-sm hover:border-sky-200 transition"
+                  >
+                    <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
+                      <span>{item.q}</span>
+                      <span className="text-slate-400 group-open:rotate-180 transition">⌄</span>
+                    </summary>
+                    <p className="mt-3 text-slate-600 leading-7 text-sm">{item.a}</p>
+                  </details>
+                ))}
               </div>
             </Section>
           </div>
 
+          {/* SIDEBAR */}
           <aside className="space-y-6">
             <div className="p-6 rounded-3xl bg-white border border-black/10 shadow-sm">
-              <h3 className="font-extrabold text-lg md:text-xl mb-4 text-slate-900 uppercase tracking-wider">فتحات كور</h3>
-              <p className="text-slate-600 mb-4">نحن في {BRAND} نوفر <strong>فتحات الكور</strong> و<strong>فتحات كور خرسانة</strong> و<strong>فتحة الكور</strong> بأقل الأسعار.</p>
+              <div className="flex items-center gap-3 mb-4">
+                <HardHat className="h-6 w-6 text-slate-800" />
+                <h3 className="font-extrabold text-xl text-slate-900 uppercase">فتحات كور</h3>
+              </div>
+              <p className="text-slate-600 mb-4 text-sm leading-6">
+                نحن في <strong>{BRAND}</strong> نوفر <strong>فتحات الكور</strong> و<strong>فتحات كور خرسانة</strong> و<strong>فتحة الكور</strong> بأعلى دقة وأقل الأسعار في السوق المصري.
+              </p>
               <ul className="space-y-3">
-                <li className="flex gap-2 font-bold text-sm"><CheckCircle2 className="h-5 w-5 text-emerald-600" /> <strong>اسعار فتحات الكور</strong> منافسة</li>
-                <li className="flex gap-2 font-bold text-sm"><CheckCircle2 className="h-5 w-5 text-emerald-600" /> <strong>فتحات خرسانة</strong> دقيقة</li>
-                <li className="flex gap-2 font-bold text-sm"><CheckCircle2 className="h-5 w-5 text-emerald-600" /> <strong>شركات تخريم الخرسانة بالكور</strong> معتمدة</li>
+                <li className="flex gap-2 font-bold text-sm text-slate-700">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0" />
+                  <span><strong>اسعار فتحات الكور</strong> منافسة جداً</span>
+                </li>
+                <li className="flex gap-2 font-bold text-sm text-slate-700">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0" />
+                  <span><strong>فتحات خرسانة</strong> دقيقة بالمللي</span>
+                </li>
+                <li className="flex gap-2 font-bold text-sm text-slate-700">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0" />
+                  <span><strong>شركات تخريم الخرسانة بالكور</strong> معتمدة</span>
+                </li>
               </ul>
             </div>
 
+            <MiniCard
+              icon={<MapPin className="h-5 w-5 text-emerald-600" />}
+              title="مناطق الخدمة"
+              desc="القاهرة الكبرى، الجيزة، التجمع، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية."
+            />
+
             <div className="p-6 rounded-3xl bg-slate-900 text-white shadow-xl">
-              <h3 className="font-extrabold text-lg mb-2">تواصل مع مقاول فتحات كور</h3>
-              <p className="text-slate-400 text-sm mb-4">هل تحتاج تفتيح كور أو عمل فتحة في الجدار؟ نحن جاهزون.</p>
-              <Link href={WHATSAPP} className="block w-full text-center py-4 rounded-2xl bg-white text-slate-900 font-bold hover:bg-slate-100 transition">تواصل واتساب</Link>
+              <h3 className="font-extrabold text-xl mb-2 text-emerald-400">تواصل فوري</h3>
+              <p className="text-slate-400 text-sm mb-4 leading-6">هل تبحث عن صنايعي كور أو تفتيح كور؟ نحن نصل إليك أينما كنت في أسرع وقت.</p>
+              <Link
+                href={WHATSAPP}
+                className="block w-full text-center py-4 rounded-2xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/40"
+              >
+                واتسـاب 24 ساعة
+              </Link>
             </div>
           </aside>
         </div>
       </div>
 
+      {/* HIDDEN KEYWORDS FOR SEO */}
       <div className="sr-only">
         الكلمة الاساسية :فتحات كور
         عمل فتحات في الخرسانة
