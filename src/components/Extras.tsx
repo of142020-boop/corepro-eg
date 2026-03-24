@@ -1,13 +1,7 @@
 "use client";
 // Unified client-side extras loader
-import dynamic from "next/dynamic";
-
-const StickyActions = dynamic(() => import("./StickyActions"), {
-  ssr: false,
-});
-const ScrollToTop = dynamic(() => import("./ScrollToTop"), {
-  ssr: false,
-});
+import StickyActions from "./StickyActions";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Extras() {
   return (

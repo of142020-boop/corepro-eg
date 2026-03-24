@@ -1,0 +1,49 @@
+---
+import '../_app/globals.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Extras from '../components/Extras';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
+  description = "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام."
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo-header-116x154.webp" />
+    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased" style="font-family: 'Cairo', sans-serif;">
+    <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:shadow">
+      تخطي إلى المحتوى
+    </a>
+
+    <Header currentPath={currentPath} client:load />
+
+    <main id="content" class="min-h-[60vh]">
+      <slot />
+    </main>
+
+    <Footer client:idle />
+    <Extras client:idle />
+  </body>
+</html>

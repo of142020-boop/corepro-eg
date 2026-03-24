@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
+const Image = ({ src, alt, className, ...rest }: any) => <img src={src} alt={alt} className={className} />;
 import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -27,8 +26,8 @@ const extraPages = [
   { href: "/terms", label: "شروط الاستخدام" },
 ];
 
-export default function Header() {
-  const pathname = usePathname();
+export default function Header({ currentPath = "" }: { currentPath?: string }) {
+  const pathname = typeof window !== "undefined" ? window.location.pathname : currentPath;
   const [open, setOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
 

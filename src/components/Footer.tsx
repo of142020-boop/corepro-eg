@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
+const Image = ({ src, alt, className, ...rest }: any) => <img src={src} alt={alt} className={className} />;
 import { MapPin, Phone, ShieldCheck, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import {

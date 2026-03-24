@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPosts } from '../../components/pages/blogPage';
+import BlogControls from '../../components/pages/BlogControls';
+
+const posts = await getPosts();
+---
+
+<Layout title="مدونة كور برو مصر | مقالات تقنية عن قص وتخريم الخرسانة" description="مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات، وأفضل الممارسات في مصر.">
+  <BlogControls posts={posts} client:load />
+</Layout>
