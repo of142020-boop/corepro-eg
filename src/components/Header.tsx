@@ -79,7 +79,7 @@ export default function Header({ currentPath = "" }: { currentPath?: string }) {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3" aria-label={BRAND}>
               <Image
-                src="/logo-header-116x154.webp" width={116} height={154} // نسخة مصغرة
+                src="/logo-header-116x154.webp"
                 alt="Core Pro Egypt - قص وتخريم الخرسانة"
                 width={90}
                 height={77}
@@ -156,7 +156,7 @@ export default function Header({ currentPath = "" }: { currentPath?: string }) {
           <div className="flex items-center justify-between border-b p-4">
             <Link href="/" onClick={() => setOpen(false)} aria-label={BRAND}>
               <Image
-                src="/logo-header-116x154.webp" width={116} height={154}
+                src="/logo-header-116x154.webp"
                 alt="Core Pro Egypt"
                 width={80}
                 height={70}

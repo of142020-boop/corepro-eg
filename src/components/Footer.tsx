@@ -65,7 +65,7 @@ export default function Footer() {
               {/* ✅ اللوجو داخل إطار وخلفية بيضاء */}
               <div className="h-12 w-12 rounded-2xl bg-white border border-black/10 shadow-sm grid place-items-center overflow-hidden">
                 <Image
-                  src="/logo-header-116x154.webp" width={116} height={154}
+                  src="/logo-header-116x154.webp"
                   alt={`${BRAND} logo`}
                   width={40}
                   height={40}
