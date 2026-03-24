@@ -1,0 +1,203 @@
+---
+import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
+const BRAND = "Core Pro Egypt";
+const PHONE = "01055550195";
+const WHATSAPP = "https://wa.me/201055550195";
+const ADDRESS = "الحي العاشر مدينة نصر ";
+
+const nav = [
+  { href: "/", label: "الرئيسية" },
+  { href: "/core", label: "تخريم الكور" },
+  { href: "/saw", label: "قص الخرسانة" },
+  { href: "/wire", label: "واير تقطيع خرسانة" },
+  { href: "/hoods", label: "الشفاطات" },
+  { href: "/blog", label: "المدونة" },
+];
+
+const extraPages = [
+  { href: "/about", label: "من نحن" },
+  { href: "/privacy-policy", label: "سياسة الخصوصية" },
+  { href: "/terms", label: "شروط الاستخدام" },
+];
+
+const { currentPath = "" } = Astro.props;
+const isActive = (href: string) => currentPath === href || (href !== "/" && currentPath.startsWith(href));
+---
+
+{/* Top Bar */}
+<div class="hidden md:block bg-slate-900 text-white text-sm">
+  <div class="mx-auto max-w-6xl px-4 flex justify-between items-center h-10">
+    <div class="flex items-center gap-4">
+      <a href={`tel:${PHONE}`} class="flex items-center gap-2 hover:opacity-80 transition" aria-label={`اتصال ${BRAND}`}>
+        <Phone className="h-4 w-4" />
+        {PHONE}
+      </a>
+      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-emerald-400 hover:opacity-80 transition" aria-label="واتساب">
+        <FaWhatsapp className="h-4 w-4" />
+        واتساب
+      </a>
+    </div>
+    <div class="flex items-center gap-2 text-slate-300">
+      <MapPin className="h-4 w-4" />
+      {ADDRESS}
+    </div>
+  </div>
+</div>
+
+{/* Main Header */}
+<header dir="rtl" class="sticky top-0 z-50 border-b bg-white">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex h-16 items-center justify-between">
+      {/* Logo */}
+      <a href="/" class="flex items-center gap-3" aria-label={BRAND}>
+        <img
+          src="/logo-header-116x154.webp"
+          alt="Core Pro Egypt - قص وتخريم الخرسانة"
+          width="90"
+          height="77"
+          class="h-11 w-auto object-contain"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </a>
+
+      {/* Desktop Navigation */}
+      <nav class="hidden lg:flex items-center gap-1 relative">
+        {nav.map((item) => (
+          <a
+            href={item.href}
+            class={`px-3 py-2 rounded-xl font-bold transition text-sm xl:text-base ${
+              isActive(item.href)
+                ? "bg-slate-900 text-white"
+                : "text-slate-700 hover:bg-slate-100"
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+
+        {/* Mega Menu (Simple CSS Dropdown) */}
+        <div class="group relative">
+          <button
+            type="button"
+            class="px-3 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100 text-slate-700 text-sm xl:text-base"
+          >
+            صفحات مهمة
+            <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+          </button>
+          <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2 transition-all duration-200">
+            {extraPages.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2 rounded-xl hover:bg-slate-100 font-bold text-slate-700"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Button */}
+      <button
+        id="menu-open"
+        aria-label="فتح القائمة"
+        class="lg:hidden p-2 rounded-xl border border-black/10"
+      >
+        <Menu className="h-6 w-6" />
+      </button>
+    </div>
+  </div>
+</header>
+
+{/* Mobile Drawer (Hidden by default) */}
+<div id="mobile-drawer" class="hidden fixed inset-0 z-[999] bg-white translate-x-full transition-transform duration-300 rtl:translate-x-full">
+  <div class="flex items-center justify-between border-b p-4">
+    <a href="/" id="drawer-logo-link" aria-label={BRAND}>
+      <img
+        src="/logo-header-116x154.webp"
+        alt="Core Pro Egypt"
+        width="80"
+        height="70"
+        class="h-10 w-auto object-contain"
+        loading="lazy"
+      />
+    </a>
+    <button id="menu-close" aria-label="إغلاق القائمة">
+      <X className="h-6 w-6" />
+    </button>
+  </div>
+
+  <div class="p-4 space-y-3 overflow-y-auto max-h-[calc(100vh-80px)]">
+    {nav.map((item) => (
+      <a
+        href={item.href}
+        class={`flex items-center justify-between px-4 py-3 rounded-2xl border font-bold ${
+          isActive(item.href)
+            ? "bg-slate-900 text-white"
+            : "bg-white text-slate-800 border-black/10"
+        }`}
+      >
+        {item.label}
+        <ChevronLeft className="h-4 w-4 opacity-60" />
+      </a>
+    ))}
+
+    <div class="pt-3">
+      <div class="mb-2 px-2 text-sm font-bold text-slate-500">صفحات مهمة</div>
+      {extraPages.map((item) => (
+        <a
+          href={item.href}
+          class="flex items-center justify-between px-4 py-3 rounded-2xl border font-bold bg-white text-slate-800 border-black/10"
+        >
+          {item.label}
+          <ChevronLeft className="h-4 w-4 opacity-60" />
+        </a>
+      ))}
+    </div>
+
+    <div class="pt-4 grid gap-3">
+      <a href={`tel:${PHONE}`} class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 font-bold text-slate-900">
+        <Phone className="h-5 w-5" />
+        اتصال
+      </a>
+      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 font-bold text-white">
+        <FaWhatsapp className="h-5 w-5" />
+        واتساب
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById('menu-open');
+  const closeBtn = document.getElementById('menu-close');
+  const drawer = document.getElementById('mobile-drawer');
+
+  if (openBtn && closeBtn && drawer) {
+    openBtn.addEventListener('click', () => {
+      drawer.classList.remove('hidden');
+      setTimeout(() => {
+        drawer.style.transform = 'translateX(0)';
+      }, 10);
+    });
+
+    closeBtn.addEventListener('click', () => {
+      drawer.style.transform = '';
+      setTimeout(() => {
+        drawer.classList.add('hidden');
+      }, 300);
+    });
+  }
+</script>
+
+<style>
+  #mobile-drawer {
+    display: block !important; /* Keep in DOM but hidden via translate */
+  }
+  #mobile-drawer.hidden {
+    display: none !important;
+  }
+</style>
