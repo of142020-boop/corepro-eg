@@ -1,8 +1,5 @@
 ---
 import '../_app/globals.css';
-import "@fontsource/cairo/400.css";
-import "@fontsource/cairo/700.css";
-import "@fontsource/cairo/800.css";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Extras from '../components/Extras.astro';
@@ -30,6 +27,11 @@ const currentPath = Astro.url.pathname;
     <link rel="apple-touch-icon" href="/logo-header-116x154.webp" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
+
+    {/* Google Fonts with display=swap for CLS optimization */}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
 
     {currentPath === '/' && (
       <link rel="preload" as="image" href="/images/home/hero.webp" fetchpriority="high" type="image/webp" />

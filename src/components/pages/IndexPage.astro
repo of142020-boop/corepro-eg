@@ -1,0 +1,331 @@
+---
+import { Image, Picture } from 'astro:assets';
+import { 
+  Sparkles, ShieldCheck, Target, CheckCircle2, ArrowRight, 
+  MapPin, Wrench, Ruler, Building2, Fan, Hammer, BadgeCheck, 
+  Layers, Gauge 
+} from "lucide-react";
+import heroImg from '../../assets/images/home/hero.webp';
+import sawImg from '../../assets/images/home/saw.webp';
+import coreImg from '../../assets/images/home/core.webp';
+import hoodsImg from '../../assets/images/home/hoods.webp';
+
+const BRAND = "Core Pro Egypt";
+const DOMAIN = "https://corepro-eg.com";
+const PHONE = "01055550195";
+const PHONE_INT = "+201055550195";
+const WHATSAPP = "https://wa.me/201055550195";
+const ADDRESS_TEXT = "القاهرة الكبرى";
+
+const faq = [
+  {
+    q: 'ما الفرق بين "الكور" و "قص الخرسانة"؟',
+    a: "تخريم الكور يستخدم لعمل فتحات دائرية (للسباكة، الغاز، الشفاطات). أما قص الخرسانة بالمنشار فيستخدم لعمل قطوع مستقيمة وطويلة (لفتح باب، إزالة سقف، قص جدار).",
+  },
+  {
+    q: "هل تقومون بتركيب شفاط توشيبا وتأسيس الفتحة له؟",
+    a: "نعم، نقوم بعمل فتحة الكور بالمقاس المناسب (مثل 30×30 سم) ثم يقوم الفني بتركيب الشفاط وتفنيشه بالكامل.",
+  },
+  {
+    q: "هل العمل يسبب غباراً في الشقة المفروشة؟",
+    a: "في قص الخرسانة بالمنشار وتخريم الكور نستخدم التبريد بالمياه وسحب الغبار، مما يقلل الأتربة بشكل كبير مقارنة بالتكسير اليدوي، وهو مناسب للشقق المسكونة.",
+  },
+  {
+    q: "كيف يتم تحديد السعر؟",
+    a: "السعر يتحدد حسب نوع الخدمة (قص/كور/تركيب)، سمك الخرسانة، وعدد الفتحات أو الأمتار. تواصل معنا للحصول على معاينة وعرض سعر فوري.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: BRAND,
+    url: DOMAIN,
+    logo: `${DOMAIN}/logo-header-116x154.webp`,
+    telephone: PHONE_INT,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "EG",
+      addressLocality: "Cairo",
+      streetAddress: ADDRESS_TEXT,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((x) => ({
+      "@type": "Question",
+      name: x.q,
+      acceptedAnswer: { "@type": "Answer", text: x.a },
+    })),
+  }
+];
+---
+
+<main class="bg-slate-50">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  {/* HERO */}
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(59,130,246,0.16),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(16,185,129,0.14),transparent_55%)]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-50"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 pt-10 pb-10 md:pt-16 md:pb-14">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-sm text-slate-700 shadow-sm">
+            <Sparkles className="h-4 w-4 text-emerald-600" />
+            <span>قص خرسانة · تخريم كور · تركيب شفاطات</span>
+          </div>
+
+          <h1 class="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
+            الحل المتكامل للتعديلات الخرسانية والتهوية في مصر
+          </h1>
+
+          <p class="mt-3 text-lg md:text-xl font-bold text-slate-700">
+            قص خرسانة ليزر | تخريم كور | تركيب شفاطات
+          </p>
+
+          <p class="mt-5 text-slate-700 leading-8">
+            مرحباً بكم في <strong>{BRAND}</strong>، شريكك الموثوق للمهمات الصعبة. نجمع بين الدقة الهندسية في قص وتخريم الخرسانة المسلحة وبين الاحترافية الفنية في تركيب أنظمة التهوية والشفاطات.
+          </p>
+
+          <div class="mt-6 grid gap-3 md:grid-cols-3">
+             <div class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
+                <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                <span class="text-slate-700">أمان إنشائي</span>
+             </div>
+             <div class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
+                <Target className="h-4 w-4 text-sky-600" />
+                <span class="text-slate-700">دقة عالية</span>
+             </div>
+             <div class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
+                <Gauge className="h-4 w-4 text-amber-600" />
+                <span class="text-slate-700">سرعة إنجاز</span>
+             </div>
+          </div>
+
+          <div class="mt-7">
+            <a href="#cta" class="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition">
+              اطلب عرض سعر
+            </a>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2 text-sm text-slate-600">
+            <MapPin className="h-4 w-4" />
+            <span>نخدم: {ADDRESS_TEXT} والجيزة والمدن الجديدة</span>
+          </div>
+        </div>
+
+        {/* HERO IMAGE OPTIMIZED */}
+        <div class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
+          <div class="relative aspect-square bg-slate-100 max-w-[1024px] mx-auto">
+            <Picture 
+              src={heroImg} 
+              widths={[400, 800, 1024]} 
+              sizes="(max-width: 640px) 400px, 1024px" 
+              alt={`${BRAND} - قص وتخريم الخرسانة وتركيب الشفاطات`}
+              loading="eager"
+              fetchpriority="high"
+              class="object-cover h-full w-full"
+            />
+          </div>
+          <div class="p-5 grid gap-3 md:grid-cols-3">
+            <div class="rounded-2xl border border-black/10 bg-white p-4">
+              <div class="font-bold text-slate-900 flex items-center gap-2">
+                <Hammer className="h-5 w-5 text-amber-600" />
+                قص بالمنشار
+              </div>
+              <p class="mt-2 text-slate-600 leading-7">فتح أبواب/شبابيك وخطوط مستقيمة.</p>
+            </div>
+            <div class="rounded-2xl border border-black/10 bg-white p-4">
+              <div class="font-bold text-slate-900 flex items-center gap-2">
+                <Ruler className="h-5 w-5 text-sky-600" />
+                تخريم كور
+              </div>
+              <p class="mt-2 text-slate-600 leading-7">فتحات دائرية نظيفة بدون تكسير.</p>
+            </div>
+            <div class="rounded-2xl border border-black/10 bg-white p-4">
+              <div class="font-bold text-slate-900 flex items-center gap-2">
+                <Fan className="h-5 w-5 text-emerald-600" />
+                شفاطات
+              </div>
+              <p class="mt-2 text-slate-600 leading-7">تركيب/تأسيس دكت/صيانة.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Services Grid OPTIMIZED */}
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        {[
+          {
+            title: "قص الخرسانة بالمنشار (تقنية الليزر)",
+            desc: "قص مستقيم ونظيف لفتح أبواب وشبابيك وقص السقف وفواصل التمدد — بدون تكسير عشوائي.",
+            bullets: ["قص جدار بالمنشار لفتح وتوسيع الفتحات.", "قص خرسانة السقف لفتحات السلالم والمصاعد.", "قص بالصاروخ للأماكن الضيقة والتشطيب."],
+            href: "/saw",
+            icon: Hammer, icColor: "text-amber-600",
+            image: sawImg
+          },
+          {
+            title: "تخريم الخرسانة بالكور (Core Drilling)",
+            desc: "فتح كور بمقاسات دقيقة بدون اهتزاز — لتأسيس المرافق والفتحات الهندسية.",
+            bullets: ["فتحات التكييف والتهوية بميل مضبوط.", "فتحات الغاز وفق الاشتراطات.", "فتحات السباكة والصرف 4 و6 بوصة."],
+            href: "/core",
+            icon: Ruler, icColor: "text-sky-600",
+            image: coreImg
+          },
+          {
+            title: "تركيب الشفاطات والتهوية",
+            desc: "بعد تجهيز الفتحة بالكور، نقوم بتركيب الشفاطات وتأسيس الدكت والصيانة.",
+            bullets: ["تركيب بلت ان/هرمي/مسطح/شباك.", "حلول بمدخنة أو فلتر كربوني بدون مدخنة.", "تركيب شفاطات حمام وسقفي داخل الجبس."],
+            href: "/hoods",
+            icon: Fan, icColor: "text-emerald-600",
+            image: hoodsImg
+          }
+        ].map((s) => (
+          <div class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-sm overflow-hidden">
+            <div class="relative aspect-[4/3] bg-white overflow-hidden">
+              <Image 
+                src={s.image} 
+                alt={s.title} 
+                width={660} 
+                height={440} 
+                format="webp" 
+                quality={80} 
+                class="object-contain bg-white p-4 h-full w-full"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-black/5">
+                  <s.icon className={`h-5 w-5 ${s.icColor}`} />
+                </div>
+                <div class="font-extrabold text-lg text-slate-900">{s.title}</div>
+              </div>
+              <p class="mt-3 text-slate-600 leading-7">{s.desc}</p>
+              <ul class="mt-4 space-y-2">
+                {s.bullets.map((b) => (
+                  <li class="flex gap-2">
+                    <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
+                    <span class="text-slate-600 leading-7">{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={s.href} class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition">
+                تفاصيل الخدمة
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Other Sections */}
+  <div class="mx-auto max-w-6xl px-4 pb-14 space-y-6">
+    {/* Why Choose Us */}
+    <section id="why" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
+        <div class="mb-6 flex items-start gap-3">
+            <div class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-black/5">
+                <BadgeCheck className="h-5 w-5 text-sky-700" />
+            </div>
+            <div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">لماذا تختار Core Pro Egypt؟</h2>
+                <p class="mt-2 text-slate-600 leading-7">التميز في كل تفصيلة</p>
+            </div>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+            {[
+              { t: "معدات حديثة", d: "نمتلك أحدث ماكينة قص الخرسانة وكور تخريم مستوردة لضمان السرعة والدقة.", ic: Layers, icColor: "text-emerald-600" },
+              { t: "أمان تام", d: "لا نقوم بقص الخرسانة المسلحة إلا بعد دراسة الموقع لضمان عدم تأثير العمل على الهيكل الإنشائي.", ic: ShieldCheck, icColor: "text-sky-600" },
+              { t: "أسعار تنافسية", d: "أفضل اسعار قص الخرسانة وسعر فتحة الكور في مصر مع باقات خاصة للمقاولين والمشاريع.", ic: Target, icColor: "text-amber-600" },
+              { t: "خدمة شاملة", d: "بدلاً من التعامل مع أكثر من فني: نفتح الكور + نركب الشفاط + نفنيش التشطيب.", ic: Wrench, icColor: "text-slate-700" },
+            ].map((x) => (
+              <div class="rounded-3xl border border-black/10 bg-white p-6">
+                <div class="flex items-center gap-2 font-extrabold text-slate-900">
+                  <x.ic className={`h-5 w-5 ${x.icColor}`} />
+                  <span>{x.t}</span>
+                </div>
+                <p class="mt-2 text-slate-600 leading-7">{x.d}</p>
+              </div>
+            ))}
+        </div>
+    </section>
+
+    {/* Areas */}
+    <section id="areas" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
+        <div class="mb-6 flex items-start gap-3">
+             <div class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-black/5">
+                <MapPin className="h-5 w-5 text-sky-700" />
+            </div>
+            <div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">مناطق الخدمة</h2>
+                <p class="mt-2 text-slate-600 leading-7">فريقنا يغطي القاهرة الكبرى والجيزة بالكامل</p>
+            </div>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+            {["التجمع الخامس والقاهرة الجديدة", "مدينة نصر ومصر الجديدة", "6 أكتوبر والشيخ زايد", "المعادي والشروق ومدينتي", "العاصمة الإدارية الجديدة", "الجيزة بالكامل"].map((x) => (
+              <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white p-4">
+                <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                <span class="text-slate-700">{x}</span>
+              </div>
+            ))}
+        </div>
+    </section>
+
+    {/* FAQ */}
+    <section id="faq" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
+        <div class="mb-6 flex items-start gap-3">
+             <div class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-black/5">
+                <Sparkles className="h-5 w-5 text-sky-700" />
+            </div>
+            <div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">الأسئلة الشائعة (FAQ)</h2>
+                <p class="mt-2 text-slate-600 leading-7">إجابات مختصرة قبل طلب الخدمة</p>
+            </div>
+        </div>
+        <div class="space-y-3">
+            {faq.map((item) => (
+              <details class="group rounded-2xl border border-black/10 bg-white p-4">
+                <summary class="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
+                  <span>{item.q}</span>
+                  <span class="text-slate-500 group-open:rotate-180 transition">⌄</span>
+                </summary>
+                <p class="mt-3 text-slate-600 leading-7">{item.a}</p>
+              </details>
+            ))}
+        </div>
+    </section>
+
+    {/* CTA */}
+    <section id="cta" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
+        <div class="mb-6 flex items-start gap-3">
+             <div class="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-black/5">
+                <Building2 className="h-5 w-5 text-sky-700" />
+            </div>
+            <div>
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">لا تضيع وقتك في البحث عن فنيين متعددين</h2>
+                <p class="mt-2 text-slate-600 leading-7">وجهتك الأولى لكل ما يخص الخرسانة والتهوية</p>
+            </div>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 md:items-center">
+            <div class="text-slate-700 leading-8">
+              <p><strong>{BRAND}</strong> هي الحل الكامل: اطلب معلم قص جدار، أو صنايعي كور، أو فني تركيب شفاطات — وكل ذلك من خلال فريق واحد ومعدات احترافية.</p>
+              <p class="mt-3">اطلب معاينة وعرض سعر فوري حسب طبيعة العمل.</p>
+            </div>
+            <div class="rounded-3xl border border-black/10 bg-white p-6">
+              <div class="font-extrabold text-slate-900">تواصل الآن</div>
+              <div class="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
+              <div class="mt-4 text-sm text-slate-600 leading-7">تواصل معنا عبر زر التواصل العائم (واتساب/اتصال).</div>
+              <div class="mt-4 flex items-center gap-2 text-sm text-slate-600">
+                <MapPin className="h-4 w-4" />
+                <span>{ADDRESS_TEXT} والجيزة</span>
+              </div>
+            </div>
+        </div>
+    </section>
+  </div>
+</main>
