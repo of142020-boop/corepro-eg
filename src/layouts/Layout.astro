@@ -1,5 +1,9 @@
----
+import { getImage } from "astro:assets";
+import heroImg from '../assets/images/home/hero.webp';
 import '../_app/globals.css';
+import "@fontsource/cairo/400.css";
+import "@fontsource/cairo/700.css";
+import "@fontsource/cairo/800.css";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Extras from '../components/Extras.astro';
@@ -15,6 +19,9 @@ const {
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+
+// Radical fix: Preload the EXACT processed image URL from astro:assets
+const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024 });
 ---
 
 <html lang="ar" dir="rtl">
@@ -28,16 +35,11 @@ const currentPath = Astro.url.pathname;
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
 
-    {/* Google Fonts with display=swap for CLS optimization */}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
-
     {currentPath === '/' && (
-      <link rel="preload" as="image" href="/images/home/hero.webp" fetchpriority="high" type="image/webp" />
+      <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" type="image/webp" />
     )}
   </head>
-  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased" style="font-family: Cairo, sans-serif;">
+  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased" style="font-family: 'Cairo', sans-serif;">
     <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:shadow">
       تخطي إلى المحتوى
     </a>
