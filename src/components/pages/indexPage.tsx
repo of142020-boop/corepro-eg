@@ -8,7 +8,6 @@ const Image = ({ src, alt, fill, className, width, height, priority, fetchpriori
 };
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
-
 import {
   Sparkles,
   ShieldCheck,
@@ -24,70 +23,23 @@ import {
   BadgeCheck,
   Layers,
   Gauge,
+  Phone,
+  Maximize,
+  Plus,
+  Zap,
 } from "lucide-react";
-
 
 const BRAND = "Core Pro Egypt";
 const DOMAIN = "https://corepro-eg.com";
-const CANONICAL = `${DOMAIN}/`;
-const PHONE = "01055550195";
-const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
+const PHONE_NUM = "01055550195";
+const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201055550195";
-const ADDRESS_TEXT = "القاهرة الكبرى";
+const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 
-const IMG_HERO = { src: "/images/home/hero.webp", width: 800, height: 800 }; // optional
-const IMG_CORE = { src: "/images/home/core.webp", width: 800, height: 800 }; // optional
-const IMG_SAW = { src: "/images/home/saw.webp", width: 800, height: 800 }; // optional
-const IMG_HOODS = { src: "/images/home/hoods.webp", width: 800, height: 800 }; // optional
-
-
-
-function Pill({ icon, text }: { icon: React.ReactNode; text: string }) {
-  return (
-    <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
-      {icon}
-      <span className="text-slate-700">{text}</span>
-    </div>
-  );
-}
-
-function Section({
-  title,
-  subtitle,
-  icon,
-  children,
-  id,
-}: {
-  title: string;
-  subtitle?: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  id?: string;
-}) {
-  return (
-    <section
-      id={id}
-      className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]"
-    >
-      <div className="mb-6 flex items-start gap-3">
-        {icon ? (
-          <div className="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-black/5">
-            {icon}
-          </div>
-        ) : null}
-        <div>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">
-            {title}
-          </h2>
-          {subtitle ? (
-            <p className="mt-2 text-slate-600 leading-7">{subtitle}</p>
-          ) : null}
-        </div>
-      </div>
-      {children}
-    </section>
-  );
-}
+const IMG_HERO = { src: "/images/home/hero.webp", width: 800, height: 800 };
+const IMG_CORE = { src: "/images/home/core.webp", width: 800, height: 800 };
+const IMG_SAW = { src: "/images/home/saw.webp", width: 800, height: 800 };
+const IMG_HOODS = { src: "/images/home/hoods.webp", width: 800, height: 800 };
 
 function ServiceCard({
   title,
@@ -105,38 +57,42 @@ function ServiceCard({
   image: any;
 }) {
   return (
-    <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-sm overflow-hidden">
-      <div className="relative aspect-[4/3] bg-white overflow-hidden">
+    <div className="rounded-[40px] border border-black/10 bg-white shadow-sm overflow-hidden flex flex-col">
+      <div 
+        data-lightbox-src={image.src}
+        className="relative aspect-square bg-slate-50 overflow-hidden cursor-pointer group"
+      >
         <Image
           src={image}
           alt={title}
           fill
-          className="object-contain bg-white p-4"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          quality={80}
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+           <Maximize className="h-10 w-10" />
+        </div>
       </div>
-      <div className="p-6">
-        <div className="flex items-center gap-2">
-          <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-black/5">
+      <div className="p-8 flex-1 flex flex-col">
+        <div className="flex items-center gap-3">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-black/5">
             {icon}
           </div>
-          <div className="font-extrabold text-lg text-slate-900">{title}</div>
+          <h3 className="font-black text-xl text-slate-900">{title}</h3>
         </div>
-        <p className="mt-3 text-slate-600 leading-7">{desc}</p>
+        <p className="mt-4 text-slate-600 leading-8 flex-1">{desc}</p>
 
-        <ul className="mt-4 space-y-2">
+        <ul className="mt-6 space-y-3">
           {bullets.map((b) => (
-            <li key={b} className="flex gap-2">
-              <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
-              <span className="text-slate-600 leading-7">{b}</span>
+            <li key={b} className="flex gap-2 text-sm font-bold text-slate-700">
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0" />
+              <span>{b}</span>
             </li>
           ))}
         </ul>
 
         <Link
           href={href}
-          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 hover:bg-slate-50 transition"
+          className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-4 font-black text-white hover:bg-emerald-600 transition shadow-lg"
         >
           تفاصيل الخدمة
           <ArrowRight className="h-5 w-5" />
@@ -147,409 +103,142 @@ function ServiceCard({
 }
 
 export default function HomePage() {
-  const faq = [
+  const services = [
     {
-      q: 'ما الفرق بين "الكور" و "قص الخرسانة"؟',
-      a: "تخريم الكور يستخدم لعمل فتحات دائرية (للسباكة، الغاز، الشفاطات). أما قص الخرسانة بالمنشار فيستخدم لعمل قطوع مستقيمة وطويلة (لفتح باب، إزالة سقف، قص جدار).",
-    },
-    {
-      q: "هل تقومون بتركيب شفاط توشيبا وتأسيس الفتحة له؟",
-      a: "نعم، نقوم بعمل فتحة الكور بالمقاس المناسب (مثل 30×30 سم) ثم يقوم الفني بتركيب الشفاط وتفنيشه بالكامل.",
-    },
-    {
-      q: "هل العمل يسبب غباراً في الشقة المفروشة؟",
-      a: "في قص الخرسانة بالمنشار وتخريم الكور نستخدم التبريد بالمياه وسحب الغبار، مما يقلل الأتربة بشكل كبير مقارنة بالتكسير اليدوي، وهو مناسب للشقق المسكونة.",
+      title: "تخريم الخرسانة بالكور",
+      desc: "عمل فتحات دائرية دقيقة لتمرير مواسير السباكة والغاز والتكيف بدون تكسير أو اهتزاز.",
+      bullets: ["دقة هندسية 100%", "بدون غبار أو أتربة", "أحدث ماكينات الكور"],
+      href: "/core",
+      icon: <Layers className="h-6 w-6 text-emerald-600" />,
+      image: IMG_CORE,
     },
     {
-      q: "كيف يتم تحديد السعر؟",
-      a: "السعر يتحدد حسب نوع الخدمة (قص/كور/تركيب)، سمك الخرسانة، وعدد الفتحات أو الأمتار. تواصل معنا للحصول على معاينة وعرض سعر فوري.",
-    },
-  ];
-
-  const jsonLdLocalBusiness = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: BRAND,
-    url: DOMAIN,
-    logo: `${DOMAIN}/logo-header-116x154.webp`,
-    image: `${DOMAIN}/logo-header-116x154.webp`,
-    telephone: PHONE_INT,
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "EG",
-      addressLocality: "Cairo",
-      streetAddress: ADDRESS_TEXT,
-    },
-    areaServed: [
-      "القاهرة الكبرى",
-      "الجيزة",
-      "التجمع الخامس",
-      "مدينة نصر",
-      "مصر الجديدة",
-      "6 أكتوبر",
-      "الشيخ زايد",
-      "المعادي",
-      "الشروق",
-      "مدينتي",
-      "العاصمة الإدارية",
-    ],
-    priceRange: "$$",
-    openingHours: "Mo-Su 00:00-23:59",
-    sameAs: [DOMAIN, WHATSAPP],
-  };
-
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((x) => ({
-      "@type": "Question",
-      name: x.q,
-      acceptedAnswer: { "@type": "Answer", text: x.a },
-    })),
-  };
-
-  const jsonLdBreadcrumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
-    ],
-  };
-
-  const jsonLdServices = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "قص الخرسانة بالمنشار (قص ليزر)",
-      provider: {
-        "@type": "LocalBusiness",
-        name: BRAND,
-        url: DOMAIN,
-        telephone: PHONE_INT,
-      },
-      url: `${DOMAIN}/saw`,
-      areaServed: ["القاهرة الكبرى", "الجيزة"],
-      description:
-        "قص خرسانة بالمنشار لفتح أبواب وشبابيك، قص السقف، وفواصل التمدد بدقة واستقامة عالية وبدون تكسير.",
+      title: "قص الخرسانة بالمنشار",
+      desc: "تقطيع الجدران والأسقف لعمل فتحات الأبواب والشبابيك باستخدام المنشار الماسي الكهربائي.",
+      bullets: ["سطح قص أملس", "قص ليزر دقيق", "أمان للأسقف والجدران"],
+      href: "/saw",
+      icon: <Wrench className="h-6 w-6 text-sky-600" />,
+      image: IMG_SAW,
     },
     {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "تخريم الخرسانة بالكور (Core Drilling)",
-      provider: {
-        "@type": "LocalBusiness",
-        name: BRAND,
-        url: DOMAIN,
-        telephone: PHONE_INT,
-      },
-      url: `${DOMAIN}/core`,
-      areaServed: ["القاهرة الكبرى", "الجيزة"],
-      description:
-        "تخريم كور لعمل فتحات التكييف والغاز والسباكة ومدخنة السخان، وفتح كور في الكمر والأعمدة وفق معايير الأمان.",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "تركيب الشفاطات والتهوية",
-      provider: {
-        "@type": "LocalBusiness",
-        name: BRAND,
-        url: DOMAIN,
-        telephone: PHONE_INT,
-      },
-      url: `${DOMAIN}/hoods`,
-      areaServed: ["القاهرة الكبرى", "الجيزة"],
-      description:
-        "تركيب شفاطات مطابخ وحمامات (بلت ان/هرمي/مسطح/شباك/سقفي) + تأسيس دكت + فلتر كربوني + صيانة وتنظيف.",
-    },
+       title: "تركيب شفاطات المطبخ",
+       desc: "تركيب احترافي لكافة أنواع الشفاطات مع تخريم الفتحات وعزل الروائح والزيوت.",
+       bullets: ["تركيب شفاطات بمدخنة", "عزل تام للهواء", "نظافة قبل وبعد العمل"],
+       href: "/hoods",
+       icon: <Fan className="h-6 w-6 text-amber-600" />,
+       image: IMG_HOODS,
+    }
   ];
 
   return (
-    <main className="bg-slate-50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            jsonLdLocalBusiness,
-            jsonLdFaq,
-            jsonLdBreadcrumbs,
-            ...jsonLdServices,
-          ]),
-        }}
-      />
-
+    <main className="bg-slate-50" dir="rtl">
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(59,130,246,0.16),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(16,185,129,0.14),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(16,185,129,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(59,130,246,0.12),transparent_55%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-50" />
 
-        <div className="relative mx-auto max-w-6xl px-4 pt-10 pb-10 md:pt-16 md:pb-14">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div className="relative mx-auto max-w-6xl px-4 pt-10 pb-10 md:pt-16 md:pb-24">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-sm text-slate-700 shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-800 shadow-sm">
                 <Sparkles className="h-4 w-4 text-emerald-600" />
-                <span>قص خرسانة · تخريم كور · تركيب شفاطات</span>
+                <span>الشركة الأولى في خدمات القص والتخريم الإنشائي</span>
               </div>
 
-              <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-                الحل المتكامل للتعديلات الخرسانية والتهوية في مصر
+              <h1 className="mt-6 text-4xl md:text-6xl font-black leading-[1.1] text-slate-900">
+                كور برو مصر: احترافية <span className="text-emerald-600">قص وتخريم</span> الخرسانة
               </h1>
 
-              <p className="mt-3 text-lg md:text-xl font-bold text-slate-700">
-                قص خرسانة ليزر | تخريم كور | تركيب شفاطات
-              </p>
-
-              <p className="mt-5 text-slate-700 leading-8">
-                مرحباً بكم في <strong>{BRAND}</strong>، شريكك الموثوق للمهمات
-                الصعبة. نجمع بين الدقة الهندسية في قص وتخريم الخرسانة المسلحة وبين
-                الاحترافية الفنية في تركيب أنظمة التهوية والشفاطات.
-              </p>
-
-              <p className="mt-3 text-slate-700 leading-8">
-                سواء كنت مقاولاً تبحث عن شركة قص خرسانة لمشروع كبير، أو صاحب منزل
-                يحتاج صنايعي كور لعمل فتحة غاز، أو تبحث عن فني تركيب شفاط لضبط
-                تهوية مطبخك — نحن هنا لخدمتك بمعدات حديثة وفريق محترف يغطي القاهرة
-                والجيزة.
-              </p>
-
-              <div className="mt-6 grid gap-3 md:grid-cols-3">
-                <Pill
-                  icon={<ShieldCheck className="h-4 w-4 text-emerald-600" />}
-                  text="أمان إنشائي"
-                />
-                <Pill
-                  icon={<Target className="h-4 w-4 text-sky-600" />}
-                  text="دقة عالية"
-                />
-                <Pill
-                  icon={<Gauge className="h-4 w-4 text-amber-600" />}
-                  text="سرعة إنجاز"
-                />
+              <div className="mt-8 text-slate-800 leading-9 text-xl space-y-4 font-medium">
+                <p>
+                  نحن شريكك الموثوق في كافة التعديلات المعمارية. نقدم حلولاً هندسية متطورة لـ <strong>فتحات الكور</strong> و <strong>تقطيع الخرسانة</strong> باستخدام أحدث التكنولوجيات العالمية لضمان سلامة المبنى ونظافة الموقع.
+                </p>
               </div>
 
-              {/* ✅ تم حذف أزرار واتساب/اتصال من داخل الصفحة */}
-              <div className="mt-7">
+              <div className="mt-10 flex flex-wrap gap-4">
                 <Link
-                  href="#cta"
-                  className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-5 py-3 font-bold text-slate-900 shadow-sm hover:bg-slate-50 transition"
+                  href={WHATSAPP}
+                  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-10 py-5 font-black text-white shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:bg-emerald-700 transition transform hover:-translate-y-1 text-xl"
                 >
-                  اطلب عرض سعر
+                  <Phone className="h-6 w-6" />
+                  اطلب الخدمة الآن
                 </Link>
-              </div>
-
-              <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
-                <MapPin className="h-4 w-4" />
-                <span>نخدم: {ADDRESS_TEXT} والجيزة والمدن الجديدة</span>
-              </div>
-            </div>
-
-            {/* HERO IMAGE */}
-            <div className="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.08)] overflow-hidden">
-              <div className="relative aspect-square bg-slate-100 max-w-[1024px] mx-auto">
-                <Image
-                  src={IMG_HERO}
-                  alt={`${BRAND} - قص وتخريم الخرسانة وتركيب الشفاطات`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1024px"
-                  priority
-                  quality={80}
-                  fetchpriority="high"
-                />
-              </div>
-              <div className="p-5 grid gap-3 md:grid-cols-3">
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <div className="font-bold text-slate-900 flex items-center gap-2">
-                    <Hammer className="h-5 w-5 text-amber-600" />
-                    قص بالمنشار
-                  </div>
-                  <p className="mt-2 text-slate-600 leading-7">
-                    فتح أبواب/شبابيك وخطوط مستقيمة.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <div className="font-bold text-slate-900 flex items-center gap-2">
-                    <Ruler className="h-5 w-5 text-sky-600" />
-                    تخريم كور
-                  </div>
-                  <p className="mt-2 text-slate-600 leading-7">
-                    فتحات دائرية نظيفة بدون تكسير.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <div className="font-bold text-slate-900 flex items-center gap-2">
-                    <Fan className="h-5 w-5 text-emerald-600" />
-                    شفاطات
-                  </div>
-                  <p className="mt-2 text-slate-600 leading-7">
-                    تركيب/تأسيس دكت/صيانة.
-                  </p>
+                <div className="flex -space-x-3 rtl:space-x-reverse items-center">
+                   {[1,2,3,4].map(i => (
+                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 shadow-sm overflow-hidden">
+                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="user" />
+                     </div>
+                   ))}
+                   <div className="mr-4 text-sm font-bold text-slate-600">ثقة أكثر من 500 عميل</div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* quick links */}
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            <ServiceCard
-              title="قص الخرسانة بالمنشار (تقنية الليزر)"
-              desc="قص مستقيم ونظيف لفتح أبواب وشبابيك وقص السقف وفواصل التمدد — بدون تكسير عشوائي."
-              bullets={[
-                "قص جدار بالمنشار لفتح وتوسيع الفتحات.",
-                "قص خرسانة السقف لفتحات السلالم والمصاعد.",
-                "قص بالصاروخ للأماكن الضيقة والتشطيب.",
-              ]}
-              href="/saw"
-              icon={<Hammer className="h-5 w-5 text-amber-600" />}
-              image={IMG_SAW}
-            />
-            <ServiceCard
-              title="تخريم الخرسانة بالكور (Core Drilling)"
-              desc="فتح كور بمقاسات دقيقة بدون اهتزاز — لتأسيس المرافق والفتحات الهندسية."
-              bullets={[
-                "فتحات التكييف والتهوية بميل مضبوط.",
-                "فتحات الغاز وفق الاشتراطات.",
-                "فتحات السباكة والصرف 4 و6 بوصة.",
-              ]}
-              href="/core"
-              icon={<Ruler className="h-5 w-5 text-sky-600" />}
-              image={IMG_CORE}
-            />
-            <ServiceCard
-              title="تركيب الشفاطات والتهوية"
-              desc="بعد تجهيز الفتحة بالكور، نقوم بتركيب الشفاطات وتأسيس الدكت والصيانة."
-              bullets={[
-                "تركيب بلت ان/هرمي/مسطح/شباك.",
-                "حلول بمدخنة أو فلتر كربوني بدون مدخنة.",
-                "تركيب شفاطات حمام وسقفي داخل الجبس.",
-              ]}
-              href="/hoods"
-              icon={<Fan className="h-5 w-5 text-emerald-600" />}
-              image={IMG_HOODS}
-            />
+            <div className="rounded-[64px] border-4 border-white bg-white shadow-2xl overflow-hidden p-5 relative">
+               <div 
+                 data-lightbox-src={IMG_HERO.src}
+                 className="relative aspect-square rounded-[48px] overflow-hidden bg-slate-100 shadow-inner group cursor-pointer"
+               >
+                 <Image src={IMG_HERO} alt="Core Pro Egypt Hero" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-[48px]" />
+                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <Maximize className="text-white h-12 w-12" />
+                 </div>
+               </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTIONS */}
-      <div className="mx-auto max-w-6xl px-4 pb-14 space-y-6">
-        <Section
-          id="why"
-          title="لماذا تختار Core Pro Egypt؟"
-          subtitle="التميز في كل تفصيلة"
-          icon={<BadgeCheck className="h-5 w-5 text-sky-700" />}
-        >
-          <div className="grid gap-3 md:grid-cols-2">
-            {[
-              {
-                t: "معدات حديثة",
-                d: "نمتلك أحدث ماكينة قص الخرسانة وكور تخريم مستوردة لضمان السرعة والدقة.",
-                ic: <Layers className="h-5 w-5 text-emerald-600" />,
-              },
-              {
-                t: "أمان تام",
-                d: "لا نقوم بقص الخرسانة المسلحة إلا بعد دراسة الموقع لضمان عدم تأثير العمل على الهيكل الإنشائي.",
-                ic: <ShieldCheck className="h-5 w-5 text-sky-600" />,
-              },
-              {
-                t: "أسعار تنافسية",
-                d: "أفضل اسعار قص الخرسانة وسعر فتحة الكور في مصر مع باقات خاصة للمقاولين والمشاريع.",
-                ic: <Target className="h-5 w-5 text-amber-600" />,
-              },
-              {
-                t: "خدمة شاملة",
-                d: "بدلاً من التعامل مع أكثر من فني: نفتح الكور + نركب الشفاط + نفنيش التشطيب.",
-                ic: <Wrench className="h-5 w-5 text-slate-700" />,
-              },
-            ].map((x) => (
-              <div key={x.t} className="rounded-3xl border border-black/10 bg-white p-6">
-                <div className="flex items-center gap-2 font-extrabold text-slate-900">
-                  {x.ic}
-                  <span>{x.t}</span>
-                </div>
-                <p className="mt-2 text-slate-600 leading-7">{x.d}</p>
-              </div>
+      {/* SERVICES */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 border-b-4 border-emerald-600 inline-block pb-4 mb-6">خدماتنا الرئيسية</h2>
+            <p className="max-w-2xl mx-auto text-slate-600 text-lg leading-8 font-semibold">نقدم مجموعة متكاملة من الخدمات التخصصية التي تلبي احتياجاتك في القص والتخريم الإنشائي وتأسيس المرافق.</p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <ServiceCard key={s.title} {...s} />
             ))}
           </div>
-        </Section>
+        </div>
+      </section>
 
-        <Section
-          id="areas"
-          title="مناطق الخدمة"
-          subtitle="فريقنا يغطي القاهرة الكبرى والجيزة بالكامل"
-          icon={<MapPin className="h-5 w-5 text-sky-700" />}
-        >
-          <div className="grid gap-3 md:grid-cols-2">
-            {[
-              "التجمع الخامس والقاهرة الجديدة",
-              "مدينة نصر ومصر الجديدة",
-              "6 أكتوبر والشيخ زايد",
-              "المعادي والشروق ومدينتي",
-              "العاصمة الإدارية الجديدة",
-              "الجيزة بالكامل",
-            ].map((x) => (
-              <div
-                key={x}
-                className="flex items-center gap-2 rounded-2xl border border-black/10 bg-white p-4"
-              >
-                <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                <span className="text-slate-700">{x}</span>
+      {/* WHY US */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4">
+           <div className="grid gap-12 lg:grid-cols-2 items-center">
+              <div>
+                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 pr-4 border-r-8 border-emerald-600">لماذا نعد الاختيار المفضل للمقاولين؟</h2>
+                 <div className="grid gap-4">
+                    {[
+                      { t: "الأمان الإنشائي", d: "نضمن سلامة الهيكل الخرساني 100% بدون أي تصدعات مجهرية.", ic: <ShieldCheck className="h-6 w-6 text-emerald-600" /> },
+                      { t: "السرية والنظافة", d: "نعمل في المواقع المشطبة والمسكونة دون ترك أثر للغبار أو الماء.", ic: <Sparkles className="h-6 w-6 text-amber-600" /> },
+                      { t: "أحدث التقنيات", d: "نمتلك أسطولاً من ماكينات الكور والمنشار الماسي (هولتي) وكور ماشين.", ic: <Zap className="h-6 w-6 text-sky-600" /> }
+                    ].map(item => (
+                      <div key={item.t} className="p-6 bg-white rounded-3xl border border-black/5 shadow-sm flex gap-4">
+                         <div className="bg-slate-50 p-3 rounded-2xl h-fit">{item.ic}</div>
+                         <div>
+                            <h4 className="font-black text-lg text-slate-900">{item.t}</h4>
+                            <p className="text-slate-600 text-sm leading-7 mt-1">{item.d}</p>
+                         </div>
+                      </div>
+                    ))}
+                 </div>
               </div>
-            ))}
-          </div>
-        </Section>
-
-        <Section
-          id="faq"
-          title="الأسئلة الشائعة (FAQ)"
-          subtitle="إجابات مختصرة قبل طلب الخدمة"
-          icon={<Sparkles className="h-5 w-5 text-sky-700" />}
-        >
-          <div className="space-y-3">
-            {faq.map((item, i) => (
-              <details key={i} className="group rounded-2xl border border-black/10 bg-white p-4">
-                <summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between">
-                  <span>{item.q}</span>
-                  <span className="text-slate-500 group-open:rotate-180 transition">⌄</span>
-                </summary>
-                <p className="mt-3 text-slate-600 leading-7">{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </Section>
-
-        <Section
-          id="cta"
-          title="لا تضيع وقتك في البحث عن فنيين متعددين"
-          subtitle="وجهتك الأولى لكل ما يخص الخرسانة والتهوية"
-          icon={<Building2 className="h-5 w-5 text-sky-700" />}
-        >
-          <div className="grid gap-4 md:grid-cols-2 md:items-center">
-            <div className="text-slate-700 leading-8">
-              <p>
-                <strong>{BRAND}</strong> هي الحل الكامل: اطلب معلم قص جدار، أو صنايعي كور،
-                أو فني تركيب شفاطات — وكل ذلك من خلال فريق واحد ومعدات احترافية.
-              </p>
-              <p className="mt-3">اطلب معاينة وعرض سعر فوري حسب طبيعة العمل.</p>
-            </div>
-
-            <div className="rounded-3xl border border-black/10 bg-white p-6">
-              <div className="font-extrabold text-slate-900">تواصل الآن</div>
-              <div className="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
-
-              {/* ✅ تم حذف أزرار واتساب/اتصال من داخل الصفحة */}
-              <div className="mt-4 text-sm text-slate-600 leading-7">
-                تواصل معنا عبر زر التواصل العائم (واتساب/اتصال).
+              <div className="relative">
+                 <div className="aspect-[4/5] rounded-[64px] overflow-hidden border-8 border-white shadow-2xl">
+                    <img src="/images/home/why-us.webp" alt="Why Core Pro" className="w-full h-full object-cover" />
+                 </div>
+                 <div className="absolute -bottom-6 -left-6 bg-emerald-600 p-8 rounded-[40px] text-white shadow-2xl">
+                    <div className="text-4xl font-black mb-1">+15</div>
+                    <div className="text-sm font-bold opacity-80 leading-tight">عاماً من الخبرة <br /> في السوق المصري</div>
+                 </div>
               </div>
-
-              <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
-                <MapPin className="h-4 w-4" />
-                <span>{ADDRESS_TEXT} والجيزة</span>
-              </div>
-            </div>
-          </div>
-        </Section>
-      </div>
+           </div>
+        </div>
+      </section>
     </main>
   );
 }
