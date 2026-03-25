@@ -2,8 +2,6 @@ backend:
   name: github
   repo: of142020-boop/corepro-eg
   branch: main
-  # base_url: https://your-oauth-proxy.vercel.app # TODO: Add your OAuth proxy URL here
-  # auth_endpoint: api/auth
 
 local_backend: true
 publish_mode: editorial_workflow
@@ -13,10 +11,11 @@ site_url: https://corepro-eg.com
 display_url: https://corepro-eg.com
 logo_url: /logo-header-116x154.webp
 
-i18n:
-  structure: single_file
-  locales: [ar]
-  default_locale: ar
+# Removed i18n to avoid duplicate items error until config is stable
+# i18n:
+#   structure: single_file
+#   locales: [ar]
+#   default_locale: ar
 
 collections:
   - name: "blog"
@@ -28,9 +27,9 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "العنوان الرئيسي", name: "title", widget: "string", i18n: true }
-      - { label: "تاريخ النشر", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, i18n: true }
-      - { label: "وصف المختصر (Excerpt/SEO)", name: "description", widget: "text", i18n: true }
+      - { label: "العنوان الرئيسي", name: "title", widget: "string" }
+      - { label: "تاريخ النشر", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "وصف المختصر (Excerpt/SEO)", name: "description", widget: "text" }
       - { label: "الصورة الرئيسية", name: "heroImage", widget: "image", choose_url: false }
       - { label: "التصنيف", name: "category", widget: "select", options: ["تخريم بالكور", "قص بالمنشار", "واير خرسانة", "شفاطات وتأسيس"] }
-      - { label: "المحتوى", name: "body", widget: "markdown", i18n: true }
+      - { label: "المحتوى", name: "body", widget: "markdown" }
