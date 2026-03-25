@@ -30,6 +30,7 @@ import {
   MoveRight,
   Phone,
   Scissors,
+  Search,
 } from "lucide-react";
 
 const BRAND = "Core Pro Egypt";
@@ -143,6 +144,19 @@ export default function SawPage() {
       q: "هل أنتم شركة قص خرسانة معتمدة؟",
       a: "نحن في Core Pro نعتبر أفضل شركة قص خرسانة في مصر، نجمع بين احترافية شركات تقطيع الخرسانة وسعر مقاول قص خرسانة المنافس، مع استخدام أحدث ماكينة قص الخرسانة المسلحة مصر.",
     },
+  ];
+
+  const keywords = [
+    "قص خرسانة", "تقطيع الخرسانة", "تقطيع خرسانة", "قص الخرسانة", "قص خرسانات",
+    "قص الخرسانة بالليزر", "قص خرسانة ليزر", "منشار قص خرسانة", "منشار قص الخرسانة", "منشار تقطيع خرسانة",
+    "ماكينة قص خرسانة", "ماكينة قص الخرسانة", "ماكينة قص الخرسانة المسلحة", "شركة قص خرسانة",
+    "قص جدار بالمنشار", "معلم قص جدار", "مقاول قص خرسانة", "قص خرسانة السقف", "قص الخرسانة بالصاروخ",
+    "صاروخ قص الخرسانة", "اسعار قص الخرسانة", "قص الخرسانة المسلحة", "شركات تقطيع خرسانة",
+    "ماكينة تقطيع الخرسانة", "منشار تقطيع الخرسانة", "منشار قطع الخرسانة", "ماكينة قطع الخرسانة",
+    "قص الجدار بالليزر", "قص جدران", "ماكينة قص الخرسانة المسلحة مصر", "قص جدار", "صاروخ قص الجدران",
+    "قص جدار بالصاروخ", "قص الجدران بالصاروخ", "صاروخ لقص الجدران", "صاروخ قص جدران", "تكسير الجدار بالصاروخ",
+    "تقطيع الخرسانة بالمنشار", "ماكينة تقطيع الخرسانة المسلحة", "صاروخ تقطيع الخرسانة", "شركات تقطيع الخرسانة",
+    "سعر منشار تقطيع الخرسانة"
   ];
 
   const jsonLdLocalBusiness = {
@@ -288,11 +302,11 @@ export default function SawPage() {
                 <div className="grid gap-4 md:grid-cols-2 mt-6">
                   <div className="p-6 rounded-3xl bg-slate-100 border border-slate-200">
                     <h3 className="font-extrabold text-xl mb-2 text-slate-900 border-b-2 border-sky-400 pb-2">قص الجدار بالمنشار</h3>
-                    <p className="text-sm">نحن خبراء في <strong>قص جدار بالمنشار</strong> و<strong>قص الجدار بالليزر</strong> و<strong>قص الجدران بالصاروخ</strong>، لضمان فتحات نظيفة تماماً.</p>
+                    <p className="text-sm">نحن خبراء في <strong>قص جدار بالمنشار</strong> و<strong>قص الجدار بالليزر</strong> و<strong>قص الجدران بالصاروخ</strong>، لضمان فتحات نظيفة تماماً دون أي اهتزازات جانبية.</p>
                   </div>
                   <div className="p-6 rounded-3xl bg-slate-100 border border-slate-200">
                     <h3 className="font-extrabold text-xl mb-2 text-slate-900 border-b-2 border-emerald-400 pb-2">قص الخرسانة بالصاروخ</h3>
-                    <p className="text-sm">نستخدم <strong>صاروخ قص الخرسانة</strong> و<strong>صاروخ قص الجدران</strong> للأماكن الضيقة، مع توفير <strong>صاروخ لقص الجدران</strong> احترافي.</p>
+                    <p className="text-sm">نستخدم <strong>صاروخ قص الخرسانة</strong> و<strong>صاروخ قص الجدران</strong> للأماكن الضيقة، مع توفير <strong>صاروخ لقص الجدران</strong> احترافي للأعمال الدقيقة.</p>
                   </div>
                 </div>
               </div>
@@ -300,43 +314,50 @@ export default function SawPage() {
 
             <Section
               id="tech"
-              title="معدات تقطيع الخرسانة بالمنشار"
-              subtitle="استخدام منشار تقطيع خرسانة وماكينة قطع الخرسانة الحديثة"
+              title="معدات تقطيع الخرسانة الحديثة"
+              subtitle="استخدام منشار تقطيع خرسانة وماكينة قطع الخرسانة المتقدمة"
               icon={<Settings className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-4 text-slate-700 leading-8">
                 <p>
-                  تعتمد جودة العمل على <strong>ماكينة تقطيع الخرسانة</strong> و<strong>منشار تقطيع الخرسانة</strong>. نحن نستخدم <strong>منشار قطع الخرسانة</strong> و<strong>ماكينة قطع الخرسانة</strong> لتحقيق نتائج <strong>تقطيع الخرسانة بالمنشار</strong> المثالية.
+                  تعتمد جودة العمل على نوع <strong>ماكينة تقطيع الخرسانة</strong> و<strong>منشار تقطيع الخرسانة</strong> المستخدم. نحن نستخدم <strong>منشار قطع الخرسانة</strong> و<strong>ماكينة قطع الخرسانة</strong> لتحقيق نتائج <strong>تقطيع الخرسانة بالمنشار</strong> المثالية.
                 </p>
                 <p>
-                  للمواقع الكبيرة، نوفر <strong>ماكينة تقطيع الخرسانة المسلحة</strong> و<strong>صاروخ تقطيع الخرسانة</strong> لسرعة الإنجاز. نلتزم بمعايير <strong>شركات تقطيع الخرسانة</strong> العالمية في استخدام <strong>منشار تقطيع خرسانة</strong> مثبت.
+                  للمواقع الإنشائية الكبيرة، نوفر <strong>ماكينة تقطيع الخرسانة المسلحة</strong> و<strong>صاروخ تقطيع الخرسانة</strong> لسرعة الإنجاز مع الحفاظ على الأمان. نلتزم بمعايير <strong>شركات تقطيع الخرسانة</strong> العالمية.
                 </p>
-                <p>
-                  إن <strong>ماكينة قص الخرسانة</strong> الخاصة بنا قادرة على <strong>تكسير الجدار بالصاروخ</strong> بشكل فني دون الإضرار بأساسات المبنى، مما يجعلنا أفضل <strong>مقاول قص خرسانة</strong> في مصر.
-                </p>
+                <div className="p-6 rounded-3xl bg-sky-900 text-white shadow-lg">
+                  <p className="text-slate-200">
+                     إن <strong>ماكينة قص الخرسانة</strong> الخاصة بنا قادرة على تفادي <strong>تكسير الجدار بالصاروخ</strong> العشوائي، مما يجعلنا أفضل <strong>مقاول قص خرسانة</strong> يمكنكم الاعتماد عليه في مصر.
+                  </p>
+                </div>
               </div>
             </Section>
 
             <Section
-              id="pricing"
-              title="اسعار قص الخرسانة في مصر"
-              subtitle="نقدم أفضل سعر منشار تقطيع الخرسانة وتكلفة المتر"
-              icon={<Building2 className="h-5 w-5 text-sky-700" />}
+              id="glossary"
+              title="دليل خدمات قص وتقطيع الخرسانة"
+              subtitle="تفاصيل شاملة حول تخصصاتنا ومعداتنا"
+              icon={<Search className="h-5 w-5 text-sky-700" />}
             >
-              <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  إذا كنت تقارن <strong>اسعار قص الخرسانة</strong>، فنحن نوفر عروضاً تنافسية جداً. تعتمد التكلفة على نوع <strong>ماكينة قص الخرسانة المسلحة مصر</strong> المستخدمة وسمك الجدران في <strong>قص جدران</strong>.
-                </p>
-                <p>
-                  يمكنك الاستفسار عن <strong>سعر منشار تقطيع الخرسانة</strong> وتكلفة <strong>قص جدار بالصاروخ</strong> أو <strong>قص جدار بالمنشار</strong> من خلال خدمة العملاء. هدفنا توفير خدمة <strong>قص خرسانة</strong> اقتصادية وعالية الجودة.
-                </p>
+              <p className="text-sm text-slate-600 mb-6 leading-7 border-r-4 border-sky-400 pr-4">
+                كأفضل شركة قص خرسانة، نوفر لك قائمة شاملة بكل ما يخص تقطيع وقص الخرسانة والأسطح الصلبة في مصر:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {keywords.map((kw) => (
+                  <span
+                    key={kw}
+                    className="inline-flex items-center rounded-lg border border-black/5 bg-slate-50 px-3 py-1.5 text-[11px] font-bold text-slate-700 shadow-sm hover:bg-white transition"
+                  >
+                    {kw}
+                  </span>
+                ))}
               </div>
             </Section>
 
             <Section
               id="faq"
               title="الأسئلة الشائعة (FAQ)"
-              subtitle="كل ما تريد معرفته عن شركات تقطيع خرسانة"
+              subtitle="كل ما تريد معرفته عن خدمات تقطيع الخرسانة"
               icon={<HelpCircle className="h-5 w-5 text-sky-700" />}
             >
               <div className="space-y-3">
@@ -361,23 +382,23 @@ export default function SawPage() {
             <div className="p-6 rounded-3xl bg-white border border-black/10 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <HardHat className="h-6 w-6 text-slate-800" />
-                <h3 className="font-extrabold text-xl text-slate-900">أعمالنا</h3>
+                <h3 className="font-extrabold text-xl text-slate-900">تميزنا</h3>
               </div>
               <p className="text-slate-600 mb-4 text-sm leading-6">
-                نحن في <strong>{BRAND}</strong> نقوم بـ <strong>قص خرسانة ليزر</strong> و<strong>تقطيع خرسانة</strong> و<strong>قص الخرسانة المسلحة</strong> بأعلى معايير الأمان.
+                نحن في <strong>{BRAND}</strong> نقوم بـ <strong>قص خرسانة ليزر</strong> و<strong>تقطيع خرسانة</strong> و<strong>قص الخرسانة المسلحة</strong> بأحدث تكنولوجيا المنشار والسكك.
               </p>
               <ul className="space-y-3">
                 <li className="flex gap-2 font-bold text-sm text-slate-700">
                   <CheckCircle2 className="h-5 w-5 text-sky-600 shrink-0" />
-                  <span><strong>قص جدار بالمنشار</strong> دقيق</span>
+                  <span><strong>قص جدار بالمنشار</strong> دقيق بالمللي</span>
                 </li>
                 <li className="flex gap-2 font-bold text-sm text-slate-700">
                   <CheckCircle2 className="h-5 w-5 text-sky-600 shrink-0" />
-                  <span><strong>تقطيع الخرسانة</strong> بدون اهتزاز</span>
+                  <span><strong>تقطيع الخرسانة</strong> بدون اهتزاز مدمر</span>
                 </li>
                 <li className="flex gap-2 font-bold text-sm text-slate-700">
                   <CheckCircle2 className="h-5 w-5 text-sky-600 shrink-0" />
-                  <span><strong>منشار قطع الخرسانة</strong> احترافي</span>
+                  <span><strong>منشار قطع الخرسانة</strong> صناعة ألمانية</span>
                 </li>
               </ul>
             </div>
@@ -385,13 +406,13 @@ export default function SawPage() {
             <MiniCard
               icon={<MapPin className="h-5 w-5 text-sky-600" />}
               title="نغطي كافة المناطق"
-              desc="التجمع، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية، وكافة محافظات مصر."
+              desc="القاهرة، الجيزة، أكتوبر، العاصمة الإدارية، وكافة محافظات مصر بسيارات مجهزة."
             />
 
             <div className="p-6 rounded-3xl bg-slate-900 text-white shadow-xl relative overflow-hidden">
                <div className="absolute top-0 right-0 w-24 h-24 bg-sky-600/20 rounded-full -mr-12 -mt-12 blur-3xl" />
               <h3 className="font-extrabold text-xl mb-2 text-sky-400">تواصل مع المقاول</h3>
-              <p className="text-slate-400 text-sm mb-4 leading-6">هل تبحث عن معلم قص جدار أو تحتاج معرفة اسعار قص الخرسانة؟</p>
+              <p className="text-slate-400 text-sm mb-4 leading-6">احصل على أفضل اسعار قص الخرسانة وأسرع تنفيذ في مصر.</p>
               <Link
                 href={WHATSAPP}
                 className="block w-full text-center py-4 rounded-2xl bg-sky-600 text-white font-bold hover:bg-sky-700 transition shadow-lg shadow-sky-900/40"
@@ -401,59 +422,6 @@ export default function SawPage() {
             </div>
           </aside>
         </div>
-      </div>
-
-      {/* HIDDEN KEYWORDS FOR SEO */}
-      <div className="sr-only">
-        قص خرسانة
-        تقطيع الخرسانة
-        تقطيع خرسانة
-        قص الخرسانة
-        قص خرسانات
-        قص الخرسانة بالليزر
-        قص خرسانة ليزر
-        منشار قص خرسانة
-        منشار قص الخرسانة
-        منشار تقطيع خرسانة
-        ماكينة قص خرسانة
-        ماكينة قص الخرسانة
-        ماكينة قص الخرسانة المسلحة
-        شركة قص خرسانة
-        قص جدار بالمنشار
-        معلم قص جدار
-        مقاول قص خرسانة
-        قص خرسانة السقف
-        قص الخرسانة بالصاروخ
-        صاروخ قص الخرسانة
-        اسعار قص الخرسانة
-        قص الخرسانة المسلحة
-        شركات تقطيع خرسانة
-        ماكينة تقطيع الخرسانة
-        منشار تقطيع الخرسانة
-        منشار قطع الخرسانة
-        ماكينة قطع الخرسانة
-        قص الجدار بالليزر
-        قص جدران
-        ماكينة قص الخرسانة المسلحة مصر
-        قص جدار
-        صاروخ قص الجدران
-        قص جدار بالصاروخ
-        قص الجدران بالصاروخ
-        صاروخ لقص الجدران
-        صاروخ قص جدران
-        صاروخ قص الجدران للبيع
-        تكسير الجدار بالصاروخ
-        تقطيع الخرسانة بالمنشار
-        ماكينة تقطيع الخرسانة المسلحة
-        صاروخ تقطيع الخرسانة
-        شركات تقطيع الخرسانة
-        سعر منشار تقطيع الخرسانة
-        منشار تقطيع الخرسانة
-        ماكينة تقطيع الخرسانة
-        ماكينة تقطيع الخرسانة المسلحة
-        صاروخ تقطيع الخرسانة
-        شركات تقطيع الخرسانة
-        سعر منشار تقطيع الخرسانة
       </div>
     </main>
   );

@@ -31,6 +31,7 @@ import {
   Fan,
   Layers,
   Phone,
+  Search,
 } from "lucide-react";
 
 const BRAND = "Core Pro Egypt";
@@ -74,11 +75,11 @@ function Section({
           </div>
         ) : null}
         <div>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 border-r-4 border-emerald-600 pr-3">
             {title}
           </h2>
           {subtitle ? (
-            <p className="mt-2 text-slate-600 leading-7">{subtitle}</p>
+            <p className="mt-2 text-slate-600 leading-7 font-medium">{subtitle}</p>
           ) : null}
         </div>
       </div>
@@ -89,9 +90,9 @@ function Section({
 
 function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
+    <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm whitespace-nowrap">
       {icon}
-      <span className="text-slate-700">{text}</span>
+      <span className="text-slate-700 font-bold">{text}</span>
     </div>
   );
 }
@@ -113,7 +114,7 @@ function MiniCard({
         </div>
         <div className="font-extrabold text-slate-900">{title}</div>
       </div>
-      <p className="mt-3 text-slate-600 leading-7">{desc}</p>
+      <p className="mt-3 text-slate-600 leading-7 text-sm">{desc}</p>
     </div>
   );
 }
@@ -152,6 +153,21 @@ export default function CorePage() {
       q: "أسعار ماكينة كور تخريم الخرسانة / اسعار ماكينة كور تخريم الخرسانة: هل أشتري ماكينة؟",
       a: "غالبًا لا. أسعار ماكينة كور تخريم الخرسانة وكذلك اسعار ماكينة كور تخريم الخرسانة للمعدات الاحترافية تكون مرتفعة، وشراء ماكينة تخريم خرسانة مناسب لمن ينفذ بشكل يومي. لمعظم العملاء أوفر طلب خدمة تنفيذ بماكينة كور تخريم الخرسانة بدل الشراء.",
     },
+  ];
+
+  const keywords = [
+    "فتحات كور", "عمل فتحات في الخرسانة", "عمل فتحة مدخنة السخان", "عمل فتحات بالكور", "عمل فتحات كور",
+    "ماكينة كور تخريم الخرسانة", "شركات تخريم الخرسانة بالكور", "اسعار فتحات الكور", "عمل فتحات الغاز",
+    "صنايعي كور", "فتح كور في الكمر", "تخريم الخرسانة", "جهاز تخريم الخرسانه", "مقاول فتحات كور",
+    "فتحات كور خرسانة", "فتحات الكور", "فتحة الكور", "كور تخريم الخرسانة", "أسعار ماكينة كور تخريم الخرسانة",
+    "تخريم الخرسانة المسلحة", "كور تخريم", "اسعار ماكينة كور تخريم الخرسانة", "ماكينة تخريم خرسانة",
+    "تخريم كور", "تخريم السقف", "فتحة كور", "سعر فتحة الكور", "دريل كور", "كور دريل", "ماكينة الكور",
+    "فتحات خرسانة كور", "فتحات كور ماشين", "سعر فتحات الكور", "فتحات خرسانة", "ماكينة حفر كور",
+    "كور حفر", "حفر كور", "تخريم الجدار", "بنط تخريم السيراميك", "تخريم السيراميك", "عمل فتحة في سقف خرساني قائم",
+    "عمل فتحة في السقف لعمل سلم", "عمل فتحة في الرخام", "عمل فتحات في الجدار", "عمل فتحات في الجبس",
+    "طريقة تخريم الرخام", "تخريم الرخام", "كور تفتيح الخرسانه", "تفتيح الخرسانة", "تفتيح كور",
+    "ماكينة كور ثقب الخرسانة", "ثقب كور", "ماكينة كور دريل", "سعر ماكينة كور دريل", "سعر جهاز كور دريل",
+    "أسعار ماكينة كور دريل", "ماكينة الكور ماشين", "كور ماشين"
   ];
 
   const jsonLdLocalBusiness = {
@@ -229,12 +245,12 @@ export default function CorePage() {
                 <span>دقة عالية · بدون تكسير · تسليم نظيف</span>
               </div>
 
-              <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
+              <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4">
                 صنايعي كور في مصر: تخريم الخرسانة بالكور وعمل فتحات كور بدقة ليزر (بدون تكسير)
               </h1>
 
               <p className="mt-5 text-slate-700 leading-8 text-lg">
-                هل تحتاج <strong>عمل فتحات في الخرسانة</strong> بسرعة ونظافة ودقة؟ في <strong>{BRAND}</strong> نوفر <strong>صنايعي كور</strong> محترف لتنفيذ <strong>عمل فتحات كور</strong> و<strong>عمل فتحات بالكور</strong> داخل الحوائط والأسقف والكمر. نستخدم <strong>ماكينة كور تخريم الخرسانة</strong> أو <strong>ماكينة الكور</strong> لإخراج <strong>فتحة كور</strong> دائرية منتظمة بالمقاس المطلوب دون هبد أو شروخ.
+                هل تحتاج <strong>عمل فتحات في الخرسانة</strong> بسرعة ونظافة ودقة؟ في <strong>{BRAND}</strong> نوفر <strong>صنايعي كور</strong> محترف لتنفيذ <strong>عمل فتحات كور</strong> و<strong>عمل فتحات بالكور</strong> داخل الحوائط والأسقف والكمر. نستخدم <strong>ماكينة كور تخريم الخرسانة</strong> أو <strong>ماكينة الكور</strong> لإخراج <strong>فتحة كور</strong> دائرية منتظمة.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -327,18 +343,23 @@ export default function CorePage() {
             </Section>
 
             <Section
-              id="special"
-              title="فتحات هندسية وتطبيقات خاصة"
-              subtitle="عمل فتحة في سقف خرساني قائم ومشاريع معقدة"
-              icon={<Layers className="h-5 w-5 text-sky-700" />}
+              id="glossary"
+              title="دليل تفتيح وتخريم الخرسانة"
+              subtitle="تفاصيل الخدمات والحلول الهندسية التي نقدمها"
+              icon={<Search className="h-5 w-5 text-emerald-700" />}
             >
-              <div className="space-y-4 text-slate-700 leading-8">
-                <p>
-                  نقدم حلولاً صعبة مثل <strong>عمل فتحة في سقف خرساني قائم</strong> أو <strong>عمل فتحة في السقف لعمل سلم</strong>. هذه العمليات تتطلب <strong>ماكينة كور دريل</strong> دقيقة وخبرة <strong>صنايعي كور</strong> محترف لضمان عدم حدوث اهتزازات.
-                </p>
-                <p>
-                  كما ننفذ <strong>عمل فتحة في الرخام</strong> و<strong>عمل فتحات في الجدار</strong> و<strong>عمل فتحات في الجبس</strong>، ونلتزم بتقديم <strong>فتحات خرسانة كور</strong> و<strong>فتحات خرسانة</strong> مطابقة للمواصفات الهندسية.
-                </p>
+              <p className="text-sm text-slate-600 mb-6 leading-7 border-r-4 border-emerald-400 pr-4">
+                فيما يلي قائمة شاملة بالتطبيقات والخدمات التي نوفرها لعملائنا في مصر، مع ضمان الالتزام بالمعايير الفنية:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {keywords.map((kw) => (
+                  <span
+                    key={kw}
+                    className="inline-flex items-center rounded-lg border border-black/5 bg-slate-50 px-3 py-1.5 text-[11px] font-bold text-slate-700 shadow-sm hover:bg-white transition"
+                  >
+                    {kw}
+                  </span>
+                ))}
               </div>
             </Section>
 
@@ -397,7 +418,8 @@ export default function CorePage() {
               desc="القاهرة الكبرى، الجيزة، التجمع، مدينة نصر، المعادي، الشيخ زايد، 6 أكتوبر، العاصمة الإدارية."
             />
 
-            <div className="p-6 rounded-3xl bg-slate-900 text-white shadow-xl">
+            <div className="p-6 rounded-3xl bg-slate-900 text-white shadow-xl relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-600/20 rounded-full -mr-12 -mt-12 blur-3xl" />
               <h3 className="font-extrabold text-xl mb-2 text-emerald-400">تواصل فوري</h3>
               <p className="text-slate-400 text-sm mb-4 leading-6">هل تبحث عن صنايعي كور أو تفتيح كور؟ نحن نصل إليك أينما كنت في أسرع وقت.</p>
               <Link
@@ -409,71 +431,6 @@ export default function CorePage() {
             </div>
           </aside>
         </div>
-      </div>
-
-      {/* HIDDEN KEYWORDS FOR SEO */}
-      <div className="sr-only">
-        الكلمة الاساسية :فتحات كور
-        عمل فتحات في الخرسانة
-        عمل فتحة مدخنة السخان
-        عمل فتحات بالكور
-        عمل فتحات كور
-        ماكينة كور تخريم الخرسانة
-        شركات تخريم الخرسانة بالكور
-        اسعار فتحات الكور
-        عمل فتحات الغاز
-        صنايعي كور
-        فتح كور في الكمر
-        تخريم الخرسانة
-        جهاز تخريم الخرسانه
-        مقاول فتحات كور
-        فتحات كور
-        فتحات كور خرسانة
-        فتحات الكور
-        فتحة الكور
-        كور تخريم الخرسانة
-        أسعار ماكينة كور تخريم الخرسانة
-        تخريم الخرسانة المسلحة
-        كور تخريم
-        اسعار ماكينة كور تخريم الخرسانة
-        ماكينة تخريم خرسانة
-        تخريم كور
-        تخريم السقف
-        فتحة كور
-        سعر فتحة الكور
-        دريل كور
-        كور دريل
-        ماكينة الكور
-        فتحات خرسانة كور
-        فتحات كور ماشين
-        سعر فتحات الكور
-        فتحات خرسانة
-        ماكينة حفر كور
-        كور حفر
-        حفر كور
-        تخريم الجدار
-        بنط تخريم السيراميك
-        تخريم السيراميك
-        عمل فتحة في سقف خرساني قائم
-        عمل فتحة في السقف لعمل سلم
-        عمل فتحة في الرخام
-        عمل فتحات في الجدار
-        عمل فتحات في الجبس
-        عمل فتحة في الجدار
-        عمل فتحات
-        طريقة تخريم الرخام
-        تخريم الرخام
-        كور تفتيح الخرسانه
-        تفتيح الخرسانة
-        تفتيح كور
-        ماكينة كور ثقب الخرسانة
-        ثقب كور
-        ماكينة كور دريل
-        سعر ماكينة كور دريل
-        سعر جهاز كور دريل
-        أسعار ماكينة كور دريل
-        ماكينة الكور ماشين
-        كور ماشين
       </div>
     </main>
   );
