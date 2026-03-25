@@ -235,12 +235,12 @@ export default function CorePage() {
               </div>
             </div>
 
-            <div className="rounded-[48px] border-4 border-white bg-white shadow-2xl overflow-hidden p-3 relative">
+            <div className="rounded-[64px] border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
               <div 
                 data-lightbox-src={IMG_HERO.src}
-                className="relative aspect-square rounded-[40px] overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
+                className="relative aspect-square rounded-[48px] overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
               >
-                <Image src={IMG_HERO} alt="تخريم الخرسانة بالكور - Core Pro Egypt" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={IMG_HERO} alt="تخريم الخرسانة بالكور - Core Pro Egypt" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-[48px]" />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                    <Maximize className="h-10 w-10" />
                 </div>
