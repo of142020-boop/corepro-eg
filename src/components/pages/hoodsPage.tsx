@@ -183,12 +183,12 @@ export default function HoodsPage() {
               </div>
             </div>
 
-            <div className="rounded-[64px] border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
+            <div className="rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
               <div 
                 data-lightbox-src={IMG_HERO.src}
-                className="relative aspect-square rounded-[48px] overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
+                className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
               >
-                <Image src={IMG_HERO} alt="تركيب شفاط مطبخ - Core Pro Egypt" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-[48px]" />
+                <Image src={IMG_HERO} alt="تركيب شفاط مطبخ - Core Pro Egypt" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                    <Maximize className="text-white h-10 w-10" />
                 </div>
@@ -198,9 +198,9 @@ export default function HoodsPage() {
                   <div 
                     key={i} 
                     data-lightbox-src={img.src}
-                    className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer"
+                    className="relative aspect-[4/3] rounded-none overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer"
                   >
-                    <Image src={img} alt={`أعمال تركيب شفاطات ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <Image src={img} alt={`أعمال تركيب شفاطات ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
                     <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                        <Plus className="text-white h-6 w-6" />
                     </div>

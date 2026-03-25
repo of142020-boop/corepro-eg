@@ -57,16 +57,16 @@ function ServiceCard({
   image: any;
 }) {
   return (
-    <div className="rounded-[40px] border border-black/10 bg-white shadow-sm overflow-hidden flex flex-col">
+    <div className="rounded-none border border-black/10 bg-white shadow-sm overflow-hidden flex flex-col">
       <div 
         data-lightbox-src={image.src}
-        className="relative aspect-square bg-slate-50 overflow-hidden cursor-pointer group"
+        className="relative aspect-square bg-slate-50 overflow-hidden cursor-pointer group rounded-none"
       >
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none"
         />
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
            <Maximize className="h-10 w-10" />
@@ -174,12 +174,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="rounded-[64px] border-4 border-white bg-white shadow-2xl overflow-hidden p-5 relative">
+            <div className="rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden p-5 relative">
                <div 
                  data-lightbox-src={IMG_HERO.src}
-                 className="relative aspect-square rounded-[48px] overflow-hidden bg-slate-100 shadow-inner group cursor-pointer"
+                 className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group cursor-pointer"
                >
-                 <Image src={IMG_HERO} alt="Core Pro Egypt Hero" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-[48px]" />
+                 <Image src={IMG_HERO} alt="Core Pro Egypt Hero" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                     <Maximize className="text-white h-12 w-12" />
                  </div>
