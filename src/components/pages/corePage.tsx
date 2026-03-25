@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
   const actualSrc = typeof src === "object" ? src.src : src;
@@ -34,6 +34,9 @@ import {
   Search,
   Hammer,
   Zap,
+  X,
+  Plus,
+  Maximize,
 } from "lucide-react";
 
 const BRAND = "Core Pro Egypt";
@@ -105,6 +108,7 @@ function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
 }
 
 export default function CorePage() {
+  const [activeImage, setActiveImage] = useState<string | null>(null);
   const faq = [
     {
       q: "هل تخريم الخرسانة بالكور آمن على أساسات المبنى؟",
@@ -233,14 +237,27 @@ export default function CorePage() {
             </div>
 
             <div className="rounded-[48px] border-4 border-white bg-white shadow-2xl overflow-hidden p-3 relative">
-              <div className="relative aspect-square rounded-[40px] overflow-hidden bg-slate-100 shadow-inner">
-                <Image src={IMG_HERO} alt="تخريم الخرسانة بالكور - Core Pro Egypt" fill priority className="object-cover" />
-              </div>
+              <button 
+                onClick={() => setActiveImage(IMG_HERO.src)}
+                className="relative aspect-square rounded-[40px] overflow-hidden bg-slate-100 shadow-inner group w-full"
+              >
+                <Image src={IMG_HERO} alt="تخريم الخرسانة بالكور - Core Pro Egypt" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                   <Maximize className="text-white h-10 w-10" />
+                </div>
+              </button>
               <div className="p-4 grid grid-cols-3 gap-3">
                 {[IMG_1, IMG_2, IMG_3].map((img, i) => (
-                  <div key={i} className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-slate-100 shadow-sm">
-                    <Image src={img} alt={`أعمال تخريم خرسانة بالكور ${i + 1}`} fill className="object-cover" />
-                  </div>
+                  <button 
+                    key={i} 
+                    onClick={() => setActiveImage(img.src)}
+                    className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-slate-100 shadow-sm group"
+                  >
+                    <Image src={img} alt={`أعمال تخريم خرسانة بالكور ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                       <Plus className="text-white h-6 w-6" />
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -439,6 +456,27 @@ export default function CorePage() {
           </aside>
         </div>
       </div>
+      {/* MODAL LIGHTBOX */}
+      {activeImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-in fade-in duration-300"
+          onClick={() => setActiveImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition"
+            onClick={() => setActiveImage(null)}
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <div className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
+             <img 
+               src={activeImage} 
+               alt="Core Pro Work" 
+               className="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl animate-in zoom-in-95 duration-300"
+             />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
