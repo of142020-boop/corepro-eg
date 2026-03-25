@@ -428,19 +428,7 @@ export default function SawPage() {
               </Link>
             </div>
 
-            <div className="p-8 rounded-[48px] bg-slate-50 border border-slate-200">
-                <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                   <Search className="h-5 w-5" />
-                   الخدمات الرئيسية
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                   {keywords.map(kw => (
-                      <span key={kw} className="px-3 py-1 bg-white border border-slate-200 rounded-lg text-[10px] font-bold text-slate-500 hover:text-sky-600 transition">
-                         {kw}
-                      </span>
-                   ))}
-                </div>
-            </div>
+
           </aside>
         </div>
       </div>
