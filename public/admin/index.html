@@ -4,22 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Core Pro CMS - لوحة إدارة المحتوى</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- No Netlify Identity - We will use GitHub Proxy if needed -->
 </head>
 <body>
+  <!-- Decap CMS Script -->
   <script>
-    // Radical Solution: Manual Init to avoid 404 on external config files
     window.CMS_MANUAL_INIT = true;
   </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
   <script>
+    // ✅ Init Decap CMS with GitHub Backend
     CMS.init({
       config: {
         backend: {
-          name: 'git-gateway',
-          branch: 'main'
+          name: 'github',
+          repo: 'of142020-boop/corepro-eg',
+          branch: 'main',
+          // base_url: 'https://corepro-eg.vercel.app', // TODO: Add your OAuth Proxy URL here
+          // auth_endpoint: 'api/auth'
         },
-        local_backend: true,
+        local_backend: true, // Allow working locally with npx decap-cms-proxy-server
         publish_mode: 'editorial_workflow',
         media_folder: 'public/images/blog',
         public_folder: '/images/blog',
