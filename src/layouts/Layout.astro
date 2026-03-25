@@ -8,6 +8,7 @@ import "@fontsource/cairo/800.css";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Extras from '../components/Extras.astro';
+import Lightbox from '../components/Lightbox.astro';
 
 interface Props {
   title?: string;
@@ -53,5 +54,6 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
 
     <Footer />
     <Extras />
+    <Lightbox />
   </body>
 </html>
