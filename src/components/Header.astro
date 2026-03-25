@@ -79,7 +79,7 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
           </a>
         ))}
 
-        {/* Mega Menu (Simple CSS Dropdown) */}
+        {/* Mega Menu */}
         <div class="group relative">
           <button
             type="button"
@@ -105,7 +105,7 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
       <button
         id="menu-open"
         aria-label="فتح القائمة"
-        class="lg:hidden p-2 rounded-xl border border-black/10"
+        class="lg:hidden p-2 rounded-xl border border-black/10 active:bg-slate-50"
       >
         <Menu className="h-6 w-6" />
       </button>
@@ -113,10 +113,13 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
   </div>
 </header>
 
-{/* Mobile Drawer (Hidden by default) */}
-<div id="mobile-drawer" class="hidden fixed inset-0 z-[999] bg-white translate-x-full transition-transform duration-300 rtl:translate-x-full">
+{/* Mobile Drawer */}
+<div 
+  id="mobile-drawer" 
+  class="fixed inset-0 z-[1000] bg-white translate-x-full rtl:translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+>
   <div class="flex items-center justify-between border-b p-4">
-    <a href="/" id="drawer-logo-link" aria-label={BRAND}>
+    <a href="/" aria-label={BRAND}>
       <Image
         src={logoImg}
         alt="Core Pro Egypt"
@@ -126,8 +129,8 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
         loading="lazy"
       />
     </a>
-    <button id="menu-close" aria-label="إغلاق القائمة">
-      <X className="h-6 w-6" />
+    <button id="menu-close" aria-label="إغلاق القائمة" class="p-2">
+      <X className="h-8 w-8 text-slate-900" />
     </button>
   </div>
 
@@ -135,70 +138,79 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
     {nav.map((item) => (
       <a
         href={item.href}
-        class={`flex items-center justify-between px-4 py-3 rounded-2xl border font-bold ${
+        class={`flex items-center justify-between px-4 py-4 rounded-2xl border font-black text-lg ${
           isActive(item.href)
-            ? "bg-slate-900 text-white"
-            : "bg-white text-slate-800 border-black/10"
+            ? "bg-slate-900 text-white border-slate-900"
+            : "bg-slate-50 text-slate-800 border-black/5"
         }`}
       >
         {item.label}
-        <ChevronLeft className="h-4 w-4 opacity-60" />
+        <ChevronLeft className="h-5 w-5 opacity-40" />
       </a>
     ))}
 
-    <div class="pt-3">
-      <div class="mb-2 px-2 text-sm font-bold text-slate-500">صفحات مهمة</div>
-      {extraPages.map((item) => (
-        <a
-          href={item.href}
-          class="flex items-center justify-between px-4 py-3 rounded-2xl border font-bold bg-white text-slate-800 border-black/10"
-        >
-          {item.label}
-          <ChevronLeft className="h-4 w-4 opacity-60" />
-        </a>
-      ))}
+    <div class="pt-6">
+      <div class="mb-3 px-4 text-xs font-black uppercase tracking-wider text-slate-400">صفحات إضافية</div>
+      <div class="grid grid-cols-1 gap-2">
+        {extraPages.map((item) => (
+          <a
+            href={item.href}
+            class="flex items-center justify-between px-4 py-3 rounded-2xl bg-white border border-black/5 font-bold text-slate-700"
+          >
+            {item.label}
+            <ChevronLeft className="h-4 w-4 opacity-40" />
+          </a>
+        ))}
+      </div>
     </div>
 
-    <div class="pt-4 grid gap-3">
-      <a href={`tel:${PHONE}`} class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 font-bold text-slate-900">
-        <Phone className="h-5 w-5" />
-        اتصال
+    <div class="pt-8 grid gap-4">
+      <a href={`tel:${PHONE}`} class="flex items-center justify-center gap-3 rounded-2xl bg-slate-900 py-4 font-black text-white shadow-lg">
+        <Phone className="h-5 w-5 text-emerald-400" />
+        اتصل بنا الآن
       </a>
-      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 font-bold text-white">
-        <FaWhatsapp className="h-5 w-5" />
-        واتساب
+      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 py-4 font-black text-white shadow-lg">
+        <FaWhatsapp className="h-6 w-6" />
+        واتساب مباشرة
       </a>
     </div>
   </div>
 </div>
 
 <script>
-  const openBtn = document.getElementById('menu-open');
-  const closeBtn = document.getElementById('menu-close');
-  const drawer = document.getElementById('mobile-drawer');
+  function initMenu() {
+    const openBtn = document.getElementById('menu-open');
+    const closeBtn = document.getElementById('menu-close');
+    const drawer = document.getElementById('mobile-drawer');
 
-  if (openBtn && closeBtn && drawer) {
-    openBtn.addEventListener('click', () => {
-      drawer.classList.remove('hidden');
-      setTimeout(() => {
-        drawer.style.transform = 'translateX(0)';
-      }, 10);
-    });
+    if (!openBtn || !closeBtn || !drawer) return;
 
-    closeBtn.addEventListener('click', () => {
-      drawer.style.transform = '';
-      setTimeout(() => {
-        drawer.classList.add('hidden');
-      }, 300);
-    });
+    const openMenu = () => {
+      drawer.classList.remove('translate-x-full');
+      drawer.classList.remove('rtl:translate-x-full');
+      drawer.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+      drawer.classList.add('translate-x-full');
+      // For RTL support, we add back both just in case
+      drawer.classList.add('rtl:translate-x-full');
+      drawer.classList.remove('translate-x-0');
+      document.body.style.overflow = '';
+    };
+
+    openBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Close on link click
+    const links = drawer.querySelectorAll('a');
+    links.forEach(l => l.addEventListener('click', closeMenu));
   }
+
+  // Run on first load
+  initMenu();
+
+  // Run on View Transitions (if enabled)
+  document.addEventListener('astro:after-swap', initMenu);
 </script>
-
-<style>
-  #mobile-drawer {
-    display: block !important; /* Keep in DOM but hidden via translate */
-  }
-  #mobile-drawer.hidden {
-    display: none !important;
-  }
-</style>
