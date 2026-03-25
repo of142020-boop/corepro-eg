@@ -1,11 +1,18 @@
----
 import Layout from '../../layouts/Layout.astro';
-import { getPosts } from '../../components/pages/blogPage';
+import { getCollection } from 'astro:content';
 import BlogControls from '../../components/pages/BlogControls';
 
-const posts = await getPosts();
+const allPosts = await getCollection('blog');
+const posts = allPosts.map(p => ({
+  title: p.data.title,
+  slug: p.slug,
+  excerpt: p.data.description,
+  publishedAt: p.data.pubDate.toISOString(),
+  imageUrl: p.data.heroImage,
+  categories: p.data.category ? [{ title: p.data.category, slug: p.data.category }] : []
+})).sort((a,b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 ---
 
 <Layout title="مدونة كور برو مصر | مقالات تقنية عن قص وتخريم الخرسانة" description="مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات، وأفضل الممارسات في مصر.">
-  <BlogControls posts={posts} client:load />
+  <BlogControls posts={posts as any} client:load />
 </Layout>

@@ -41,7 +41,7 @@ function PostCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+      className="group relative overflow-hidden rounded-none border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="relative aspect-square w-full bg-slate-100">
         {post.imageUrl ? (

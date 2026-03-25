@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to main)
+
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images/blog" # Folder where user uploaded files should go
+public_folder: "/images/blog"
+
+site_url: https://corepro-eg.com
+display_url: https://corepro-eg.com
+logo_url: https://corepro-eg.com/logo-header-116x154.webp
+
+i18n:
+  structure: single_file
+  locales: [ar]
+  default_locale: ar
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "المقالات (Blog)" # Used in the UI
+    folder: "src/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., title.md
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - { label: "العنوان الرئيسي", name: "title", widget: "string", i18n: true }
+      - { label: "تاريخ النشر", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, i18n: true }
+      - { label: "وصف المختصر (Excerpt/SEO)", name: "description", widget: "text", i18n: true }
+      - { label: "الصورة الرئيسية", name: "heroImage", widget: "image", choose_url: false }
+      - { label: "التصنيف", name: "category", widget: "select", options: ["تخريم بالكور", "قص بالمنشار", "واير خرسانة", "شفاطات وتأسيس"] }
+      - { label: "المحتوى", name: "body", widget: "markdown", i18n: true }
