@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+/* Apply font to everything within the CMS */
+body, h1, h2, h3, h4, span, div, p, button, input, label, a {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* CMS Header Makeover */
+header[class*="AppHeader"] {
+    background-color: #0f172a !important;     /* Slate 900 */
+    border-bottom: 4px solid #059669 !important; /* Emerald 600 */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+}
+
+/* White text in header */
+header[class*="AppHeader"] * {
+    color: #ffffff !important;
+}
+
+/* Fix logo size and filter it to white to match the dark header */
+a[class*="AppHeader-logo"] img {
+    max-height: 40px !important;
+    filter: brightness(0) invert(1) !important;
+    transition: transform 0.3s ease !important;
+}
+a[class*="AppHeader-logo"] img:hover {
+    transform: scale(1.05) !important;
+}
+
+/* General Layout styling */
+div[class*="CollectionTop"] {
+    background: #f8fafc !important; /* Slate 50 */
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Rounded and Bold Buttons */
+button, a[class*="CollectionTop-button"] {
+    border-radius: 9999px !important; /* Pill shape */
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.2s ease !important;
+    background-color: #059669 !important; /* Emerald 600 */
+    color: white !important;
+    border: none !important;
+}
+
+button:hover, a[class*="CollectionTop-button"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+    background-color: #047857 !important; /* Emerald 700 */
+}
+
+/* Side navigation active state */
+a[aria-current="page"][class*="SidebarLink"] {
+    background-color: #ecfdf5 !important; /* Emerald 50 */
+    color: #059669 !important; /* Emerald 600 */
+    border-right: 4px solid #059669 !important; /* Visual RTL indicator */
+    border-left: none !important;
+    font-weight: 900 !important;
+}
+
+/* Page background */
+body {
+    background-color: #f1f5f9 !important; /* Slate 100 */
+}
+
+/* Post Cards in grid */
+div[class*="Card"] {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e2e8f0 !important;
+    overflow: hidden !important;
+    transition: transform 0.3s ease !important;
+    background: white !important;
+}
+
+div[class*="Card"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}

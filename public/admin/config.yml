@@ -13,11 +13,7 @@ site_url: https://corepro-eg.com
 display_url: https://corepro-eg.com
 logo_url: /logo-header-116x154.webp
 
-# Removed i18n to avoid duplicate items error until config is stable
-# i18n:
-#   structure: single_file
-#   locales: [ar]
-#   default_locale: ar
+locale: 'ar'
 
 collections:
   - name: "blog"
