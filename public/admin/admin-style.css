@@ -1,80 +1,227 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+/* ============================================================
+   Core Pro CMS — Professional Admin Skin
+   Targeting Decap CMS v3 stable class suffixes
+   ============================================================ */
 
-/* Apply font to everything within the CMS */
-body, h1, h2, h3, h4, span, div, p, button, input, label, a {
-    font-family: 'Cairo', sans-serif !important;
+/* 1. Cairo Font */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+/* 2. Global Font Override */
+* {
+  font-family: 'Cairo', system-ui, sans-serif !important;
 }
 
-/* CMS Header Makeover */
-header[class*="AppHeader"] {
-    background-color: #0f172a !important;     /* Slate 900 */
-    border-bottom: 4px solid #059669 !important; /* Emerald 600 */
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+/* ── HEADER ─────────────────────────────────────────────── */
+
+/* Main app header container */
+[class*="AppHeader-"]:first-of-type,
+header[class*="css-"] {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  border-bottom: 3px solid #059669 !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25) !important;
 }
 
-/* White text in header */
-header[class*="AppHeader"] * {
-    color: #ffffff !important;
+/* Header nav links (Media, Workflow, Contents) */
+[class*="AppHeaderButton"],
+[class*="AppHeaderNavLink"] {
+  color: #cbd5e1 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  transition: all 0.2s ease !important;
 }
 
-/* Fix logo size and filter it to white to match the dark header */
-a[class*="AppHeader-logo"] img {
-    max-height: 40px !important;
-    filter: brightness(0) invert(1) !important;
-    transition: transform 0.3s ease !important;
-}
-a[class*="AppHeader-logo"] img:hover {
-    transform: scale(1.05) !important;
+[class*="AppHeaderButton"]:hover,
+[class*="AppHeaderNavLink"]:hover {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.08) !important;
 }
 
-/* General Layout styling */
-div[class*="CollectionTop"] {
-    background: #f8fafc !important; /* Slate 50 */
-    border-bottom: 1px solid #e2e8f0 !important;
+/* "Quick Add" button */
+[class*="AppHeaderQuickNewButton"] {
+  background: #059669 !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+  border: none !important;
+  padding: 6px 16px !important;
+  transition: all 0.2s ease !important;
+}
+[class*="AppHeaderQuickNewButton"]:hover {
+  background: #047857 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(5,150,105,0.4) !important;
 }
 
-/* Rounded and Bold Buttons */
-button, a[class*="CollectionTop-button"] {
-    border-radius: 9999px !important; /* Pill shape */
-    font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
-    transition: all 0.2s ease !important;
-    background-color: #059669 !important; /* Emerald 600 */
-    color: white !important;
-    border: none !important;
+/* Site link (corepro-eg.com) */
+[class*="AppHeaderSiteLink"] {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+}
+[class*="AppHeaderSiteLink"]:hover {
+  color: #10b981 !important;
 }
 
-button:hover, a[class*="CollectionTop-button"]:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
-    background-color: #047857 !important; /* Emerald 700 */
+/* ── SIDEBAR ────────────────────────────────────────────── */
+
+/* Sidebar container */
+[class*="Sidebar"] {
+  background: #f8fafc !important;
+  border-right: 1px solid #e2e8f0 !important;
 }
 
-/* Side navigation active state */
-a[aria-current="page"][class*="SidebarLink"] {
-    background-color: #ecfdf5 !important; /* Emerald 50 */
-    color: #059669 !important; /* Emerald 600 */
-    border-right: 4px solid #059669 !important; /* Visual RTL indicator */
-    border-left: none !important;
-    font-weight: 900 !important;
+/* "Collections" heading */
+[class*="SidebarHeading"],
+[class*="SidebarNav"] h2,
+[class*="SidebarNav"] h3 {
+  color: #64748b !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
 }
 
-/* Page background */
+/* Sidebar collection links */
+[class*="SidebarNavLink"] {
+  color: #475569 !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  margin: 2px 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.15s ease !important;
+}
+[class*="SidebarNavLink"]:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Active sidebar link */
+[class*="SidebarNavLink"][class*="Active"],
+[class*="sidebarNavLinkActive"] {
+  background: #ecfdf5 !important;
+  color: #059669 !important;
+  font-weight: 700 !important;
+  border-left: 3px solid #059669 !important;
+}
+
+/* Search box */
+[class*="SearchInput"] {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  padding: 8px 12px !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+[class*="SearchInput"]:focus {
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5,150,105,0.15) !important;
+  outline: none !important;
+}
+
+/* ── COLLECTION TOP BAR ─────────────────────────────────── */
+
+[class*="CollectionTop"] {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 12px 20px !important;
+}
+
+/* Collection title */
+[class*="CollectionTopHeading"] h1,
+[class*="CollectionTop"] h1 {
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  color: #0f172a !important;
+}
+
+/* "New مقال" button */
+[class*="CollectionTopNewButton"],
+[href*="/new"] {
+  background: #059669 !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  border: none !important;
+  padding: 8px 20px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 8px rgba(5,150,105,0.3) !important;
+}
+[class*="CollectionTopNewButton"]:hover,
+[href*="/new"]:hover {
+  background: #047857 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(5,150,105,0.4) !important;
+}
+
+/* ── ENTRY LIST CARDS ───────────────────────────────────── */
+
+/* Card link wrapper */
+[class*="ListCardLink"],
+[class*="effeus49"] {
+  display: block !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  margin-bottom: 10px !important;
+  padding: 16px 20px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+[class*="ListCardLink"]:hover,
+[class*="effeus49"]:hover {
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 16px rgba(5,150,105,0.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Card title (h2) */
+[class*="ListCardLink"] h2,
+[class*="ListCard"] h2 {
+  color: #0f172a !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  text-align: right !important;
+}
+
+/* ── GENERAL BODY ───────────────────────────────────────── */
+
 body {
-    background-color: #f1f5f9 !important; /* Slate 100 */
+  background: #f1f5f9 !important;
 }
 
-/* Post Cards in grid */
-div[class*="Card"] {
-    border-radius: 16px !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid #e2e8f0 !important;
-    overflow: hidden !important;
-    transition: transform 0.3s ease !important;
-    background: white !important;
+/* View toggle buttons (grid/list) */
+[class*="ViewControlsButton"] {
+  border-radius: 8px !important;
+  color: #64748b !important;
+}
+[class*="ViewControlsButton"]:hover {
+  color: #059669 !important;
+  background: #ecfdf5 !important;
 }
 
-div[class*="Card"]:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+/* ── EDITOR TOOLBAR IMPROVEMENTS ───────────────────────── */
+
+/* Markdown editor toolbar */
+[class*="ToolbarContainer"],
+[class*="EditorToolbar"] {
+  background: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* Save button in editor */
+[class*="ToolbarSaveButton"],
+button[class*="css-"][class*="primary"] {
+  background: #059669 !important;
+  color: white !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+  border: none !important;
+  padding: 8px 20px !important;
 }
