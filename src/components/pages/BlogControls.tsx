@@ -22,6 +22,8 @@ type Post = {
   readingTime?: number;
   imageUrl?: string | null;
   categories?: { title: string; slug: string }[];
+  tags?: string[];
+  featured?: boolean;
 };
 
 function formatDate(date?: string) {
@@ -43,7 +45,8 @@ function PostCard({ post }: { post: Post }) {
       href={`/blog/${post.slug}`}
       className="group relative overflow-hidden rounded-none border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative aspect-square w-full bg-slate-100">
+      {/* Image */}
+      <div className="relative aspect-video w-full bg-slate-100">
         {post.imageUrl ? (
           <Image
             src={post.imageUrl}
@@ -53,44 +56,59 @@ function PostCard({ post }: { post: Post }) {
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-slate-500">
-            لا توجد صورة
-          </div>
+          <div className="flex h-full w-full items-center justify-center text-slate-400 text-5xl">📄</div>
         )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent opacity-90" />
-
-        <div className="absolute bottom-3 right-3 left-3 flex flex-wrap gap-2">
-          {(post.categories || []).slice(0, 2).map((c) => (
-            <span
-              key={c.slug}
-              className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 backdrop-blur"
-            >
+        {/* Badges on image */}
+        <div className="absolute top-3 right-3 flex flex-wrap gap-1.5">
+          {post.featured && (
+            <span className="rounded-full bg-amber-400 px-2.5 py-0.5 text-xs font-black text-amber-900">⭐ مميز</span>
+          )}
+        </div>
+        <div className="absolute bottom-3 right-3 left-3 flex flex-wrap gap-1.5">
+          {(post.categories || []).slice(0, 1).map((c) => (
+            <span key={c.slug} className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">
               {c.title}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="p-6 text-right">
-        <h2 className="text-xl font-extrabold leading-snug text-slate-900 transition group-hover:text-emerald-700">
-          {post.title}
-        </h2>
-
-        <div className="mt-2 flex flex-wrap items-center justify-end gap-3 text-xs text-slate-500">
-          {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+      {/* Content */}
+      <div className="p-5 text-right">
+        {/* Meta */}
+        <div className="mb-2 flex flex-wrap items-center justify-end gap-2 text-xs text-slate-400 font-medium">
+          {post.publishedAt && <span>📅 {formatDate(post.publishedAt)}</span>}
           {typeof post.readingTime === "number" && post.readingTime > 0 && (
-            <span>• {post.readingTime} دقيقة قراءة</span>
+            <span className="flex items-center gap-1">⏱ {post.readingTime} دقائق</span>
           )}
         </div>
 
-        <p className="mt-4 text-sm leading-7 text-slate-600 line-clamp-3">
+        <h2 className="text-lg font-black leading-snug text-slate-900 transition group-hover:text-emerald-700 line-clamp-2">
+          {post.title}
+        </h2>
+
+        <p className="mt-2 text-sm leading-6 text-slate-500 line-clamp-2">
           {post.excerpt}
         </p>
 
-        <div className="mt-5 inline-flex items-center gap-2 font-bold text-emerald-700">
-          اقرأ المقال
-          <span className="transition group-hover:translate-x-[-2px]">←</span>
+        {/* Tags */}
+        {post.tags && post.tags.length > 0 && (
+          <div className="mt-3 flex flex-wrap justify-end gap-1">
+            {post.tags.slice(0, 3).map((tag) => (
+              <span key={tag} className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-500">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-4">
+          <span className="text-xs text-slate-400 font-medium">كور برو مصر</span>
+          <span className="inline-flex items-center gap-1 text-sm font-black text-emerald-700 transition group-hover:gap-2">
+            اقرأ المقال ←
+          </span>
         </div>
       </div>
     </Link>
