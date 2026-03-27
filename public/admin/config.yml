@@ -110,11 +110,14 @@ collections:
       - label: "محتوى المقال"
         name: "body"
         widget: "markdown"
+        modes: ["rich_text"]
         buttons:
           - bold
           - italic
+          - heading-one
           - heading-two
           - heading-three
+          - heading-four
           - bulleted-list
           - numbered-list
           - quote
