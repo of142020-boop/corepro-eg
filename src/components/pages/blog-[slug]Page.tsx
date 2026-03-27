@@ -199,7 +199,7 @@ const ptComponents: PortableTextComponents = {
       return (
         <figure className="my-10">
           <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
-            <Image src={src} alt="" fill className="object-cover" sizes="100vw" />
+        <Image src={src} alt={(value as any)?.alt || `صورة لمقال: ${(value as any)?.caption || 'محتوى مقال'}`} fill className="object-cover" sizes="100vw" />
           </div>
         </figure>
       );

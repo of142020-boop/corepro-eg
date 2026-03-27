@@ -1,9 +1,10 @@
 ---
 import { Image, Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { 
   Sparkles, ShieldCheck, Target, CheckCircle2, ArrowRight, 
   MapPin, Wrench, Ruler, Building2, Fan, Hammer, BadgeCheck, 
-  Layers, Gauge 
+  Layers, Gauge, Cable 
 } from "lucide-react";
 import heroImg from '../../assets/images/home/hero.webp';
 import sawImg from '../../assets/images/home/saw.webp';
@@ -63,7 +64,7 @@ const jsonLd = [
 ];
 ---
 
-<main class="bg-slate-50">
+<div class="bg-slate-50">
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   {/* HERO */}
@@ -157,45 +158,64 @@ const jsonLd = [
         </div>
       </div>
 
-      {/* Services Grid OPTIMIZED */}
-      <div class="mt-10 grid gap-4 md:grid-cols-3">
+      {/* Services Grid */}
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {[
           {
-            title: "قص الخرسانة بالمنشار (تقنية الليزر)",
-            desc: "قص مستقيم ونظيف لفتح أبواب وشبابيك وقص السقف وفواصل التمدد — بدون تكسير عشوائي.",
-            bullets: ["قص جدار بالمنشار لفتح وتوسيع الفتحات.", "قص خرسانة السقف لفتحات السلالم والمصاعد.", "قص بالصاروخ للأماكن الضيقة والتشطيب."],
+            title: "قص الخرسانة بالمنشار",
+            desc: "قص مستقيم ونظيف لفتح أبواب وشبابيك وقص السقف — بدون تكسير عشوائي.",
+            bullets: ["قص جدار بالمنشار لفتح وتوسيع الفتحات.", "قص خرسانة السقف للسلالم والمصاعد.", "قص بالصاروخ للأماكن الضيقة."],
             href: "/saw",
             icon: Hammer, icColor: "text-amber-600",
-            image: sawImg
+            imgSrc: sawImg, imgStr: false
           },
           {
-            title: "تخريم الخرسانة بالكور (Core Drilling)",
+            title: "تخريم الخرسانة بالكور",
             desc: "فتح كور بمقاسات دقيقة بدون اهتزاز — لتأسيس المرافق والفتحات الهندسية.",
             bullets: ["فتحات التكييف والتهوية بميل مضبوط.", "فتحات الغاز وفق الاشتراطات.", "فتحات السباكة والصرف 4 و6 بوصة."],
             href: "/core",
             icon: Ruler, icColor: "text-sky-600",
-            image: coreImg
+            imgSrc: coreImg, imgStr: false
           },
           {
             title: "تركيب الشفاطات والتهوية",
-            desc: "بعد تجهيز الفتحة بالكور، نقوم بتركيب الشفاطات وتأسيس الدكت والصيانة.",
-            bullets: ["تركيب بلت ان/هرمي/مسطح/شباك.", "حلول بمدخنة أو فلتر كربوني بدون مدخنة.", "تركيب شفاطات حمام وسقفي داخل الجبس."],
+            desc: "تركيب شفاطات المطبخ والحمام مع تأسيس الفتحة بالكور وتأسيس الدكت.",
+            bullets: ["تركيب بلت ان/هرمي/مسطح/شباك.", "حلول بمدخنة أو فلتر كربوني.", "تركيب شفاطات حمام سقفية."],
             href: "/hoods",
             icon: Fan, icColor: "text-emerald-600",
-            image: hoodsImg
+            imgSrc: hoodsImg, imgStr: false
+          },
+          {
+            title: "قص بالواير الماسي",
+            desc: "للكتل الضخمة والكباري — قص صامت بدون حد أقصى لسمك الخرسانة.",
+            bullets: ["قص خرسانة بسماكات مترية وأكثر.", "مثالي لقص الكباري والجسور.", "صامت تماماً بدون اهتزازات."],
+            href: "/wire",
+            icon: Cable, icColor: "text-emerald-600",
+            imgSrc: "/images/wire/hero.webp", imgStr: true
           }
         ].map((s) => (
           <div class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl shadow-sm overflow-hidden">
             <div class="relative aspect-[4/3] bg-white overflow-hidden">
-              <Image 
-                src={s.image} 
-                alt={s.title} 
-                width={660} 
-                height={440} 
-                format="webp" 
-                quality={80} 
-                class="object-contain bg-white p-4 h-full w-full"
-              />
+              {s.imgStr ? (
+                <img 
+                  src={s.imgSrc as string}
+                  alt={s.title} 
+                  width={660} 
+                  height={440} 
+                  class="object-contain bg-white p-4 h-full w-full"
+                  loading="lazy"
+                />
+              ) : (
+                <Image 
+                  src={s.imgSrc as ImageMetadata} 
+                  alt={s.title} 
+                  width={660} 
+                  height={440} 
+                  format="webp" 
+                  quality={80} 
+                  class="object-contain bg-white p-4 h-full w-full"
+                />
+              )}
             </div>
             <div class="p-6">
               <div class="flex items-center gap-2">
@@ -328,4 +348,4 @@ const jsonLd = [
         </div>
     </section>
   </div>
-</main>
+</div>

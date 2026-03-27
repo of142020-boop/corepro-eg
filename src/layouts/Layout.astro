@@ -13,14 +13,18 @@ import Lightbox from '../components/Lightbox.astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const { 
   title = "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
-  description = "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام."
+  description = "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام.",
+  image = "/og-image.webp"
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const canonicalUrl = Astro.url.href;
+const ogImageUrl = new URL(image, Astro.site).href;
 
 // Radical fix: Preload the EXACT processed image URL from astro:assets
 const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024 });
@@ -29,13 +33,33 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f172a" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo-header-116x154.webp" />
-    <meta name="robots" content="index, follow" />
-    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Core Pro Egypt" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ar_EG" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     {currentPath === '/' && (
       <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" type="image/webp" />
