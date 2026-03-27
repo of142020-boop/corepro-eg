@@ -15,17 +15,110 @@ logo_url: /logo-header-116x154.webp
 
 collections:
   - name: "blog"
-    label: "المقالات (Blog)"
+    label: "📝 المقالات"
     label_singular: "مقال"
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} — {{pubDate}} — {{category}}"
+    sortable_fields: ["title", "pubDate", "category"]
+    view_groups:
+      - label: "بالتصنيف"
+        field: category
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: "العنوان الرئيسي", name: "title", widget: "string" }
-      - { label: "تاريخ النشر", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "وصف المختصر (Excerpt/SEO)", name: "description", widget: "text" }
-      - { label: "الصورة الرئيسية", name: "heroImage", widget: "image", choose_url: false }
-      - { label: "التصنيف", name: "category", widget: "select", options: ["تخريم بالكور", "قص بالمنشار", "واير خرسانة", "شفاطات وتأسيس"] }
-      - { label: "المحتوى", name: "body", widget: "markdown" }
+      # ── المعلومات الأساسية ──────────────────────────────────
+      - label: "العنوان الرئيسي"
+        name: "title"
+        widget: "string"
+        hint: "العنوان الذي سيظهر على الموقع ومحركات البحث (يُفضَّل 50-60 حرف)"
+
+      - label: "تاريخ النشر"
+        name: "pubDate"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        default: ""
+
+      - label: "آخر تحديث"
+        name: "updatedDate"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+        hint: "اتركه فارغاً إذا لم يتم تحديث المقال"
+
+      - label: "التصنيف"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "🔵 تخريم بالكور", value: "تخريم بالكور" }
+          - { label: "🔴 قص بالمنشار", value: "قص بالمنشار" }
+          - { label: "🟡 واير خرسانة", value: "واير خرسانة" }
+          - { label: "🟢 شفاطات وتأسيس", value: "شفاطات وتأسيس" }
+        required: false
+
+      - label: "مقال مميز ⭐"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "فعّل هذا الخيار لعرض المقال في قسم المقالات المميزة"
+
+      # ── الوسوم ──────────────────────────────────────────────
+      - label: "الوسوم (Tags)"
+        name: "tags"
+        widget: "list"
+        required: false
+        allow_add: true
+        hint: "أضف كلمات مفتاحية ذات صلة (مثل: تخريم، خرسانة، سباكة)"
+        field:
+          label: "وسم"
+          name: "tag"
+          widget: "string"
+
+      # ── الصور ───────────────────────────────────────────────
+      - label: "الصورة الرئيسية"
+        name: "heroImage"
+        widget: "image"
+        choose_url: false
+        required: false
+        hint: "الصورة التي ستظهر في بطاقة المقال والمشاركة على السوشيال ميديا (يُفضَّل 1200×630)"
+
+      - label: "نص بديل للصورة (Alt Text)"
+        name: "heroImageAlt"
+        widget: "string"
+        required: false
+        hint: "وصف الصورة لمحركات البحث وإمكانية الوصول"
+
+      # ── SEO ─────────────────────────────────────────────────
+      - label: "الوصف المختصر (SEO Description)"
+        name: "description"
+        widget: "text"
+        hint: "الوصف الذي يظهر في نتائج بحث جوجل وعند مشاركة الرابط (150-160 حرف)"
+
+      - label: "عنوان SEO مخصص"
+        name: "seoTitle"
+        widget: "string"
+        required: false
+        hint: "اتركه فارغاً لاستخدام العنوان الرئيسي تلقائياً"
+
+      # ── محتوى المقال ────────────────────────────────────────
+      - label: "محتوى المقال"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - title
+          - bulleted-list
+          - numbered-list
+          - quote
+          - link
+          - code
+        editor_components:
+          - image
+          - code-block

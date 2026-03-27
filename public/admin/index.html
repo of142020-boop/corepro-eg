@@ -4,13 +4,117 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Core Pro CMS - لوحة إدارة المحتوى</title>
-  <link href="admin-style.css?v=5" rel="stylesheet" />
-  <link href="config.yml?v=6" type="text/yaml" rel="cms-config-url">
+  <link href="admin-style.css?v=6" rel="stylesheet" />
+  <link href="config.yml?v=7" type="text/yaml" rel="cms-config-url">
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
   <script>
-    CMS.registerPreviewStyle("admin-style.css");
+    /* ── Live Preview Template ─────────────────────────────── */
+    var BlogPreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var title = entry.getIn(['data', 'title']) || 'عنوان المقال';
+        var description = entry.getIn(['data', 'description']) || '';
+        var category = entry.getIn(['data', 'category']) || '';
+        var featured = entry.getIn(['data', 'featured']) || false;
+        var tags = entry.getIn(['data', 'tags']) || [];
+        var heroImage = entry.getIn(['data', 'heroImage']) || '';
+        var heroImageAlt = entry.getIn(['data', 'heroImageAlt']) || title;
+        var pubDate = entry.getIn(['data', 'pubDate']) || '';
+        var body = this.props.widgetFor('body');
+
+        var dateStr = '';
+        if (pubDate) {
+          try {
+            dateStr = new Intl.DateTimeFormat('ar-EG', {
+              year: 'numeric', month: 'long', day: 'numeric'
+            }).format(new Date(pubDate));
+          } catch(e) {}
+        }
+
+        return h('div', { style: { fontFamily: "'Cairo', sans-serif", direction: 'rtl', background: '#f1f5f9', minHeight: '100vh' }},
+          // Styles
+          h('style', {}, `
+            @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { font-family: 'Cairo', sans-serif; direction: rtl; }
+            .preview-article { direction: rtl; font-family: 'Cairo', sans-serif; }
+            .preview-hero { position: relative; aspect-ratio: 16/9; background: #1e293b; overflow: hidden; }
+            .preview-hero img { width: 100%; height: 100%; object-fit: cover; }
+            .preview-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); }
+            .preview-header-card { background: white; margin: -40px 20px 0; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+            .preview-category { display: inline-block; background: #ecfdf5; color: #059669; padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+            .preview-featured { display: inline-block; background: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 700; margin-bottom: 12px; margin-right: 8px; }
+            .preview-title { font-size: 26px; font-weight: 900; color: #0f172a; line-height: 1.4; margin-bottom: 8px; text-align: right; }
+            .preview-meta { display: flex; gap: 12px; align-items: center; color: #64748b; font-size: 13px; justify-content: flex-end; margin-bottom: 12px; }
+            .preview-desc { color: #475569; line-height: 1.8; font-size: 14px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #f1f5f9; text-align: right; }
+            .preview-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; margin-top: 12px; }
+            .preview-tag { background: #f1f5f9; color: #475569; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+            .preview-body { max-width: 700px; margin: 24px auto; padding: 0 20px 40px; text-align: right; }
+            .preview-body h2 { font-size: 22px; font-weight: 900; color: #0f172a; margin: 32px 0 12px; }
+            .preview-body h3 { font-size: 18px; font-weight: 700; color: #1e293b; margin: 24px 0 10px; }
+            .preview-body p { color: #374151; line-height: 2; margin-bottom: 16px; font-size: 16px; }
+            .preview-body ul, .preview-body ol { padding-right: 24px; margin-bottom: 16px; color: #374151; line-height: 2; }
+            .preview-body blockquote { border-right: 4px solid #059669; background: #ecfdf5; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; color: #065f46; }
+            .preview-body strong { color: #0f172a; font-weight: 700; }
+            .preview-body a { color: #059669; text-decoration: underline; }
+            .preview-cta { background: #0f172a; color: white; border-radius: 16px; padding: 24px; text-align: center; margin: 24px 20px; }
+            .preview-cta h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+            .preview-cta p { color: #94a3b8; font-size: 14px; margin-bottom: 16px; }
+            .preview-cta a { display: inline-block; background: #059669; color: white; padding: 10px 24px; border-radius: 99px; font-weight: 700; text-decoration: none; }
+          `),
+
+          // Article
+          h('article', { className: 'preview-article' },
+            // Hero Image
+            heroImage && h('div', { className: 'preview-hero' },
+              h('img', { src: heroImage, alt: heroImageAlt }),
+              h('div', { className: 'preview-hero-overlay' })
+            ),
+
+            // Header Card
+            h('div', { style: { maxWidth: '800px', margin: '0 auto', padding: heroImage ? '0' : '20px 20px 0' }},
+              h('div', { className: 'preview-header-card', style: heroImage ? {} : { marginTop: 0, borderRadius: 16 }},
+                // Category & Featured badges
+                h('div', {},
+                  featured && h('span', { className: 'preview-featured' }, '⭐ مميز'),
+                  category && h('span', { className: 'preview-category' }, '# ' + category)
+                ),
+                // Title
+                h('h1', { className: 'preview-title' }, title),
+                // Meta
+                h('div', { className: 'preview-meta' },
+                  dateStr && h('span', {}, '📅 ' + dateStr),
+                  h('span', {}, '✍️ كور برو مصر')
+                ),
+                // Tags
+                tags && tags.size > 0 && h('div', { className: 'preview-tags' },
+                  tags.map(function(tag) { return h('span', { className: 'preview-tag', key: tag }, tag); })
+                ),
+                // Description
+                description && h('p', { className: 'preview-desc' }, description)
+              )
+            ),
+
+            // Body Content
+            h('div', { className: 'preview-body' }, body),
+
+            // CTA Block
+            h('div', { className: 'preview-cta' },
+              h('h3', {}, 'هل لديك مشروع إنشائي؟'),
+              h('p', {}, 'فريق متخصص بخبرة في قص وتخريم الخرسانة — معاينة فنية مجانية'),
+              h('a', { href: 'https://wa.me/201055550195', target: '_blank' }, '💬 تواصل معنا الآن')
+            )
+          )
+        );
+      }
+    });
+
+    CMS.registerPreviewTemplate('blog', BlogPreview);
+    CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+    CMS.registerPreviewStyle('admin-style.css');
   </script>
 </body>
 </html>
