@@ -13,8 +13,6 @@ site_url: https://corepro-eg.com
 display_url: https://corepro-eg.com
 logo_url: /logo-header-116x154.webp
 
-locale: 'ar'
-
 collections:
   - name: "blog"
     label: "المقالات (Blog)"
