@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: of142020-boop/corepro-eg
+  branch: main
+  base_url: https://corepro-eg.com
+  auth_endpoint: /api/auth
+
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: public/images/blog
+public_folder: /images/blog
+site_url: https://corepro-eg.com
+display_url: https://corepro-eg.com
+logo_url: /logo-header-116x154.webp
+
+# Removed i18n to avoid duplicate items error until config is stable
+# i18n:
+#   structure: single_file
+#   locales: [ar]
+#   default_locale: ar
+
+collections:
+  - name: "blog"
+    label: "المقالات (Blog)"
+    label_singular: "مقال"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "العنوان الرئيسي", name: "title", widget: "string" }
+      - { label: "تاريخ النشر", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "وصف المختصر (Excerpt/SEO)", name: "description", widget: "text" }
+      - { label: "الصورة الرئيسية", name: "heroImage", widget: "image", choose_url: false }
+      - { label: "التصنيف", name: "category", widget: "select", options: ["تخريم بالكور", "قص بالمنشار", "واير خرسانة", "شفاطات وتأسيس"] }
+      - { label: "المحتوى", name: "body", widget: "markdown" }
