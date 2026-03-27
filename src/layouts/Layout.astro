@@ -14,12 +14,14 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const { 
   title = "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01055550195",
   description = "شركة Core Pro Egypt الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام.",
-  image = "/og-image.webp"
+  image = "/og-image.webp",
+  noindex = false,
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -37,7 +39,7 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
     <meta name="theme-color" content="#0f172a" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Favicons -->
@@ -51,6 +53,7 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Core Pro Egypt" />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ar_EG" />

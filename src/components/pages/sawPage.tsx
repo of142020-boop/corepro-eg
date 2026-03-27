@@ -168,7 +168,7 @@ export default function SawPage() {
   };
 
   return (
-    <main className="bg-slate-50" dir="rtl">
+    <div className="bg-slate-50" dir="rtl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -451,6 +451,6 @@ export default function SawPage() {
           </aside>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
