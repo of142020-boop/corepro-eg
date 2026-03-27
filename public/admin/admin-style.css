@@ -225,3 +225,88 @@ button[class*="css-"][class*="primary"] {
   border: none !important;
   padding: 8px 20px !important;
 }
+/* -- INPUT FIELDS & EDITOR (RTL) ------------------------- */
+
+/* Wrapper for all editor fields */
+[class*="EditorControlPane-"] {
+  direction: rtl !important;
+}
+
+/* Labels */
+[class*="Label-"],
+label[class*="css-"] {
+  direction: rtl !important;
+  text-align: right !important;
+  display: block !important;
+  font-family: 'Cairo', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+/* Descriptive hints */
+[class*="FieldHint-"],
+[class*="Hint-"] {
+  direction: rtl !important;
+  text-align: right !important;
+  display: block !important;
+  font-family: 'Cairo', sans-serif !important;
+  color: #64748b !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* Inputs */
+input, textarea, select {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: 'Cairo', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5,150,105,0.15) !important;
+  outline: none !important;
+}
+
+/* Markdown Editor Container (WYSIWYG) */
+[data-slate-editor="true"],
+[class*="MarkdownControlPane-"],
+[class*="EditorControlPane-"] [class*="RawEditor-"] {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: 'Cairo', sans-serif !important;
+  font-size: 17px !important;
+  line-height: 2 !important;
+  color: #1e293b !important;
+  padding: 16px !important;
+}
+
+[data-slate-editor="true"] h2,
+[data-slate-editor="true"] h3 {
+  font-weight: 900 !important;
+  color: #0f172a !important;
+}
+
+/* Editor Toolbar buttons alignment */
+[class*="ToolbarContainer-"],
+[class*="EditorToolbar-"] {
+  direction: rtl !important;
+}
+
+[class*="ToolbarSection-"] {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+  padding-left: 20px !important;
+}
+
+/* Error messages */
+[class*="ErrorMessage-"] {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: 'Cairo', sans-serif !important;
+}
