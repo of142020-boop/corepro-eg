@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import { Maximize, Phone, ChevronRight } from "lucide-react";
+import { Maximize, ChevronRight } from "lucide-react";
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -16,21 +16,86 @@ if (!post) return Astro.redirect('/404');
 
 const { Content } = await render(post);
 
-const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat("ar-EG", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
+const SITE = 'https://corepro-eg.com';
+const BRAND = 'كور برو مصر';
+
+// ── SEO values ────────────────────────────────────────────────────
+const seoTitle  = post.data.seoTitle  || post.data.title;
+const canonical = `${SITE}/blog/${slug}`;
+const ogImage   = post.data.heroImage
+  ? new URL(post.data.heroImage, SITE).href
+  : `${SITE}/og-image.webp`;
+const ogImageAlt = post.data.heroImageAlt || post.data.title;
+
+// ── Dates ─────────────────────────────────────────────────────────
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
+
+const publishedIso = post.data.pubDate.toISOString();
+const modifiedIso  = (post.data.updatedDate ?? post.data.pubDate).toISOString();
+
+// ── JSON-LD Article Schema ────────────────────────────────────────
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: seoTitle,
+  description: post.data.description,
+  image: ogImage,
+  datePublished: publishedIso,
+  dateModified:  modifiedIso,
+  author: {
+    '@type': 'Organization',
+    name: BRAND,
+    url: SITE,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: BRAND,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE}/logo-header-116x154.webp`,
+    },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  ...(post.data.tags?.length ? { keywords: post.data.tags.join(', ') } : {}),
+  ...(post.data.category   ? { articleSection: post.data.category } : {}),
+};
+
+// ── BreadcrumbList Schema ─────────────────────────────────────────
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'المدونة',  item: `${SITE}/blog` },
+    { '@type': 'ListItem', position: 3, name: seoTitle, item: canonical },
+  ],
 };
 ---
 
-<Layout title={`${post.data.title} | مدونة كور برو مصر`} description={post.data.description}>
+<Layout
+  title={`${seoTitle} | مدونة ${BRAND}`}
+  description={post.data.description}
+  image={ogImage}
+  canonical={canonical}
+  ogType="article"
+  ogImageAlt={ogImageAlt}
+  publishedTime={publishedIso}
+  modifiedTime={modifiedIso}
+  articleSection={post.data.category}
+  tags={post.data.tags}
+>
+  <!-- JSON-LD Schemas -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} slot="head" />
+
   <article class="min-h-screen bg-white pb-24" dir="rtl">
-    
+
     <header class="bg-slate-50 border-b border-slate-200">
       <div class="mx-auto max-w-5xl px-4 py-12 md:py-20">
-        <nav class="mb-8 flex items-center justify-end gap-2 text-sm text-slate-500 font-bold">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="مسار التصفح" class="mb-8 flex items-center justify-end gap-2 text-sm text-slate-500 font-bold">
           <a href="/" class="hover:text-emerald-600 transition">الرئيسية</a>
           <ChevronRight class="h-4 w-4" />
           <a href="/blog" class="hover:text-emerald-600 transition">المدونة</a>
@@ -39,54 +104,110 @@ const formatDate = (date: Date) => {
         </nav>
 
         <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
-                {post.data.category && (
-                    <span class="inline-block bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-black mb-6">
-                        # {post.data.category}
-                    </span>
-                )}
-                <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight border-r-8 border-emerald-600 pr-5">
-                    {post.data.title}
-                </h1>
-                <div class="mt-6 flex items-center justify-end gap-4 text-sm text-slate-500 font-bold">
-                    <span>{formatDate(post.data.pubDate)}</span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-                    <span>كور برو مصر</span>
-                </div>
+          <div>
+            <!-- Category badge -->
+            {post.data.category && (
+              <span class="inline-block bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-black mb-4">
+                # {post.data.category}
+              </span>
+            )}
+            {post.data.featured && (
+              <span class="inline-block bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-xs font-black mb-4 mr-2">
+                ⭐ مميز
+              </span>
+            )}
+
+            <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight border-r-8 border-emerald-600 pr-5">
+              {post.data.title}
+            </h1>
+
+            <!-- Meta -->
+            <div class="mt-6 flex items-center justify-end gap-4 text-sm text-slate-500 font-bold">
+              <time datetime={publishedIso}>{formatDate(post.data.pubDate)}</time>
+              <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+              <span>{BRAND}</span>
+              {post.data.updatedDate && (
+                <>
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                  <span class="text-xs text-slate-400">تحديث: <time datetime={modifiedIso}>{formatDate(post.data.updatedDate)}</time></span>
+                </>
+              )}
             </div>
 
-            <div class="relative aspect-square rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden cursor-pointer group" data-lightbox-src={post.data.heroImage}>
-                {post.data.heroImage ? (
-                    <>
-                        <img src={post.data.heroImage} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
-                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                            <Maximize class="h-12 w-12" />
-                        </div>
-                    </>
-                ) : (
-                    <div class="w-full h-full bg-slate-100" />
-                )}
-            </div>
+            <!-- Tags -->
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="mt-5 flex flex-wrap justify-end gap-2">
+                {post.data.tags.map((tag) => (
+                  <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <!-- Hero Image -->
+          <div
+            class="relative aspect-square rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden cursor-pointer group"
+            data-lightbox-src={post.data.heroImage}
+          >
+            {post.data.heroImage ? (
+              <>
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.heroImageAlt || post.data.title}
+                  width="800"
+                  height="800"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                  <Maximize class="h-12 w-12" />
+                </div>
+              </>
+            ) : (
+              <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300 text-6xl">📄</div>
+            )}
+          </div>
         </div>
       </div>
     </header>
 
+    <!-- Body -->
     <div class="mx-auto max-w-3xl px-4 pt-16">
+      <!-- SEO Description (visible intro) -->
+      {post.data.description && (
+        <p class="text-lg text-slate-600 leading-8 mb-10 text-right font-medium border-r-4 border-emerald-400 pr-4 bg-emerald-50 py-4 rounded-l-2xl">
+          {post.data.description}
+        </p>
+      )}
+
       <div class="prose prose-slate prose-lg max-w-none text-right leading-9 text-slate-800">
         <Content />
       </div>
 
+      <!-- CTA -->
       <div class="mt-20 p-10 rounded-none border-4 border-slate-900 bg-slate-900 text-white shadow-2xl relative overflow-hidden">
         <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-600/20 blur-3xl -mr-24 -mt-24"></div>
         <h3 class="text-3xl font-black mb-4 relative z-10">هل لديك مشروع إنشائي؟</h3>
-        <p class="text-slate-300 text-lg mb-8 relative z-10">فريق متخصص بخبرة طويلة في قص وتخريم الخرسانة بكافة أنواعها. تواصل معنا لمعاينة فنية مجانية وعرض سعر.</p>
-        
+        <p class="text-slate-300 text-lg mb-8 relative z-10">
+          فريق متخصص بخبرة طويلة في قص وتخريم الخرسانة بكافة أنواعها. تواصل معنا لمعاينة فنية مجانية وعرض سعر.
+        </p>
         <div class="flex flex-wrap gap-4 relative z-10">
-          <a href="https://wa.me/201055550195" target="_blank" class="flex-1 min-w-[200px] bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 rounded-none text-center text-xl shadow-lg transition transform hover:-translate-y-1">
-             تواصل معنا الآن (واتس اب)
+          <a
+            href="https://wa.me/201055550195"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex-1 min-w-[200px] bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 rounded-none text-center text-xl shadow-lg transition transform hover:-translate-y-1"
+          >
+            تواصل معنا الآن (واتس اب)
           </a>
-          <a href="tel:01055550195" class="flex-1 min-w-[200px] bg-white text-slate-900 font-black py-5 rounded-none text-center text-xl shadow-lg transition hover:bg-slate-50">
-             اتصل بنا: 01055550195
+          <a
+            href="tel:01055550195"
+            class="flex-1 min-w-[200px] bg-white text-slate-900 font-black py-5 rounded-none text-center text-xl shadow-lg transition hover:bg-slate-50"
+          >
+            اتصل بنا: 01055550195
           </a>
         </div>
       </div>
