@@ -113,7 +113,8 @@ collections:
         buttons:
           - bold
           - italic
-          - title
+          - heading-two
+          - heading-three
           - bulleted-list
           - numbered-list
           - quote
