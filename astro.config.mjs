@@ -7,7 +7,11 @@ import compress from "astro-compress";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://corepro-eg.com',
-  integrations: [react(), sitemap(), compress()],
+  integrations: [react(), sitemap({
+    filter: (page) =>
+      !page.includes('/privacy-policy') &&
+      !page.includes('/terms'),
+  }), compress()],
   build: {
     inlineStylesheets: 'always'
   },

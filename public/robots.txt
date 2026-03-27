@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /privacy-policy/
+Disallow: /terms/
 
 Sitemap: https://corepro-eg.com/sitemap-index.xml
