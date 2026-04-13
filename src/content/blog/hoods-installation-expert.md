@@ -6,7 +6,7 @@ pubDate: "2026-04-10T14:15:00Z"
 category: "أعمال التهوية"
 featured: true
 tags: ["تركيب شفاط المطبخ", "تركيب مدخنة شفاط مطبخ", "فني تركيب شفاطات", "شفاط حمام مركزي"]
-heroImage: "/images/hoods/hero.webp"
+heroImage: "/images/hoods/work-1.webp"
 heroImageAlt: "فني تركيب شفاط المطبخ وتركيب مداخن"
 ---
 

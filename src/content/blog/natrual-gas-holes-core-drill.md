@@ -6,7 +6,7 @@ pubDate: "2026-04-06T10:00:00Z"
 category: "أعمال السباكة والغاز"
 featured: false
 tags: ["شنيشة الغاز", "تخريم كور سباكة", "فتحة الغاز الطبيعي", "صنايعي كور"]
-heroImage: "/images/core/hero.webp"
+heroImage: "/images/core/work-1.webp"
 heroImageAlt: "عمل شنيشة غاز وتخريم سباكة بالكور الألماظ"
 ---
 

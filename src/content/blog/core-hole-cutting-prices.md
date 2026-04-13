@@ -6,7 +6,7 @@ pubDate: "2026-04-13T12:00:00Z"
 category: "الأسعار والتكلفة"
 featured: true
 tags: ["اسعار الفتحه الكور", "اسعار قص الخرسانة", "تكلفة قص الخرسانة", "سعر فتحة الشفاط"]
-heroImage: "/images/home/hero.webp"
+heroImage: "/images/saw/هيرو.webp"
 heroImageAlt: "أسعار قص الخرسانة ותخريم الكور في مصر"
 ---
 

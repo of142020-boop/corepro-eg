@@ -6,7 +6,7 @@ pubDate: "2026-04-04T09:00:00Z"
 category: "مناطق الخدمة"
 featured: false
 tags: ["مقاول قص خرسانة فى التجمع الخامس", "شركة كور دريل", "تخريم الخرسانة بالتجمع", "مقاول العاصمة الإدارية"]
-heroImage: "/images/home/hero.webp"
+heroImage: "/images/core/work-2.webp"
 heroImageAlt: "مقاول قص خرسانة فى التجمع الخامس"
 ---
 
