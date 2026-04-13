@@ -204,7 +204,7 @@ export default function SawPage() {
               </div>
 
               <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-sky-600 pr-4">
-                قص الخرسانة بالمنشار في مصر: دليلك الشامل لتقطيع الخرسانة المسلحة باحترافية
+                قص خرسانة واجهات وسقف — خدمة احترافية
               </h1>
 
               <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">

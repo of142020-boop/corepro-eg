@@ -130,7 +130,7 @@ export default function HoodsPage() {
               </div>
 
               <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4">
-                فني تركيب شفاط المطبخ والحمام في مصر: خدمة شاملة بدون تكسير
+                تركيب شفاط المطبخ — فني متخصص
               </h1>
 
               <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">

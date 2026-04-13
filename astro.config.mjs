@@ -11,6 +11,30 @@ export default defineConfig({
     filter: (page) =>
       !page.includes('/privacy-policy') &&
       !page.includes('/terms'),
+    customPages: [
+      'https://corepro-eg.com/',
+      'https://corepro-eg.com/core',
+      'https://corepro-eg.com/saw',
+      'https://corepro-eg.com/blog',
+      'https://corepro-eg.com/hoods',
+      'https://corepro-eg.com/wire'
+    ],
+    serialize(item) {
+      if (item.url === 'https://corepro-eg.com/') {
+        item.changefreq = 'weekly';
+        item.priority = 1.0;
+      } else if (item.url === 'https://corepro-eg.com/core' || item.url === 'https://corepro-eg.com/saw') {
+        item.changefreq = 'weekly';
+        item.priority = 0.9;
+      } else if (item.url === 'https://corepro-eg.com/blog') {
+        item.changefreq = 'daily';
+        item.priority = 0.9;
+      } else if (item.url === 'https://corepro-eg.com/hoods' || item.url === 'https://corepro-eg.com/wire') {
+        item.changefreq = 'monthly';
+        item.priority = 0.8;
+      }
+      return item;
+    }
   }), compress()],
   build: {
     inlineStylesheets: 'always'
