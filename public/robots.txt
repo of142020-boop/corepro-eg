@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://corepro-eg.com/sitemap_index.xml
+Sitemap: https://corepro-eg.com/sitemap-index.xml
