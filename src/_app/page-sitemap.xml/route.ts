@@ -14,18 +14,23 @@ function urlTag(loc: string, lastmod: string, changefreq: string, priority: stri
 export async function GET() {
   const now = new Date().toISOString();
 
-  // ✅ صفحات الموقع فقط (عدّلها كما تريد)
-  const routes = ["/", "/core", "/saw", "/wire", "/hoods", "/blog"];
+  const PRIORITIES: Record<string, { freq: string; pri: string }> = {
+    "/":       { freq: "weekly",  pri: "1.0" },
+    "/core":   { freq: "weekly",  pri: "0.9" },
+    "/saw":    { freq: "weekly",  pri: "0.9" },
+    "/prices": { freq: "weekly",  pri: "0.9" },
+    "/hoods":  { freq: "monthly", pri: "0.8" },
+    "/wire":   { freq: "monthly", pri: "0.8" },
+    "/blog":   { freq: "daily",   pri: "0.9" },
+  };
+
+  const routes = Object.keys(PRIORITIES);
 
   const body = routes
-    .map((p) =>
-      urlTag(
-        `${DOMAIN}${p}`,
-        now,
-        p === "/blog" ? "daily" : p === "/" ? "weekly" : "monthly",
-        p === "/" ? "1.0" : p === "/blog" ? "0.9" : "0.8"
-      )
-    )
+    .map((p) => {
+      const { freq, pri } = PRIORITIES[p] ?? { freq: "monthly", pri: "0.7" };
+      return urlTag(`${DOMAIN}${p}`, now, freq, pri);
+    })
     .join("");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

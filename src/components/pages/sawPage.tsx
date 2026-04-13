@@ -167,6 +167,15 @@ export default function SawPage() {
     })),
   };
 
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
+      { "@type": "ListItem", position: 2, name: "قص الخرسانة بالمنشار", item: CANONICAL },
+    ],
+  };
+
   return (
     <div className="bg-slate-50" dir="rtl">
       <script
@@ -176,6 +185,7 @@ export default function SawPage() {
             jsonLdLocalBusiness,
             jsonLdService,
             jsonLdFaq,
+            jsonLdBreadcrumb,
           ]),
         }}
       />

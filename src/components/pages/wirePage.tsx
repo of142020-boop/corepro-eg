@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
   const actualSrc = typeof src === "object" ? src.src : src;
   const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
@@ -37,9 +37,19 @@ export default function WirePage() {
   const jsonLdLocalBusiness = { "@context": "https://schema.org", "@type": "LocalBusiness", name: BRAND, url: DOMAIN, telephone: PHONE_INT, address: { "@type": "PostalAddress", addressCountry: "EG", addressLocality: "Cairo", streetAddress: ADDRESS_TEXT }, areaServed: ["مصر", "القاهرة", "الجيزة", "العاصمة الإدارية"], priceRange: "$$", openingHours: "Mo-Su 00:00-23:59", sameAs: [DOMAIN, WHATSAPP] };
   const jsonLdService = { "@context": "https://schema.org", "@type": "Service", name: "قص الخرسانة بالواير الماسي في مصر - Wire Sawing", serviceType: "Diamond Wire Sawing", provider: { "@type": "LocalBusiness", name: BRAND, telephone: PHONE_INT, url: DOMAIN }, areaServed: ["القاهرة الكبرى", "الجيزة", "مصر"], url: CANONICAL, description: "أفضل شركة قص خرسانة بالواير الماسي (Diamond Wire Sawing) للكباري والقواعد الخرسانية الضخمة في مصر. قص صامت بدون اهتزازات وبسماكات غير محدودة." };
   const jsonLdFaq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })) };
+
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
+      { "@type": "ListItem", position: 2, name: "قص الخرسانة بالواير الماسي", item: CANONICAL },
+    ],
+  };
+
   return (
     <div className="bg-slate-50" dir="rtl">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq]) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb]) }} />
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(16,185,129,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(59,130,246,0.14),transparent_55%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-50" />

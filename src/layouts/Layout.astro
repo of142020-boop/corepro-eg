@@ -82,6 +82,51 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
+    <!-- Performance: DNS preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://wa.me" />
+
+    <!-- hreflang: Arabic Egypt target -->
+    <link rel="alternate" hreflang="ar-EG" href={canonicalUrl} />
+    <link rel="alternate" hreflang="ar" href={canonicalUrl} />
+
+    <!-- WebSite + Organization Schema (global) -->
+    <script type="application/ld+json" set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://corepro-eg.com",
+        "name": "Core Pro Egypt",
+        "inLanguage": "ar-EG",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://corepro-eg.com/blog?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Core Pro Egypt",
+        "url": "https://corepro-eg.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://corepro-eg.com/logo-header-116x154.webp",
+          "width": 116,
+          "height": 154
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+201055550195",
+          "contactType": "customer service",
+          "areaServed": "EG",
+          "availableLanguage": "Arabic"
+        },
+        "sameAs": ["https://wa.me/201055550195"]
+      }
+    ])} />
+
     {currentPath === '/' && (
       <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" type="image/webp" />
     )}

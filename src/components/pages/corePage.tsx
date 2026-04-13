@@ -170,6 +170,15 @@ export default function CorePage() {
     })),
   };
 
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
+      { "@type": "ListItem", position: 2, name: "فتحات كور في الخرسانة", item: CANONICAL },
+    ],
+  };
+
   return (
     <div className="bg-slate-50" dir="rtl">
       <script
@@ -179,6 +188,7 @@ export default function CorePage() {
             jsonLdLocalBusiness,
             jsonLdService,
             jsonLdFaq,
+            jsonLdBreadcrumb,
           ]),
         }}
       />
