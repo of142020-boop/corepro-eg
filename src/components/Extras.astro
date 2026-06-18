@@ -73,6 +73,7 @@ const WHATSAPP = "https://wa.me/201055550195";
 </button>
 
 <script>
+  // ---- Scroll to top ----
   const scrollBtn = document.getElementById('scroll-to-top');
   if (scrollBtn) {
     const onScroll = () => {
@@ -87,6 +88,20 @@ const WHATSAPP = "https://wa.me/201055550195";
 
     scrollBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ---- رقم خاص بصفحة الشفاطات فقط ----
+  if (window.location.pathname === '/hoods') {
+    const HOODS_PHONE = '01015218216';
+    const HOODS_WA = 'https://wa.me/201015218216';
+
+    document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
+      (el as HTMLAnchorElement).href = `tel:${HOODS_PHONE}`;
+    });
+
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
+      (el as HTMLAnchorElement).href = HOODS_WA;
     });
   }
 </script>
