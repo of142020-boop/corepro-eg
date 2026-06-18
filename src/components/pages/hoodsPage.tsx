@@ -12,9 +12,9 @@ import { Sparkles, ShieldCheck, CheckCircle2, MapPin, Fan, BadgeCheck, Maximize,
 const BRAND = "Core Pro Egypt";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/hoods`;
-const PHONE_NUM = "01055550195";
+const PHONE_NUM = "01015218216";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201015218216";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 const IMG_HERO = { src: "/images/hoods/hero.webp", width: 800, height: 800 };
 const IMG_1 = { src: "/images/hoods/work-1.webp", width: 800, height: 800 };
