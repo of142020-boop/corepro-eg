@@ -29,9 +29,9 @@ import {
 const BRAND = "Core Pro Egypt";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/hoods`;
-const PHONE = "01055550195";
+const PHONE = "01015218216";
 const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201015218216";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 
 const SERVICE_NAME = "تركيب شفاطات المطبخ والحمام";
@@ -41,14 +41,14 @@ const IMG_2 = "/images/hoods/work-2.webp"; // optional
 const IMG_3 = "/images/hoods/work-3.webp"; // optional
 
 export const metadata: Metadata = {
-  title: "تركيب شفاط المطبخ - فني شفاطات - 01055550195",
+  title: "تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216",
   description:
     "أفضل فني تركيب شفاط المطبخ وتركيب شفاطات الحمام. صيانة وتركيب شفاط توشيبا، فريش، تورنيدو، وشفاط بلت ان (بمدخنة/بدون). تأسيس دكت وتركيب فلتر كربوني.",
   alternates: { canonical: CANONICAL },
   openGraph: {
     type: "website",
     url: CANONICAL,
-    title: "تركيب شفاط المطبخ - فني شفاطات - 01055550195",
+    title: "تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216",
     description:
       "أفضل فني تركيب شفاط المطبخ وتركيب شفاطات الحمام. صيانة وتركيب شفاط توشيبا، فريش، تورنيدو، وشفاط بلت ان (بمدخنة/بدون). تأسيس دكت وتركيب فلتر كربوني.",
     siteName: BRAND,

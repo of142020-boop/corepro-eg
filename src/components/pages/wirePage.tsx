@@ -48,7 +48,7 @@ export default function WirePage() {
   };
 
   return (
-    <div className="bg-slate-50" dir="rtl">
+    <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb]) }} />
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(16,185,129,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(59,130,246,0.14),transparent_55%)]" />
@@ -57,7 +57,9 @@ export default function WirePage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-800 shadow-sm"><Cable className="h-4 w-4 text-emerald-600" /><span>Wire Sawing · القص الماسي الصامت · سماكات غير محدودة</span></div>
-              <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4">قص الخرسانة بالواير في مصر: الحل المثالي للكتل الضخمة والكباري الخرسانية</h1>
+              <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
+                واير تقطيع خرسانة | قص الخرسانة المسلحة بالواير الماسي - 01055550195
+              </h1>
               <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
                 <p>نقدم في <strong>{BRAND}</strong> خدمة <strong>قص الخرسانة بالواير</strong> (Diamond Wire Sawing) للمشاريع الإنشائية العملاقة. هذه التقنية تتيح لنا <strong>تقطيع الخرسانة</strong> بسماكات ضخمة تتجاوز المترين مما يجعلها الخيار الأول في <strong>قص الكباري</strong> وقص القواعد الخرسانية العميقة دون التأثير على سلامة الهيكل المحيط.</p>
                 <p>بفضل استخدام <strong>واير تقطيع خرسانة</strong> مرصع بالألماس نضمن لك قصا جراحيا دقيقا وهادئا تماما وبدون أي غبار أو اهتزازات. نحن من أفضل <strong>شركات تقطيع خرسانة</strong> المتخصصة في الحلول الهندسية الصعبة في مصر.</p>

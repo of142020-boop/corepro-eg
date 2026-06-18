@@ -207,7 +207,7 @@ export default function CorePage() {
               </div>
 
               <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4">
-                فتحات كور — تخريم الخرسانة المسلحة
+                فتحات كور | صنايعي كور تخريم الخرسانة - 01055550195
               </h1>
 
               <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">

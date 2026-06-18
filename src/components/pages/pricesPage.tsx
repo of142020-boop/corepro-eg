@@ -93,7 +93,7 @@ export default function PricesPage() {
             تعرف على طريقة التسعير والعروض
           </div>
           <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 pr-4">
-            دليل التكلفة و أسعار قص الخرسانة وفتحات الكور في مصر
+            اسعار تخريم الخرسانة بالكور وتكلفة قص الخرسانة بمصر - 01055550195
           </h1>
           <p className="mt-6 text-slate-700 leading-9 text-lg">
             نحن في <strong>{BRAND}</strong> نؤمن بالشفافية التامة. يعتمد التسعير لدينا على عوامل هندسية واضحة لضمان حصولك على أعلى جودة قص وتخريم بدون تكاليف خفية، وأفضل باقات تركيب الشفاطات.

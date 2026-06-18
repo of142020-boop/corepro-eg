@@ -95,7 +95,7 @@ export default function AboutPage() {
             <span>🏗️ خبرة ميدانية واسعة · معدات حديثة · ضمان الجودة</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 text-right">
-            Core Pro Egypt — مقاول قص خرسانة وصنايعي كور متخصص في مصر
+            من نحن | Core Pro Egypt - متخصصون في قص وتخريم الخرسانة بمصر
           </h1>
           <p className="mt-6 text-slate-700 leading-9 text-lg text-right">
             نحن في <strong>Core Pro Egypt</strong> شركة مصرية متخصصة تجمع بين أربع خدمات أساسية في فريق واحد:{" "}
