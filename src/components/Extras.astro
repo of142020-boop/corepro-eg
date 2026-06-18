@@ -95,7 +95,9 @@ const WHATSAPP = "https://wa.me/201055550195";
   if (window.location.pathname === '/hoods') {
     const HOODS_PHONE = '01015218216';
     const HOODS_WA = 'https://wa.me/201015218216';
+    const OLD_PHONE = '01055550195';
 
+    // 1. Update all links
     document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
       (el as HTMLAnchorElement).href = `tel:${HOODS_PHONE}`;
     });
@@ -103,5 +105,14 @@ const WHATSAPP = "https://wa.me/201055550195";
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
       (el as HTMLAnchorElement).href = HOODS_WA;
     });
+
+    // 2. Update visible text anywhere on the page
+    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    let node;
+    while ((node = walk.nextNode())) {
+      if (node.nodeValue && node.nodeValue.includes(OLD_PHONE)) {
+        node.nodeValue = node.nodeValue.replace(new RegExp(OLD_PHONE, 'g'), HOODS_PHONE);
+      }
+    }
   }
 </script>
