@@ -7,10 +7,10 @@ export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 export const apiVersion = "2023-05-03";
 
 export const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: false, // نجعلها false أثناء التطوير لنرى التعديلات فوراً
+ projectId,
+ dataset,
+ apiVersion,
+ useCdn: false, // نجعلها false أثناء التطوير لنرى التعديلات فوراً
 });
 
 const builder = imageUrlBuilder(client);
@@ -18,5 +18,5 @@ const builder = imageUrlBuilder(client);
 export type SanityImageSource = Parameters<typeof builder.image>[0];
 
 export function urlFor(source: SanityImageSource) {
-  return builder.image(source);
+ return builder.image(source);
 }

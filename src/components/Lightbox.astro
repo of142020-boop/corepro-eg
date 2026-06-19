@@ -1,79 +1,79 @@
 ---
 ---
-<div 
-  id="global-lightbox" 
-  class="fixed inset-0 z-[2000] bg-black/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 cursor-zoom-out"
+<div
+ id="global-lightbox"
+ class="fixed inset-0 z-[2000] bg-black/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 cursor-zoom-out"
 >
-  <button 
-    id="lightbox-close"
-    class="absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition cursor-pointer"
-    aria-label="إغلاق"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-  </button>
+ <button
+ id="lightbox-close"
+ class="absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition cursor-pointer"
+ aria-label="إغلاق"
+ >
+ <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+ </button>
 
-  <div class="relative max-w-[95vw] max-h-[90vh] flex items-center justify-center">
-    <img 
-      id="lightbox-img" 
-      src="" 
-      alt="Core Pro Gallary" 
-      class="max-w-full max-h-[90vh] object-contain rounded-none shadow-2xl scale-95 transition-transform duration-300"
-    />
-  </div>
+ <div class="relative max-w-[95vw] max-h-[90vh] flex items-center justify-center">
+ <img
+ id="lightbox-img"
+ src=""
+ alt="Core Pro Gallary"
+ class="max-w-full max-h-[90vh] object-contain rounded-none shadow-2xl scale-95 transition-transform duration-300"
+ />
+ </div>
 </div>
 
 <script>
-  function initLightbox() {
-    const lightbox = document.getElementById('global-lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-    const closeBtn = document.getElementById('lightbox-close');
+ function initLightbox() {
+ const lightbox = document.getElementById('global-lightbox');
+ const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+ const closeBtn = document.getElementById('lightbox-close');
 
-    if (!lightbox || !lightboxImg) return;
+ if (!lightbox || !lightboxImg) return;
 
-    function open(src: string) {
-      lightboxImg.src = src;
-      lightbox?.classList.remove('hidden');
-      setTimeout(() => {
-        lightbox?.classList.add('opacity-100');
-        lightboxImg?.classList.remove('scale-95');
-        lightboxImg?.classList.add('scale-100');
-      }, 10);
-      document.body.style.overflow = 'hidden';
-    }
+ function open(src: string) {
+ lightboxImg.src = src;
+ lightbox?.classList.remove('hidden');
+ setTimeout(() => {
+ lightbox?.classList.add('opacity-100');
+ lightboxImg?.classList.remove('scale-95');
+ lightboxImg?.classList.add('scale-100');
+ }, 10);
+ document.body.style.overflow = 'hidden';
+ }
 
-    function close() {
-      lightbox?.classList.remove('opacity-100');
-      lightboxImg?.classList.remove('scale-100');
-      lightboxImg?.classList.add('scale-95');
-      setTimeout(() => {
-        lightbox?.classList.add('hidden');
-        lightboxImg.src = '';
-      }, 300);
-      document.body.style.overflow = '';
-    }
+ function close() {
+ lightbox?.classList.remove('opacity-100');
+ lightboxImg?.classList.remove('scale-100');
+ lightboxImg?.classList.add('scale-95');
+ setTimeout(() => {
+ lightbox?.classList.add('hidden');
+ lightboxImg.src = '';
+ }, 300);
+ document.body.style.overflow = '';
+ }
 
-    // Event Delegation
-    document.addEventListener('click', (e) => {
-      const target = (e.target as HTMLElement).closest('[data-lightbox-src]');
-      if (target) {
-        const src = target.getAttribute('data-lightbox-src');
-        if (src) open(src);
-      }
-    });
+ // Event Delegation
+ document.addEventListener('click', (e) => {
+ const target = (e.target as HTMLElement).closest('[data-lightbox-src]');
+ if (target) {
+ const src = target.getAttribute('data-lightbox-src');
+ if (src) open(src);
+ }
+ });
 
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || (e.target as HTMLElement).closest('#lightbox-close')) {
-        close();
-      }
-    });
+ lightbox.addEventListener('click', (e) => {
+ if (e.target === lightbox || (e.target as HTMLElement).closest('#lightbox-close')) {
+ close();
+ }
+ });
 
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
-    });
-  }
+ // Close on Escape
+ document.addEventListener('keydown', (e) => {
+ if (e.key === 'Escape') close();
+ });
+ }
 
-  // Init
-  initLightbox();
-  document.addEventListener('astro:after-swap', initLightbox);
+ // Init
+ initLightbox();
+ document.addEventListener('astro:after-swap', initLightbox);
 </script>

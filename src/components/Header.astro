@@ -4,25 +4,25 @@ import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import logoImg from "../assets/logo-header.webp";
 
-const BRAND = "Core Pro Egypt";
+const BRAND = "كور برو - Core Pro";
 const PHONE = "01055550195";
 const WHATSAPP = "https://wa.me/201055550195";
 const ADDRESS = "الحي العاشر مدينة نصر ";
 
 const nav = [
-  { href: "/", label: "الرئيسية" },
-  { href: "/core", label: "تخريم الكور" },
-  { href: "/saw", label: "قص الخرسانة" },
-  { href: "/wire", label: "واير تقطيع خرسانة" },
-  { href: "/hoods", label: "الشفاطات" },
-  { href: "/prices", label: "الأسعار" },
-  { href: "/blog", label: "المدونة" },
+ { href: "/", label: "الرئيسية" },
+ { href: "/core", label: "تخريم الكور" },
+ { href: "/saw", label: "قص الخرسانة" },
+ { href: "/wire", label: "واير تقطيع خرسانة" },
+ { href: "/hoods", label: "الشفاطات" },
+ { href: "/prices", label: "الأسعار" },
+ { href: "/blog", label: "المدونة" },
 ];
 
 const extraPages = [
-  { href: "/about", label: "من نحن" },
-  { href: "/privacy-policy", label: "سياسة الخصوصية" },
-  { href: "/terms", label: "شروط الاستخدام" },
+ { href: "/about", label: "من نحن" },
+ { href: "/privacy-policy", label: "سياسة الخصوصية" },
+ { href: "/terms", label: "شروط الاستخدام" },
 ];
 
 const { currentPath = "" } = Astro.props;
@@ -31,187 +31,187 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 
 {/* Top Bar */}
 <div class="hidden md:block bg-slate-900 text-white text-sm">
-  <div class="mx-auto max-w-6xl px-4 flex justify-between items-center h-10">
-    <div class="flex items-center gap-4">
-      <a href={`tel:${PHONE}`} class="flex items-center gap-2 hover:opacity-80 transition" aria-label={`اتصال ${BRAND}`}>
-        <Phone className="h-4 w-4" />
-        {PHONE}
-      </a>
-      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-emerald-400 hover:opacity-80 transition" aria-label="واتساب">
-        <FaWhatsapp className="h-4 w-4" />
-        واتساب
-      </a>
-    </div>
-    <div class="flex items-center gap-2 text-slate-300">
-      <MapPin className="h-4 w-4" />
-      {ADDRESS}
-    </div>
-  </div>
+ <div class="mx-auto max-w-6xl px-4 flex justify-between items-center h-10">
+ <div class="flex items-center gap-4">
+ <a href={`tel:${PHONE}`} class="flex items-center gap-2 hover:opacity-80 transition" aria-label={`اتصال ${BRAND}`}>
+ <Phone className="h-4 w-4" />
+ {PHONE}
+ </a>
+ <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-emerald-400 hover:opacity-80 transition" aria-label="واتساب">
+ <FaWhatsapp className="h-4 w-4" />
+ واتساب
+ </a>
+ </div>
+ <div class="flex items-center gap-2 text-slate-300">
+ <MapPin className="h-4 w-4" />
+ {ADDRESS}
+ </div>
+ </div>
 </div>
 
 {/* Main Header */}
 <header dir="rtl" class="sticky top-0 z-50 border-b bg-white">
-  <div class="mx-auto max-w-6xl px-4">
-    <div class="flex h-16 items-center justify-between">
-      {/* Logo */}
-      <a href="/" class="flex items-center gap-3" aria-label={BRAND}>
-        <Image
-          src={logoImg}
-          alt="Core Pro Egypt - قص وتخريم الخرسانة"
-          width={58}
-          height={77}
-          class="h-11 w-auto object-contain"
-          loading="eager"
-        />
-      </a>
+ <div class="mx-auto max-w-6xl px-4">
+ <div class="flex h-16 items-center justify-between">
+ {/* Logo */}
+ <a href="/" class="flex items-center gap-3" aria-label={BRAND}>
+ <Image
+ src={logoImg}
+ alt="كور برو - Core Pro - قص وتخريم الخرسانة"
+ width={58}
+ height={77}
+ class="h-11 w-auto object-contain"
+ loading="eager"
+ />
+ </a>
 
-      {/* Desktop Navigation */}
-      <nav class="hidden lg:flex items-center gap-1 relative">
-        {nav.map((item) => (
-          <a
-            href={item.href}
-            class={`px-3 py-2 rounded-xl font-bold transition text-sm xl:text-base ${
-              isActive(item.href)
-                ? "bg-slate-900 text-white"
-                : "text-slate-700 hover:bg-slate-100"
-            }`}
-          >
-            {item.label}
-          </a>
-        ))}
+ {/* Desktop Navigation */}
+ <nav class="hidden lg:flex items-center gap-1 relative">
+ {nav.map((item) => (
+ <a
+ href={item.href}
+ class={`px-3 py-2 rounded-xl font-bold transition text-sm xl:text-base ${
+ isActive(item.href)
+ ? "bg-slate-900 text-white"
+ : "text-slate-700 hover:bg-slate-100"
+ }`}
+ >
+ {item.label}
+ </a>
+ ))}
 
-        {/* Mega Menu */}
-        <div class="group relative">
-          <button
-            type="button"
-            class="px-3 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100 text-slate-700 text-sm xl:text-base"
-          >
-            صفحات مهمة
-            <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
-          </button>
-          <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2 transition-all duration-200">
-            {extraPages.map((item) => (
-              <a
-                href={item.href}
-                class="block px-4 py-2 rounded-xl hover:bg-slate-100 font-bold text-slate-700"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+ {/* Mega Menu */}
+ <div class="group relative">
+ <button
+ type="button"
+ class="px-3 py-2 rounded-xl font-bold flex items-center gap-1 hover:bg-slate-100 text-slate-700 text-sm xl:text-base"
+ >
+ صفحات مهمة
+ <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+ </button>
+ <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2 transition-all duration-200">
+ {extraPages.map((item) => (
+ <a
+ href={item.href}
+ class="block px-4 py-2 rounded-xl hover:bg-slate-100 font-bold text-slate-700"
+ >
+ {item.label}
+ </a>
+ ))}
+ </div>
+ </div>
+ </nav>
 
-      {/* Mobile Button */}
-      <button
-        id="menu-open"
-        aria-label="فتح القائمة"
-        class="lg:hidden p-2 rounded-xl border border-black/10 active:bg-slate-50"
-      >
-        <Menu className="h-6 w-6" />
-      </button>
-    </div>
-  </div>
+ {/* Mobile Button */}
+ <button
+ id="menu-open"
+ aria-label="فتح القائمة"
+ class="lg:hidden p-2 rounded-xl border border-black/10 active:bg-slate-50"
+ >
+ <Menu className="h-6 w-6" />
+ </button>
+ </div>
+ </div>
 </header>
 
 {/* Mobile Drawer */}
-<div 
-  id="mobile-drawer" 
-  class="fixed inset-0 z-[1000] bg-white translate-x-full rtl:translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+<div
+ id="mobile-drawer"
+ class="fixed inset-0 z-[1000] bg-white translate-x-full rtl:translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
 >
-  <div class="flex items-center justify-between border-b p-4">
-    <a href="/" aria-label={BRAND}>
-      <Image
-        src={logoImg}
-        alt="Core Pro Egypt"
-        width={58}
-        height={77}
-        class="h-10 w-auto object-contain"
-        loading="lazy"
-      />
-    </a>
-    <button id="menu-close" aria-label="إغلاق القائمة" class="p-2">
-      <X className="h-8 w-8 text-slate-900" />
-    </button>
-  </div>
+ <div class="flex items-center justify-between border-b p-4">
+ <a href="/" aria-label={BRAND}>
+ <Image
+ src={logoImg}
+ alt="كور برو - Core Pro"
+ width={58}
+ height={77}
+ class="h-10 w-auto object-contain"
+ loading="lazy"
+ />
+ </a>
+ <button id="menu-close" aria-label="إغلاق القائمة" class="p-2">
+ <X className="h-8 w-8 text-slate-900" />
+ </button>
+ </div>
 
-  <div class="p-4 space-y-3 overflow-y-auto max-h-[calc(100vh-80px)]">
-    {nav.map((item) => (
-      <a
-        href={item.href}
-        class={`flex items-center justify-between px-4 py-4 rounded-2xl border font-black text-lg ${
-          isActive(item.href)
-            ? "bg-slate-900 text-white border-slate-900"
-            : "bg-slate-50 text-slate-800 border-black/5"
-        }`}
-      >
-        {item.label}
-        <ChevronLeft className="h-5 w-5 opacity-40" />
-      </a>
-    ))}
+ <div class="p-4 space-y-3 overflow-y-auto max-h-[calc(100vh-80px)]">
+ {nav.map((item) => (
+ <a
+ href={item.href}
+ class={`flex items-center justify-between px-4 py-4 rounded-2xl border font-black text-lg ${
+ isActive(item.href)
+ ? "bg-slate-900 text-white border-slate-900"
+ : "bg-slate-50 text-slate-800 border-black/5"
+ }`}
+ >
+ {item.label}
+ <ChevronLeft className="h-5 w-5 opacity-40" />
+ </a>
+ ))}
 
-    <div class="pt-6">
-      <div class="mb-3 px-4 text-xs font-black uppercase tracking-wider text-slate-400">صفحات إضافية</div>
-      <div class="grid grid-cols-1 gap-2">
-        {extraPages.map((item) => (
-          <a
-            href={item.href}
-            class="flex items-center justify-between px-4 py-3 rounded-2xl bg-white border border-black/5 font-bold text-slate-700"
-          >
-            {item.label}
-            <ChevronLeft className="h-4 w-4 opacity-40" />
-          </a>
-        ))}
-      </div>
-    </div>
+ <div class="pt-6">
+ <div class="mb-3 px-4 text-xs font-black uppercase tracking-wider text-slate-400">صفحات إضافية</div>
+ <div class="grid grid-cols-1 gap-2">
+ {extraPages.map((item) => (
+ <a
+ href={item.href}
+ class="flex items-center justify-between px-4 py-3 rounded-2xl bg-white border border-black/5 font-bold text-slate-700"
+ >
+ {item.label}
+ <ChevronLeft className="h-4 w-4 opacity-40" />
+ </a>
+ ))}
+ </div>
+ </div>
 
-    <div class="pt-8 grid gap-4">
-      <a href={`tel:${PHONE}`} class="flex items-center justify-center gap-3 rounded-2xl bg-slate-900 py-4 font-black text-white shadow-lg">
-        <Phone className="h-5 w-5 text-emerald-400" />
-        اتصل بنا الآن
-      </a>
-      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 py-4 font-black text-white shadow-lg">
-        <FaWhatsapp className="h-6 w-6" />
-        واتساب مباشرة
-      </a>
-    </div>
-  </div>
+ <div class="pt-8 grid gap-4">
+ <a href={`tel:${PHONE}`} class="flex items-center justify-center gap-3 rounded-2xl bg-slate-900 py-4 font-black text-white shadow-lg">
+ <Phone className="h-5 w-5 text-emerald-400" />
+ اتصل بنا الآن
+ </a>
+ <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 py-4 font-black text-white shadow-lg">
+ <FaWhatsapp className="h-6 w-6" />
+ واتساب مباشرة
+ </a>
+ </div>
+ </div>
 </div>
 
 <script>
-  function initMenu() {
-    const openBtn = document.getElementById('menu-open');
-    const closeBtn = document.getElementById('menu-close');
-    const drawer = document.getElementById('mobile-drawer');
+ function initMenu() {
+ const openBtn = document.getElementById('menu-open');
+ const closeBtn = document.getElementById('menu-close');
+ const drawer = document.getElementById('mobile-drawer');
 
-    if (!openBtn || !closeBtn || !drawer) return;
+ if (!openBtn || !closeBtn || !drawer) return;
 
-    const openMenu = () => {
-      drawer.classList.remove('translate-x-full');
-      drawer.classList.remove('rtl:translate-x-full');
-      drawer.classList.add('translate-x-0');
-      document.body.style.overflow = 'hidden';
-    };
+ const openMenu = () => {
+ drawer.classList.remove('translate-x-full');
+ drawer.classList.remove('rtl:translate-x-full');
+ drawer.classList.add('translate-x-0');
+ document.body.style.overflow = 'hidden';
+ };
 
-    const closeMenu = () => {
-      drawer.classList.add('translate-x-full');
-      // For RTL support, we add back both just in case
-      drawer.classList.add('rtl:translate-x-full');
-      drawer.classList.remove('translate-x-0');
-      document.body.style.overflow = '';
-    };
+ const closeMenu = () => {
+ drawer.classList.add('translate-x-full');
+ // For RTL support, we add back both just in case
+ drawer.classList.add('rtl:translate-x-full');
+ drawer.classList.remove('translate-x-0');
+ document.body.style.overflow = '';
+ };
 
-    openBtn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
+ openBtn.addEventListener('click', openMenu);
+ closeBtn.addEventListener('click', closeMenu);
 
-    // Close on link click
-    const links = drawer.querySelectorAll('a');
-    links.forEach(l => l.addEventListener('click', closeMenu));
-  }
+ // Close on link click
+ const links = drawer.querySelectorAll('a');
+ links.forEach(l => l.addEventListener('click', closeMenu));
+ }
 
-  // Run on first load
-  initMenu();
+ // Run on first load
+ initMenu();
 
-  // Run on View Transitions (if enabled)
-  document.addEventListener('astro:after-swap', initMenu);
+ // Run on View Transitions (if enabled)
+ document.addEventListener('astro:after-swap', initMenu);
 </script>

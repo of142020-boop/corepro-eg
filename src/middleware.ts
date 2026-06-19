@@ -1,8 +1,7 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import { defineMiddleware } from 'astro:middleware';
 
 function unauthorized() {
-  return new NextResponse("Authentication required.", {
+  return new Response("Authentication required.", {
     status: 401,
     headers: {
       "WWW-Authenticate": 'Basic realm="Core Pro Studio", charset="UTF-8"',
@@ -19,21 +18,21 @@ function safeEqual(a: string, b: string) {
   return out === 0;
 }
 
-export function middleware(req: NextRequest) {
-  const pathname = req.nextUrl.pathname;
+export const onRequest = defineMiddleware(async (context, next) => {
+  const pathname = context.url.pathname;
 
-  // ✅ حماية أي شيء تحت /studio
+  // حماية أي شيء تحت /studio فقط
   if (!pathname.startsWith("/studio")) {
-    return NextResponse.next();
+    return next();
   }
 
-  const USER = process.env.STUDIO_BASIC_USER || "";
-  const PASS = process.env.STUDIO_BASIC_PASS || "";
+  const USER = import.meta.env.STUDIO_BASIC_USER || "";
+  const PASS = import.meta.env.STUDIO_BASIC_PASS || "";
 
-  // لو المتغيرات مش موجودة، امنع الوصول (أفضل من فتحه)
+  // لو المتغيرات مش موجودة، امنع الوصول
   if (!USER || !PASS) return unauthorized();
 
-  const auth = req.headers.get("authorization") || "";
+  const auth = context.request.headers.get("authorization") || "";
   if (!auth.startsWith("Basic ")) return unauthorized();
 
   const b64 = auth.slice("Basic ".length).trim();
@@ -53,12 +52,8 @@ export function middleware(req: NextRequest) {
 
   if (!safeEqual(user, USER) || !safeEqual(pass, PASS)) return unauthorized();
 
-  // ✅ إضافة noindex زيادة أمان
-  const res = NextResponse.next();
-  res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-  return res;
-}
-
-export const config = {
-  matcher: ["/studio/:path*"],
-};
+  // إضافة noindex زيادة أمان
+  const response = await next();
+  response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  return response;
+});

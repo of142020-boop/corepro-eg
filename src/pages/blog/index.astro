@@ -11,51 +11,51 @@ const allPosts = await getCollection('blog');
 const readingTime = (body: string) => Math.max(1, Math.ceil((body || '').trim().split(/\s+/).length / 200));
 
 const posts = allPosts
-  .map(p => ({
-    title: p.data.title,
-    slug: p.slug,
-    excerpt: p.data.description,
-    publishedAt: p.data.pubDate.toISOString(),
-    imageUrl: p.data.heroImage ?? null,
-    categories: p.data.category ? [{ title: p.data.category, slug: p.data.category }] : [],
-    tags: p.data.tags ?? [],
-    featured: p.data.featured ?? false,
-    readingTime: readingTime(p.body ?? ''),
-  }))
-  .sort((a, b) => {
-    // Featured first, then by date descending
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
-  });
+ .map(p => ({
+ title: p.data.title,
+ slug: p.slug,
+ excerpt: p.data.description,
+ publishedAt: p.data.pubDate.toISOString(),
+ imageUrl: p.data.heroImage ?? null,
+ categories: p.data.category ? [{ title: p.data.category, slug: p.data.category }] : [],
+ tags: p.data.tags ?? [],
+ featured: p.data.featured ?? false,
+ readingTime: readingTime(p.body ?? ''),
+ }))
+ .sort((a, b) => {
+ // Featured first, then by date descending
+ if (a.featured && !b.featured) return -1;
+ if (!a.featured && b.featured) return 1;
+ return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+ });
 
 // JSON-LD Blog/CollectionPage
 const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Blog',
-  name: 'مدونة كور برو مصر',
-  description: 'مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات',
-  url: `${SITE}/blog`,
-  publisher: {
-    '@type': 'Organization',
-    name: 'Core Pro Egypt',
-    logo: { '@type': 'ImageObject', url: `${SITE}/logo-header-116x154.webp` },
-  },
-  blogPost: posts.slice(0, 10).map(p => ({
-    '@type': 'BlogPosting',
-    headline: p.title,
-    url: `${SITE}/blog/${p.slug}`,
-    datePublished: p.publishedAt,
-    image: p.imageUrl ? new URL(p.imageUrl, SITE).href : `${SITE}/og-image.webp`,
-  })),
+ '@context': 'https://schema.org',
+ '@type': 'Blog',
+ name: 'مدونة كور برو مصر',
+ description: 'مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات',
+ url: `${SITE}/blog`,
+ publisher: {
+ '@type': 'Organization',
+ name: 'كور برو - Core Pro',
+ logo: { '@type': 'ImageObject', url: `${SITE}/logo-header-116x154.webp` },
+ },
+ blogPost: posts.slice(0, 10).map(p => ({
+ '@type': 'BlogPosting',
+ headline: p.title,
+ url: `${SITE}/blog/${p.slug}`,
+ datePublished: p.publishedAt,
+ image: p.imageUrl ? new URL(p.imageUrl, SITE).href : `${SITE}/og-image.webp`,
+ })),
 };
 ---
 
 <Layout
-  title="مدونة كور برو مصر | مقالات تقنية عن قص وتخريم الخرسانة"
-  description="مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات، وأفضل الممارسات في مصر."
-  canonical={`${SITE}/blog`}
+ title="مدونة كور برو مصر | مقالات تقنية عن قص وتخريم الخرسانة"
+ description="مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات، وأفضل الممارسات في مصر."
+ canonical={`${SITE}/blog`}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
-  <BlogControls posts={posts as any} client:load />
+ <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+ <BlogControls posts={posts as any} client:load />
 </Layout>

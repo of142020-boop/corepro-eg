@@ -8,111 +8,111 @@ const WHATSAPP = "https://wa.me/201055550195";
 
 {/* Desktop: icons only */}
 <div class="hidden md:block fixed bottom-6 right-6 z-50">
-  <div class="flex flex-col gap-3">
-    <a
-      href={WHATSAPP}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="واتساب مباشر"
-      class="group relative grid h-12 w-12 place-items-center rounded-full border border-black/10 backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:scale-[1.04] active:scale-[0.98] bg-emerald-600 text-white hover:bg-emerald-700"
-    >
-      <FaWhatsapp className="h-5 w-5" />
-      <span class="pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 hidden md:block whitespace-nowrap rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-extrabold text-white opacity-0 translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0">
-        واتساب مباشر
-      </span>
-    </a>
+ <div class="flex flex-col gap-3">
+ <a
+ href={WHATSAPP}
+ target="_blank"
+ rel="noopener noreferrer"
+ aria-label="واتساب مباشر"
+ class="group relative grid h-12 w-12 place-items-center rounded-full border border-black/10 backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:scale-[1.04] active:scale-[0.98] bg-emerald-600 text-white hover:bg-emerald-700"
+ >
+ <FaWhatsapp className="h-5 w-5" />
+ <span class="pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 hidden md:block whitespace-nowrap rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-extrabold text-white opacity-0 translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0">
+ واتساب مباشر
+ </span>
+ </a>
 
-    <a
-      href={`tel:${PHONE}`}
-      aria-label={`اتصال: ${PHONE}`}
-      class="group relative grid h-12 w-12 place-items-center rounded-full border border-black/10 backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:scale-[1.04] active:scale-[0.98] bg-white text-slate-900 hover:bg-slate-50"
-    >
-      <Phone className="h-5 w-5" />
-      <span class="pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 hidden md:block whitespace-nowrap rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-extrabold text-white opacity-0 translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0">
-        اتصال: {PHONE}
-      </span>
-    </a>
-  </div>
+ <a
+ href={`tel:${PHONE}`}
+ aria-label={`اتصال: ${PHONE}`}
+ class="group relative grid h-12 w-12 place-items-center rounded-full border border-black/10 backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:scale-[1.04] active:scale-[0.98] bg-white text-slate-900 hover:bg-slate-50"
+ >
+ <Phone className="h-5 w-5" />
+ <span class="pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 hidden md:block whitespace-nowrap rounded-xl bg-slate-900 px-3 py-1.5 text-xs font-extrabold text-white opacity-0 translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0">
+ اتصال: {PHONE}
+ </span>
+ </a>
+ </div>
 </div>
 
 {/* Mobile: bar */}
 <div class="md:hidden fixed bottom-3 left-1/2 z-50 -translate-x-1/2 w-[92%] max-w-md">
-  <div class="rounded-3xl border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] p-2">
-    <div class="grid grid-cols-2 gap-2">
-      <a
-        href={`tel:${PHONE}`}
-        class="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-3 font-extrabold text-slate-900"
-        aria-label={`اتصال: ${PHONE}`}
-      >
-        <Phone className="h-5 w-5" />
-        اتصال
-      </a>
+ <div class="rounded-3xl border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] p-2">
+ <div class="grid grid-cols-2 gap-2">
+ <a
+ href={`tel:${PHONE}`}
+ class="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-3 font-extrabold text-slate-900"
+ aria-label={`اتصال: ${PHONE}`}
+ >
+ <Phone className="h-5 w-5" />
+ اتصال
+ </a>
 
-      <a
-        href={WHATSAPP}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-3 py-3 font-extrabold text-white"
-        aria-label="واتساب مباشر"
-      >
-        <FaWhatsapp className="h-5 w-5" />
-        واتساب
-      </a>
-    </div>
-  </div>
+ <a
+ href={WHATSAPP}
+ target="_blank"
+ rel="noopener noreferrer"
+ class="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-3 py-3 font-extrabold text-white"
+ aria-label="واتساب مباشر"
+ >
+ <FaWhatsapp className="h-5 w-5" />
+ واتساب
+ </a>
+ </div>
+ </div>
 </div>
 
 {/* Scroll To Top */}
 <button
-  id="scroll-to-top"
-  type="button"
-  aria-label="العودة للأعلى"
-  class="fixed z-50 hidden md:right-6 md:bottom-[145px] right-4 bottom-20 h-12 w-12 rounded-full border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] grid place-items-center hover:bg-white transition"
+ id="scroll-to-top"
+ type="button"
+ aria-label="العودة للأعلى"
+ class="fixed z-50 hidden md:right-6 md:bottom-[145px] right-4 bottom-20 h-12 w-12 rounded-full border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] grid place-items-center hover:bg-white transition"
 >
-  <ArrowUp className="h-5 w-5 text-slate-900" />
+ <ArrowUp className="h-5 w-5 text-slate-900" />
 </button>
 
 <script>
-  // ---- Scroll to top ----
-  const scrollBtn = document.getElementById('scroll-to-top');
-  if (scrollBtn) {
-    const onScroll = () => {
-      if (window.scrollY > 500) {
-        scrollBtn.classList.remove('hidden');
-      } else {
-        scrollBtn.classList.add('hidden');
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+ // ---- Scroll to top ----
+ const scrollBtn = document.getElementById('scroll-to-top');
+ if (scrollBtn) {
+ const onScroll = () => {
+ if (window.scrollY > 500) {
+ scrollBtn.classList.remove('hidden');
+ } else {
+ scrollBtn.classList.add('hidden');
+ }
+ };
+ window.addEventListener('scroll', onScroll, { passive: true });
+ onScroll();
 
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+ scrollBtn.addEventListener('click', () => {
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ });
+ }
 
-  // ---- رقم خاص بصفحة الشفاطات فقط ----
-  if (window.location.pathname === '/hoods') {
-    const HOODS_PHONE = '01015218216';
-    const HOODS_WA = 'https://wa.me/201015218216';
-    const OLD_PHONE = '01055550195';
+ // ---- رقم خاص بصفحة الشفاطات فقط ----
+ if (window.location.pathname === '/hoods') {
+ const HOODS_PHONE = '01015218216';
+ const HOODS_WA = 'https://wa.me/201015218216';
+ const OLD_PHONE = '01055550195';
 
-    // 1. Update all links
-    document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
-      (el as HTMLAnchorElement).href = `tel:${HOODS_PHONE}`;
-    });
+ // 1. Update all links
+ document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
+ (el as HTMLAnchorElement).href = `tel:${HOODS_PHONE}`;
+ });
 
-    document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
-      (el as HTMLAnchorElement).href = HOODS_WA;
-    });
+ document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
+ (el as HTMLAnchorElement).href = HOODS_WA;
+ });
 
-    // 2. Update visible text anywhere on the page
-    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
-    let node;
-    while ((node = walk.nextNode())) {
-      if (node.nodeValue && node.nodeValue.includes(OLD_PHONE)) {
-        node.nodeValue = node.nodeValue.replace(new RegExp(OLD_PHONE, 'g'), HOODS_PHONE);
-      }
-    }
-  }
+ // 2. Update visible text anywhere on the page
+ const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+ let node;
+ while ((node = walk.nextNode())) {
+ if (node.nodeValue && node.nodeValue.includes(OLD_PHONE)) {
+ node.nodeValue = node.nodeValue.replace(new RegExp(OLD_PHONE, 'g'), HOODS_PHONE);
+ }
+ }
+ }
 </script>

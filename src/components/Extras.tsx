@@ -4,10 +4,10 @@ import StickyActions from "./StickyActions";
 import ScrollToTop from "./ScrollToTop";
 
 export default function Extras() {
-  return (
-    <>
-      <StickyActions />
-      <ScrollToTop />
-    </>
-  );
+ return (
+ <>
+ <StickyActions />
+ <ScrollToTop />
+ </>
+ );
 }
