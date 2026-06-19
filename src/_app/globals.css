@@ -19,16 +19,8 @@ body {
     linear-gradient(to bottom, rgb(var(--bg)), rgb(241 245 249));
 }
 
-/* bold داخل محتوى المقالات والأقسام النصية */
-.prose strong,
-.prose b,
-article strong,
-article b,
-section strong,
-section b,
-p strong,
-p b {
-  font-weight: 700;
+strong, b {
+  font-weight: normal;
 }
 
 @layer components {
