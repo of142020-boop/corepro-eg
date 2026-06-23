@@ -77,7 +77,7 @@ export default function WirePage() {
  <div className="grid gap-10 lg:grid-cols-3">
  <div className="lg:col-span-2 space-y-10">
  <Section id="wire-sawing" title="ما هو نظام قص الخرسانة بالواير الماسي">
- <p>نظام <strong>القص بالواير</strong> (Diamond Wire Sawing) هو الحل النهائي لمشاكل السماكات الكبيرة التي يعجز عنها المنشار أو الكور. يعتمد على حبل فولاذي مرن مرصع بحبيبات الألماس الصناعي يتم تمريره حول الكتلة المراد إزالتها ثم تسحبه ماكينة محركات هيدروليكية بسرعة مضبوطة لقطع الخرسانة والحديد في آن واحد وبهدوء تام.</p>
+ <p>نظام <strong>القص بالواير</strong> (Diamond Wire Sawing) هو الحل النهائي لمشاكل السماكات الكبيرة التي يعجز عنها <Link href="/saw" className="text-emerald-700 underline hover:text-emerald-800">المنشار</Link> أو <Link href="/core" className="text-emerald-700 underline hover:text-emerald-800">الكور</Link>. يعتمد على حبل فولاذي مرن مرصع بحبيبات الألماس الصناعي يتم تمريره حول الكتلة المراد إزالتها ثم تسحبه ماكينة محركات هيدروليكية بسرعة مضبوطة لقطع الخرسانة والحديد في آن واحد وبهدوء تام.</p>
  <p className="mt-4">هذا النظام يتميز بالقدرة على <strong>تقطيع الكتل الخرسانية</strong> في أصعب الظروف والمساحات الضيقة — حيث لا يمكن توجيه منشار أو ماكينة كور تقليدية.</p>
  </Section>
  <Section id="features" title="مميزات تقنية Wire Sawing من Core Pro" subtitle="لماذا يختار المهندسون والمقاولون القص بالواير على بدائله">

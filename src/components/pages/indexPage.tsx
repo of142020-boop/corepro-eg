@@ -213,9 +213,9 @@ export default function HomePage() {
  <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 pr-4 border-r-8 border-emerald-600">لماذا نعد الاختيار المفضل للمقاولين؟</h2>
  <div className="grid gap-4">
  {[
- { t: "الأمان الإنشائي", d: "نضمن سلامة الهيكل الخرساني 100% بدون أي تصدعات مجهرية.", ic:  },
- { t: "السرية والنظافة", d: "نعمل في المواقع المشطبة والمسكونة دون ترك أثر للغبار أو الماء.", ic:  },
- { t: "أحدث التقنيات", d: "نمتلك أسطولاً من ماكينات الكور والمنشار الماسي (هولتي) وكور ماشين.", ic:  }
+ { t: "الأمان الإنشائي", d: "نضمن سلامة الهيكل الخرساني 100% بدون أي تصدعات مجهرية.", ic: null },
+ { t: "السرية والنظافة", d: "نعمل في المواقع المشطبة والمسكونة دون ترك أثر للغبار أو الماء.", ic: null },
+ { t: "أحدث التقنيات", d: "نمتلك أسطولاً من ماكينات الكور والمنشار الماسي (هولتي) وكور ماشين.", ic: null }
  ].map(item => (
  <div key={item.t} className="p-6 bg-white rounded-3xl border border-black/5 shadow-sm flex gap-4">
  <div className="bg-slate-50 p-3 rounded-2xl h-fit">{item.ic}</div>

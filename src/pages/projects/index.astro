@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectsPage from "../../components/pages/projectsPage";
+
+const title = "سابقة الأعمال | مشاريع كور برو في قص وتخريم الخرسانة";
+const description = "اكتشف سابقة أعمال شركة كور برو في مشاريع التخريم بالكور وقص الخرسانة بالمنشار والواير. حلول هندسية متطورة بدون اهتزاز أو غبار في كبرى المشاريع المصرية.";
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  canonical="https://corepro-eg.com/projects"
+>
+  <ProjectsPage client:load />
+</Layout>

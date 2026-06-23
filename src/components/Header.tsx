@@ -22,7 +22,7 @@ const nav = [
  { href: "/saw", label: "قص الخرسانة" },
  { href: "/wire", label: "واير تقطيع خرسانة" },
  { href: "/hoods", label: "الشفاطات" },
- { href: "/blog", label: "المدونة" }, // تمت الإضافة هنا (واضحة وباينة)
+ { href: "/projects", label: "سابقة الأعمال" },
 ];
 
 const extraPages = [
