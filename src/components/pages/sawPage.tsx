@@ -93,7 +93,7 @@ function Section({
 
 function StatPill({ icon, text }: { icon?: React.ReactNode; text: string }) {
  return (
- <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm whitespace-nowrap">
+ <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm text-center">
  {icon}
  <span className="text-slate-700 font-extrabold">{text}</span>
  </div>
@@ -255,7 +255,7 @@ export default function SawPage() {
  {/* COMPREHENSIVE CONTENT */}
  <div className="mx-auto max-w-6xl px-4 pb-24">
  <div className="grid gap-10 lg:grid-cols-3">
- <div className="lg:col-span-2 space-y-10">
+ <div className="lg:col-span-2 space-y-10 min-w-0">
 
  <Section
  id="why-sawing"
@@ -442,7 +442,7 @@ export default function SawPage() {
  </div>
 
  {/* SIDEBAR */}
- <aside className="space-y-6">
+ <aside className="space-y-6 min-w-0">
  <div className="p-8 rounded-[48px] bg-white border border-black/10 shadow-lg">
  <h3 className="font-extrabold text-2xl text-slate-900 mb-4">خـبرة وتمـيز</h3>
  <p className="text-slate-600 text-sm leading-7 mb-6">

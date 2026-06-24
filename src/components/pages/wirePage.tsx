@@ -24,7 +24,7 @@ function Section({ title, subtitle, icon, children, id, level = 2 }: { title: st
  return (<section id={id} className={`rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)] ${level === 3 ? 'mx-4 md:mx-8' : ''}`}><div className="mb-6"><div><HeadingTag className={`font-black tracking-tight text-slate-900 ${level === 2 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>{title}</HeadingTag>{subtitle ? (<p className="mt-2 text-slate-600 leading-7 font-semibold">{subtitle}</p>) : null}</div></div><div className="prose prose-slate max-w-none text-slate-700 leading-9">{children}</div></section>);
 }
 function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
- return (<div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm whitespace-nowrap">{icon}<span className="text-slate-700 font-extrabold">{text}</span></div>);
+ return (<div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm text-center">{icon}<span className="text-slate-700 font-extrabold">{text}</span></div>);
 }
 export default function WirePage() {
  const faq = [
@@ -75,7 +75,7 @@ export default function WirePage() {
  </section>
  <div className="mx-auto max-w-6xl px-4 pb-24">
  <div className="grid gap-10 lg:grid-cols-3">
- <div className="lg:col-span-2 space-y-10">
+ <div className="lg:col-span-2 space-y-10 min-w-0">
  <Section id="wire-sawing" title="ما هو نظام قص الخرسانة بالواير الماسي">
  <p>نظام <strong>القص بالواير</strong> (Diamond Wire Sawing) هو الحل النهائي لمشاكل السماكات الكبيرة التي يعجز عنها <Link href="/saw" className="text-emerald-700 underline hover:text-emerald-800">المنشار</Link> أو <Link href="/core" className="text-emerald-700 underline hover:text-emerald-800">الكور</Link>. يعتمد على حبل فولاذي مرن مرصع بحبيبات الألماس الصناعي يتم تمريره حول الكتلة المراد إزالتها ثم تسحبه ماكينة محركات هيدروليكية بسرعة مضبوطة لقطع الخرسانة والحديد في آن واحد وبهدوء تام.</p>
  <p className="mt-4">هذا النظام يتميز بالقدرة على <strong>تقطيع الكتل الخرسانية</strong> في أصعب الظروف والمساحات الضيقة — حيث لا يمكن توجيه منشار أو ماكينة كور تقليدية.</p>
@@ -150,7 +150,7 @@ export default function WirePage() {
  <div className="space-y-4">{faq.map((item, i) => (<details key={i} className="group rounded-3xl border border-black/10 bg-white p-6 shadow-sm hover:border-emerald-300 transition"><summary className="cursor-pointer list-none font-bold text-slate-900 flex items-center justify-between"><span>{item.q}</span><span className="text-emerald-600 group-open:rotate-180 transition p-1 bg-emerald-50 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><p className="mt-4 text-slate-600 leading-8 text-sm bg-slate-50 p-6 rounded-2xl border-r-4 border-emerald-500 shadow-inner">{item.a}</p></details>))}</div>
  </Section>
  </div>
- <aside className="space-y-6">
+ <aside className="space-y-6 min-w-0">
  <div className="p-8 rounded-[40px] bg-white border border-black/10 shadow-lg"><h3 className="font-extrabold text-2xl text-slate-900 mb-4">نحـن خيـارك الأول</h3><p className="text-slate-600 text-sm leading-7 mb-6">نوفر خدمات <strong>قص الخرسانة بالواير</strong> للمشروعات القومية والخاصة بأعلى دقة إنشائية ومعدات حديثة.</p><div className="space-y-4"><StatPill  text="تأمين كامل للموقع" /><StatPill  text="سرعة في التنفيذ" /><StatPill icon={<MapPin className="h-4 w-4 text-emerald-600" />} text="نغطي كافة المحافظات" /></div></div>
  <div className="p-6 rounded-[40px] bg-white border border-black/10 shadow-sm"><h3 className="font-extrabold text-lg text-slate-900 mb-3">خدمات أخرى</h3><div className="space-y-2">{[{ href: "/saw", label: "قص الخرسانة بالمنشار" },{ href: "/core", label: "تخريم الخرسانة بالكور" },{ href: "/hoods", label: "تركيب شفاطات المطبخ" }].map((s) => (<a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-emerald-700 hover:underline py-1"><span className="text-emerald-600">›</span>{s.label}</a>))}</div></div>
  <div className="p-8 rounded-[40px] bg-emerald-600 text-white shadow-xl relative overflow-hidden group"><div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-16 -mt-16 blur-2xl" /><h3 className="font-black text-2xl mb-4">اطلب متخصص واير</h3><p className="text-emerald-100 text-sm mb-6 leading-7">سيقوم فريقنا بمعاينة الموقع وتقديم عرض سعر فني متكامل للبدء فورا.</p><Link href={WHATSAPP} className="block w-full text-center py-5 rounded-3xl bg-white text-emerald-900 font-black text-xl hover:scale-[1.02] transition shadow-lg">تواصل واتسـاب</Link></div>
