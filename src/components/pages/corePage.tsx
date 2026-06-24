@@ -94,7 +94,7 @@ function Section({
  );
 }
 
-function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
+function StatPill({ icon, text }: { icon?: React.ReactNode; text: string }) {
  return (
  <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm whitespace-nowrap">
  {icon}
@@ -202,8 +202,8 @@ export default function CorePage() {
  <span>دقة هندسية 100% · أسرع تنفيذ · التزام بالمواعيد</span>
  </div>
 
- <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4">
- فتحات كور | صنايعي كور تخريم الخرسانة - 01055550195
+ <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
+ تخريم وقص الخرسانة بالكور - 01055550195
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
@@ -218,7 +218,7 @@ export default function CorePage() {
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
  href={WHATSAPP}
- className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-10 py-5 font-black text-white shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:bg-emerald-700 transition transform hover:-translate-y-1 text-xl"
+ className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:bg-emerald-700 transition transform hover:-translate-y-1 text-lg md:text-xl"
  >
  <Phone className="h-6 w-6" />
  اتصل بنا الآن
@@ -283,7 +283,7 @@ export default function CorePage() {
  title="الفرق بين عمل فتحات بالكور والتكسير التقليدي (الهيلتي)"
  >
  <p>
- التكسير باستخدام آلات الدق الميكانيكية يولد اهتزازات عنيفة تؤدي إلى شروخ مجهرية (Micro-cracks) تضعف المبنى بمرور الوقت وتسبب تساقط المحارة. في المقابل، <strong>عمل فتحات بالكور</strong> يعتمد على القطع الدائري السلس الذي يفصل الخرسانة والحديد بحركة هادئة لا تُحدث أي ارتدادات للهيكل المحيط، وهي نفس التقنية الآمنة المستخدمة في <Link href="/saw" className="text-emerald-700 underline hover:text-emerald-800">قص الخرسانة بالمنشار</Link>.
+ التكسير باستخدام آلات الدق الميكانيكية يولد اهتزازات عنيفة تؤدي إلى شروخ مجهرية (Micro-cracks) تضعف المبنى بمرور الوقت وتسبب تساقط المحارة. في المقابل, <strong>عمل فتحات بالكور</strong> يعتمد على القطع الدائري السلس الذي يفصل الخرسانة والحديد بحركة هادئة لا تُحدث أي ارتدادات للهيكل المحيط، وهي نفس التقنية الآمنة المستخدمة في <Link href="/saw" className="text-emerald-700 underline hover:text-emerald-800">قص الخرسانة بالمنشار</Link>.
  </p>
  <p className="mt-4">
  تقنيتنا تعزل منطقة القطع بدقة جراحية، مما يضمن أن تكون الفتحة الناتجة نظيفة ومستوية تماماً — بدون تشققات في الجدران أو الأسقف المجاورة، وبدون ضرر يُذكر على الهيكل الإنشائي.
@@ -436,7 +436,7 @@ export default function CorePage() {
  <span>{item.q}</span>
  <span className="text-emerald-600 group-open:rotate-180 transition p-1 bg-emerald-50 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
  </summary>
- <p className="mt-4 text-slate-600 leading-8 text-sm bg-slate-50 p-6 rounded-2xl border-r-4 border-emerald-500 shadow-inner">{item.a}</p>
+ <p className="mt-6 text-slate-700 leading-9 text-sm bg-slate-50 p-5 md:p-8 rounded-[32px] border-r-8 border-emerald-500 shadow-inner">{item.a}</p>
  </details>
  ))}
  </div>

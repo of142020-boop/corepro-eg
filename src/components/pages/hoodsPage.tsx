@@ -37,7 +37,7 @@ function Section({ title, subtitle, icon, children, id, level = 2 }: { title: st
  );
 }
 
-function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
+function StatPill({ icon, text }: { icon?: React.ReactNode; text: string }) {
  return (
  <div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm whitespace-nowrap">
  {icon}
@@ -129,8 +129,8 @@ export default function HoodsPage() {
  <span>تركيب احترافي · تخريم بالكور · عزل تام للروائح</span>
  </div>
 
- <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4">
- تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216
+ <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4 break-words">
+ فتح وتخريم هوايات المطابخ والشفاطات - 01055550195
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
@@ -145,7 +145,7 @@ export default function HoodsPage() {
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
  href={WHATSAPP}
- className="inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-500 px-10 py-5 font-black text-white shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:bg-orange-600 transition transform hover:-translate-y-1 text-xl"
+ className="inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:bg-orange-700 transition transform hover:-translate-y-1 text-lg md:text-xl"
  >
  <Phone className="h-6 w-6" />
  احجز موعد التركيب
@@ -306,7 +306,7 @@ export default function HoodsPage() {
  <span>{item.q}</span>
  <span className="text-orange-500 group-open:rotate-180 transition p-1 bg-orange-50 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
  </summary>
- <p className="mt-6 text-slate-700 leading-9 text-sm bg-slate-50 p-6 rounded-2xl border-r-8 border-orange-400 shadow-inner">{item.a}</p>
+ <p className="mt-6 text-slate-700 leading-9 text-sm bg-slate-50 p-5 md:p-8 rounded-[32px] border-r-8 border-orange-500 shadow-inner">{item.a}</p>
  </details>
  ))}
  </div>

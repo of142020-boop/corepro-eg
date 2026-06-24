@@ -92,8 +92,8 @@ export default function PricesPage() {
  
  تعرف على طريقة التسعير والعروض
  </div>
- <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 pr-4">
- اسعار تخريم الخرسانة بالكور وتكلفة قص الخرسانة بمصر - 01055550195
+ <h1 className="text-2xl md:text-5xl font-black leading-tight text-slate-900 pr-4 break-words">
+ أسعار قص الخرسانة وتخريم الكور في مصر
  </h1>
  <p className="mt-6 text-slate-700 leading-9 text-lg">
  نحن في <strong>{BRAND}</strong> نؤمن بالشفافية التامة. يعتمد التسعير لدينا على عوامل هندسية واضحة لضمان حصولك على أعلى جودة قص وتخريم بدون تكاليف خفية، وأفضل باقات تركيب الشفاطات.
@@ -206,7 +206,7 @@ export default function PricesPage() {
  <span>{item.q}</span>
  <span className="text-emerald-500 group-open:rotate-180 transition p-1 bg-emerald-50 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
  </summary>
- <p className="mt-6 text-slate-700 leading-9 text-sm bg-slate-50 p-6 rounded-2xl border-r-8 border-emerald-400 shadow-inner">
+ <p className="mt-6 text-slate-700 leading-9 text-sm bg-slate-50 p-5 md:p-8 rounded-[32px] border-r-8 border-emerald-500 shadow-inner">
  {item.a}
  </p>
  </details>
@@ -224,7 +224,7 @@ export default function PricesPage() {
  وسيقوم فريقنا الهندسي بالرد عليك بعرض السعر الإجمالي الفوري.
  </p>
  <div className="flex justify-center gap-4 flex-wrap">
- <Link href={WHATSAPP} className="inline-flex gap-2 items-center bg-emerald-500 hover:bg-emerald-600 transition px-8 py-4 rounded-2xl font-black text-xl shadow-lg">
+ <Link href={WHATSAPP} className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-lg hover:bg-emerald-700 transition transform hover:-translate-y-1 text-lg md:text-xl">
  <Phone className="w-5 h-5" /> واتساب للأسعار
  </Link>
  <Link href={`tel:${PHONE}`} className="inline-flex gap-2 items-center bg-white/10 hover:bg-white/20 border border-white/20 transition px-8 py-4 rounded-2xl font-bold text-xl">
