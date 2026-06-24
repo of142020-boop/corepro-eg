@@ -287,7 +287,7 @@ export default async function PostPage({ slug }: { slug: string }) {
 
  if (!post) {
  return (
- <div className="min-h-screen bg-white py-28 text-center" dir="rtl">
+ <div className="min-h-screen bg-white py-28 text-center overflow-x-hidden" dir="rtl">
  <div className="mx-auto max-w-xl px-4">
  <h1 className="text-3xl font-black text-slate-900">المقال غير موجود</h1>
  <p className="mt-3 text-slate-600">قد يكون تم حذف المقال أو تغيير رابطه.</p>
@@ -325,7 +325,7 @@ export default async function PostPage({ slug }: { slug: string }) {
  };
 
  return (
- <article className="min-h-screen bg-white pb-16" dir="rtl">
+ <article className="min-h-screen bg-white pb-16 overflow-x-hidden" dir="rtl">
  <script
  type="application/ld+json"
  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

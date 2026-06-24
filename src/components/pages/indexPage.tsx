@@ -131,7 +131,7 @@ export default function HomePage() {
  ];
 
  return (
- <main className="bg-slate-50" dir="rtl">
+ <main className="bg-slate-50 overflow-x-hidden" dir="rtl">
  {/* HERO */}
  <section className="relative overflow-hidden">
  <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(16,185,129,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(59,130,246,0.12),transparent_55%)]" />

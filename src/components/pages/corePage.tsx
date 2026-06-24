@@ -176,7 +176,7 @@ export default function CorePage() {
  };
 
  return (
- <div className="bg-slate-50" dir="rtl">
+ <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
  <script
  type="application/ld+json"
  dangerouslySetInnerHTML={{

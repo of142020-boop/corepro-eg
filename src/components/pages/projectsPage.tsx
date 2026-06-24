@@ -106,7 +106,7 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <main className="bg-slate-50 min-h-screen" dir="rtl">
+      <main className="bg-slate-50 min-h-screen overflow-x-hidden" dir="rtl">
         {/* Hero Section */}
         <section className="bg-slate-900 text-white py-20 px-4 relative overflow-hidden">
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.8),transparent_70%)]" />
