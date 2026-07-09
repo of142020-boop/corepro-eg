@@ -56,9 +56,10 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
  <link rel="canonical" href={canonicalUrl} />
 
- <!-- Favicons -->
+ <!-- Favicons & Manifest -->
  <link rel="icon" type="image/png" href="/favicon.png" />
  <link rel="apple-touch-icon" href="/logo-header-116x154.webp" />
+ <link rel="manifest" href="/manifest.json" />
 
  <!-- Open Graph -->
  <meta property="og:type" content={ogType} />
@@ -90,6 +91,12 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
  <!-- hreflang: Arabic Egypt target -->
  <link rel="alternate" hreflang="ar-EG" href={canonicalUrl} />
  <link rel="alternate" hreflang="ar" href={canonicalUrl} />
+
+ <!-- Geo meta tags (Local SEO) -->
+ <meta name="geo.region" content="EG-C" />
+ <meta name="geo.placename" content="Cairo, Egypt" />
+ <meta name="geo.position" content="30.0693;31.3289" />
+ <meta name="ICBM" content="30.0693, 31.3289" />
 
  <!-- WebSite + Organization Schema (global) -->
  <script type="application/ld+json" set:html={JSON.stringify([

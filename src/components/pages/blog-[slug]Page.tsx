@@ -19,8 +19,6 @@ import { urlFor } from "../../sanity/lib/image";
 import type { SanityImageSource } from "../../sanity/lib/client";
 
 
-export const revalidate = 60;
-
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 

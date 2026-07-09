@@ -1,12 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/corePage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 ---
 
 <Layout
- title="فتحات كور | صنايعي كور تخريم الخرسانة - 01055550195"
- description="صنايعي كور متخصص في تخريم الخرسانة وعمل فتحات بالكور. اسعار فتحات الكور بالمتر. خدمة فتحة مدخنة السخان والغاز. اتصل الآن 01055550195."
- canonical="https://corepro-eg.com/core"
+  title="فتحات كور | صنايعي كور تخريم الخرسانة - 01055550195"
+  description="صنايعي كور متخصص في تخريم الخرسانة وعمل فتحات بالكور. اسعار فتحات الكور بالمتر. خدمة فتحة مدخنة السخان والغاز. اتصل الآن 01055550195."
+  canonical="https://corepro-eg.com/core"
+  image="/images/core/hero.webp"
+  ogImageAlt="تخريم الخرسانة بالكور - كور برو مصر"
 >
- <PageComponent />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "تخريم الخرسانة بالكور" }
+  ]} />
+  <PageComponent />
 </Layout>

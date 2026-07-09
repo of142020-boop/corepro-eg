@@ -1,12 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/aboutPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 ---
 
 <Layout
- title="من نحن | كور برو - Core Pro - متخصصون في قص وتخريم الخرسانة بمصر"
- description="كور برو - Core Pro: شركة متخصصة منذ سنوات في قص الخرسانة بالمنشار، تخريم الكور، وتركيب الشفاطات بالقاهرة الكبرى والجيزة. فريق هندسي محترف ومعدات حديثة."
- canonical="https://corepro-eg.com/about"
+  title="من نحن | كور برو - Core Pro - متخصصون في قص وتخريم الخرسانة بمصر"
+  description="كور برو - Core Pro: شركة متخصصة منذ سنوات في قص الخرسانة بالمنشار، تخريم الكور، وتركيب الشفاطات بالقاهرة الكبرى والجيزة. فريق هندسي محترف ومعدات حديثة."
+  canonical="https://corepro-eg.com/about"
 >
- <PageComponent />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "من نحن" }
+  ]} />
+  <PageComponent />
 </Layout>

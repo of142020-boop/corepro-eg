@@ -1,0 +1,44 @@
+{
+  "name": "كور برو - Core Pro",
+  "short_name": "كور برو",
+  "description": "متخصصون في قص وتخريم الخرسانة وتركيب الشفاطات بمصر",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "lang": "ar",
+  "dir": "rtl",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-header-116x154.webp",
+      "sizes": "116x154",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "shortcuts": [
+    {
+      "name": "تخريم الكور",
+      "url": "/core",
+      "description": "خدمة تخريم الخرسانة بالكور"
+    },
+    {
+      "name": "قص الخرسانة",
+      "url": "/saw",
+      "description": "خدمة قص الخرسانة بالمنشار"
+    },
+    {
+      "name": "الأسعار",
+      "url": "/prices",
+      "description": "دليل أسعار الخدمات"
+    }
+  ]
+}

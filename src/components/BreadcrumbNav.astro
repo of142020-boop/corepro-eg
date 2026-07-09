@@ -1,0 +1,45 @@
+---
+// BreadcrumbNav.astro - مكون Breadcrumb مرئي قابل للإعادة الاستخدام
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="مسار التنقل" class="mx-auto max-w-6xl px-4 pt-4 pb-1">
+  <ol class="flex flex-wrap items-center gap-1.5 text-sm text-slate-500" itemscope itemtype="https://schema.org/BreadcrumbList">
+    {items.map((item, index) => (
+      <li
+        class="flex items-center gap-1.5"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+      >
+        {item.href ? (
+          <a
+            href={item.href}
+            itemprop="item"
+            class="hover:text-slate-800 transition font-medium"
+          >
+            <span itemprop="name">{item.label}</span>
+          </a>
+        ) : (
+          <span itemprop="name" class="text-slate-800 font-bold" aria-current="page">
+            {item.label}
+          </span>
+        )}
+        <meta itemprop="position" content={String(index + 1)} />
+        {index < items.length - 1 && (
+          <span aria-hidden="true" class="text-slate-300">›</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

@@ -1,12 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/hoodsPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
 ---
 
 <Layout
- title="تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216"
- description="فني تركيب شفاط مطبخ محترف. تركيب مدخنة شفاط + تركيب شفاط حمام وصيانة شفاطات المطابخ بجميع الأنواع. اتصل الآن 01015218216."
- canonical="https://corepro-eg.com/hoods"
+  title="تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216"
+  description="فني تركيب شفاط مطبخ محترف. تركيب مدخنة شفاط + تركيب شفاط حمام وصيانة شفاطات المطابخ بجميع الأنواع. اتصل الآن 01015218216."
+  canonical="https://corepro-eg.com/hoods"
+  image="/images/hoods/hero.webp"
+  ogImageAlt="تركيب شفاطات المطابخ - كور برو مصر"
 >
- <PageComponent />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "تركيب الشفاطات" }
+  ]} />
+  <PageComponent />
 </Layout>

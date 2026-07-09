@@ -17,7 +17,11 @@ export default defineConfig({
       'https://corepro-eg.com/saw',
       'https://corepro-eg.com/blog',
       'https://corepro-eg.com/hoods',
-      'https://corepro-eg.com/wire'
+      'https://corepro-eg.com/wire',
+      'https://corepro-eg.com/prices',
+      'https://corepro-eg.com/about',
+      'https://corepro-eg.com/projects',
+      'https://corepro-eg.com/concrete-cutting-alexandria',
     ],
     serialize(item) {
       if (item.url === 'https://corepro-eg.com/') {
@@ -32,6 +36,18 @@ export default defineConfig({
       } else if (item.url === 'https://corepro-eg.com/hoods' || item.url === 'https://corepro-eg.com/wire') {
         item.changefreq = 'monthly';
         item.priority = 0.8;
+      } else if (item.url === 'https://corepro-eg.com/prices') {
+        item.changefreq = 'weekly';
+        item.priority = 0.8;
+      } else if (item.url === 'https://corepro-eg.com/about') {
+        item.changefreq = 'monthly';
+        item.priority = 0.6;
+      } else if (item.url === 'https://corepro-eg.com/projects') {
+        item.changefreq = 'monthly';
+        item.priority = 0.7;
+      } else if (item.url === 'https://corepro-eg.com/concrete-cutting-alexandria') {
+        item.changefreq = 'monthly';
+        item.priority = 0.85;
       }
       return item;
     }

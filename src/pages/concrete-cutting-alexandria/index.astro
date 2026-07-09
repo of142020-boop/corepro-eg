@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/alexandriaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="قص وتخريم خرسانة الإسكندرية | صنايعي كور اسكندرية - 01055550195"
+  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالإسكندرية. نخدم سيدي بشر والمنتزه وسموحة وبرج العرب والعجمي والدخيلة. اتصل 01055550195."
+  canonical="https://corepro-eg.com/concrete-cutting-alexandria"
+  ogImageAlt="قص وتخريم الخرسانة بالإسكندرية - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم خرسانة الإسكندرية" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
