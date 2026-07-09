@@ -22,6 +22,7 @@ const nav = [
  { href: "/saw", label: "قص الخرسانة" },
  { href: "/wire", label: "واير تقطيع خرسانة" },
  { href: "/hoods", label: "الشفاطات" },
+ { href: "/concrete-cutting-alexandria", label: "الإسكندرية" },
  { href: "/projects", label: "سابقة الأعمال" },
 ];
 
