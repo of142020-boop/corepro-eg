@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/wallCuttingPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="عمل فتحات في الجدار وقص الخرسانة | فتح أبواب ونوافذ - 01021507462"
+  description="متخصصون في قص جدران الخرسانة وفتح الأبواب والنوافذ والمداخل بالمنشار الماسي. خط مستقيم بدقة ليزر وبدون اهتزاز أو غبار. معاينة مجانية — اتصل 01021507462."
+  canonical="https://corepro-eg.com/wall-cutting"
+  ogImageAlt="قص جدران الخرسانة وفتح الأبواب - كور برو مصر"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص الجدران وفتح الأبواب" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

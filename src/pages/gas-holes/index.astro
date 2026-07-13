@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/gasHolesPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="عمل فتحات الغاز الطبيعي بالكور | صنايعي متخصص - 01021507462"
+  description="متخصصون في عمل فتحات الغاز الطبيعي بالكور بالقطر المعتمد من شركات الغاز في مصر. فتحة عداد الغاز - سخان الغاز - بوتاجاز. بدون اهتزاز وبدون غبار. اتصل 01021507462."
+  canonical="https://corepro-eg.com/gas-holes"
+  ogImageAlt="عمل فتحات الغاز الطبيعي بالكور - كور برو مصر"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "عمل فتحات الغاز الطبيعي" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

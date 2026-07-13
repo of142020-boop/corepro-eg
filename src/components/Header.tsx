@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
@@ -27,6 +27,9 @@ const nav = [
 ];
 
 const extraPages = [
+ { href: "/gas-holes", label: "فتحات الغاز الطبيعي" },
+ { href: "/wall-cutting", label: "قص وفتح الجدران" },
+ { href: "/ceiling-holes", label: "فتحات الأسقف" },
  { href: "/about", label: "من نحن" },
  { href: "/privacy-policy", label: "سياسة الخصوصية" },
  { href: "/terms", label: "شروط الاستخدام" },

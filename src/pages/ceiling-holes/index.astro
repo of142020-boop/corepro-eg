@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/ceilingHolesPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="عمل فتحات في السقف بالكور | فتحات تهوية وتكييف وشفاطات - 01021507462"
+  description="متخصصون في عمل فتحات الأسقف الخرسانية بالكور للتهوية والتكييف المركزي وشفاطات الحمام والمطبخ والسلالم الداخلية. بدون غبار وبدون اهتزاز — اتصل 01021507462."
+  canonical="https://corepro-eg.com/ceiling-holes"
+  ogImageAlt="عمل فتحات السقف بالكور للتهوية والتكييف - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "فتحات الأسقف بالكور" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

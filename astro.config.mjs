@@ -22,6 +22,9 @@ export default defineConfig({
       'https://corepro-eg.com/about',
       'https://corepro-eg.com/projects',
       'https://corepro-eg.com/concrete-cutting-alexandria',
+      'https://corepro-eg.com/gas-holes',
+      'https://corepro-eg.com/wall-cutting',
+      'https://corepro-eg.com/ceiling-holes',
     ],
     serialize(item) {
       if (item.url === 'https://corepro-eg.com/') {
@@ -46,6 +49,13 @@ export default defineConfig({
         item.changefreq = 'monthly';
         item.priority = 0.7;
       } else if (item.url === 'https://corepro-eg.com/concrete-cutting-alexandria') {
+        item.changefreq = 'monthly';
+        item.priority = 0.85;
+      } else if (
+        item.url === 'https://corepro-eg.com/gas-holes' ||
+        item.url === 'https://corepro-eg.com/wall-cutting' ||
+        item.url === 'https://corepro-eg.com/ceiling-holes'
+      ) {
         item.changefreq = 'monthly';
         item.priority = 0.85;
       }
