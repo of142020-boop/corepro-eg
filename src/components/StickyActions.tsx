@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const PHONE = "01055550195";
-const WHATSAPP = "https://wa.me/201055550195";
+const PHONE = "01021507462";
+const WHATSAPP = "https://wa.me/201021507462";
 
 function CircleButton({
  href,

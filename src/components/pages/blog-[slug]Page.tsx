@@ -441,7 +441,7 @@ export default async function PostPage({ slug }: { slug: string }) {
  مشاهدة الخدمات
  </Link>
  <a
- href="https://wa.me/201055550195"
+ href="https://wa.me/201021507462"
  className="rounded-2xl bg-emerald-600 px-6 py-3 font-bold text-white hover:bg-emerald-700"
  target="_blank"
  rel="noopener noreferrer"

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { CheckCircle2, ShieldCheck, MapPin, Calculator, AlertCircle, Phone, Sparkles, Building2 } from "lucide-react";
 
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
@@ -6,9 +6,9 @@ const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{chi
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/prices`;
-const PHONE = "01055550195";
+const PHONE = "01021507462";
 const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201021507462";
 
 function Section({ title, icon, children, id }: { title: string; icon?: React.ReactNode; children: React.ReactNode; id?: string }) {
  return (

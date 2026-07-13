@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useState, useEffect } from 'react';
 import { Phone, CheckCircle2, Building2, ShieldCheck, Images, X } from "lucide-react";
 
@@ -11,7 +11,7 @@ const Image = ({ src, alt, fill, className, width, height, ...rest }: any) => {
   return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading="lazy" />;
 };
 
-const PHONE_NUM = "01055550195";
+const PHONE_NUM = "01021507462";
 
 export default function ProjectsPage() {
   const [activeProjectGrid, setActiveProjectGrid] = useState<any>(null);

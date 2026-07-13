@@ -1,4 +1,4 @@
-const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
+﻿const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 const Image = ({ src, alt, className, width, height, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
  const actualW = width || (typeof src === "object" ? src.width : undefined);
@@ -16,8 +16,8 @@ import {
 } from "react-icons/fa6";
 
 const BRAND = "كور برو - Core Pro";
-const PHONE = "01055550195";
-const WHATSAPP = "https://wa.me/201055550195";
+const PHONE = "01021507462";
+const WHATSAPP = "https://wa.me/201021507462";
 const EMAIL = "info@corepro-eg.com";
 const ADDRESS = "الحي العاشر مدينة نصر - مصر";
 const YEAR = new Date().getFullYear();

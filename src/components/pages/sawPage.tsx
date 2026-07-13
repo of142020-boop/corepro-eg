@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
@@ -40,9 +40,9 @@ import {
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/saw`;
-const PHONE = "01055550195";
+const PHONE = "01021507462";
 const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201021507462";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصـر";
 
 const SERVICE_NAME = "قص وتحضيع الخرسانة بالمنشار";
@@ -200,7 +200,7 @@ export default function SawPage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-sky-600 pr-4 break-words">
- مقاول قص خرسانة مسلحة بالمنشار - 01055550195
+ مقاول قص خرسانة مسلحة بالمنشار - 01021507462
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">

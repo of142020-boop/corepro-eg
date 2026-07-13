@@ -1,13 +1,13 @@
-import React from 'react';
+﻿import React from 'react';
 
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/about`;
-const PHONE = "01055550195";
+const PHONE = "01021507462";
 const PHONE_INT = "+20" + PHONE.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201021507462";
 
 const jsonLd = [
  {

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
@@ -42,9 +42,9 @@ import {
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/core`;
-const PHONE_NUM = "01055550195";
+const PHONE_NUM = "01021507462";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201021507462";
 const ADDRESS_TEXT = " الحي العاشر مدينة نصر";
 
 const SERVICE_NAME = "تخريم الخرسانة بالكور";
@@ -203,7 +203,7 @@ export default function CorePage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
- تخريم وقص الخرسانة بالكور - 01055550195
+ تخريم وقص الخرسانة بالكور - 01021507462
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">

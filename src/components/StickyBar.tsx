@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
-const PHONE = "01055550195";
-const WHATSAPP = "https://wa.me/201055550195";
+const PHONE = "01021507462";
+const WHATSAPP = "https://wa.me/201021507462";
 
 export default function StickyBar() {
  return (

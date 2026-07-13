@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
@@ -19,9 +19,9 @@ import {
 const BRAND    = 'كور برو - Core Pro';
 const DOMAIN   = 'https://corepro-eg.com';
 const CANONICAL = `${DOMAIN}/concrete-cutting-alexandria`;
-const PHONE    = '01055550195';
-const PHONE_INT = '+201055550195';
-const WHATSAPP = 'https://wa.me/201055550195';
+const PHONE    = '01021507462';
+const PHONE_INT = '+201021507462';
+const WHATSAPP = 'https://wa.me/201021507462';
 
 const ALX_AREAS = [
   'المنتزه وسيدي بشر',

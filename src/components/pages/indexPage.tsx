@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
  const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
@@ -31,9 +31,9 @@ import {
 
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
-const PHONE_NUM = "01055550195";
+const PHONE_NUM = "01021507462";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201021507462";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 
 const IMG_HERO = { src: "/images/home/hero.webp", width: 800, height: 800 };

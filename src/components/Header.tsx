@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
@@ -12,8 +12,8 @@ import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const BRAND = "كور برو - Core Pro";
-const PHONE = "01055550195";
-const WHATSAPP = "https://wa.me/201055550195";
+const PHONE = "01021507462";
+const WHATSAPP = "https://wa.me/201021507462";
 const ADDRESS = "الحي العاشر مدينة نصر ";
 
 const nav = [

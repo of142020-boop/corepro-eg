@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
  const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
@@ -10,9 +10,9 @@ const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{chi
 import { ShieldCheck, Target, Sparkles, Wrench, Ruler, BadgeCheck, MapPin, CheckCircle2, Building2, Cable, Construction, Phone, Maximize, Plus, Zap } from "lucide-react";
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
-const PHONE_NUM = "01055550195";
+const PHONE_NUM = "01021507462";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201055550195";
+const WHATSAPP = "https://wa.me/201021507462";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 const CANONICAL = `${DOMAIN}/wire`;
 const IMG_HERO = { src: "/images/wire/hero.webp", width: 800, height: 800 };
@@ -58,7 +58,7 @@ export default function WirePage() {
  <div>
  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-800 shadow-sm"><span>Wire Sawing · القص الماسي الصامت · سماكات غير محدودة</span></div>
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
- واير تقطيع خرسانة | قص الخرسانة المسلحة بالواير الماسي - 01055550195
+ واير تقطيع خرسانة | قص الخرسانة المسلحة بالواير الماسي - 01021507462
  </h1>
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
  <p>نقدم في <strong>{BRAND}</strong> خدمة <strong>قص الخرسانة بالواير</strong> (Diamond Wire Sawing) للمشاريع الإنشائية العملاقة. هذه التقنية تتيح لنا <strong>تقطيع الخرسانة</strong> بسماكات ضخمة تتجاوز المترين مما يجعلها الخيار الأول في <strong>قص الكباري</strong> وقص القواعد الخرسانية العميقة دون التأثير على سلامة الهيكل المحيط.</p>
