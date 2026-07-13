@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/electricalHolesPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="عمل فتحات التمديدات الكهربائية في الخرسانة | كور برو - 01021507462"
+  description="تخريم فتحات التمديدات الكهربائية، كابلات الشبكات، كاميرات المراقبة، وكوندويت الكهرباء في الخرسانة. استخدام كاشف الأسلاك للأمان. 01021507462."
+  canonical="https://corepro-eg.com/electrical-holes"
+  ogImageAlt="عمل فتحات التمديدات الكهربائية - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "فتحات التمديدات الكهربائية" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

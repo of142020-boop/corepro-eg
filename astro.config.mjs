@@ -25,6 +25,9 @@ export default defineConfig({
       'https://corepro-eg.com/gas-holes',
       'https://corepro-eg.com/wall-cutting',
       'https://corepro-eg.com/ceiling-holes',
+      'https://corepro-eg.com/gypsum-holes',
+      'https://corepro-eg.com/sewer-holes',
+      'https://corepro-eg.com/electrical-holes',
     ],
     serialize(item) {
       if (item.url === 'https://corepro-eg.com/') {
@@ -54,7 +57,10 @@ export default defineConfig({
       } else if (
         item.url === 'https://corepro-eg.com/gas-holes' ||
         item.url === 'https://corepro-eg.com/wall-cutting' ||
-        item.url === 'https://corepro-eg.com/ceiling-holes'
+        item.url === 'https://corepro-eg.com/ceiling-holes' ||
+        item.url === 'https://corepro-eg.com/gypsum-holes' ||
+        item.url === 'https://corepro-eg.com/sewer-holes' ||
+        item.url === 'https://corepro-eg.com/electrical-holes'
       ) {
         item.changefreq = 'monthly';
         item.priority = 0.85;

@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/sewerHolesPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="عمل فتحات الصرف الصحي والسباكة بالكور | فتحات خرسانة - 01021507462"
+  description="عمل فتحات الصرف الصحي والسباكة في الجدران والأرضيات الخرسانية بالكور. إضافة حمامات وتمديد شبكات. دقة هندسية ومعاينة مجانية. اتصل 01021507462."
+  canonical="https://corepro-eg.com/sewer-holes"
+  ogImageAlt="عمل فتحات الصرف الصحي والسباكة - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "فتحات الصرف الصحي والسباكة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
