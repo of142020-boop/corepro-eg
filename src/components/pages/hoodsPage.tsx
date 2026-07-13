@@ -130,7 +130,7 @@ export default function HoodsPage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4 break-words">
- فتح وتخريم هوايات المطابخ والشفاطات - 01055550195
+  فتح وتخريم هوايات المطابخ والشفاطات - 01015218216
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
