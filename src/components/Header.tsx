@@ -27,6 +27,8 @@ const nav = [
 ];
 
 const extraPages = [
+ { href: "/contractor", label: "مقاولات للشركات" },
+ { href: "/track-saw", label: "منشار الخرسانة" },
  { href: "/gas-holes", label: "فتحات الغاز الطبيعي" },
  { href: "/wall-cutting", label: "قص وفتح الجدران" },
  { href: "/ceiling-holes", label: "فتحات الأسقف" },

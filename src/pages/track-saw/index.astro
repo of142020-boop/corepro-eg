@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/trackSawPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="منشار قص الخرسانة الماسي | قص مستقيم بدون اهتزاز | كور برو"
+  description="تقنية منشار قص الخرسانة الماسي (Track Saw) لعمل الفتحات والأبواب والشبابيك في الجدران المسلحة بدقة ليزر وبدون غبار أو اهتزاز. اتصل 01021507462."
+  canonical="https://corepro-eg.com/track-saw"
+  ogImageAlt="منشار قص الخرسانة الماسي (Track Saw) - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "منشار قص الخرسانة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

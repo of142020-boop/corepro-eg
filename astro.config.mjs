@@ -28,6 +28,8 @@ export default defineConfig({
       'https://corepro-eg.com/gypsum-holes',
       'https://corepro-eg.com/sewer-holes',
       'https://corepro-eg.com/electrical-holes',
+      'https://corepro-eg.com/contractor',
+      'https://corepro-eg.com/track-saw',
     ],
     serialize(item) {
       if (item.url === 'https://corepro-eg.com/') {
@@ -60,7 +62,9 @@ export default defineConfig({
         item.url === 'https://corepro-eg.com/ceiling-holes' ||
         item.url === 'https://corepro-eg.com/gypsum-holes' ||
         item.url === 'https://corepro-eg.com/sewer-holes' ||
-        item.url === 'https://corepro-eg.com/electrical-holes'
+        item.url === 'https://corepro-eg.com/electrical-holes' ||
+        item.url === 'https://corepro-eg.com/contractor' ||
+        item.url === 'https://corepro-eg.com/track-saw'
       ) {
         item.changefreq = 'monthly';
         item.priority = 0.85;

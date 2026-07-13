@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/contractorPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="أفضل شركة ومقاول قص وتخريم خرسانة في مصر | كور برو"
+  description="كور برو أفضل شركة ومقاول قص وتخريم الخرسانة في مصر للمشاريع الكبرى. مقاولات باطن، أسعار جملة للشركات والمهندسين. التزام تام بالسلامة. 01021507462."
+  canonical="https://corepro-eg.com/contractor"
+  ogImageAlt="أفضل شركة ومقاول قص وتخريم خرسانة في مصر"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "مقاول قص وتخريم الخرسانة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
