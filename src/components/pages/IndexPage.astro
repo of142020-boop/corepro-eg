@@ -1,4 +1,4 @@
-﻿---
+---
 import { Image, Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import {
@@ -305,6 +305,60 @@ const jsonLd = [
  ))}
  </div>
  </section>
+
+  {/* SEO Keywords Directory */}
+  <section id="directory" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
+    <div class="mb-6 flex items-start gap-3">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">دليل خدمات كور برو (أرقام التواصل السريع)</h2>
+        <p class="mt-2 text-slate-600 leading-7">اختر الخدمة المطلوبة للتواصل المباشر مع القسم المختص</p>
+      </div>
+    </div>
+    
+    <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <table class="w-full text-right text-slate-800 min-w-[500px]">
+        <thead>
+          <tr class="bg-slate-50 border-b border-slate-200">
+            <th class="p-4 font-black text-slate-900">الخدمة المطلوبة</th>
+            <th class="p-4 font-black text-slate-900 border-r border-slate-200">رقم التواصل المباشر</th>
+            <th class="p-4 font-black text-slate-900 border-r border-slate-200">التفاصيل</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 font-bold">
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">صنايعي كور / فني تخريم</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/core" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تخريم بالكور</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">شركة تخريم خرسانة / شركة قص خرسانة</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/contractor" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">مقاولات الشركات</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">عمل فتحات كور خرسانة</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/core" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تفاصيل الفتحات</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">مقاول قص خرسانه / مقاول فتحات كور</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/contractor" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">طلب مقايسة مشروع</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">منشار قص الخرسانة (Track Saw)</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/track-saw" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">قص مستقيم بالمنشار</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">فني تركيب شفاطات مطبخ / حمام</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01015218216" class="hover:underline">01015218216</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/hoods" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تركيب وتأسيس شفاطات</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
  {/* FAQ */}
  <section id="faq" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
