@@ -213,6 +213,39 @@ export default function SawPage() {
  },
  };
 
+  const jsonLdImageObjects = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/saw/hero.webp`,
+      "name": "قص الخرسانة بالمنشار الماسي - كور برو",
+      "description": "قص الخرسانة بمنشار السكة الماسي بدقة ليزر وبدون اهتزاز",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": true,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/saw/work-1.webp`,
+      "name": "منشار قص الخرسانة - عمل ميداني",
+      "description": "منشار ماسي ضخم أثناء قص جدار خرساني مع التبريد المائي",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": false,
+    }
+  ];
+
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
  <script
@@ -225,6 +258,7 @@ export default function SawPage() {
  jsonLdBreadcrumb,
  jsonLdAiFaq,
  jsonLdSpeakable,
+ ...jsonLdImageObjects,
  ]),
  }}
  />

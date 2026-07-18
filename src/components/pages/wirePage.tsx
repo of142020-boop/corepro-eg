@@ -80,9 +80,42 @@ export default function WirePage() {
  },
  };
 
+  const jsonLdImageObjects = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/wire/hero.webp`,
+      "name": "قص الخرسانة بالواير الماسي - كور برو",
+      "description": "قص الخرسانة الضخمة بالواير الماسي للمشاريع الكبرى",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": true,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/wire/work-1.webp`,
+      "name": "ماكينة الواير الماسي أثناء العمل",
+      "description": "ماكينة الواير الماسي تقص كتلة خرسانية ضخمة بدقة",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": false,
+    }
+  ];
+
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
- <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb, jsonLdAiFaq, jsonLdSpeakable]) }} />
+ <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb, jsonLdAiFaq, jsonLdSpeakable, ...jsonLdImageObjects]) }} />
  <section className="relative overflow-hidden">
  <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(16,185,129,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(59,130,246,0.14),transparent_55%)]" />
  <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-50" />

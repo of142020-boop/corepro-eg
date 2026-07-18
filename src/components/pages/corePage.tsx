@@ -264,6 +264,39 @@ export default function CorePage() {
  },
  };
 
+ const jsonLdImageObjects = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/core/hero.webp`,
+      "name": "تخريم الخرسانة بالكور الماسي - كور برو",
+      "description": "تخريم الخرسانة بماكينة الكور الماسي مع التبريد المائي",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": true,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/core/work-1.webp`,
+      "name": "ماكينة كور دريل هيدروليكية",
+      "description": "ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": false,
+    }
+  ];
+
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
  <script
@@ -276,6 +309,7 @@ export default function CorePage() {
  jsonLdBreadcrumb,
  jsonLdAiFaq,
  jsonLdSpeakable,
+ ...jsonLdImageObjects,
  ]),
  }}
  />

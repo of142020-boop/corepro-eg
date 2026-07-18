@@ -154,9 +154,42 @@ export default function HoodsPage() {
  },
  };
 
+  const jsonLdImageObjects = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/hoods/hero.webp`,
+      "name": "تركيب شفاطات المطابخ - كور برو",
+      "description": "تركيب شفاطات مطابخ احترافية مع تخريم الفتحة",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": true,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": `${DOMAIN}/images/hoods/work-1.webp`,
+      "name": "شفاطات مطابخ مركبة على السطح",
+      "description": "شفاطات مطابخ بمنافذ خارجية محكمة مركبة على سطح المبنى",
+      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
+      "copyrightHolder": { "@type": "Organization", "name": BRAND },
+      "creditText": "كور برو - Core Pro",
+      "acquireLicensePage": CANONICAL,
+      "creator": { "@type": "Organization", "name": BRAND },
+      "license": `${DOMAIN}/terms`,
+      "copyrightNotice": `© 2026 ${BRAND}`,
+      "representativeOfPage": false,
+    }
+  ];
+
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
- <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb, jsonLdAiFaq, jsonLdSpeakable]) }} />
+ <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb, jsonLdAiFaq, jsonLdSpeakable, ...jsonLdImageObjects]) }} />
 
  {/* HERO */}
  <section className="relative overflow-hidden">
