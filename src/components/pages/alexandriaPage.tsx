@@ -181,6 +181,10 @@ export default function AlexandriaPage() {
       copyrightHolder: { '@type': 'Organization', name: BRAND },
       creditText: 'كور برو - Core Pro',
       acquireLicensePage: CANONICAL,
+      creator: { '@type': 'Organization', name: BRAND },
+      license: `${DOMAIN}/terms`,
+      copyrightNotice: `© 2026 ${BRAND}`,
+
       representativeOfPage: false,
     },
     {
@@ -193,6 +197,10 @@ export default function AlexandriaPage() {
       copyrightHolder: { '@type': 'Organization', name: BRAND },
       creditText: 'كور برو - Core Pro',
       acquireLicensePage: CANONICAL,
+      creator: { '@type': 'Organization', name: BRAND },
+      license: `${DOMAIN}/terms`,
+      copyrightNotice: `© 2026 ${BRAND}`,
+
       representativeOfPage: false,
     },
     {
@@ -205,6 +213,10 @@ export default function AlexandriaPage() {
       copyrightHolder: { '@type': 'Organization', name: BRAND },
       creditText: 'كور برو - Core Pro',
       acquireLicensePage: CANONICAL,
+      creator: { '@type': 'Organization', name: BRAND },
+      license: `${DOMAIN}/terms`,
+      copyrightNotice: `© 2026 ${BRAND}`,
+
       representativeOfPage: false,
     },
     {
@@ -217,6 +229,10 @@ export default function AlexandriaPage() {
       copyrightHolder: { '@type': 'Organization', name: BRAND },
       creditText: 'كور برو - Core Pro',
       acquireLicensePage: CANONICAL,
+      creator: { '@type': 'Organization', name: BRAND },
+      license: `${DOMAIN}/terms`,
+      copyrightNotice: `© 2026 ${BRAND}`,
+
       representativeOfPage: false,
     },
     // ── HowTo schema for process steps (AI Overviews) ──
