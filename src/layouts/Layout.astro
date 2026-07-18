@@ -1,4 +1,4 @@
-﻿---
+---
 import { getImage } from "astro:assets";
 import heroImg from '../assets/images/home/hero.webp';
 import '../assets/globals.css';
@@ -97,6 +97,11 @@ const optimizedHero = await getImage({ src: heroImg, format: 'webp', width: 1024
  <meta name="geo.placename" content="Cairo, Egypt" />
  <meta name="geo.position" content="30.0693;31.3289" />
  <meta name="ICBM" content="30.0693, 31.3289" />
+
+ <!-- Business Contact Data (AI & Open Graph) -->
+ <meta property="business:contact_data:phone_number" content="+201021507462" />
+ <meta property="business:contact_data:locality" content="Cairo" />
+ <meta property="business:contact_data:country_name" content="Egypt" />
 
  <!-- WebSite + Organization Schema (global) -->
  <script type="application/ld+json" set:html={JSON.stringify([

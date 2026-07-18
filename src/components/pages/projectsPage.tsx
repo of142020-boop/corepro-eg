@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState, useEffect } from 'react';
 import { Phone, CheckCircle2, Building2, ShieldCheck, Images, X } from "lucide-react";
 
@@ -27,48 +27,91 @@ export default function ProjectsPage() {
   }, [activeProjectGrid]);
 
   const portSaidGallery = [
-    "/images/projects/port-said/photo_1_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_2_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_3_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_4_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_5_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_6_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_7_2026-06-23_03-12-43.jpg",
-    "/images/projects/port-said/photo_8_2026-06-23_03-12-44.jpg",
-    "/images/projects/port-said/photo_9_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_10_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_11_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_12_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_13_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_14_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_15_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_16_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_17_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_18_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_19_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_20_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_21_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_22_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_23_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_24_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_25_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_26_2026-06-23_03-12-45.jpg",
-    "/images/projects/port-said/photo_27_2026-06-23_03-12-45.jpg"
+    "/images/projects/port-said/photo_1_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_2_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_3_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_4_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_5_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_6_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_7_2026-06-23_03-12-43.webp",
+    "/images/projects/port-said/photo_8_2026-06-23_03-12-44.webp",
+    "/images/projects/port-said/photo_9_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_10_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_11_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_12_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_13_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_14_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_15_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_16_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_17_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_18_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_19_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_20_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_21_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_22_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_23_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_24_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_25_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_26_2026-06-23_03-12-45.webp",
+    "/images/projects/port-said/photo_27_2026-06-23_03-12-45.webp"
   ];
 
   const rasGharibGallery = [
-    "/images/projects/ras-gharib/photo_1_2026-06-23_03-45-26.jpg",
-    "/images/projects/ras-gharib/photo_2_2026-06-23_03-45-26.jpg",
-    "/images/projects/ras-gharib/photo_3_2026-06-23_03-45-26.jpg",
-    "/images/projects/ras-gharib/photo_1_2026-06-23_04-16-57.jpg",
-    "/images/projects/ras-gharib/photo_2_2026-06-23_04-16-57.jpg"
+    "/images/projects/ras-gharib/photo_1_2026-06-23_03-45-26.webp",
+    "/images/projects/ras-gharib/photo_2_2026-06-23_03-45-26.webp",
+    "/images/projects/ras-gharib/photo_3_2026-06-23_03-45-26.webp",
+    "/images/projects/ras-gharib/photo_1_2026-06-23_04-16-57.webp",
+    "/images/projects/ras-gharib/photo_2_2026-06-23_04-16-57.webp"
   ];
 
   const andalusiaGallery = [
-    "/images/projects/andalusia/photo_1_2026-06-23_04-21-37.jpg",
-    "/images/projects/andalusia/photo_2_2026-06-23_04-21-37.jpg",
-    "/images/projects/andalusia/photo_3_2026-06-23_04-21-37.jpg",
-    "/images/projects/andalusia/photo_4_2026-06-23_04-21-37.jpg"
+    "/images/projects/andalusia/photo_1_2026-06-23_04-21-37.webp",
+    "/images/projects/andalusia/photo_2_2026-06-23_04-21-37.webp",
+    "/images/projects/andalusia/photo_3_2026-06-23_04-21-37.webp",
+    "/images/projects/andalusia/photo_4_2026-06-23_04-21-37.webp"
+  ];
+
+  const minyaGallery = [
+    "/images/projects/minya-elevator/photo_1.webp",
+    "/images/projects/minya-elevator/photo_2.webp",
+    "/images/projects/minya-elevator/photo_3.webp",
+    "/images/projects/minya-elevator/photo_4.webp",
+    "/images/projects/minya-elevator/photo_5.webp",
+    "/images/projects/minya-elevator/photo_6.webp",
+    "/images/projects/minya-elevator/photo_7.webp",
+    "/images/projects/minya-elevator/photo_8.webp",
+    "/images/projects/minya-elevator/photo_9.webp",
+    "/images/projects/minya-elevator/photo_10.webp",
+    "/images/projects/minya-elevator/photo_11.webp",
+    "/images/projects/minya-elevator/photo_12.webp",
+    "/images/projects/minya-elevator/photo_13.webp",
+    "/images/projects/minya-elevator/photo_14.webp",
+    "/images/projects/minya-elevator/photo_15.webp",
+    "/images/projects/minya-elevator/photo_16.webp",
+    "/images/projects/minya-elevator/photo_17.webp",
+    "/images/projects/minya-elevator/photo_18.webp",
+    "/images/projects/minya-elevator/photo_19.webp",
+    "/images/projects/minya-elevator/photo_20.webp",
+    "/images/projects/minya-elevator/photo_21.webp",
+    "/images/projects/minya-elevator/photo_22.webp",
+    "/images/projects/minya-elevator/photo_23.webp",
+    "/images/projects/minya-elevator/photo_24.webp",
+    "/images/projects/minya-elevator/photo_25.webp",
+    "/images/projects/minya-elevator/photo_26.webp",
+    "/images/projects/minya-elevator/photo_27.webp",
+    "/images/projects/minya-elevator/photo_28.webp",
+    "/images/projects/minya-elevator/photo_29.webp",
+    "/images/projects/minya-elevator/photo_30.webp",
+    "/images/projects/minya-elevator/photo_31.webp",
+    "/images/projects/minya-elevator/photo_32.webp",
+    "/images/projects/minya-elevator/photo_33.webp",
+    "/images/projects/minya-elevator/photo_34.webp",
+    "/images/projects/minya-elevator/photo_35.webp",
+    "/images/projects/minya-elevator/photo_36.webp",
+    "/images/projects/minya-elevator/photo_37.webp",
+    "/images/projects/minya-elevator/photo_38.webp",
+    "/images/projects/minya-elevator/photo_39.webp",
+    "/images/projects/minya-elevator/photo_40.webp",
   ];
 
   const projects = [
@@ -76,7 +119,7 @@ export default function ProjectsPage() {
       id: 0,
       title: "قص سور مخازن ميناء بور سعيد لتركيب جمالون حديد",
       location: "ميناء بور سعيد",
-      cover: "/images/projects/port-said/photo_21_2026-06-23_03-12-45.jpg",
+      cover: "/images/projects/port-said/photo_21_2026-06-23_03-12-45.webp",
       gallery: portSaidGallery,
       problem: "العمل على ارتفاع شاهق (16 متر) لقص جزء من سور مخازن بقطر خرسانة ضخم يصل إلى 120 سم، بالإضافة لفتح أبواب بارتفاع 6 أمتار. التحدي الأساسي كان في الارتفاع الخطير والسمك غير العادي للخرسانة.",
       solution: "تم استخدام ماكينة قص الخرسانة بالواير الماسي (Diamond Wire Sawing) لتنفيذ القطع بسلامة تامة واحترافية عالية رغم الارتفاع وصعوبة الوصول، مما سمح بتركيب الجمالون الحديدي بنجاح تام.",
@@ -101,6 +144,16 @@ export default function ProjectsPage() {
       problem: "العمل يتطلب فتح باب لربط مبنى المستشفى الحالي بمبنى آخر جديد. التحدي الاستثنائي كان في سمك الجدار الخرساني الهائل والذي بلغ (170 سم) من الخرسانة المسلحة الصلبة، بالإضافة لضرورة تنفيذ العمل بأمان تام داخل بيئة مستشفى.",
       solution: "تم استخدام (ماكينة الواير الماسي) المتطورة لاختراق وقص هذا السمك الهائل (170 سم) بدقة. بعد إتمام عملية القص وفصل الكتلة الخرسانية، تم إسقاطها بحرص على الأرض وتكسيرها باستخدام (الجاك هامر - Jack Hammer) لتسهيل نقلها وإزالتها دون التسبب باهتزازات تؤثر على سلامة المبنى.",
       highlights: ["سمك خرسانة 170 سم", "قص بماكينة الواير", "تكسير بالجاك هامر", "بيئة عمل حرجة"]
+    },
+    {
+      id: 3,
+      title: "توسعة أبواب أسانسيرين تم إنشاؤهم بالخطأ في سوق الحبشي الحضري",
+      location: "سوق الحبشي الحضري، المنيا",
+      cover: "/images/projects/minya-elevator/cover.webp",
+      gallery: minyaGallery,
+      problem: "أبواب أسانسيرين في سوق الحبشي الحضري بالمنيا تم إنشاؤهم بمقاسات خاطئة أضيق من المقاس المطلوب، مما جعل تركيب الأسانسير مستحيلاً. التحدي كان في توسعة فتحات الأبواب بدقة شديدة داخل مبنى قائم ومكتمل الإنشاء دون التأثير على السلامة الإنشائية للمبنى.",
+      solution: "تم الاعتماد على منشار الخرسانة الماسي (Wall Saw) وماكينة الكور الماسي لتوسعة الفتحتين بدقة هندسية عالية، مع ضمان انتظام وحيادية حواف القطع. تم تنفيذ العمل بشكل احترافي بدون أي اهتزازات تضر بالمبنى، وتم تسليم الفتحات بالمقاسات الصحيحة جاهزة لتركيب الأسانسير.",
+      highlights: ["توسعة فتحات أسانسير", "منشار خرسانة ماسي", "تخريم بالكور", "40 صورة توثيقية", "المنيا"]
     }
   ];
 

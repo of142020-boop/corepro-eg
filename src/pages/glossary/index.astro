@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/glossaryPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="دليل مصطلحات الخرسانة والتخريم | كور برو"
+  description="دليل شامل من كور برو يشرح بأسلوب مبسط كافة المصطلحات الهندسية والفنية المستخدمة في مجال قص وتخريم الخرسانة المسلحة (مثل الكور، الواير המاسي، الإيبوكسي)."
+  canonical="https://corepro-eg.com/glossary"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "دليل المصطلحات" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

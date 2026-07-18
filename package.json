@@ -7,7 +7,8 @@
     "start": "astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "index-now": "node scripts/google-index.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -22,6 +23,8 @@
     "@sanity/vision": "^4.22.0",
     "astro": "^5.2.5",
     "astro-compress": "^2.4.0",
+    "fast-xml-parser": "^5.10.0",
+    "googleapis": "^173.0.0",
     "lucide-react": "^0.564.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",

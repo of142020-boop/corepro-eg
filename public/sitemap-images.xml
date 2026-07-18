@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://corepro-eg.com/</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/og-image.webp</image:loc>
+      <image:title>كور برو - قص وتخريم الخرسانة في مصر</image:title>
+      <image:caption>الشركة الأولى في مصر لقص الخرسانة بالمنشار الماسي وتخريم الكور وتركيب الشفاطات</image:caption>
+    </image:image>
+  </url>
+
+  <!-- صفحة قص الخرسانة بالمنشار -->
+  <url>
+    <loc>https://corepro-eg.com/saw</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/saw/hero.webp</image:loc>
+      <image:title>قص الخرسانة بالمنشار الماسي - كور برو</image:title>
+      <image:caption>قص الخرسانة بمنشار السكة الماسي بدقة ليزر وبدون اهتزاز</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/saw/work-1.webp</image:loc>
+      <image:title>منشار قص الخرسانة - عمل ميداني</image:title>
+      <image:caption>منشار ماسي ضخم أثناء قص جدار خرساني مع التبريد المائي</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/saw/work-2.webp</image:loc>
+      <image:title>قص خرسانة الجدار بالمنشار</image:title>
+      <image:caption>قص جدار خرساني مسلح بالمنشار الماسي بدون غبار</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/saw/work-3.webp</image:loc>
+      <image:title>منشار الخرسانة الماسي الكبير</image:title>
+      <image:caption>منشار ماسي كبير يقطع الخرسانة المسلحة بالتبريد المائي الكامل</image:caption>
+    </image:image>
+  </url>
+
+  <!-- صفحة تخريم الكور -->
+  <url>
+    <loc>https://corepro-eg.com/core</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/core/hero.webp</image:loc>
+      <image:title>تخريم الخرسانة بالكور الماسي - كور برو</image:title>
+      <image:caption>تخريم الخرسانة بماكينة الكور الماسي مع التبريد المائي</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/core/work-1.webp</image:loc>
+      <image:title>ماكينة كور دريل هيدروليكية</image:title>
+      <image:caption>ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/core/work-2.webp</image:loc>
+      <image:title>تخريم فتحة كور في الجدار</image:title>
+      <image:caption>تخريم فتحة دائرية دقيقة في جدار خرساني لتمرير المواسير</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/core/work-3.webp</image:loc>
+      <image:title>أسطوانة الكور الماسية</image:title>
+      <image:caption>أسطوانة الكور الماسية بعد تخريم فتحة في الخرسانة</image:caption>
+    </image:image>
+  </url>
+
+  <!-- صفحة شفاطات المطابخ -->
+  <url>
+    <loc>https://corepro-eg.com/hoods</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/hoods/hero.webp</image:loc>
+      <image:title>تركيب شفاطات المطابخ - كور برو</image:title>
+      <image:caption>تركيب شفاطات مطابخ احترافية مع تخريم الفتحة</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/hoods/work-1.webp</image:loc>
+      <image:title>شفاطات مطابخ مركبة على السطح</image:title>
+      <image:caption>شفاطات مطابخ بمنافذ خارجية محكمة مركبة على سطح المبنى</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/hoods/work-2.webp</image:loc>
+      <image:title>تركيب شفاط مطبخ احترافي</image:title>
+      <image:caption>تركيب شفاط مطبخ مع توصيل الدكت والفلتر</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/hoods/work-3.webp</image:loc>
+      <image:title>فتحة شفاط المطبخ في الجدار</image:title>
+      <image:caption>فتحة تخريم الكور لشفاط المطبخ في الجدار الخارجي</image:caption>
+    </image:image>
+  </url>
+
+  <!-- صفحة الواير الماسي -->
+  <url>
+    <loc>https://corepro-eg.com/wire</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/wire/hero.webp</image:loc>
+      <image:title>قص الخرسانة بالواير الماسي - كور برو</image:title>
+      <image:caption>قص الخرسانة الضخمة بالواير الماسي للمشاريع الكبرى</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/wire/work-1.webp</image:loc>
+      <image:title>ماكينة الواير الماسي أثناء العمل</image:title>
+      <image:caption>ماكينة الواير الماسي تقطع خرسانة ضخمة في مشروع بنية تحتية</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/wire/work-2.webp</image:loc>
+      <image:title>قص الخرسانة الثقيلة بالواير</image:title>
+      <image:caption>الواير الماسي يقطع خرسانة مسلحة ضخمة بدون حد أقصى للسُمك</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/wire/work-3.webp</image:loc>
+      <image:title>نتيجة قص الواير الماسي</image:title>
+      <image:caption>نتيجة قص الخرسانة بالواير الماسي بحواف ناعمة تماماً</image:caption>
+    </image:image>
+  </url>
+
+  <!-- صفحة مشاريع قص الإسكندرية -->
+  <url>
+    <loc>https://corepro-eg.com/concrete-cutting-alexandria</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/saw/work-3.webp</image:loc>
+      <image:title>قص الخرسانة بالمنشار الماسي في الإسكندرية</image:title>
+      <image:caption>قص جدار خرساني بالمنشار الماسي مع التبريد المائي الكامل في الإسكندرية</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/core/work-1.webp</image:loc>
+      <image:title>تخريم الكور في الإسكندرية</image:title>
+      <image:caption>تخريم الخرسانة بالكور في الإسكندرية لفتحات الغاز والتكييف</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/hoods/work-1.webp</image:loc>
+      <image:title>تركيب شفاطات بالإسكندرية</image:title>
+      <image:caption>تركيب شفاطات مطابخ في الإسكندرية بمنافذ محكمة ضد رطوبة البحر</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/wire/work-1.webp</image:loc>
+      <image:title>الواير الماسي في الإسكندرية</image:title>
+      <image:caption>قص الخرسانة بالواير الماسي للمشاريع الكبرى في الإسكندرية</image:caption>
+    </image:image>
+  </url>
+
+  <!-- صفحة سابقة الأعمال -->
+  <url>
+    <loc>https://corepro-eg.com/projects</loc>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/projects/port-said/photo_21_2026-06-23_03-12-45.webp</image:loc>
+      <image:title>مشروع قص سور مخازن ميناء بور سعيد</image:title>
+      <image:caption>قص خرسانة سُمكها 120سم على ارتفاع 16 متر لتركيب جمالون حديد بميناء بور سعيد</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/projects/ras-gharib/photo_1_2026-06-23_03-45-26.webp</image:loc>
+      <image:title>مشروع محطة كهرباء غرب بكر - رأس غارب</image:title>
+      <image:caption>قص وإزالة قواعد وحوائط خرسانية ضخمة بارتفاع 11 متر في محطة كهرباء رأس غارب</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/projects/andalusia/photo_1_2026-06-23_04-21-37.webp</image:loc>
+      <image:title>مشروع مستشفى الأندلسية - فتح باب بخرسانة 170سم</image:title>
+      <image:caption>فتح باب في جدار خرساني سُمكه 170سم داخل مستشفى الأندلسية بالمعادي</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://corepro-eg.com/images/projects/minya-elevator/cover.webp</image:loc>
+      <image:title>مشروع توسعة أبواب أسانسير سوق الحبشي الحضري - المنيا</image:title>
+      <image:caption>توسعة أبواب أسانسيرين تم إنشاؤهم بالخطأ في سوق الحبشي الحضري بالمنيا</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

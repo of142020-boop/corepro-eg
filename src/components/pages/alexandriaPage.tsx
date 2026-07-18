@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
@@ -170,6 +170,115 @@ export default function AlexandriaPage() {
         { '@type': 'ListItem', position: 2, name: 'قص وتخريم خرسانة الإسكندرية', item: CANONICAL },
       ],
     },
+    // ── ImageObject schemas for Google Image Search ──
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl: `${DOMAIN}/images/saw/work-3.webp`,
+      name: 'قص الخرسانة بالمنشار الماسي في الإسكندرية',
+      description: 'قص جدار خرساني بالمنشار الماسي مع التبريد المائي الكامل — خدمة كور برو في الإسكندرية',
+      author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
+      copyrightHolder: { '@type': 'Organization', name: BRAND },
+      creditText: 'كور برو - Core Pro',
+      acquireLicensePage: CANONICAL,
+      representativeOfPage: false,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl: `${DOMAIN}/images/core/work-1.webp`,
+      name: 'تخريم الخرسانة بالكور الماسي في الإسكندرية',
+      description: 'ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني بالتبريد المائي — كور برو الإسكندرية',
+      author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
+      copyrightHolder: { '@type': 'Organization', name: BRAND },
+      creditText: 'كور برو - Core Pro',
+      acquireLicensePage: CANONICAL,
+      representativeOfPage: false,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl: `${DOMAIN}/images/hoods/work-1.webp`,
+      name: 'تركيب شفاطات المطابخ بالإسكندرية',
+      description: 'شفاطات مطابخ مركبة على السطح بمنافذ خارجية محكمة ضد رطوبة هواء الإسكندرية — كور برو',
+      author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
+      copyrightHolder: { '@type': 'Organization', name: BRAND },
+      creditText: 'كور برو - Core Pro',
+      acquireLicensePage: CANONICAL,
+      representativeOfPage: false,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl: `${DOMAIN}/images/wire/work-1.webp`,
+      name: 'قص الخرسانة بالواير الماسي في الإسكندرية',
+      description: 'ماكينة الواير الماسي أثناء قص خرسانة ضخمة في مشروع بنية تحتية كبير — كور برو الإسكندرية',
+      author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
+      copyrightHolder: { '@type': 'Organization', name: BRAND },
+      creditText: 'كور برو - Core Pro',
+      acquireLicensePage: CANONICAL,
+      representativeOfPage: false,
+    },
+    // ── HowTo schema for process steps (AI Overviews) ──
+    {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: 'كيف تطلب خدمة قص وتخريم الخرسانة من كور برو بالإسكندرية؟',
+      description: 'خطوات بسيطة للحصول على خدمة قص أو تخريم الخرسانة في الإسكندرية من كور برو',
+      totalTime: 'PT24H',
+      tool: [
+        { '@type': 'HowToTool', name: 'منشار خرسانة ماسي (Wall Saw)' },
+        { '@type': 'HowToTool', name: 'ماكينة كور دريل هيدروليكية' },
+        { '@type': 'HowToTool', name: 'نظام التبريد المائي' },
+      ],
+      step: [
+        {
+          '@type': 'HowToStep',
+          position: 1,
+          name: 'التواصل وتحديد المتطلبات',
+          text: 'تواصل مع كور برو عبر واتساب أو الاتصال على 01021507462 وأخبرنا بنوع العمل المطلوب وموقعك في الإسكندرية.',
+          url: `${CANONICAL}#process`,
+        },
+        {
+          '@type': 'HowToStep',
+          position: 2,
+          name: 'المعاينة الميدانية المجانية',
+          text: 'يصل فريقنا لموقعك في الإسكندرية لمعاينة الموقع بالكاشف الإلكتروني وتقديم عرض سعر نهائي مجاناً.',
+          url: `${CANONICAL}#process`,
+        },
+        {
+          '@type': 'HowToStep',
+          position: 3,
+          name: 'التجهيز وحماية المكان',
+          text: 'نغلف المفروشات والأرضيات بمواد حماية ونجهز نظام شفط المياه والأتربة قبل البدء.',
+          url: `${CANONICAL}#process`,
+        },
+        {
+          '@type': 'HowToStep',
+          position: 4,
+          name: 'التنفيذ بالمعدات الاحترافية',
+          text: 'ننفذ القص أو التخريم بالمعدات المناسبة مع التبريد المائي الكامل. لا غبار، لا اهتزاز.',
+          url: `${CANONICAL}#process`,
+        },
+        {
+          '@type': 'HowToStep',
+          position: 5,
+          name: 'التسليم النهائي النظيف',
+          text: 'ننظف الموقع بالكامل ونسلمك الفتحة أو القطع بحواف ناعمة جاهزة للتشطيب مباشرة.',
+          url: `${CANONICAL}#process`,
+        },
+      ],
+    },
+    // ── Speakable schema for AI voice answers ──
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      url: CANONICAL,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['#saw-alexandria', '#core-alexandria', '#faq'],
+      },
+    },
   ];
 
   return (
@@ -295,6 +404,18 @@ export default function AlexandriaPage() {
                   </div>
                 ))}
               </div>
+
+              {/* صورة قص المنشار */}
+              <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <Image
+                  src="/images/saw/work-3.webp"
+                  alt="قص الخرسانة بالمنشار الماسي في الإسكندرية — كور برو"
+                  width={900}
+                  height={500}
+                  className="w-full object-cover max-h-72"
+                />
+                <p className="text-center text-xs text-slate-400 py-2 bg-slate-50">قص جدار خرساني بالمنشار الماسي مع التبريد المائي الكامل</p>
+              </div>
             </Section>
 
             {/* 2. تخريم الكور */}
@@ -325,6 +446,18 @@ export default function AlexandriaPage() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* صورة ماكينة الكور */}
+              <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <Image
+                  src="/images/core/work-1.webp"
+                  alt="تخريم الخرسانة بالكور الماسي في الإسكندرية — كور برو"
+                  width={900}
+                  height={500}
+                  className="w-full object-cover max-h-72"
+                />
+                <p className="text-center text-xs text-slate-400 py-2 bg-slate-50">ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني بالتبريد المائي</p>
               </div>
             </Section>
 
@@ -388,6 +521,18 @@ export default function AlexandriaPage() {
                   </div>
                 ))}
               </div>
+
+              {/* صورة الشفاطات */}
+              <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <Image
+                  src="/images/hoods/work-1.webp"
+                  alt="تركيب شفاطات المطابخ والمداخن بالإسكندرية — كور برو"
+                  width={900}
+                  height={500}
+                  className="w-full object-cover max-h-72"
+                />
+                <p className="text-center text-xs text-slate-400 py-2 bg-slate-50">شفاطات مطابخ مركبة على السطح بمنافذ خارجية محكمة ضد رطوبة هواء الإسكندرية</p>
+              </div>
             </Section>
 
             {/* 5. الواير الماسي */}
@@ -404,6 +549,18 @@ export default function AlexandriaPage() {
               <Link href="/wire" className="inline-flex items-center gap-2 mt-4 text-sm font-black text-emerald-700 hover:underline">
                 تعرف أكثر عن خدمة الواير الماسي ←
               </Link>
+
+              {/* صورة الواير الماسي */}
+              <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <Image
+                  src="/images/wire/work-1.webp"
+                  alt="قص الخرسانة بالواير الماسي في الإسكندرية — مشاريع كبرى — كور برو"
+                  width={900}
+                  height={500}
+                  className="w-full object-cover max-h-72"
+                />
+                <p className="text-center text-xs text-slate-400 py-2 bg-slate-50">ماكينة الواير الماسي أثناء قص خرسانة ضخمة في مشروع بنية تحتية كبير</p>
+              </div>
             </Section>
 
             {/* 6. الأسعار */}

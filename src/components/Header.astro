@@ -1,4 +1,4 @@
-﻿---
+---
 import { Image } from "astro:assets";
 import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
@@ -20,6 +20,7 @@ const nav = [
 ];
 
 const extraPages = [
+ { href: "/glossary", label: "دليل المصطلحات" },
  { href: "/about", label: "من نحن" },
  { href: "/privacy-policy", label: "سياسة الخصوصية" },
  { href: "/terms", label: "شروط الاستخدام" },
@@ -30,10 +31,10 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 ---
 
 {/* Top Bar */}
-<div class="hidden md:block bg-slate-900 text-white text-sm">
+<div class="hidden md:block bg-slate-900 text-white text-sm" itemscope itemtype="https://schema.org/LocalBusiness">
  <div class="mx-auto max-w-6xl px-4 flex justify-between items-center h-10">
  <div class="flex items-center gap-4">
- <a href={`tel:${PHONE}`} class="flex items-center gap-2 hover:opacity-80 transition" aria-label={`اتصال ${BRAND}`}>
+ <a href={`tel:${PHONE}`} itemprop="telephone" class="tel flex items-center gap-2 hover:opacity-80 transition" aria-label={`اتصال ${BRAND}`}>
  <Phone className="h-4 w-4" />
  {PHONE}
  </a>
