@@ -16,10 +16,10 @@ const PHONE_NUM = "01015218216";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201015218216";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
-const IMG_HERO = { src: "/images/hoods/hero.webp", width: 800, height: 800 };
-const IMG_1 = { src: "/images/hoods/work-1.webp", width: 800, height: 800 };
-const IMG_2 = { src: "/images/hoods/work-2.webp", width: 800, height: 800 };
-const IMG_3 = { src: "/images/hoods/work-3.webp", width: 800, height: 800 };
+const IMG_HERO = { src: "/images/hoods/fani-tarkib-shafat-matbakh.webp", width: 800, height: 800 };
+const IMG_1 = { src: "/images/hoods/tarkib-shafat-hamam-1.webp", width: 800, height: 800 };
+const IMG_2 = { src: "/images/hoods/tarkib-shafat-hamam-2.webp", width: 800, height: 800 };
+const IMG_3 = { src: "/images/hoods/tarkib-shafat-hamam-3.webp", width: 800, height: 800 };
 
 function Section({ title, subtitle, icon, children, id, level = 2 }: { title: string; subtitle?: string; icon?: React.ReactNode; children: React.ReactNode; id?: string; level?: 2 | 3; }) {
  const HeadingTag = level === 2 ? 'h2' : 'h3';
@@ -204,7 +204,7 @@ export default function HoodsPage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4 break-words">
-  فتح وتخريم هوايات المطابخ والشفاطات - 01015218216
+  تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
@@ -229,13 +229,13 @@ export default function HoodsPage() {
 
  <div className="rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
  <div data-lightbox-src={IMG_HERO.src} className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer">
- <Image src={IMG_HERO} alt="تركيب شفاط مطبخ مدخنة - كور برو - Core Pro" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
+ <Image src={IMG_HERO} alt="فني تركيب شفاط مطبخ محترف وتأسيس هوايات الشفاطات - كور برو" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><Maximize className="h-10 w-10" /></div>
  </div>
  <div className="p-4 grid grid-cols-3 gap-3">
  {[IMG_1, IMG_2, IMG_3].map((img, i) => (
  <div key={i} data-lightbox-src={img.src} className="relative aspect-[4/3] rounded-none overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer">
- <Image src={img} alt={`أعمال تركيب شفاطات مطبخ وحمام ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
+ <Image src={img} alt={`أعمال فتح وتخريم وتركيب شفاطات مطبخ وحمام احترافية ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><Plus className="h-6 w-6" /></div>
  </div>
  ))}
@@ -294,33 +294,45 @@ export default function HoodsPage() {
 
  <Section
  id="types"
- title="أنواع الشفاطات التي نقوم بتركيبها"
- subtitle="نتعامل مع جميع أنواع وأشكال الشفاطات بخبرة عملية واسعة"
+ title="أنواع الشفاطات والمداخن التي نؤسسها"
+ subtitle="نتعامل مع جميع التجهيزات من الشفاط الزجاجي إلى المدخنة المركزية"
  
  >
- <div className="grid gap-4 md:grid-cols-2">
+ <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
  <div className="p-6 bg-white border border-black/5 rounded-3xl shadow-sm">
- <h3 className="font-black text-slate-900 mb-2">تركيب مدخنة شفاط مطبخ هرمية</h3>
+ <h3 className="font-black text-slate-900 mb-2">تركيب شفاط هرمي بمدخنة</h3>
  <p className="text-slate-600 text-sm leading-7">
- <strong>تركيب مدخنة شفاط مطبخ</strong> هرمية يحتاج فتحة دائرية في الجدار الخارجي. نعمل الفتحة بالكور بدون تكسير ثم نوصل الدكت الألومنيوم بإحكام. مناسب للمطابخ المكشوفة والكبيرة. قوة شفط فائقة.
+ <strong>تركيب مدخنة شفاط مطبخ</strong> هرمية يحتاج فتحة دائرية في الجدار الخارجي. نعمل الفتحة بالكور ونقوم بتوصيل الدكت الألومنيوم بإحكام للمطابخ المكشوفة والكبيرة.
  </p>
  </div>
  <div className="p-6 bg-orange-50 border border-orange-100 rounded-3xl shadow-sm">
- <h3 className="font-black text-slate-900 mb-2">تركيب شفاط بلت إن (Built-in) بدون مدخنة</h3>
+ <h3 className="font-black text-slate-900 mb-2">تركيب شفاط مطبخ بدون مدخنة</h3>
  <p className="text-slate-600 text-sm leading-7">
- الشفاطات المخفية تعمل بـ<strong>فلتر كربوني</strong> لا يحتاج لثقب خارجي. حل أنيق للمطابخ الصغيرة. نوفر وتركيب <strong>شفاط مطبخ بدون مدخنة</strong> بكفاءة عالية وعزل تام للروائح.
+ الشفاطات المسطحة التي تعمل بـ <strong>فلتر كربوني</strong> لا تحتاج لثقب خارجي. نوفر خدمة <strong>تركيب شفاط بلت ان</strong> أو مسطح بدون مدخنة بكفاءة عالية وعزل للروائح.
  </p>
  </div>
  <div className="p-6 bg-white border border-black/5 rounded-3xl shadow-sm">
- <h3 className="font-black text-slate-900 mb-2">تركيب شفاط حمام سقفي ومركزي</h3>
+ <h3 className="font-black text-slate-900 mb-2">تركيب الشفاط في الشباك والزجاج</h3>
  <p className="text-slate-600 text-sm leading-7">
- نتخصص في <strong>تركيب شفاط حمام</strong> سقفي وحائطي ومركزي لشبكة دكت كاملة. نضمن أعلى كفاءة في طرد الرطوبة والروائح لضمان بيئة صحية بدون بكتيريا أو تعفن.
+ لدينا فنيون محترفون في <strong>تركيب الشفاط على الزجاج</strong> وقص زجاج الشباك بدقة متناهية، لضمان تركيب قوي ومحكم يمنع تسرب الحشرات والهواء الخارجي.
  </p>
  </div>
  <div className="p-6 bg-sky-50 border border-sky-100 rounded-3xl shadow-sm">
- <h3 className="font-black text-slate-900 mb-2">شفاطات الجزيرة والشفاطات السقفية</h3>
+ <h3 className="font-black text-slate-900 mb-2">تركيب شفاط حمام</h3>
  <p className="text-slate-600 text-sm leading-7">
- تركيب <strong>شفاط جزيرة</strong> وشفاطات السقف المدمجة في الجبس يتطلب دقة هندسية خاصة. نقوم بتوصيل الدكت في داخل الجبس بورد بشكل منظم ومحكم لضمان أقصى كفاءة وبدون تشويه للسقف.
+ نتخصص في <strong>تركيب شفاط حمام</strong> حائطي، وسقفي، ومركزي مع تأسيس دكت التهوية الخاص به، لضمان أعلى كفاءة في طرد الرطوبة والروائح الكريهة.
+ </p>
+ </div>
+ <div className="p-6 bg-white border border-black/5 rounded-3xl shadow-sm">
+ <h3 className="font-black text-slate-900 mb-2">تهويه مركزيه مطابخ ومطاعم</h3>
+ <p className="text-slate-600 text-sm leading-7">
+ تأسيس و <strong>تركيب شفاط مركزي</strong> لشبكات الـ <strong>تهويه مركزيه مطابخ</strong> والمطاعم الكبرى، مع عمل الفتحات الدقيقة في الكمرات والسقوف لتمرير الدكت.
+ </p>
+ </div>
+ <div className="p-6 bg-slate-50 border border-slate-100 rounded-3xl shadow-sm">
+ <h3 className="font-black text-slate-900 mb-2">تركيب مدخنة سخان غاز</h3>
+ <p className="text-slate-600 text-sm leading-7">
+ وفقاً لمواصفات الأمان لشركات الغاز، نقوم بعمل ثقب الكور المناسب لـ <strong>تركيب مدخنة سخان غاز</strong> وتوصيل الهواية الخارجية بشكل دقيق ومرتب.
  </p>
  </div>
  </div>

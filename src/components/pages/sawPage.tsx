@@ -47,10 +47,10 @@ const ADDRESS_TEXT = "الحي العاشر مدينة نصـر";
 
 const SERVICE_NAME = "قص وتحضيع الخرسانة بالمنشار";
 
-const IMG_HERO = { src: "/images/saw/hero.webp", width: 800, height: 800 };
-const IMG_1 = { src: "/images/saw/work-1.webp", width: 800, height: 800 };
-const IMG_2 = { src: "/images/saw/work-2.webp", width: 800, height: 800 };
-const IMG_3 = { src: "/images/saw/work-3.webp", width: 800, height: 800 };
+const IMG_HERO = { src: "/images/saw/mokawel-kas-kharsana.webp", width: 800, height: 800 };
+const IMG_1 = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 800, height: 800 };
+const IMG_2 = { src: "/images/saw/kas-kharsana-menshar-2.webp", width: 800, height: 800 };
+const IMG_3 = { src: "/images/saw/kas-kharsana-menshar-3.webp", width: 800, height: 800 };
 
 function Section({
  title,
@@ -305,7 +305,7 @@ export default function SawPage() {
  data-lightbox-src={IMG_HERO.src}
  className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
  >
- <Image src={IMG_HERO} alt="قص خرسانة ليزر بالمنشار - Core Pro" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
+ <Image src={IMG_HERO} alt="مقاول قص خرسانة مسلحة بالمنشار - كور برو" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
  <Maximize className="h-10 w-10" />
  </div>
@@ -317,7 +317,7 @@ export default function SawPage() {
  data-lightbox-src={img.src}
  className="relative aspect-[4/3] rounded-none overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer"
  >
- <Image src={img} alt={`أعمال تقطيع خرسانة ليزر ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
+ <Image src={img} alt={`تنفيذ أعمال قص خرسانة وتقطيع جدران بالمنشار بواسطة مقاول متخصص ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
  <Plus className="h-6 w-6" />
  </div>
