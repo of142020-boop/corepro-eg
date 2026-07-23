@@ -75,46 +75,51 @@ const WHATSAPP = "https://wa.me/201021507462";
 </button>
 
 <script>
- // ---- Scroll to top ----
- const scrollBtn = document.getElementById('scroll-to-top');
- if (scrollBtn) {
- const onScroll = () => {
- if (window.scrollY > 500) {
- scrollBtn.classList.remove('hidden');
- } else {
- scrollBtn.classList.add('hidden');
- }
- };
- window.addEventListener('scroll', onScroll, { passive: true });
- onScroll();
+  // ---- Scroll to top ----
+  const scrollBtn = document.getElementById('scroll-to-top');
+  if (scrollBtn) {
+    const onScroll = () => {
+      if (window.scrollY > 500) {
+        scrollBtn.classList.remove('hidden');
+      } else {
+        scrollBtn.classList.add('hidden');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
- scrollBtn.addEventListener('click', () => {
- window.scrollTo({ top: 0, behavior: 'smooth' });
- });
- }
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
- // ---- رقم خاص بصفحة الشفاطات فقط ----
- if (window.location.pathname === '/hoods') {
- const HOODS_PHONE = '01015218216';
- const HOODS_WA = 'https://wa.me/201015218216';
- const OLD_PHONE = '01021507462';
+  // ---- Custom Phones per page ----
+  const updatePhoneNumbers = (newPhone, newWa, oldPhone) => {
+    // 1. Update all links
+    document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
+      (el as HTMLAnchorElement).href = `tel:${newPhone}`;
+    });
 
- // 1. Update all links
- document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
- (el as HTMLAnchorElement).href = `tel:${HOODS_PHONE}`;
- });
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
+      (el as HTMLAnchorElement).href = newWa;
+    });
 
- document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
- (el as HTMLAnchorElement).href = HOODS_WA;
- });
+    // 2. Update visible text anywhere on the page
+    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    let node;
+    while ((node = walk.nextNode())) {
+      if (node.nodeValue && node.nodeValue.includes(oldPhone)) {
+        node.nodeValue = node.nodeValue.replace(new RegExp(oldPhone, 'g'), newPhone);
+      }
+    }
+  };
 
- // 2. Update visible text anywhere on the page
- const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
- let node;
- while ((node = walk.nextNode())) {
- if (node.nodeValue && node.nodeValue.includes(OLD_PHONE)) {
- node.nodeValue = node.nodeValue.replace(new RegExp(OLD_PHONE, 'g'), HOODS_PHONE);
- }
- }
- }
+  const path = window.location.pathname.replace(/\/$/, ""); // Normalize path
+  const OLD_PHONE = '01021507462';
+
+  if (path === '/hoods') {
+    updatePhoneNumbers('01015218216', 'https://wa.me/201015218216', OLD_PHONE);
+  } else if (path === '/concrete-cutting-alexandria') {
+    updatePhoneNumbers('01094496839', 'https://wa.me/201094496839', OLD_PHONE);
+  }
 </script>
