@@ -35,6 +35,8 @@ const extraPages = [
  { href: "/gypsum-holes", label: "فتحات الجبس" },
  { href: "/sewer-holes", label: "فتحات السباكة" },
  { href: "/electrical-holes", label: "فتحات الكهرباء" },
+ { href: "/concrete-cutting-tagamoa", label: "قص خرسانة التجمع" },
+ { href: "/concrete-cutting-october", label: "قص خرسانة أكتوبر" },
  { href: "/about", label: "من نحن" },
  { href: "/privacy-policy", label: "سياسة الخصوصية" },
  { href: "/terms", label: "شروط الاستخدام" },

@@ -1,0 +1,19 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/octoberPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="قص وتخريم خرسانة 6 أكتوبر والشيخ زايد | صنايعي كور اسكندرية - 01021507462"
+  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات ب6 أكتوبر والشيخ زايد. نخدم بيفرلي هيلز وميدان الحصري وحدائق أكتوبر والمنطقة الصناعية. اتصل 01021507462."
+  canonical="https://corepro-eg.com/concrete-cutting-october"
+  ogImageAlt="قص وتخريم الخرسانة ب6 أكتوبر والشيخ زايد - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم خرسانة 6 أكتوبر والشيخ زايد" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
+

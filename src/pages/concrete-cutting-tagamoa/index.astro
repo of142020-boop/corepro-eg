@@ -1,0 +1,19 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/tagamoaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="قص وتخريم خرسانة التجمع الخامس والقاهرة الجديدة | صنايعي كور اسكندرية - 01021507462"
+  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالتجمع الخامس والقاهرة الجديدة. نخدم مدينتي والرحاب وشارع التسعين والتجمع الأول والثالث. اتصل 01021507462."
+  canonical="https://corepro-eg.com/concrete-cutting-tagamoa"
+  ogImageAlt="قص وتخريم الخرسانة بالتجمع الخامس والقاهرة الجديدة - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم خرسانة التجمع الخامس والقاهرة الجديدة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
+
