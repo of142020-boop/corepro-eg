@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NewCapitalPage from '../../components/pages/newCapitalPage';
+
+// SEO Meta Data
+const title = "شركة قص وتخريم خرسانة في العاصمة الإدارية | كور برو للمشاريع";
+const description = "مقاول قص وتخريم خرسانة للمشاريع الكبرى في العاصمة الإدارية الجديدة. تخريم كور لشبكات الـ MEP، قص الجدران بالمنشار الماسي وقص بالواير بأسعار خاصة للمقاولين.";
+const canonical = "https://corepro-eg.com/concrete-cutting-new-capital";
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <NewCapitalPage client:load />
+</Layout>

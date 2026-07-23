@@ -62,16 +62,17 @@ async function main() {
 
   // 4. Authenticate with Google
   console.log('🔐 Authenticating with Google Indexing API...');
-  const jwtClient = new google.auth.JWT(
-    keyContent.client_email,
-    null,
-    keyContent.private_key,
-    ['https://www.googleapis.com/auth/indexing'],
-    null
-  );
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: keyContent.client_email,
+      private_key: keyContent.private_key,
+    },
+    scopes: ['https://www.googleapis.com/auth/indexing'],
+  });
 
+  let authClient;
   try {
-    await jwtClient.authorize();
+    authClient = await auth.getClient();
     console.log('✅ Authentication successful.');
   } catch (err) {
     console.error('❌ Authentication failed. Make sure your JSON key is correct.');
@@ -80,7 +81,7 @@ async function main() {
   }
 
   // 5. Send URLs to Indexing API
-  const indexing = google.indexing({ version: 'v3', auth: jwtClient });
+  const indexing = google.indexing({ version: 'v3', auth: authClient });
   
   let successCount = 0;
   let errorCount = 0;

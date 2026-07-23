@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
@@ -240,3 +240,4 @@ export default function Header({ currentPath = "" }: { currentPath?: string }) {
  </>
  );
 }
+
