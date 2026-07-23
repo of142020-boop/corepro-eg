@@ -99,7 +99,7 @@ export default function WirePage() {
     {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/wire/work-1.webp`,
+      contentUrl: `${DOMAIN}/images/wire/kas-kharsana-wire-1.webp`,
       "name": "ماكينة الواير الماسي أثناء العمل",
       "description": "ماكينة الواير الماسي تقص كتلة خرسانية ضخمة بدقة",
       "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },

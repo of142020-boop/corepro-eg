@@ -232,7 +232,7 @@ export default function SawPage() {
     {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/saw/work-1.webp`,
+      "contentUrl": `${DOMAIN}/images/saw/kas-kharsana-menshar-1.webp`,
       "name": "منشار قص الخرسانة - عمل ميداني",
       "description": "منشار ماسي ضخم أثناء قص جدار خرساني مع التبريد المائي",
       "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },

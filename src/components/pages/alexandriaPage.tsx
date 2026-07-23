@@ -19,9 +19,9 @@ import {
 const BRAND    = 'كور برو - Core Pro';
 const DOMAIN   = 'https://corepro-eg.com';
 const CANONICAL = `${DOMAIN}/concrete-cutting-alexandria`;
-const PHONE    = '01021507462';
-const PHONE_INT = '+201021507462';
-const WHATSAPP = 'https://wa.me/201021507462';
+const PHONE    = '01094496839';
+const PHONE_INT = '+201094496839';
+const WHATSAPP = 'https://wa.me/201094496839';
 
 const ALX_AREAS = [
   'المنتزه وسيدي بشر',
@@ -174,7 +174,7 @@ export default function AlexandriaPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'ImageObject',
-      contentUrl: `${DOMAIN}/images/saw/work-3.webp`,
+      contentUrl: `${DOMAIN}/images/saw/kas-kharsana-menshar-3.webp`,
       name: 'قص الخرسانة بالمنشار الماسي في الإسكندرية',
       description: 'قص جدار خرساني بالمنشار الماسي مع التبريد المائي الكامل — خدمة كور برو في الإسكندرية',
       author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
@@ -190,7 +190,7 @@ export default function AlexandriaPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'ImageObject',
-      contentUrl: `${DOMAIN}/images/core/work-1.webp`,
+      contentUrl: `${DOMAIN}/images/core/fatahat-core-beton-1.webp`,
       name: 'تخريم الخرسانة بالكور الماسي في الإسكندرية',
       description: 'ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني بالتبريد المائي — كور برو الإسكندرية',
       author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
@@ -206,7 +206,7 @@ export default function AlexandriaPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'ImageObject',
-      contentUrl: `${DOMAIN}/images/hoods/work-1.webp`,
+      contentUrl: `${DOMAIN}/images/hoods/tarkib-shafat-hamam-1.webp`,
       name: 'تركيب شفاطات المطابخ بالإسكندرية',
       description: 'شفاطات مطابخ مركبة على السطح بمنافذ خارجية محكمة ضد رطوبة هواء الإسكندرية — كور برو',
       author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
@@ -222,7 +222,7 @@ export default function AlexandriaPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'ImageObject',
-      contentUrl: `${DOMAIN}/images/wire/work-1.webp`,
+      contentUrl: `${DOMAIN}/images/wire/kas-kharsana-wire-1.webp`,
       name: 'قص الخرسانة بالواير الماسي في الإسكندرية',
       description: 'ماكينة الواير الماسي أثناء قص خرسانة ضخمة في مشروع بنية تحتية كبير — كور برو الإسكندرية',
       author: { '@type': 'Organization', name: BRAND, url: DOMAIN },
@@ -424,7 +424,7 @@ export default function AlexandriaPage() {
               {/* صورة قص المنشار */}
               <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <Image
-                  src="/images/saw/work-3.webp"
+                  src="/images/saw/kas-kharsana-menshar-3.webp"
                   alt="قص الخرسانة بالمنشار الماسي في الإسكندرية — كور برو"
                   width={900}
                   height={500}
@@ -467,7 +467,7 @@ export default function AlexandriaPage() {
               {/* صورة ماكينة الكور */}
               <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <Image
-                  src="/images/core/work-1.webp"
+                  src="/images/core/fatahat-core-beton-1.webp"
                   alt="تخريم الخرسانة بالكور الماسي في الإسكندرية — كور برو"
                   width={900}
                   height={500}
@@ -541,7 +541,7 @@ export default function AlexandriaPage() {
               {/* صورة الشفاطات */}
               <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <Image
-                  src="/images/hoods/work-1.webp"
+                  src="/images/hoods/tarkib-shafat-hamam-1.webp"
                   alt="تركيب شفاطات المطابخ والمداخن بالإسكندرية — كور برو"
                   width={900}
                   height={500}
@@ -569,7 +569,7 @@ export default function AlexandriaPage() {
               {/* صورة الواير الماسي */}
               <div className="not-prose mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <Image
-                  src="/images/wire/work-1.webp"
+                  src="/images/wire/kas-kharsana-wire-1.webp"
                   alt="قص الخرسانة بالواير الماسي في الإسكندرية — مشاريع كبرى — كور برو"
                   width={900}
                   height={500}

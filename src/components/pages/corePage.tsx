@@ -283,7 +283,7 @@ export default function CorePage() {
     {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/core/work-1.webp`,
+      contentUrl: `${DOMAIN}/images/core/fatahat-core-beton-1.webp`,
       "name": "ماكينة كور دريل هيدروليكية",
       "description": "ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني",
       "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },

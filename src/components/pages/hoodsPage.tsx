@@ -173,7 +173,7 @@ export default function HoodsPage() {
     {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/hoods/work-1.webp`,
+      contentUrl: `${DOMAIN}/images/hoods/tarkib-shafat-hamam-1.webp`,
       "name": "شفاطات مطابخ مركبة على السطح",
       "description": "شفاطات مطابخ بمنافذ خارجية محكمة مركبة على سطح المبنى",
       "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
