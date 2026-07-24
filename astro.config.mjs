@@ -30,6 +30,8 @@ export default defineConfig({
       'https://corepro-eg.com/electrical-holes',
       'https://corepro-eg.com/contractor',
       'https://corepro-eg.com/track-saw',
+      'https://corepro-eg.com/concrete-cutting-tagamoa',
+      'https://corepro-eg.com/concrete-cutting-october',
     ],
     serialize(item) {
       if (item.url === 'https://corepro-eg.com/') {
@@ -53,7 +55,11 @@ export default defineConfig({
       } else if (item.url === 'https://corepro-eg.com/projects') {
         item.changefreq = 'monthly';
         item.priority = 0.7;
-      } else if (item.url === 'https://corepro-eg.com/concrete-cutting-alexandria') {
+      } else if (
+        item.url === 'https://corepro-eg.com/concrete-cutting-alexandria' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-tagamoa' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-october'
+      ) {
         item.changefreq = 'monthly';
         item.priority = 0.85;
       } else if (

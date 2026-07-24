@@ -123,9 +123,9 @@ const breadcrumbLd = {
  <!-- Breadcrumb -->
  <nav aria-label="مسار التصفح" class="mb-8 flex items-center justify-end gap-2 text-sm text-slate-500 font-bold">
  <a href="/" class="hover:text-emerald-600 transition">الرئيسية</a>
- <ChevronRight class="h-4 w-4" />
+ <ChevronRight className="h-4 w-4" />
  <a href="/blog" class="hover:text-emerald-600 transition">المدونة</a>
- <ChevronRight class="h-4 w-4" />
+ <ChevronRight className="h-4 w-4" />
  <span class="text-slate-900 line-clamp-1">{post.data.title}</span>
  </nav>
 
@@ -181,7 +181,7 @@ const breadcrumbLd = {
  loading="eager" fetchpriority="high"
  />
  <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
- <Maximize class="h-12 w-12" />
+ <Maximize className="h-12 w-12" />
  </div>
  </>
  ) : (

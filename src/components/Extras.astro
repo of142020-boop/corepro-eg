@@ -94,7 +94,7 @@ const WHATSAPP = "https://wa.me/201021507462";
   }
 
   // ---- Custom Phones per page ----
-  const updatePhoneNumbers = (newPhone, newWa, oldPhone) => {
+  const updatePhoneNumbers = (newPhone: string, newWa: string, oldPhone: string) => {
     // 1. Update all links
     document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
       (el as HTMLAnchorElement).href = `tel:${newPhone}`;

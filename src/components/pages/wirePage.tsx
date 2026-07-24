@@ -23,7 +23,7 @@ function Section({ title, subtitle, icon, children, id, level = 2 }: { title: st
  const HeadingTag = level === 2 ? 'h2' : 'h3';
  return (<section id={id} className={`rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)] ${level === 3 ? 'mx-4 md:mx-8' : ''}`}><div className="mb-6"><div><HeadingTag className={`font-black tracking-tight text-slate-900 ${level === 2 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>{title}</HeadingTag>{subtitle ? (<p className="mt-2 text-slate-600 leading-7 font-semibold">{subtitle}</p>) : null}</div></div><div className="prose prose-slate max-w-none text-slate-700 leading-9">{children}</div></section>);
 }
-function StatPill({ icon, text }: { icon: React.ReactNode; text: string }) {
+function StatPill({ icon, text }: { icon?: React.ReactNode; text: string }) {
  return (<div className="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm text-center">{icon}<span className="text-slate-700 font-extrabold">{text}</span></div>);
 }
 export default function WirePage() {

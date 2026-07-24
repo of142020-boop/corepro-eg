@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "index-now": "node scripts/google-index.mjs"
+    "index-now": "node scripts/google-index.mjs",
+    "gsc-report": "node scripts/gsc-report.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

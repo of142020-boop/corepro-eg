@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
  const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
@@ -146,12 +146,12 @@ export default function HomePage() {
  </div>
 
  <h1 className="mt-6 text-4xl md:text-6xl font-black leading-[1.1] text-slate-900">
- كور برو مصر: احترافية <span className="text-emerald-600">قص وتخريم</span> الخرسانة
+ كور برو مصر: أفضل <span className="text-emerald-600">صنايعي كور</span> وقص خرسانة
  </h1>
 
  <div className="mt-8 text-slate-800 leading-9 text-xl space-y-4 font-medium">
  <p>
- نحن شريكك الموثوق في كافة التعديلات المعمارية. نقدم حلولاً هندسية متطورة لـ <strong>فتحات الكور</strong> و <strong>تقطيع الخرسانة</strong> باستخدام أحدث التكنولوجيات العالمية لضمان سلامة المبنى ونظافة الموقع.
+ نحن شريكك الموثوق في كافة التعديلات المعمارية. نقدم لك أمهر <strong>صنايعي كور</strong> و <strong>معلم قص خرسانة</strong> في مصر. نوفر حلولاً هندسية متطورة لعمل <strong>فتحات الكور</strong> و <strong>تقطيع الخرسانة</strong> باستخدام أحدث التكنولوجيات لضمان سلامة المبنى ونظافة الموقع.
  </p>
  </div>
 
