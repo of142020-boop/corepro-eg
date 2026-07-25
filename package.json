@@ -9,7 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "index-now": "node scripts/google-index.mjs",
-    "gsc-report": "node scripts/gsc-report.mjs"
+    "gsc-report": "node scripts/gsc-report.mjs",
+    "gads:auth": "node scripts/google-ads-auth.mjs",
+    "gads:keywords": "node scripts/keyword-planner.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -24,7 +26,10 @@
     "@sanity/vision": "^4.22.0",
     "astro": "^5.2.5",
     "astro-compress": "^2.4.0",
+    "dotenv": "^17.4.2",
     "fast-xml-parser": "^5.10.0",
+    "google-ads-api": "^24.1.0",
+    "google-auth-library": "^10.9.1",
     "googleapis": "^173.0.0",
     "lucide-react": "^0.564.0",
     "react": "19.2.3",

@@ -315,7 +315,7 @@ export default function AlexandriaPage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
               <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-sky-600 pr-4">
-                قص وتخريم خرسانة الإسكندرية — {PHONE}
+                قص وتخريم خرسانة الإسكندرية - 01094496839
               </h1>
 
               <div className="mt-5 text-slate-800 leading-9 space-y-4 text-lg">
