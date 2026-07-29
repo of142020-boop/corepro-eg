@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/gizaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="قص وتخريم خرسانة الجيزة — صنايعي كور و6 أكتوبر | 01021507462"
+  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالجيزة. نخدم الدقي والمهندسين و6 أكتوبر والشيخ زايد وجميع أحياء الجيزة. اتصل 01021507462."
+  canonical="https://corepro-eg.com/concrete-cutting-giza"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم خرسانة الجيزة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

@@ -494,6 +494,41 @@ export default function CorePage() {
  </div>
  </Section>
 
+  {/* ── قسم جديد: أنواع وأقطار فتحات الكور ── */}
+  <Section
+    id="core-hole-sizes"
+    title="أنواع وأقطار فتحات الكور الخرسانة — دليل شامل"
+    subtitle="كل خدمة تحتاج قطراً محدداً — تعرف على الأنسب لك"
+  >
+    <p>
+      <strong>فتحات كور الخرسانة</strong> تختلف في قطرها حسب الغرض منها.
+      اختيار القطر الخطأ يعني إما فتحة ضيقة لا تتسع للأنبوب أو فتحة كبيرة تحتاج رد وطمي.
+      إليك الأقطار الأكثر استخداماً:
+    </p>
+    <div className="not-prose mt-6 grid gap-3 md:grid-cols-2">
+      {[
+        { size: '4 بوصة (10 سم)', use: 'تمرير مواسير الصرف الصغيرة وكوابل الكهرباء', color: 'bg-blue-50 border-blue-100' },
+        { size: '5 بوصة (12.5 سم)', use: 'فتحة شفاط المطبخ بالدكت المرن ومواسير الغاز', color: 'bg-orange-50 border-orange-100' },
+        { size: '6 بوصة (15 سم)', use: 'فتحة مدخنة شفاط كبيرة ومواسير التكييف المركزي', color: 'bg-emerald-50 border-emerald-100' },
+        { size: '8 بوصة (20 سم)', use: 'تمرير دكتات التهوية الكبيرة في الفيلات والمطاعم', color: 'bg-purple-50 border-purple-100' },
+        { size: '10-12 بوصة (25-30 سم)', use: 'مزرعة المياه والصرف الرئيسي وفتحات أساسات المصانع', color: 'bg-slate-50 border-slate-200' },
+        { size: 'أقطار خاصة', use: 'نوفر أي قطر مخصص حسب المواصفات الهندسية لمشروعك', color: 'bg-yellow-50 border-yellow-100' },
+      ].map(x => (
+        <div key={x.size} className={`rounded-2xl border ${x.color} p-4`}>
+          <div className="font-black text-slate-900 text-sm mb-1">{x.size}</div>
+          <p className="text-slate-600 text-xs leading-5">{x.use}</p>
+        </div>
+      ))}
+    </div>
+    <div className="not-prose mt-5 rounded-2xl bg-emerald-50 border border-emerald-200 p-4 text-sm text-slate-700 leading-7">
+      💡 <strong>ملاحظة:</strong> كثير من العملاء لا يعرفون القطر المطلوب بالضبط — فريقنا يقيس ويحدد القطر الصحيح أثناء المعاينة المجانية قبل بدء التخريم.
+    </div>
+    <p className="mt-5 text-sm text-slate-700 leading-7">
+      هل تحتاج <strong>فتحات كور خرسانة في الإسكندرية</strong>؟ لدينا فريق متخصص يغطي جميع أحياء الإسكندرية —
+      <a href="/concrete-cutting-alexandria" className="font-bold text-emerald-700 underline mr-1">تعرف على خدمتنا في الإسكندرية ←</a>
+    </p>
+  </Section>
+
  <Section
  id="pricing"
  title="دليلك الشامل لـ اسعار فتحات الكور في مصر"

@@ -534,7 +534,41 @@ export default function SawPage() {
  </div>
  </Section>
 
- </div>
+  {/* ── قسم جديد: التغطية الجغرافية ── */}
+  <Section
+    id="coverage"
+    title="قص الخرسانة بالمنشار — مناطق خدمتنا"
+    subtitle="نصل إليك في القاهرة والإسكندرية وجميع المحافظات"
+  >
+    <p>
+      فريق <strong>كور برو</strong> يغطي <strong>جميع مناطق القاهرة الكبرى والإسكندرية وباقي المحافظات</strong>.
+      سواء كنت تحتاج <strong>قص خرسانة في القاهرة</strong> أو <strong>في الإسكندرية</strong> أو في أي مدينة أخرى —
+      معداتنا متنقلة ونصل إليك في أسرع وقت ممكن.
+    </p>
+    <div className="not-prose mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
+      {[
+        { city: 'القاهرة الكبرى', areas: 'مدينة نصر · التجمع · المعادي · عين شمس' },
+        { city: 'الجيزة', areas: 'الدقي · المهندسين · 6 أكتوبر · الشيخ زايد' },
+        { city: 'الإسكندرية', areas: 'سيدي بشر · المنتزه · سموحة · العجمي' },
+        { city: 'العاصمة الإدارية', areas: 'والمدن الجديدة المحيطة' },
+        { city: 'المنصورة والدلتا', areas: 'طنطا · الزقازيق · بنها' },
+        { city: 'جميع المحافظات', areas: 'تواصل معنا لتأكيد التغطية' },
+      ].map(x => (
+        <div key={x.city} className="rounded-2xl border border-sky-100 bg-sky-50 p-4">
+          <div className="font-black text-slate-900 text-sm mb-1">{x.city}</div>
+          <p className="text-slate-500 text-xs leading-5">{x.areas}</p>
+        </div>
+      ))}
+    </div>
+    <div className="not-prose mt-5 rounded-2xl bg-slate-900 text-white p-5 flex items-center gap-4">
+      <div>
+        <div className="font-black text-sky-400 text-lg">01021507462</div>
+        <div className="text-slate-400 text-xs mt-1">تواصل معنا لتأكيد الوصول لمنطقتك</div>
+      </div>
+    </div>
+  </Section>
+
+  </div>
 
  {/* SIDEBAR */}
  <aside className="space-y-6 min-w-0">
@@ -557,6 +591,7 @@ export default function SawPage() {
  { href: "/core", label: "تخريم الخرسانة بالكور" },
  { href: "/hoods", label: "تركيب شفاطات المطبخ" },
  { href: "/wire", label: "قص بالواير الماسي" },
+ { href: "/concrete-cutting-alexandria", label: "خدماتنا في الإسكندرية" },
  ].map((s) => (
  <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-sky-700 hover:underline py-1">
  <span className="text-sky-600">›</span>

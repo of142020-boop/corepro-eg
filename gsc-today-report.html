@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تقرير GSC — 2026-07-28 — كور برو</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f1f5f9; color: #1e293b; direction: rtl; }
+  .header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0369a1 100%); color: white; padding: 36px; text-align: center; }
+  .header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 6px; }
+  .header p  { color: #94a3b8; font-size: .9rem; }
+  .badge-date { display:inline-block; background:#22c55e; color:white; font-weight:800; font-size:.85rem; padding:4px 14px; border-radius:20px; margin-top:10px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 16px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 28px; }
+  .kpi { background: white; border-radius: 18px; padding: 22px 16px; box-shadow: 0 4px 18px rgba(0,0,0,.07); text-align: center; }
+  .kpi .label { font-size:.75rem; color:#64748b; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+  .kpi .value { font-size: 2rem; font-weight: 900; line-height: 1; }
+  .kpi .change { margin-top: 8px; font-size: .82rem; }
+  .up   { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .card { background: white; border-radius: 18px; padding: 24px; box-shadow: 0 4px 18px rgba(0,0,0,.07); margin-bottom: 20px; }
+  .card h2 { font-size:1.1rem; font-weight:800; color:#0f172a; margin-bottom:16px; padding-bottom:10px; border-bottom:2px solid #f1f5f9; }
+  table { width:100%; border-collapse:collapse; font-size:.85rem; }
+  th { background:#f8fafc; color:#475569; font-weight:700; padding:9px 11px; text-align:right; border-bottom:2px solid #e2e8f0; }
+  td { padding:9px 11px; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
+  tr:hover td { background:#f8fafc; }
+  .kw { font-weight:600; color:#0f172a; max-width:260px; word-break:break-word; }
+  .kw a { color:#0369a1; text-decoration:none; }
+  .kw a:hover { text-decoration:underline; }
+  .bar-wrap { display:inline-block; height:6px; width:100px; background:#f1f5f9; border-radius:9999px; margin-right:4px; vertical-align:middle; }
+  .bar-fill { height:100%; background:linear-gradient(90deg,#0369a1,#38bdf8); border-radius:9999px; }
+  .device-row { display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:1px solid #f1f5f9; }
+  .device-row:last-child { border:none; }
+  .device-label { font-weight:700; min-width:90px; }
+  .device-bar-outer { flex:1; height:10px; background:#f1f5f9; border-radius:9999px; overflow:hidden; }
+  .device-bar-inner { height:100%; border-radius:9999px; }
+  .device-num { font-weight:800; color:#0f172a; min-width:40px; text-align:left; }
+  .footer { text-align:center; color:#94a3b8; font-size:.78rem; padding:24px; }
+  @media(max-width:700px) { .kpi-grid { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 تقرير Google Search Console</h1>
+  <p>كور برو — corepro-eg.com</p>
+  <div class="badge-date">📅 اليوم الأخير: 2026-07-28</div>
+  <p style="margin-top:8px;font-size:.78rem;color:#64748b">مقارنةً بـ 2026-07-27</p>
+</div>
+
+<div class="container">
+
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">النقرات</div>
+      <div class="value" style="color:#0369a1">١١</div>
+      <div class="change"><span class="down">35.3% ↓</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">الظهورات</div>
+      <div class="value" style="color:#7c3aed">٢٨٨</div>
+      <div class="change"><span class="down">29.1% ↓</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">معدل النقر CTR</div>
+      <div class="value" style="color:#059669">3.8%</div>
+      <div class="change"><span class="down">8.8% ↓</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">متوسط الترتيب</div>
+      <div class="value" style="color:#d97706">7.0</div>
+      <div class="change"><span class="down">9.5% ↓</span></div>
+    </div>
+  </div>
+
+  <!-- الكلمات المفتاحية -->
+  <div class="card">
+    <h2>🔍 الكلمات المفتاحية — 2026-07-28</h2>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>الكلمة المفتاحية</th>
+            <th>النقرات</th>
+            <th>الظهورات</th>
+            <th>CTR</th>
+            <th>الترتيب</th>
+            <th>مقارنة بالأمس</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td class="kw">تركيب شفاط زجاج</td>
+              <td>١ <div class="bar-wrap"><div class="bar-fill" style="width:100px"></div></div></td>
+              <td>٢</td>
+              <td>50.0%</td>
+              <td>7.0</td>
+              <td><span class="up">جديد ↑</span></td>
+            </tr><tr>
+              <td class="kw">شركات تركيب شفاطات المطابخ</td>
+              <td>١ <div class="bar-wrap"><div class="bar-fill" style="width:100px"></div></div></td>
+              <td>٢</td>
+              <td>50.0%</td>
+              <td>4.0</td>
+              <td><span class="up">جديد ↑</span></td>
+            </tr><tr>
+              <td class="kw">أعمال الكور</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>6.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">اسطوانه تقطيع خرسانه</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>6.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تأسيس شفاط المطبخ</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>7.5</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تاسيس شفاط مطبخ</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>11.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تخريم خرسانة</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>8.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب الشفاط</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>7.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب دكت شفاط المطبخ</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٣</td>
+              <td>0.0%</td>
+              <td>8.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٤</td>
+              <td>0.0%</td>
+              <td>7.3</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط المطبخ</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٦</td>
+              <td>0.0%</td>
+              <td>7.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط المطبخ بدون مدخنة</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١٦</td>
+              <td>0.0%</td>
+              <td>7.7</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط المطبخ بمدخنة</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٧</td>
+              <td>0.0%</td>
+              <td>5.9</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط المطبخ في السقف</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٤</td>
+              <td>0.0%</td>
+              <td>6.3</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط بلت ان</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٣</td>
+              <td>0.0%</td>
+              <td>6.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط مركزي</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>20.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاط مطبخ</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>17.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب شفاطات</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>18.5</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تركيب مدخنة شفاط مطبخ</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>5.5</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">تقطيع خرسانة</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>8.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">شركات قص الخرسانة</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>1.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">صنايعي كور في اسكندرية</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>2.5</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">طريقة تركيب شفاط المطبخ المسطح</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>7.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">طريقة تركيب شفاط المطبخ الهرمى</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>7.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw">طريقة تركيب شفاط مسطح بدون مدخنة</td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>5.0</td>
+              <td>—</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- الصفحات -->
+  <div class="card">
+    <h2>📄 أداء الصفحات — 2026-07-28</h2>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>الصفحة</th>
+            <th>النقرات</th>
+            <th>الظهورات</th>
+            <th>CTR</th>
+            <th>الترتيب</th>
+            <th>مقارنة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td class="kw"><a href="https://corepro-eg.com/hoods" target="_blank">/hoods</a></td>
+              <td>٤ <div class="bar-wrap"><div class="bar-fill" style="width:100px"></div></div></td>
+              <td>١٥٧</td>
+              <td>2.5%</td>
+              <td>7.0</td>
+              <td><span class="down">20% ↓</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/" target="_blank">/</a></td>
+              <td>٣ <div class="bar-wrap"><div class="bar-fill" style="width:75px"></div></div></td>
+              <td>٢٣</td>
+              <td>13.0%</td>
+              <td>8.5</td>
+              <td><span class="up">جديد ↑</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/concrete-cutting-alexandria" target="_blank">/concrete-cutting-alexandria</a></td>
+              <td>٢ <div class="bar-wrap"><div class="bar-fill" style="width:50px"></div></div></td>
+              <td>١٧</td>
+              <td>11.8%</td>
+              <td>4.7</td>
+              <td><span class="down">60% ↓</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/concrete-cutting-october" target="_blank">/concrete-cutting-october</a></td>
+              <td>١ <div class="bar-wrap"><div class="bar-fill" style="width:25px"></div></div></td>
+              <td>٢</td>
+              <td>50.0%</td>
+              <td>5.0</td>
+              <td><span class="up">جديد ↑</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/core" target="_blank">/core</a></td>
+              <td>١ <div class="bar-wrap"><div class="bar-fill" style="width:25px"></div></div></td>
+              <td>٤٦</td>
+              <td>2.2%</td>
+              <td>7.2</td>
+              <td><span class="up">جديد ↑</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/about" target="_blank">/about</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>3.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/blog" target="_blank">/blog</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٤</td>
+              <td>0.0%</td>
+              <td>10.3</td>
+              <td><span class="down">100% ↓</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/glossary" target="_blank">/glossary</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>١</td>
+              <td>0.0%</td>
+              <td>5.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/gypsum-holes" target="_blank">/gypsum-holes</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>9.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/prices" target="_blank">/prices</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>9.0</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/projects" target="_blank">/projects</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>17.5</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/saw" target="_blank">/saw</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٣٤</td>
+              <td>0.0%</td>
+              <td>6.7</td>
+              <td><span class="down">100% ↓</span></td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/wall-cutting" target="_blank">/wall-cutting</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٣</td>
+              <td>0.0%</td>
+              <td>6.3</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="kw"><a href="https://corepro-eg.com/wire" target="_blank">/wire</a></td>
+              <td>٠ <div class="bar-wrap"><div class="bar-fill" style="width:0px"></div></div></td>
+              <td>٢</td>
+              <td>0.0%</td>
+              <td>8.5</td>
+              <td>—</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- الأجهزة -->
+  <div class="card">
+    <h2>📱 توزيع الأجهزة — 2026-07-28</h2>
+    <div class="device-row">
+          <div class="device-label">📱 موبايل</div>
+          <div class="device-bar-outer">
+            <div class="device-bar-inner" style="width:63.6%;background:#0369a1"></div>
+          </div>
+          <div class="device-num">٧</div>
+          <div style="color:#64748b;font-size:.8rem;min-width:50px">63.6%</div>
+        </div><div class="device-row">
+          <div class="device-label">🖥️ كمبيوتر</div>
+          <div class="device-bar-outer">
+            <div class="device-bar-inner" style="width:27.3%;background:#7c3aed"></div>
+          </div>
+          <div class="device-num">٣</div>
+          <div style="color:#64748b;font-size:.8rem;min-width:50px">27.3%</div>
+        </div><div class="device-row">
+          <div class="device-label">📟 تابلت</div>
+          <div class="device-bar-outer">
+            <div class="device-bar-inner" style="width:9.1%;background:#059669"></div>
+          </div>
+          <div class="device-num">١</div>
+          <div style="color:#64748b;font-size:.8rem;min-width:50px">9.1%</div>
+        </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  تم إنشاؤه تلقائياً • ٢٩‏/٧‏/٢٠٢٦، ٦:٥٦:٢٣ ص • corepro-eg.com
+</div>
+
+</body>
+</html>

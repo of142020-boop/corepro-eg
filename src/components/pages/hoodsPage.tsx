@@ -362,6 +362,77 @@ export default function HoodsPage() {
   </div>
   </Section>
 
+  {/* ── قسم جديد: مقارنة شفاط بمدخنة vs بدون مدخنة ── */}
+  <Section
+    id="hood-types-comparison"
+    title="شفاط بمدخنة أم بدون مدخنة — أيهما تختار؟"
+    subtitle="دليل مبسط للاختيار الصح قبل الشراء"
+  >
+    <p>
+      السؤال الأكثر شيوعاً قبل شراء الشفاط: <strong>هل أشتري شفاط بمدخنة خارجية أم شفاط بفلتر كربوني (بدون مدخنة)؟</strong>
+      الإجابة تعتمد بالكامل على وضع شقتك أو منزلك. إليك المقارنة الكاملة:
+    </p>
+    <div className="not-prose mt-6 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <table className="w-full text-right text-slate-800 min-w-[520px]">
+        <thead>
+          <tr className="bg-slate-50 border-b border-slate-200">
+            <th className="p-4 font-black text-slate-900 w-1/3">وجه المقارنة</th>
+            <th className="p-4 font-black text-emerald-700 border-r border-slate-200 bg-emerald-50/50">شفاط بمدخنة خارجية</th>
+            <th className="p-4 font-black text-orange-700 border-r border-slate-200 bg-orange-50/50">شفاط بدون مدخنة (فلتر كربوني)</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100">
+          {[
+            { aspect: 'يحتاج فتحة في الجدار؟', with: '✅ نعم — ثقب كور 12-15 سم', without: '❌ لا — يعمل بالفلتر فقط' },
+            { aspect: 'كفاءة إزالة الروائح', with: '🌟 ممتازة — يطرد الهواء للخارج', without: '✅ جيدة — يعيد تدوير الهواء' },
+            { aspect: 'مناسب لـ', with: 'شقق بها جدار خارجي مكشوف', without: 'شقق داخلية أو أبراج عالية' },
+            { aspect: 'تكلفة الفلتر', with: '✅ لا يحتاج تغيير فلتر', without: 'يحتاج تغيير فلتر كل 3-6 أشهر' },
+            { aspect: 'تكلفة التأسيس', with: 'يحتاج تخريم (تكلفة إضافية بسيطة)', without: '✅ لا يحتاج تخريم' },
+          ].map(row => (
+            <tr key={row.aspect} className="hover:bg-slate-50 transition">
+              <td className="p-4 font-bold text-slate-900 text-sm">{row.aspect}</td>
+              <td className="p-4 border-r border-slate-200 text-emerald-700 text-sm">{row.with}</td>
+              <td className="p-4 border-r border-slate-200 text-orange-700 text-sm">{row.without}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div className="not-prose mt-6 rounded-2xl bg-orange-50 border border-orange-200 p-5 text-sm text-slate-700 leading-7">
+      <strong className="text-slate-900">💡 نصيحة كور برو:</strong> إذا كانت شقتك في طابق أرضي أو متوسط وبها جدار خارجي — اختر <strong>الشفاط بمدخنة</strong> لأنه أكفأ.
+      إذا كنت في برج عالي أو ليس لديك إمكانية عمل فتحة — اختر <strong>الشفاط بفلتر كربوني</strong>. فريقنا يساعدك في الاختيار ويخبرك بإمكانية التأسيس في شقتك قبل أي قرار.
+    </div>
+  </Section>
+
+  {/* ── قسم جديد: تركيب دكت الشفاط ── */}
+  <Section
+    id="duct-installation"
+    title="تركيب دكت شفاط المطبخ — كيف يتم بالطريقة الصحيحة؟"
+    subtitle="الدكت هو العصب الرئيسي لكفاءة الشفاط"
+  >
+    <p>
+      <strong>تركيب دكت شفاط المطبخ</strong> بشكل صحيح هو ما يحدد الفرق بين شفاط يعمل بكفاءة عالية وشفاط يسبب مشاكل مستمرة.
+      الدكت هو الأنبوب الذي ينقل الهواء والروائح من الشفاط إلى الخارج، وأي خطأ فيه يعني رجوع الروائح أو ضعف الشفط.
+    </p>
+    <div className="not-prose mt-6 grid gap-4 md:grid-cols-2">
+      {[
+        { t: 'دكت ألومنيوم صلب', d: 'الأقوى والأكثر متانة. مناسب للمسارات الطويلة والمستقيمة. يُفضّل لشفاطات المطاعم والمطابخ الكبيرة.' },
+        { t: 'دكت ألومنيوم مرن', d: 'سهل التوجيه في الأماكن الضيقة والزوايا. مناسب للمسافات القصيرة والمنعطفات خلف الخزائن.' },
+        { t: 'دكت PVC صلب', d: 'اقتصادي ومتاح. يُستخدم في التركيبات الداخلية وغير مناسب للتعرض للحرارة العالية.' },
+        { t: 'هواية خارجية بصمام', d: 'تُركَّب على طرف الدكت الخارجي وتمنع دخول الهواء البارد والحشرات والروائح العكسية.' },
+      ].map(x => (
+        <div key={x.t} className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+          <div className="font-black text-slate-900 mb-2 text-sm">{x.t}</div>
+          <p className="text-slate-600 text-xs leading-6">{x.d}</p>
+        </div>
+      ))}
+    </div>
+    <p className="mt-6 text-sm text-slate-700 leading-7">
+      فريق كور برو يحدد أنسب نوع دكت لكل حالة ويقوم بتوصيله بإحكام مع عزل كامل لجميع نقاط الوصل —
+      <strong> في زيارة واحدة من التخريم حتى تشغيل الشفاط.</strong>
+    </p>
+  </Section>
+
  <Section id="brands" title="الماركات التي نركبها ونصلحها" >
  <p className="mb-6">
  فريقنا مدرب على تركيب وصيانة جميع الماركات المتوفرة في السوق المصري:
@@ -464,6 +535,7 @@ export default function HoodsPage() {
  { href: "/core", label: "تخريم الخرسانة بالكور" },
  { href: "/saw", label: "قص الخرسانة بالمنشار" },
  { href: "/wire", label: "قص بالواير الماسي" },
+ { href: "/concrete-cutting-alexandria", label: "خدماتنا في الإسكندرية" },
  ].map((s) => (
  <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-orange-600 hover:underline py-1">
  <span className="text-orange-500">›</span>{s.label}
