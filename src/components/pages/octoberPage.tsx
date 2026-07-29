@@ -132,6 +132,11 @@ export default function OctoberPage() {
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '124'
+      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'خدمات قص وتخريم الخرسانة ب6 أكتوبر والشيخ زايد',

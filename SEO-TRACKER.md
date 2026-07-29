@@ -72,7 +72,7 @@
 ### 🟢 تحسينات طويلة المدى
 
 - [ ] مراجعة سرعة الموقع على الموبايل (PageSpeed Insights)
-- [ ] إضافة Schema `Review` لعرض تقييمات النجوم في نتائج Google
+- [x] إضافة Schema `AggregateRating` لعرض تقييمات النجوم في نتائج Google (تم التنفيذ)
 - [ ] ربط الموقع بـ Google Business Profile لظهور في خرائط Google
 - [ ] تقرير GSC أسبوعي لقياس أثر التعديلات
 

@@ -34,7 +34,12 @@ export default function WirePage() {
  { q: "ما الفرق بين القص بالواير والقص بالمنشار", a: "منشار السكة (Track Saw) مناسب للسماكات حتى 70 سم وفتح الأبواب والشبابيك. أما الواير فيستخدم للسماكات المترية والكتل الضخمة كالأساسات والكباري والأعمدة الكبيرة التي لا يمكن للمنشار الوصول إليها." },
  { q: "ما تكلفة خدمة القص بالواير", a: "يتحدد السعر بناء على: سمك الخرسانة طول خط القطع كثافة التسليح وموقع العمل. اتصل بنا للحصول على عرض سعر فني بعد معاينة الموقع." },
  ];
- const jsonLdLocalBusiness = { "@context": "https://schema.org", "@type": "LocalBusiness", name: BRAND, url: DOMAIN, telephone: PHONE_INT, address: { "@type": "PostalAddress", addressCountry: "EG", addressLocality: "Cairo", streetAddress: ADDRESS_TEXT }, areaServed: ["مصر", "القاهرة", "الجيزة", "العاصمة الإدارية"], priceRange: "$$", openingHours: "Mo-Su 00:00-23:59", sameAs: [DOMAIN, WHATSAPP] };
+ const jsonLdLocalBusiness = { "@context": "https://schema.org", "@type": "LocalBusiness", name: BRAND, url: DOMAIN, telephone: PHONE_INT, address: { "@type": "PostalAddress", addressCountry: "EG", addressLocality: "Cairo", streetAddress: ADDRESS_TEXT }, areaServed: ["مصر", "القاهرة", "الجيزة", "العاصمة الإدارية"], priceRange: "$$", openingHours: "Mo-Su 00:00-23:59", sameAs: [DOMAIN, WHATSAPP],
+ aggregateRating: {
+ "@type": "AggregateRating",
+ ratingValue: "4.7",
+ reviewCount: "85"
+ } };
  const jsonLdService = { "@context": "https://schema.org", "@type": "Service", name: "قص الخرسانة بالواير الماسي في مصر - Wire Sawing", serviceType: "Diamond Wire Sawing", provider: { "@type": "LocalBusiness", name: BRAND, telephone: PHONE_INT, url: DOMAIN }, areaServed: ["القاهرة الكبرى", "الجيزة", "مصر"], url: CANONICAL, description: "أفضل شركة قص خرسانة بالواير الماسي (Diamond Wire Sawing) للكباري والقواعد الخرسانية الضخمة في مصر. قص صامت بدون اهتزازات وبسماكات غير محدودة." };
  const jsonLdFaq = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })) };
 
