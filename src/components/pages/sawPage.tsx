@@ -621,6 +621,35 @@ export default function SawPage() {
 
  </aside>
  </div>
+ 
+ {/* CTA Banner */}
+ <section className="mt-10 rounded-3xl bg-slate-900 text-white overflow-hidden shadow-2xl relative">
+   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.8),transparent_70%)]" />
+   <div className="relative z-10 p-8 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
+     <div>
+       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/20 text-sky-300 font-bold mb-5 text-sm border border-sky-500/30">
+         <BadgeCheck className="w-4 h-4" />
+         اتصل الآن لمعاينة مجانية
+       </div>
+       <h2 className="text-2xl md:text-4xl font-black mb-4 leading-tight">
+         هل تحتاج إلى قص خرسانة بالمنشار بأسرع وقت؟
+       </h2>
+       <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
+         لا تتردد في التواصل معنا. فريقنا من الخبراء جاهز لمعاينة موقعك وتقديم عرض سعر تنافسي بدون أي التزامات.
+       </p>
+       <div className="mt-4 text-2xl font-black text-sky-400">{PHONE}</div>
+     </div>
+     <div className="flex flex-col gap-3 shrink-0 w-full md:w-auto min-w-[220px]">
+       <Link href={WHATSAPP} className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 transition text-white px-8 py-4 rounded-2xl font-black text-xl">
+         <Phone className="w-5 h-5" /> تواصل واتساب
+       </Link>
+       <a href={`tel:${PHONE}`} className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 hover:bg-slate-100 transition px-8 py-4 rounded-2xl font-black text-xl">
+         <Phone className="w-5 h-5" /> اتصل الآن
+       </a>
+     </div>
+   </div>
+ </section>
+
  </div>
  </div>
  );
