@@ -22,6 +22,13 @@ export default defineConfig({
       'https://corepro-eg.com/about',
       'https://corepro-eg.com/projects',
       'https://corepro-eg.com/concrete-cutting-alexandria',
+      'https://corepro-eg.com/concrete-cutting-tagamoa',
+      'https://corepro-eg.com/concrete-cutting-october',
+      'https://corepro-eg.com/concrete-cutting-new-capital',
+      'https://corepro-eg.com/concrete-cutting-giza',
+      'https://corepro-eg.com/concrete-cutting-assiut',
+      'https://corepro-eg.com/concrete-cutting-minya',
+      'https://corepro-eg.com/concrete-cutting-mansoura',
       'https://corepro-eg.com/gas-holes',
       'https://corepro-eg.com/wall-cutting',
       'https://corepro-eg.com/ceiling-holes',
@@ -58,7 +65,12 @@ export default defineConfig({
       } else if (
         item.url === 'https://corepro-eg.com/concrete-cutting-alexandria' ||
         item.url === 'https://corepro-eg.com/concrete-cutting-tagamoa' ||
-        item.url === 'https://corepro-eg.com/concrete-cutting-october'
+        item.url === 'https://corepro-eg.com/concrete-cutting-october' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-new-capital' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-giza' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-assiut' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-minya' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-mansoura'
       ) {
         item.changefreq = 'monthly';
         item.priority = 0.85;

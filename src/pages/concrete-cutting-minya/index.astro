@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/minyaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="صنايعي كور وقص الخرسانة في المنيا - 01021507462"
+  description="متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في المنيا — فتحات التكييف والغاز الطبيعي والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز المنيا. اتصل 01021507462."
+  canonical="https://corepro-eg.com/concrete-cutting-minya"
+  ogImageAlt="تخريم الكور وقص الخرسانة في المنيا - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "صنايعي كور وقص الخرسانة في المنيا" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

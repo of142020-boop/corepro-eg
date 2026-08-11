@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageComponent from '../../components/pages/sawPage';
-import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import Layout from "../../layouts/Layout.astro";
+import PageComponent from "../../components/pages/sawPage";
+import BreadcrumbNav from "../../components/BreadcrumbNav.astro";
 ---
 
 <Layout
@@ -11,9 +11,11 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
   image="/images/saw/mokawel-kas-kharsana.webp"
   ogImageAlt="قص الخرسانة بالمنشار - كور برو مصر"
 >
-  <BreadcrumbNav items={[
-    { label: "الرئيسية", href: "/" },
-    { label: "قص الخرسانة بالمنشار" }
-  ]} />
+  <BreadcrumbNav
+    items={[
+      { label: "الرئيسية", href: "/" },
+      { label: "قص الخرسانة بالمنشار" },
+    ]}
+  />
   <PageComponent />
 </Layout>

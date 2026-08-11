@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/assiutPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="قص الخرسانة وتخريم الكور في أسيوط - 01021507462"
+  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور في أسيوط — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز والسباكة بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز أسيوط. اتصل 01021507462."
+  canonical="https://corepro-eg.com/concrete-cutting-assiut"
+  ogImageAlt="قص الخرسانة وتخريم الكور في أسيوط - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم الخرسانة في أسيوط" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

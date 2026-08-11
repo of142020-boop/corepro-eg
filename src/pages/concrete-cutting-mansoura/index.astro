@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/mansouraPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="قص الخرسانة وتخريم الكور في المنصورة - 01021507462"
+  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور في المنصورة والدقهلية — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز والسباكة بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز الدقهلية. اتصل 01021507462."
+  canonical="https://corepro-eg.com/concrete-cutting-mansoura"
+  ogImageAlt="قص الخرسانة وتخريم الكور في المنصورة - كور برو"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم الخرسانة في المنصورة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

@@ -273,7 +273,7 @@ export default function CorePage() {
     {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/core/hero.webp`,
+      "contentUrl": `${DOMAIN}/images/core/sanayeh-core-egypt.webp`,
       "name": "تخريم الخرسانة بالكور الماسي - كور برو",
       "description": "تخريم الخرسانة بماكينة الكور الماسي مع التبريد المائي",
       "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
