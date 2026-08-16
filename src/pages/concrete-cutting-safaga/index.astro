@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/safagaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في سفاجا — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-safaga",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "سفاجا",
+    "addressRegion": "EG-BA",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 26.7456,
+    "longitude": 33.9358
+  },
+  "areaServed": [
+    { "@type": "City", "name": "سفاجا" },
+    { "@type": "AdministrativeArea", "name": "محافظة سفاجا" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
+---
+
+<Layout
+  title="خدمات الكور وقص الخرسانة في سفاجا وسوما باي - 01021507462"
+  description="متخصصون في أعمال التخريم بالكور وقص الخرسانة بمدينة سفاجا ومينائها والمناطق المحيطة. فتحات دقيقة للكهرباء والصرف بدون غبار أو تكسير."
+  canonical="https://corepro-eg.com/concrete-cutting-safaga"
+  ogImageAlt="تخريم الكور وقص الخرسانة في سفاجا - كور برو"
+  geoRegion="EG-BA"
+  geoPlacename="Safaga, Egypt"
+  geoPosition="26.7456;33.9358"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "خدمات الكور وقص الخرسانة في سفاجا وسوما باي" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

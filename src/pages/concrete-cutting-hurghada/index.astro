@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/hurghadaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في الغردقة — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-hurghada",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الغردقة",
+    "addressRegion": "EG-BA",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.2579,
+    "longitude": 33.8116
+  },
+  "areaServed": [
+    { "@type": "City", "name": "الغردقة" },
+    { "@type": "AdministrativeArea", "name": "محافظة الغردقة" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
+---
+
+<Layout
+  title="قص وتخريم الخرسانة بالغردقة والبحر الأحمر - 01021507462"
+  description="مقاول تخريم وقص خرسانة للقرى السياحية والفنادق بالغردقة والجونة. تنفيذ فتحات الكور للسباكة والتكييف وقص الجدران بدون اهتزاز."
+  canonical="https://corepro-eg.com/concrete-cutting-hurghada"
+  ogImageAlt="تخريم الكور وقص الخرسانة في الغردقة - كور برو"
+  geoRegion="EG-BA"
+  geoPlacename="Hurghada, Egypt"
+  geoPosition="27.2579;33.8116"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم الخرسانة بالغردقة والبحر الأحمر" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/sokhnaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في العين السخنة — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-sokhna",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "العين السخنة",
+    "addressRegion": "EG-SU",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 29.6015,
+    "longitude": 32.3168
+  },
+  "areaServed": [
+    { "@type": "City", "name": "العين السخنة" },
+    { "@type": "AdministrativeArea", "name": "محافظة العين السخنة" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
+---
+
+<Layout
+  title="قص وتخريم الخرسانة لمشاريع العين السخنة والجلالة - 01021507462"
+  description="افضل خدمات قص الخرسانة وتخريم الكور لقرى العين السخنة ومدينة الجلالة. سرعة في التنفيذ وأسعار خاصة للمقاولين."
+  canonical="https://corepro-eg.com/concrete-cutting-sokhna"
+  ogImageAlt="تخريم الكور وقص الخرسانة في العين السخنة - كور برو"
+  geoRegion="EG-SU"
+  geoPlacename="Ain Sokhna, Egypt"
+  geoPosition="29.6015;32.3168"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "قص وتخريم الخرسانة لمشاريع العين السخنة والجلالة" }
+  ]} />
+  <PageComponent client:load />
+</Layout>

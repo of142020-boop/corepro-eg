@@ -29,6 +29,9 @@ export default defineConfig({
       'https://corepro-eg.com/concrete-cutting-assiut',
       'https://corepro-eg.com/concrete-cutting-minya',
       'https://corepro-eg.com/concrete-cutting-mansoura',
+      'https://corepro-eg.com/concrete-cutting-hurghada',
+      'https://corepro-eg.com/concrete-cutting-safaga',
+      'https://corepro-eg.com/concrete-cutting-sokhna',
       'https://corepro-eg.com/gas-holes',
       'https://corepro-eg.com/wall-cutting',
       'https://corepro-eg.com/ceiling-holes',
@@ -70,7 +73,10 @@ export default defineConfig({
         item.url === 'https://corepro-eg.com/concrete-cutting-giza' ||
         item.url === 'https://corepro-eg.com/concrete-cutting-assiut' ||
         item.url === 'https://corepro-eg.com/concrete-cutting-minya' ||
-        item.url === 'https://corepro-eg.com/concrete-cutting-mansoura'
+        item.url === 'https://corepro-eg.com/concrete-cutting-mansoura' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-hurghada' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-safaga' ||
+        item.url === 'https://corepro-eg.com/concrete-cutting-sokhna'
       ) {
         item.changefreq = 'monthly';
         item.priority = 0.85;
