@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/portSaidIsmailiaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في بورسعيد والإسماعيلية — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-port-said-ismailia",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "بورسعيد والإسماعيلية",
+    "addressRegion": "EG-PTS",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 31.2565,
+    "longitude": 32.2841
+  },
+  "areaServed": [
+    { "@type": "City", "name": "بورسعيد والإسماعيلية" },
+    { "@type": "AdministrativeArea", "name": "محافظة بورسعيد والإسماعيلية" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
+---
+
+<Layout
+  title="مقاول قص الخرسانة بالواير وتخريم الكور بورسعيد والإسماعيلية"
+  description="مقاول متخصص في قص الخرسانة بالواير الماسي وتخريم الكور للمشاريع القومية والموانئ في بورسعيد والإسماعيلية. قص كباري، قواعد خرسانية، وفتحات MEP بدقة هندسية."
+  canonical="https://corepro-eg.com/concrete-cutting-port-said-ismailia"
+  ogImageAlt="قص الخرسانة بالواير الماسي بورسعيد والإسماعيلية - كور برو"
+  geoRegion="EG-PTS"
+  geoPlacename="Port Said & Ismailia, Egypt"
+  geoPosition="31.2565;32.2841"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "صنايعي كور وقص الخرسانة في بورسعيد والإسماعيلية" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
