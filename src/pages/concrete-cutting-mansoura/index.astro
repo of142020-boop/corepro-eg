@@ -2,6 +2,34 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/mansouraPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في قص الخرسانة بالمنشار وتخريم الكور في المنصورة والدقهلية — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز والسباكة بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-mansoura",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "المنصورة",
+    "addressRegion": "EG-DK",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 31.0364,
+    "longitude": 31.3807
+  },
+  "areaServed": [
+    { "@type": "City", "name": "المنصورة" },
+    { "@type": "AdministrativeArea", "name": "محافظة الدقهلية" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
@@ -9,7 +37,11 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
   description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور في المنصورة والدقهلية — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز والسباكة بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز الدقهلية. اتصل 01021507462."
   canonical="https://corepro-eg.com/concrete-cutting-mansoura"
   ogImageAlt="قص الخرسانة وتخريم الكور في المنصورة - كور برو"
+  geoRegion="EG-DK"
+  geoPlacename="Mansoura, Egypt"
+  geoPosition="31.0364;31.3807"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
     { label: "قص وتخريم الخرسانة في المنصورة" }

@@ -2,6 +2,34 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/minyaPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في المنيا — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-minya",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "المنيا",
+    "addressRegion": "EG-MN",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.0871,
+    "longitude": 30.7618
+  },
+  "areaServed": [
+    { "@type": "City", "name": "المنيا" },
+    { "@type": "AdministrativeArea", "name": "محافظة المنيا" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
@@ -9,7 +37,11 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
   description="متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في المنيا — فتحات التكييف والغاز الطبيعي والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز المنيا. اتصل 01021507462."
   canonical="https://corepro-eg.com/concrete-cutting-minya"
   ogImageAlt="تخريم الكور وقص الخرسانة في المنيا - كور برو"
+  geoRegion="EG-MN"
+  geoPlacename="Minya, Egypt"
+  geoPosition="28.0871;30.7618"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
     { label: "صنايعي كور وقص الخرسانة في المنيا" }

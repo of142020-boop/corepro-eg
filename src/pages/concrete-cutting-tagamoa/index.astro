@@ -2,6 +2,35 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/tagamoaPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالتجمع الخامس والقاهرة الجديدة — نخدم مدينتي والرحاب وشارع التسعين والتجمع الأول والثالث",
+  "url": "https://corepro-eg.com/concrete-cutting-tagamoa",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "التجمع الخامس",
+    "addressRegion": "EG-C",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.0268,
+    "longitude": 31.5009
+  },
+  "areaServed": [
+    { "@type": "City", "name": "التجمع الخامس" },
+    { "@type": "City", "name": "القاهرة الجديدة" },
+    { "@type": "AdministrativeArea", "name": "شرق القاهرة" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
@@ -9,11 +38,14 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
   description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالتجمع الخامس والقاهرة الجديدة. نخدم مدينتي والرحاب وشارع التسعين والتجمع الأول والثالث. اتصل 01021507462."
   canonical="https://corepro-eg.com/concrete-cutting-tagamoa"
   ogImageAlt="قص وتخريم الخرسانة بالتجمع الخامس والقاهرة الجديدة - كور برو"
+  geoRegion="EG-C"
+  geoPlacename="New Cairo, Egypt"
+  geoPosition="30.0268;31.5009"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
     { label: "قص وتخريم خرسانة التجمع الخامس والقاهرة الجديدة" }
   ]} />
   <PageComponent client:load />
 </Layout>
-

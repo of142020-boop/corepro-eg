@@ -2,6 +2,35 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/octoberPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بـ 6 أكتوبر والشيخ زايد — نخدم حدائق أكتوبر وميدان جهينة والحي المتميز وبيفرلي هيلز",
+  "url": "https://corepro-eg.com/concrete-cutting-october",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "6 أكتوبر",
+    "addressRegion": "EG-GZ",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 29.9302,
+    "longitude": 30.9250
+  },
+  "areaServed": [
+    { "@type": "City", "name": "6 أكتوبر" },
+    { "@type": "City", "name": "الشيخ زايد" },
+    { "@type": "AdministrativeArea", "name": "محافظة الجيزة - 6 أكتوبر" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
@@ -9,12 +38,14 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
   description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بـ 6 أكتوبر والشيخ زايد. نخدم حدائق أكتوبر وميدان جهينة والحي المتميز وبيفرلي هيلز. اتصل 01021507462."
   canonical="https://corepro-eg.com/concrete-cutting-october"
   ogImageAlt="قص وتخريم الخرسانة بـ 6 أكتوبر والشيخ زايد - كور برو"
+  geoRegion="EG-GZ"
+  geoPlacename="6th October City, Egypt"
+  geoPosition="29.9302;30.9250"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
     { label: "قص وتخريم خرسانة 6 أكتوبر والشيخ زايد" }
   ]} />
   <PageComponent client:load />
 </Layout>
-
-

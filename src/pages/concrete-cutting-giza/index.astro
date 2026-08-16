@@ -2,13 +2,45 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/gizaPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالجيزة — نخدم الدقي والمهندسين و6 أكتوبر والشيخ زايد وجميع أحياء الجيزة",
+  "url": "https://corepro-eg.com/concrete-cutting-giza",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الجيزة",
+    "addressRegion": "EG-GZ",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.0131,
+    "longitude": 31.2089
+  },
+  "areaServed": [
+    { "@type": "City", "name": "الجيزة" },
+    { "@type": "AdministrativeArea", "name": "محافظة الجيزة" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
   title="قص وتخريم خرسانة الجيزة — صنايعي كور و6 أكتوبر | 01021507462"
   description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالجيزة. نخدم الدقي والمهندسين و6 أكتوبر والشيخ زايد وجميع أحياء الجيزة. اتصل 01021507462."
   canonical="https://corepro-eg.com/concrete-cutting-giza"
+  geoRegion="EG-GZ"
+  geoPlacename="Giza, Egypt"
+  geoPosition="30.0131;31.2089"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
     { label: "قص وتخريم خرسانة الجيزة" }

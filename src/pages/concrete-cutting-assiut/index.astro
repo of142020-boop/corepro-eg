@@ -2,17 +2,49 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/assiutPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في أسيوط — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-assiut",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "أسيوط",
+    "addressRegion": "EG-AST",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.1810,
+    "longitude": 31.1837
+  },
+  "areaServed": [
+    { "@type": "City", "name": "أسيوط" },
+    { "@type": "AdministrativeArea", "name": "محافظة أسيوط" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
-  title="قص الخرسانة وتخريم الكور في أسيوط - 01021507462"
-  description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور في أسيوط — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز والسباكة بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز أسيوط. اتصل 01021507462."
+  title="صنايعي كور وقص الخرسانة في أسيوط - 01021507462"
+  description="متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في أسيوط — فتحات التكييف والغاز الطبيعي والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز. نخدم جميع مراكز أسيوط. اتصل 01021507462."
   canonical="https://corepro-eg.com/concrete-cutting-assiut"
-  ogImageAlt="قص الخرسانة وتخريم الكور في أسيوط - كور برو"
+  ogImageAlt="تخريم الكور وقص الخرسانة في أسيوط - كور برو"
+  geoRegion="EG-AST"
+  geoPlacename="Assiut, Egypt"
+  geoPosition="27.1810;31.1837"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
-    { label: "قص وتخريم الخرسانة في أسيوط" }
+    { label: "صنايعي كور وقص الخرسانة في أسيوط" }
   ]} />
   <PageComponent client:load />
 </Layout>

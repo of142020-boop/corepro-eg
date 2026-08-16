@@ -2,6 +2,34 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/alexandriaPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالإسكندرية — نخدم سيدي بشر والمنتزه وسموحة وبرج العرب والعجمي والدخيلة",
+  "url": "https://corepro-eg.com/concrete-cutting-alexandria",
+  "telephone": "+201094496839",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الإسكندرية",
+    "addressRegion": "EG-ALX",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 31.2001,
+    "longitude": 29.9187
+  },
+  "areaServed": [
+    { "@type": "City", "name": "الإسكندرية" },
+    { "@type": "AdministrativeArea", "name": "محافظة الإسكندرية" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
 <Layout
@@ -9,7 +37,11 @@ import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
   description="متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالإسكندرية. نخدم سيدي بشر والمنتزه وسموحة وبرج العرب والعجمي والدخيلة. اتصل 01094496839."
   canonical="https://corepro-eg.com/concrete-cutting-alexandria"
   ogImageAlt="قص وتخريم الخرسانة بالإسكندرية - كور برو"
+  geoRegion="EG-ALX"
+  geoPlacename="Alexandria, Egypt"
+  geoPosition="31.2001;29.9187"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <BreadcrumbNav items={[
     { label: "الرئيسية", href: "/" },
     { label: "قص وتخريم خرسانة الإسكندرية" }

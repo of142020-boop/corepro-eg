@@ -22,6 +22,10 @@ interface Props {
     modifiedTime?: string;
     articleSection?: string;
     tags?: string[];
+    // Local SEO - city specific
+    geoRegion?: string;
+    geoPlacename?: string;
+    geoPosition?: string;
 }
 
 const {
@@ -36,6 +40,9 @@ const {
     modifiedTime,
     articleSection,
     tags = [],
+    geoRegion = "EG-C",
+    geoPlacename = "Cairo, Egypt",
+    geoPosition = "30.0693;31.3289",
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -117,10 +124,10 @@ const optimizedHero = await getImage({
         <link rel="alternate" hreflang="ar" href={canonicalUrl} />
 
         <!-- Geo meta tags (Local SEO) -->
-        <meta name="geo.region" content="EG-C" />
-        <meta name="geo.placename" content="Cairo, Egypt" />
-        <meta name="geo.position" content="30.0693;31.3289" />
-        <meta name="ICBM" content="30.0693, 31.3289" />
+        <meta name="geo.region" content={geoRegion} />
+        <meta name="geo.placename" content={geoPlacename} />
+        <meta name="geo.position" content={geoPosition} />
+        <meta name="ICBM" content={geoPosition.replace(";", ", ")} />
 
         <!-- Business Contact Data (AI & Open Graph) -->
         <meta
@@ -180,6 +187,7 @@ const optimizedHero = await getImage({
                 />
             )
         }
+        <slot name="head" />
     </head>
     <body
         class="min-h-screen bg-slate-50 text-slate-900 antialiased"

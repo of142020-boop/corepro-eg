@@ -2,12 +2,43 @@
 import Layout from '../../layouts/Layout.astro';
 import NewCapitalPage from '../../components/pages/newCapitalPage';
 
-// SEO Meta Data
-const title = "شركة قص وتخريم خرسانة في العاصمة الإدارية | كور برو للمشاريع";
-const description = "مقاول قص وتخريم خرسانة للمشاريع الكبرى في العاصمة الإدارية الجديدة. تخريم كور لشبكات الـ MEP، قص الجدران بالمنشار الماسي وقص بالواير بأسعار خاصة للمقاولين.";
-const canonical = "https://corepro-eg.com/concrete-cutting-new-capital";
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "مقاول قص وتخريم خرسانة للمشاريع الكبرى في العاصمة الإدارية الجديدة — تخريم كور لشبكات MEP وقص الجدران بالمنشار الماسي وقص بالواير",
+  "url": "https://corepro-eg.com/concrete-cutting-new-capital",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "العاصمة الإدارية الجديدة",
+    "addressRegion": "EG-C",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.0138,
+    "longitude": 31.6787
+  },
+  "areaServed": [
+    { "@type": "City", "name": "العاصمة الإدارية الجديدة" },
+    { "@type": "AdministrativeArea", "name": "العاصمة الإدارية" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور للمشاريع الكبرى",
+  "sameAs": ["https://wa.me/201021507462"]
+};
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
+<Layout
+  title="شركة قص وتخريم خرسانة في العاصمة الإدارية | كور برو للمشاريع"
+  description="مقاول قص وتخريم خرسانة للمشاريع الكبرى في العاصمة الإدارية الجديدة. تخريم كور لشبكات الـ MEP، قص الجدران بالمنشار الماسي وقص بالواير بأسعار خاصة للمقاولين."
+  canonical="https://corepro-eg.com/concrete-cutting-new-capital"
+  geoRegion="EG-C"
+  geoPlacename="New Administrative Capital, Egypt"
+  geoPosition="30.0138;31.6787"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
   <NewCapitalPage client:load />
 </Layout>
