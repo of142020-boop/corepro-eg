@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/marsaAlamPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "كور برو - Core Pro",
+  "description": "متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في مرسى علم — فتحات التكييف والغاز والسباكة وفتح الأبواب بدقة هندسية وبدون اهتزاز",
+  "url": "https://corepro-eg.com/concrete-cutting-marsa-alam",
+  "telephone": "+201021507462",
+  "image": "https://corepro-eg.com/logo-header-116x154.webp",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "مرسى علم",
+    "addressRegion": "EG-BA",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.0676,
+    "longitude": 34.879
+  },
+  "areaServed": [
+    { "@type": "City", "name": "مرسى علم" },
+    { "@type": "AdministrativeArea", "name": "محافظة مرسى علم" }
+  ],
+  "serviceType": "قص الخرسانة وتخريم الكور",
+  "sameAs": ["https://wa.me/201021507462"]
+};
+---
+
+<Layout
+  title="قص الخرسانة وتخريم الكور للفنادق في مرسى علم - 01021507462"
+  description="مقاول تخريم وقص خرسانة متخصص لخدمة القرى السياحية والفنادق في مرسى علم وبورت غالب. فتحات دقيقة للكهروميكانيك بدون اهتزاز."
+  canonical="https://corepro-eg.com/concrete-cutting-marsa-alam"
+  ogImageAlt="تخريم الكور وقص الخرسانة في مرسى علم - كور برو"
+  geoRegion="EG-BA"
+  geoPlacename="Marsa Alam, Egypt"
+  geoPosition="25.0676;34.879"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} slot="head" />
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "صنايعي كور وقص الخرسانة في مرسى علم" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
