@@ -1,19 +1,21 @@
----
-import Layout from '../../layouts/Layout.astro';
-import PageComponent from '../../components/pages/corePage';
-import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+﻿---
+import Layout from "../../layouts/Layout.astro";
+import PageComponent from "../../components/pages/corePage";
+import BreadcrumbNav from "../../components/BreadcrumbNav.astro";
 ---
 
 <Layout
-  title="صنايعي كور لتخريم الخرسانة وعمل فتحات كور دقيقة - 01021507462"
-  description="صنايعي كور متخصص في تخريم الخرسانة وعمل فتحات كور دقيقة. اسعار فتحات الكور التنافسية. خدمة فتحة مدخنة السخان والغاز. اتصل الآن 01021507462."
+  title="صنايعي كور | فني لعمل فتحة كور وتخريم جدار خرساني - 01021507462"
+  description="أفضل صنايعي وفني كور لعمل فتحة كور دقيقة. متخصصون في تخريم جدار خرساني وتخريم بلاطة باستخدام معدات كور ماسي وكور دريل. أسعار تنافسية. اتصل 01021507462"
   canonical="https://corepro-eg.com/core"
   image="/images/core/sanayeh-core-egypt.webp"
-  ogImageAlt="تخريم الخرسانة بالكور - كور برو مصر"
+  ogImageAlt="تخريم بلاطة وحفر خرسانة بالكور - كور برو مصر"
 >
-  <BreadcrumbNav items={[
-    { label: "الرئيسية", href: "/" },
-    { label: "تخريم الخرسانة بالكور" }
-  ]} />
+  <BreadcrumbNav
+    items={[
+      { label: "الرئيسية", href: "/" },
+      { label: "تخريم الخرسانة بالكور" },
+    ]}
+  />
   <PageComponent />
 </Layout>

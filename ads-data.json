@@ -1,0 +1,1338 @@
+{
+  "campaigns": [
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "status": 4,
+        "advertising_channel_type": 2,
+        "bidding_strategy_type": 9,
+        "name": "Search-1",
+        "id": 22840371056
+      },
+      "metrics": {
+        "clicks": 3,
+        "conversions": 0,
+        "cost_micros": 64800000,
+        "ctr": 0.022900763358778626,
+        "average_cpc": 21600000,
+        "impressions": 131
+      }
+    }
+  ],
+  "adGroups": [
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "status": 2,
+        "id": 185822552809,
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 3,
+        "conversions": 0,
+        "cost_micros": 64800000,
+        "ctr": 0.022900763358778626,
+        "average_cpc": 21600000,
+        "impressions": 131
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 1,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 11240000,
+        "ctr": 0.02631578947368421,
+        "average_cpc": 11240000,
+        "impressions": 38
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~306346892051",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "تخريم خرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~306346892051"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 1,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 50390000,
+        "ctr": 0.03571428571428571,
+        "average_cpc": 50390000,
+        "impressions": 28
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~306614771189",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "قص الخرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~306614771189"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 1,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 3170000,
+        "ctr": 0.3333333333333333,
+        "average_cpc": 3170000,
+        "impressions": 3
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~371720446258",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "عمل فتحات في الخرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~371720446258"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 28
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~306346892131",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "قص خرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~306346892131"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~313893576928",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "شركات قص الخرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~313893576928"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.16666666666666666,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~372245958908",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "قص وتخريم الخرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~372245958908"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~379885407581",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "شركة قص خرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~379885407581"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.3333333333333333,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~404994900134",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "مقاول قص خرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~404994900134"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 6
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~473056879416",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "فتحات كور"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~473056879416"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~486076867603",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "قص خرسانة جدة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~486076867603"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~552919313888",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "مقاول قص خرسانه"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~552919313888"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~614216479367",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "فتحات الكور"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~614216479367"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 3
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~667818425718",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "عمل فتحات كور"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~667818425718"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~738252965022",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "مقاول فتحات كور"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~738252965022"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 3
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~835445914052",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "فتحات كور خرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~835445914052"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 7
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~849807327064",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "منشار قص الخرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~849807327064"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 4
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~851498831897",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "جهاز تخريم الخرسانه"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~851498831897"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~892448519496",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "طريقة قص الخرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~892448519496"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.25,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 3
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~954942555008",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "منشار قص خرسانة"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~954942555008"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~996502013699",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "تخريم جدار"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~996502013699"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~1433832127658",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "سعر فتحات الكور"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~1433832127658"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "search_impression_share": 0.0999,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~1555612255324",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "فتحة الكور"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~1555612255324"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~1675245046473",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "البناء الخرساني"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~1675245046473"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~1717813938361",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "الجدران الخرسانية"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~1717813938361"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "ad_group": {
+        "resource_name": "customers/2622817901/adGroups/185822552809",
+        "name": "Ad group 1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "impressions": 0
+      },
+      "ad_group_criterion": {
+        "resource_name": "customers/2622817901/adGroupCriteria/185822552809~2374279223408",
+        "status": 2,
+        "keyword": {
+          "match_type": 4,
+          "text": "مبنى خرساني"
+        }
+      },
+      "keyword_view": {
+        "resource_name": "customers/2622817901/keywordViews/185822552809~2374279223408"
+      }
+    }
+  ],
+  "searchTerms": [
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 1,
+        "conversions": 0,
+        "cost_micros": 50390000,
+        "ctr": 0.25,
+        "average_cpc": 50390000,
+        "impressions": 4
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDYrtix2LPYp9mG2Yc",
+        "status": 5,
+        "search_term": "قص خرسانه"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2KfYs9i52KfYsSDZg9mI2LEg2KfZhNiq2K7YsdmK2YU",
+        "status": 5,
+        "search_term": "اسعار كور التخريم"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2KrZgti32YrYuSDYp9mE2K7Ysdiz2KfZhtip",
+        "status": 5,
+        "search_term": "تقطيع الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2KrZg9iz2YrYsSDYrtix2LPYp9mG2Ycg2YXYs9mE2K3Zhw",
+        "status": 5,
+        "search_term": "تكسير خرسانه مسلحه"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2KzZh9in2LIg2KfZhNmD2YjYsSDZhNmE2K3Zgdix",
+        "status": 5,
+        "search_term": "جهاز الكور للحفر"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2K_YsdmK2YQg2KrYrtix2YrZhSDYp9mE2K7Ysdiz2KfZhtmH",
+        "status": 5,
+        "search_term": "دريل تخريم الخرسانه"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2LPYudixINis2YfYp9iyINin2YTZg9mI2LE",
+        "status": 5,
+        "search_term": "سعر جهاز الكور"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2LTYutmEINin2YTZg9mI2LE",
+        "status": 5,
+        "search_term": "شغل الكور"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2LXYp9ix2YjYriDZgti1INin2YTYrtix2LPYp9mG2Kk",
+        "status": 5,
+        "search_term": "صاروخ قص الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2LXZhtin2YrYudmKINmD2YjYsQ",
+        "status": 5,
+        "search_term": "صنايعي كور"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2LnZhdmEINmB2KrYrdipINmB2Yog2KfZhNis2K_Yp9ix",
+        "status": 5,
+        "search_term": "عمل فتحة في الجدار"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDYp9mE2K7Ysdiz2KfZhtip",
+        "status": 2,
+        "search_term": "قص الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDYp9mE2K7Ysdiz2KfZhtmHINio2KfZhNmE2YrYstix",
+        "status": 5,
+        "search_term": "قص الخرسانه بالليزر"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDYrNiv2LHYp9mGINmC2LU",
+        "status": 5,
+        "search_term": "قص جدران قص"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDYrNiv2LHYp9mGINmE2YrYstix",
+        "status": 5,
+        "search_term": "قص جدران ليزر"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDYrtix2LPYp9mG2Kk",
+        "status": 2,
+        "search_term": "قص خرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YLYtSDZiNiq2K7YsdmK2YUg2KfZhNiu2LHYs9in2YbYqQ",
+        "status": 2,
+        "search_term": "قص وتخريم الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YPZiNixINiq2YHYqtmK2K0g2KfZhNiu2LHYs9in2YbZhw",
+        "status": 5,
+        "search_term": "كور تفتيح الخرسانه"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YPZiNixINit2YHYsQ",
+        "status": 5,
+        "search_term": "كور حفر"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YPZiNixINiu2LHYs9in2YbYqQ",
+        "status": 5,
+        "search_term": "كور خرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YPZiNixINmF2KfYtNmK2YY",
+        "status": 5,
+        "search_term": "كور ماشين"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YPZitmB2YrZhyDYudmF2YQg2LXYqNmHINiu2LHYs9in2YbZitmH",
+        "status": 5,
+        "search_term": "كيفيه عمل صبه خرسانيه"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXYp9mD2YrZhtipINiq2K7YsdmK2YUg2KfZhNiu2LHYs9in2YbYqQ",
+        "status": 5,
+        "search_term": "ماكينة تخريم الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXYp9mD2YrZhtipINiu2LHZhSDYp9mE2K7Ysdiz2KfZhtip",
+        "status": 5,
+        "search_term": "ماكينة خرم الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 3
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXYp9mD2YrZhtipINmD2YjYsSDYqtiu2LHZitmFINin2YTYrtix2LPYp9mG2Kk",
+        "status": 5,
+        "search_term": "ماكينة كور تخريم الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZgtin2YjZhCDZgti1INiu2LHYs9in2YbYqQ",
+        "status": 2,
+        "search_term": "مقاول قص خرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZg9mGINmD2YjYsQ",
+        "status": 5,
+        "search_term": "مكن كور"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZhti02KfYsSDYqtmC2LfZiti5INiu2LHYs9in2YbYqQ",
+        "status": 5,
+        "search_term": "منشار تقطيع خرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 4
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZhti02KfYsSDYrtix2LPYp9mG2Yc",
+        "status": 5,
+        "search_term": "منشار خرسانه"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 2
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZhti02KfYsSDZgti1INin2YTYrtix2LPYp9mG2Kk",
+        "status": 2,
+        "search_term": "منشار قص الخرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZhti02KfYsSDZgti1INiu2LHYs9in2YbYqQ",
+        "status": 2,
+        "search_term": "منشار قص خرسانة"
+      }
+    },
+    {
+      "campaign": {
+        "resource_name": "customers/2622817901/campaigns/22840371056",
+        "name": "Search-1"
+      },
+      "metrics": {
+        "clicks": 0,
+        "conversions": 0,
+        "cost_micros": 0,
+        "ctr": 0,
+        "impressions": 1
+      },
+      "search_term_view": {
+        "resource_name": "customers/2622817901/searchTermViews/22840371056~185822552809~2YXZhti02KfYsSDZhNmC2LUg2KfZhNis2K_Ysdin2YY",
+        "status": 5,
+        "search_term": "منشار لقص الجدران"
+      }
+    }
+  ]
+}

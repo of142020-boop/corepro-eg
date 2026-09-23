@@ -11,7 +11,12 @@
     "index-now": "node scripts/google-index.mjs",
     "gsc-report": "node scripts/gsc-report.mjs",
     "gads:auth": "node scripts/google-ads-auth.mjs",
-    "gads:keywords": "node scripts/keyword-planner.mjs"
+    "gads:refresh": "node scripts/refresh-token.mjs",
+    "gads:accounts": "node scripts/list-accounts.mjs",
+    "gads:test": "node scripts/ads-test.mjs",
+    "gads:report": "node scripts/ads-report.mjs",
+    "gads:keywords": "node scripts/keyword-planner.mjs",
+    "gads:metrics": "node scripts/keyword-metrics.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -44,7 +49,8 @@
     "@types/node": "^20",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "xlsx": "^0.18.5"
   },
   "browserslist": [
     "last 2 versions",

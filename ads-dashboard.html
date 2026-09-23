@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Pro — Google Ads Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3e;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #6366f1;
+    --green: #22c55e;
+    --blue: #3b82f6;
+    --orange: #f59e0b;
+    --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Cairo', -apple-system, sans-serif; background: var(--bg); color: var(--text); padding: 24px; }
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+  h1 { font-size: 1.8rem; color: #fff; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; }
+
+  /* KPI Cards */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .kpi .value { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .kpi .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .kpi.accent { border-color: var(--accent); }
+  .kpi .value.green { color: var(--green); }
+  .kpi .value.orange { color: var(--orange); }
+
+  /* Section */
+  .section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 24px; overflow: hidden; }
+  .section-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .section-header h2 { font-size: 1rem; color: #fff; }
+  .section-header .count { background: var(--accent); color: #fff; border-radius: 20px; padding: 2px 10px; font-size: 0.75rem; font-weight: 600; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { padding: 10px 14px; text-align: right; background: #13151f; color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+  td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+  tr:hover td { background: #1e2130; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 600; }
+  .badge.green { background: #14532d; color: #86efac; }
+  .badge.gray  { background: #1e293b; color: #94a3b8; }
+  .badge.blue  { background: #1e3a5f; color: #93c5fd; }
+  .badge.orange{ background: #78350f; color: #fcd34d; }
+
+  /* Footer */
+  .footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 32px; }
+
+  .no-data { padding: 32px; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>🚀 Core Pro — Google Ads Dashboard</h1>
+<p class="subtitle">آخر تحديث: ١٦‏/٩‏/٢٠٢٦، ٧:٥٦:٣١ م | Customer ID: 2622817901</p>
+
+<!-- KPI Summary -->
+<div class="kpi-grid">
+  <div class="kpi accent">
+    <div class="value">131</div>
+    <div class="label">👁️ Impressions</div>
+  </div>
+  <div class="kpi">
+    <div class="value green">3</div>
+    <div class="label">🖱️ Clicks</div>
+  </div>
+  <div class="kpi">
+    <div class="value orange">2.3%</div>
+    <div class="label">📈 CTR</div>
+  </div>
+  <div class="kpi">
+    <div class="value">64.80 EGP</div>
+    <div class="label">💰 Total Cost</div>
+  </div>
+  <div class="kpi">
+    <div class="value">21.60 EGP</div>
+    <div class="label">⚡ Avg CPC</div>
+  </div>
+  <div class="kpi">
+    <div class="value green">0</div>
+    <div class="label">✅ Conversions</div>
+  </div>
+</div>
+
+<!-- Campaigns -->
+<div class="section">
+  <div class="section-header">
+    <h2>📢 الحملات الإعلانية</h2>
+    <span class="count">1</span>
+  </div>
+  <div class="table-wrap">
+    
+    <table>
+      <thead><tr>
+        <th>اسم الحملة</th><th>الحالة</th><th>Impressions</th>
+        <th>Clicks</th><th>CTR</th><th>Cost</th><th>Avg CPC</th><th>Conversions</th>
+      </tr></thead>
+      <tbody><tr>
+      <td>Search-1</td>
+      <td><span class="badge green">⏸️ Paused</span></td>
+      <td>131</td>
+      <td>3</td>
+      <td>2.3%</td>
+      <td>64.80 EGP</td>
+      <td>21.60 EGP</td>
+      <td>0</td>
+    </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Ad Groups -->
+<div class="section">
+  <div class="section-header">
+    <h2>📁 المجموعات الإعلانية</h2>
+    <span class="count">1</span>
+  </div>
+  <div class="table-wrap">
+    
+    <table>
+      <thead><tr>
+        <th>الحملة</th><th>المجموعة</th><th>الحالة</th>
+        <th>Impressions</th><th>Clicks</th><th>CTR</th><th>Cost</th><th>Avg CPC</th>
+      </tr></thead>
+      <tbody><tr>
+      <td>Search-1</td>
+      <td>Ad group 1</td>
+      <td><span class="badge green">✅ Enabled</span></td>
+      <td>131</td>
+      <td>3</td>
+      <td>2.3%</td>
+      <td>64.80 EGP</td>
+      <td>21.60 EGP</td>
+    </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Keywords -->
+<div class="section">
+  <div class="section-header">
+    <h2>🔑 الكلمات المفتاحية</h2>
+    <span class="count">25</span>
+  </div>
+  <div class="table-wrap">
+    
+    <table>
+      <thead><tr>
+        <th>الكلمة</th><th>نوع المطابقة</th><th>المجموعة</th>
+        <th>Impressions</th><th>Clicks</th><th>CTR</th><th>Cost</th><th>Avg CPC</th><th>Conversions</th>
+      </tr></thead>
+      <tbody><tr>
+      <td><strong>تخريم خرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>38</td>
+      <td>1</td>
+      <td>2.6%</td>
+      <td>11.24 EGP</td>
+      <td>11.24 EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>قص الخرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>28</td>
+      <td>1</td>
+      <td>3.6%</td>
+      <td>50.39 EGP</td>
+      <td>50.39 EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>عمل فتحات في الخرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>33.3%</td>
+      <td>3.17 EGP</td>
+      <td>3.17 EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>قص خرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>شركات قص الخرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>قص وتخريم الخرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>شركة قص خرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>مقاول قص خرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>فتحات كور</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>قص خرسانة جدة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>مقاول قص خرسانه</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>فتحات الكور</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>عمل فتحات كور</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>مقاول فتحات كور</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>فتحات كور خرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>منشار قص الخرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>جهاز تخريم الخرسانه</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>طريقة قص الخرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>منشار قص خرسانة</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>تخريم جدار</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>سعر فتحات الكور</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>فتحة الكور</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>البناء الخرساني</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>الجدران الخرسانية</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr><tr>
+      <td><strong>مبنى خرساني</strong></td>
+      <td><span class="badge blue">UNSPECIFIED</span></td>
+      <td>Ad group 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+      <td>0</td>
+    </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Search Terms -->
+<div class="section">
+  <div class="section-header">
+    <h2>🔍 Search Terms الفعلية</h2>
+    <span class="count">32</span>
+  </div>
+  <div class="table-wrap">
+    
+    <table>
+      <thead><tr>
+        <th>ما بحث عنه المستخدم</th><th>الحملة</th>
+        <th>Impressions</th><th>Clicks</th><th>CTR</th><th>Cost</th><th>Avg CPC</th>
+      </tr></thead>
+      <tbody><tr>
+      <td>قص خرسانه</td>
+      <td>Search-1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>25.0%</td>
+      <td>50.39 EGP</td>
+      <td>50.39 EGP</td>
+    </tr><tr>
+      <td>اسعار كور التخريم</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>تقطيع الخرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>تكسير خرسانه مسلحه</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>جهاز الكور للحفر</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>دريل تخريم الخرسانه</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>سعر جهاز الكور</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>شغل الكور</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>صاروخ قص الخرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>صنايعي كور</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>عمل فتحة في الجدار</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>قص الخرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>قص الخرسانه بالليزر</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>قص جدران قص</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>قص جدران ليزر</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>قص خرسانة</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>قص وتخريم الخرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>كور تفتيح الخرسانه</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>كور حفر</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>كور خرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>كور ماشين</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>كيفيه عمل صبه خرسانيه</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>ماكينة تخريم الخرسانة</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>ماكينة خرم الخرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>ماكينة كور تخريم الخرسانة</td>
+      <td>Search-1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>مقاول قص خرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>مكن كور</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>منشار تقطيع خرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>منشار خرسانه</td>
+      <td>Search-1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>منشار قص الخرسانة</td>
+      <td>Search-1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>منشار قص خرسانة</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr><tr>
+      <td>منشار لقص الجدران</td>
+      <td>Search-1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.0%</td>
+      <td>0.00 EGP</td>
+      <td>NaN EGP</td>
+    </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  تقرير Core Pro — Google Ads API &nbsp;|&nbsp; ١٦‏/٩‏/٢٠٢٦، ٧:٥٦:٣١ م
+</div>
+</body>
+</html>

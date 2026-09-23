@@ -190,12 +190,7 @@ export default function ProjectsPage() {
                     />
 
                     {/* Status Badge */}
-                    {project.status && (
-                      <div className="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-bold text-white shadow-sm flex items-center gap-2 pointer-events-none">
-                        <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
-                        {project.status}
-                      </div>
-                    )}
+                    
                     
                     {/* Permanent Badge showing multiple photos exist */}
                     <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl flex items-center gap-2 shadow-lg">
@@ -216,6 +211,11 @@ export default function ProjectsPage() {
                     <div className="space-y-6 flex-1">
                       {/* Problem */}
                       <div className="bg-rose-50 p-6 rounded-2xl border border-rose-100">
+                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                          <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-200">
+                            {project.location}
+                          </span>
+                        </div>
                         <h3 className="font-bold text-rose-800 mb-2 flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-rose-500"></span> التحدي والمشكلة
                         </h3>
