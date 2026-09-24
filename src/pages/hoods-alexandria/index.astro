@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageComponent from '../../components/pages/hoodsAlexandriaPage';
+import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+---
+
+<Layout
+  title="فني تركيب وصيانة شفاطات بالاسكندرية | 01030881637"
+  description="أفضل فني تركيب شفاط مطبخ وحمام بالاسكندرية (سموحة، ميامي، العجمي). صيانة وتخريم وتأسيس جميع أنواع الشفاطات والمداخن. اتصل الآن 01030881637."
+  canonical="https://corepro-eg.com/hoods-alexandria"
+  image="/images/hoods/fani-tarkib-shafat-matbakh.webp"
+  ogImageAlt="تركيب شفاطات المطابخ بالاسكندرية - كور برو مصر"
+>
+  <BreadcrumbNav items={[
+    { label: "الرئيسية", href: "/" },
+    { label: "تركيب شفاطات بالاسكندرية" }
+  ]} />
+  <PageComponent client:load />
+</Layout>
