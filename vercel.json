@@ -2,6 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "astro",
+  "redirects": [
+    { "source": "/hoods-alexandria", "destination": "/hoods", "permanent": true },
+    { "source": "/hoods-alexandria/:path*", "destination": "/hoods", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/auth", "destination": "/api/auth" },
     { "source": "/api/auth/:path*", "destination": "/api/auth" }

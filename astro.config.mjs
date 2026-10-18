@@ -7,6 +7,9 @@ import compress from "astro-compress";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://corepro-eg.com',
+  redirects: {
+    '/hoods-alexandria': '/hoods',
+  },
   integrations: [react(), sitemap({
     filter: (page) =>
       !page.includes('/privacy-policy') &&
