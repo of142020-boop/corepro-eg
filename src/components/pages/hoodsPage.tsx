@@ -12,9 +12,9 @@ import { Sparkles, ShieldCheck, CheckCircle2, MapPin, Fan, BadgeCheck, Maximize,
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/hoods`;
-const PHONE_NUM = "01030881637";
+const PHONE_NUM = "01015218216";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
-const WHATSAPP = "https://wa.me/201030881637";
+const WHATSAPP = "https://wa.me/201015218216";
 const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
 const IMG_HERO = { src: "/images/hoods/fani-tarkib-shafat-matbakh.webp", width: 800, height: 800 };
 const IMG_1 = { src: "/images/hoods/tarkib-shafat-hamam-1.webp", width: 800, height: 800 };
@@ -209,7 +209,7 @@ export default function HoodsPage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4 break-words">
-  تأسيس و تركيب شفاط المطبخ - فني متخصص | 01030881637
+  تأسيس و تركيب شفاط المطبخ - فني متخصص | 01015218216
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
