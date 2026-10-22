@@ -7,7 +7,7 @@ heroImage: "/images/blog/core-work.webp"
 heroImageAlt: "ماكينة تخريم الخرسانة بالكور الاحترافية"
 category: "تخريم بالكور"
 featured: true
-seoTitle: "تخريم خرسانة بالكور لفتحات الغاز والسباكة بأعلى جودة"
+seoTitle: "تخريم الخرسانة بالكور لفتحات الغاز والسباكة"
 tags:
  - تخريم خرسانة
  - ماكينة كور
