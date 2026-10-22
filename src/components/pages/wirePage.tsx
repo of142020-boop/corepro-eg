@@ -124,7 +124,7 @@ export default function WirePage() {
  <div>
  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-800 shadow-sm"><span>Wire Sawing · القص الماسي الصامت · سماكات غير محدودة</span></div>
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
- واير تقطيع خرسانة | قص الخرسانة المسلحة بالواير الماسي - 01021507462
+ قص الخرسانة بالواير الماسي للكباري والقواعد - 01021507462
  </h1>
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
  <p>نقدم في <strong>{BRAND}</strong> خدمة <strong>قص الخرسانة بالواير</strong> (Diamond Wire Sawing) للمشاريع الإنشائية العملاقة. هذه التقنية تتيح لنا <strong>تقطيع الخرسانة</strong> بسماكات ضخمة تتجاوز المترين مما يجعلها الخيار الأول في <strong>قص الكباري</strong> وقص القواعد الخرسانية العميقة دون التأثير على سلامة الهيكل المحيط.</p>
