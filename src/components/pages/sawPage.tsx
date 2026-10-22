@@ -281,7 +281,7 @@ export default function SawPage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-sky-600 pr-4 break-words">
- مقاول قص خرسانة مسلحة بالمنشار - 01021507462
+ قص الخرسانة بالمنشار الماسي وفتح الجدران والأسقف - 01021507462
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
