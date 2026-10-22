@@ -21,19 +21,19 @@ const ADDRESS_TEXT = "القاهرة الكبرى";
 const faq = [
  {
  q: 'ما الفرق بين "الكور" و "قص الخرسانة"؟',
- a: "تخريم الكور يستخدم لعمل فتحات دائرية (للسباكة، الغاز، الشفاطات). أما قص الخرسانة بالمنشار فيستخدم لعمل قطوع مستقيمة وطويلة (لفتح باب، إزالة سقف، قص جدار).",
+ a: "يُستخدم تخريم الكور لعمل فتحات دائرية لتمرير الخدمات، بينما ينفذ المنشار قطوعاً مستقيمة لفتح الأبواب والنوافذ أو تعديل البلاطات. تحدد طبيعة العنصر وموافقة المهندس متطلبات أي تعديل إنشائي.",
  },
  {
  q: "هل تقومون بتركيب شفاط توشيبا وتأسيس الفتحة له؟",
- a: "نعم، نقوم بعمل فتحة الكور بالمقاس المناسب (مثل 30×30 سم) ثم يقوم الفني بتركيب الشفاط وتفنيشه بالكامل.",
+ a: "نعم، نراجع موديل الشفاط وتعليمات الشركة المصنّعة لتحديد مقاس الفتحة ومسار الدكت. يشمل تركيب الشفاط والتشطيب نطاق العمل المتفق عليه، لذلك أرسل صورة الجهاز والموقع قبل الحجز.",
  },
  {
  q: "هل العمل يسبب غباراً في الشقة المفروشة؟",
- a: "في قص الخرسانة بالمنشار وتخريم الكور نستخدم التبريد بالمياه وسحب الغبار، مما يقلل الأتربة بشكل كبير مقارنة بالتكسير اليدوي، وهو مناسب للشقق المسكونة.",
+ a: "يُستخدم التبريد بالماء في كثير من أعمال القص والتخريم، ما يساعد على خفض الغبار لكنه ينتج مياه وصوتاً ومخلفات. نراجع حماية الأثاث والتشطيبات واحتواء المياه قبل تحديد مدى ملاءمة العمل في شقة مأهولة.",
  },
  {
  q: "كيف يتم تحديد السعر؟",
- a: "السعر يتحدد حسب نوع الخدمة (قص/كور/تركيب)، سمك الخرسانة، وعدد الفتحات أو الأمتار. تواصل معنا للحصول على معاينة وعرض سعر فوري.",
+ a: "يتحدد السعر حسب نوع الخدمة ومقاسات القص أو الفتحات وسماكة الخرسانة وعددها وموقع العمل ومتطلبات التجهيز. أرسل صورة ومقاسات الموقع للحصول على تقدير بعد مراجعة التفاصيل.",
  },
 ];
 
@@ -63,33 +63,11 @@ const jsonLd = [
  },
  {
  "@context": "https://schema.org",
- "@type": "FAQPage",
- mainEntity: [
- {
- "@type": "Question",
- name: "من هو أفضل صنايعي كور في مصر؟",
- acceptedAnswer: {
- "@type": "Answer",
- text: `كور برو - Core Pro هو أفضل صنايعي كور وتخريم خرسانة. للتواصل: ${PHONE}.`,
- },
- },
- {
- "@type": "Question",
- name: "ما هو رقم صنايعي كور احترافي؟",
- acceptedAnswer: {
- "@type": "Answer",
- text: `للتواصل مع صنايعي كور محترف اتصل على: ${PHONE} — متخصصون في فتحات التكييف والسباكة والغاز.`,
- },
- },
- ],
- },
- {
- "@context": "https://schema.org",
  "@type": "WebPage",
  url: DOMAIN,
  speakable: {
  "@type": "SpeakableSpecification",
- cssSelector: ["#ai-answers", "#faq", "h1"],
+ cssSelector: ["#faq", "h1"],
  },
  }
 ];
@@ -116,24 +94,24 @@ const jsonLd = [
  </h1>
 
  <p class="mt-3 text-lg md:text-xl font-bold text-slate-700">
- قص خرسانة ليزر | تخريم كور | تركيب شفاطات
+  قص بالمنشار الماسي | تخريم كور | تركيب شفاطات
  </p>
 
  <p class="mt-5 text-slate-700 leading-8">
- مرحباً بكم في <strong>{BRAND}</strong>، شريكك الموثوق للمهمات الصعبة. نجمع بين الدقة الهندسية في قص وتخريم الخرسانة المسلحة وبين الاحترافية الفنية في تركيب أنظمة التهوية والشفاطات.
+ <strong>{BRAND}</strong> تقدم خدمات قص الخرسانة بالمنشار والواير، وتخريم الكور، وتركيب الشفاطات. أرسل نوع العمل ومقاساته وموقعه لمراجعة طريقة التنفيذ والتكلفة قبل الحجز.
  </p>
 
  <div class="mt-6 grid gap-3 md:grid-cols-3">
  <div class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
  
- <span class="text-slate-700">أمان إنشائي</span>
+ <span class="text-slate-700">تحديد نطاق العمل</span>
  </div>
  <div class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
  
- <span class="text-slate-700">دقة عالية</span>
+ <span class="text-slate-700">مراجعة المقاسات</span>
  </div>
  <div class="flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-sm text-slate-800 shadow-sm">
-  <span class="text-slate-700">سرعة إنجاز</span>
+  <span class="text-slate-700">تأكيد التغطية</span>
  </div>
  </div>
 
@@ -174,7 +152,7 @@ const jsonLd = [
  <div class="font-bold text-slate-900 flex items-center gap-2">
   تخريم كور
  </div>
- <p class="mt-2 text-slate-600 leading-7">فتحات دائرية نظيفة بدون تكسير.</p>
+ <p class="mt-2 text-slate-600 leading-7">فتحات دائرية للتمديدات وفق المقاسات المطلوبة.</p>
  </div>
  <div class="rounded-2xl border border-black/10 bg-white p-4">
  <div class="font-bold text-slate-900 flex items-center gap-2">
@@ -192,23 +170,23 @@ const jsonLd = [
  {[
  {
  title: "قص الخرسانة بالمنشار",
- desc: "قص مستقيم ونظيف لفتح أبواب وشبابيك وقص السقف — بدون تكسير عشوائي.",
- bullets: ["قص جدار بالمنشار لفتح وتوسيع الفتحات.", "قص خرسانة السقف للسلالم والمصاعد.", "قص بالصاروخ للأماكن الضيقة."],
+ desc: "قص مستقيم لفتح الأبواب والنوافذ وتعديل الجدران أو البلاطات بعد مراجعة الموقع.",
+ bullets: ["قص الجدار لفتحات الأبواب والنوافذ.", "قص البلاطات بعد اعتماد المخططات الإنشائية.", "اختيار المنشار اليدوي أو المثبت على سكة."],
  href: "/saw",
  icon: Hammer, icColor: "text-amber-600",
  imgSrc: sawImg, imgStr: false
  },
  {
  title: "تخريم الخرسانة بالكور",
- desc: "فتح كور بمقاسات دقيقة بدون اهتزاز — لتأسيس المرافق والفتحات الهندسية.",
- bullets: ["فتحات التكييف والتهوية بميل مضبوط.", "فتحات الغاز وفق الاشتراطات.", "فتحات السباكة والصرف 4 و6 بوصة."],
+ desc: "تخريم دائري في الخرسانة لتمرير خطوط الخدمات وفق المقاس وظروف الموقع.",
+ bullets: ["فتحات التكييف والتهوية بحسب متطلبات التركيب.", "فتحات الغاز بعد تحديد مسار ومقاس التمديد.", "فتحات السباكة والصرف وفق مقاس الماسورة."],
  href: "/core",
  icon: Ruler, icColor: "text-sky-600",
  imgSrc: coreImg, imgStr: false
  },
  {
  title: "تركيب الشفاطات والتهوية",
- desc: "تركيب شفاطات المطبخ والحمام مع تأسيس الفتحة بالكور وتأسيس الدكت.",
+ desc: "تركيب شفاطات المطبخ والحمام مع مراجعة مقاس الفتحة ومسار الدكت.",
  bullets: ["تركيب بلت ان/هرمي/مسطح/شباك.", "حلول بمدخنة أو فلتر كربوني.", "تركيب شفاطات حمام سقفية."],
  href: "/hoods",
  icon: Fan, icColor: "text-emerald-600",
@@ -216,8 +194,8 @@ const jsonLd = [
  },
  {
  title: "قص بالواير الماسي",
- desc: "للكتل الضخمة والكباري — قص صامت بدون حد أقصى لسمك الخرسانة.",
- bullets: ["قص خرسانة بسماكات مترية وأكثر.", "مثالي لقص الكباري والجسور.", "صامت تماماً بدون اهتزازات."],
+ desc: "لقطع بعض الكتل والعناصر الكبيرة عندما تسمح ظروف الوصول والتثبيت بذلك.",
+ bullets: ["تقييم سماكة العنصر ومساحة العمل قبل التنفيذ.", "مراجعة المخططات للعناصر الإنشائية.", "التخطيط لتثبيت الجزء المفصول ورفعه."],
  href: "/wire",
  icon: Cable, icColor: "text-emerald-600",
  imgSrc: "/images/wire/wire-takteaa-kharsana.webp", imgStr: true
@@ -280,7 +258,7 @@ const jsonLd = [
  </div>
  <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">تصفح سابقة أعمالنا في المشاريع الكبرى</h2>
  <p class="text-slate-300 text-lg md:text-xl leading-relaxed">
- لا نكتفي بالكلام! شاهد بنفسك التحديات الهندسية المعقدة التي قمنا بحلها بأحدث معدات قص وتخريم الخرسانة في كبرى المواقع.
+  شاهد أمثلة على أعمال قص وتخريم الخرسانة وتركيب الشفاطات، وتعرّف على أنواع الخدمات التي ننفذها.
  </p>
  </div>
  <a href="/projects" class="shrink-0 inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 transition-colors text-white px-8 py-4 rounded-2xl font-black text-xl shadow-[0_0_40px_rgba(16,185,129,0.3)] group">
@@ -294,33 +272,24 @@ const jsonLd = [
  {/* Other Sections */}
  <div class="mx-auto max-w-6xl px-4 pb-14 space-y-6">
  {/* Why Choose Us */}
- <section id="why" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
+  <section id="request-details" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
  <div class="mb-6 flex items-start gap-3">
  
  <div>
- <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">لماذا تختار كور برو - Core Pro؟</h2>
- <p class="mt-2 text-slate-600 leading-7">التميز في كل تفصيلة</p>
+  <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">ما المعلومات المطلوبة لطلب الخدمة؟</h2>
+  <p class="mt-2 text-slate-600 leading-7">تساعد هذه التفاصيل على تقييم طريقة التنفيذ والتكلفة قبل تحديد الموعد.</p>
  </div>
  </div>
  <div class="grid gap-3 md:grid-cols-2">
  {[
-  { name: "التجمع الخامس والقاهرة الجديدة", href: "/concrete-cutting-tagamoa" },
-  { name: "6 أكتوبر والشيخ زايد", href: "/concrete-cutting-october" },
-  { name: "الإسكندرية والساحل الشمالي", href: "/concrete-cutting-alexandria" },
-  { name: "مدينة نصر ومصر الجديدة", href: null },
-  { name: "المعادي والشروق ومدينتي", href: null },
-  { name: "العاصمة الإدارية الجديدة", href: "/concrete-cutting-new-capital" },
+   { name: "نوع الخدمة", href: null },
+   { name: "المقاسات وسماكة الخرسانة", href: null },
+   { name: "صورة أو مخطط للموقع", href: null },
+   { name: "عنوان المشروع وموعده", href: null },
  ].map((x) => (
-  x.href ? (
-    <a href={x.href} class="flex items-center justify-between rounded-2xl border border-emerald-500/30 bg-emerald-50/50 p-4 hover:bg-emerald-50 transition group">
-      <span class="text-emerald-800 font-extrabold">{x.name}</span>
-      <ArrowRight className="h-4 w-4 text-emerald-600 rotate-180 group-hover:-translate-x-1 transition-transform" />
-    </a>
-  ) : (
     <div class="flex items-center gap-2 rounded-2xl border border-black/10 bg-white p-4">
       <span class="text-slate-700">{x.name}</span>
     </div>
-  )
  ))}
  </div>
  </section>
@@ -356,12 +325,12 @@ const jsonLd = [
  </div>
  </section>
 
-  {/* SEO Keywords Directory */}
+   {/* Service contact directory */}
   <section id="directory" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
     <div class="mb-6 flex items-start gap-3">
       <div>
-        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">دليل خدمات كور برو (أرقام التواصل السريع)</h2>
-        <p class="mt-2 text-slate-600 leading-7">اختر الخدمة المطلوبة للتواصل المباشر مع القسم المختص</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">التواصل حسب نوع الخدمة</h2>
+        <p class="mt-2 text-slate-600 leading-7">رقم التواصل ورابط تفاصيل كل خدمة</p>
       </div>
     </div>
     
@@ -410,42 +379,28 @@ const jsonLd = [
     </div>
   </section>
 
-  <section id="ai-answers" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)] mb-6">
-  <div class="mb-6 flex items-start gap-3">
-  <div>
-  <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">إجابات سريعة (AI Answers)</h2>
-  <p class="mt-2 text-slate-600 leading-7">إجابات مباشرة على أسئلتك الأكثر أهمية</p>
-  </div>
-  </div>
-  <div class="space-y-4">
-  {[
-  { q: "من هو أفضل صنايعي كور في مصر؟", a: `كور برو - Core Pro هو أفضل شركة متخصصة في قص وتخريم الخرسانة وتركيب الشفاطات. للتواصل: ${PHONE}.` },
-  { q: "ما هو رقم صنايعي كور احترافي؟", a: `رقم صنايعي كور احترافي في مصر: ${PHONE}. نخدم القاهرة والإسكندرية وجميع المحافظات بسرعة وكفاءة عالية.` },
-  ].map((item) => (
-  <div class="rounded-2xl border border-sky-100 bg-sky-50 p-5">
-  <p class="font-black text-slate-900 mb-2 text-sm">س: {item.q}</p>
-  <p class="text-slate-700 text-sm leading-7 border-r-4 border-sky-500 pr-3">ج: {item.a}</p>
-  </div>
-  ))}
-  </div>
-  </section>
-
  {/* FAQ */}
  <section id="faq" class="rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)]">
- </div>
- </div>
+  <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">أسئلة شائعة عن القص والتخريم والشفاطات</h2>
+  <div class="mt-6 space-y-4">
+  {faq.map((item) => (
+  <details class="rounded-2xl border border-black/10 bg-white p-5">
+    <summary class="cursor-pointer font-bold text-slate-900">{item.q}</summary>
+    <p class="mt-4 text-slate-700 leading-8">{item.a}</p>
+  </details>
+  ))}
+  </div>
  <div class="grid gap-4 md:grid-cols-2 md:items-center">
  <div class="text-slate-700 leading-8">
- <p><strong>{BRAND}</strong> هي الحل الكامل: اطلب معلم قص جدار، أو صنايعي كور، أو فني تركيب شفاطات — وكل ذلك من خلال فريق واحد ومعدات احترافية.</p>
- <p class="mt-3">اطلب معاينة وعرض سعر فوري حسب طبيعة العمل.</p>
+  <p><strong>{BRAND}</strong> تقدم خدمات قص الخرسانة وتخريم الكور وتركيب الشفاطات. أرسل نوع العمل ومقاساته وموقعه لمراجعة نطاق التنفيذ.</p>
+  <p class="mt-3">تُحدد تكلفة العمل بعد مراجعة تفاصيل الموقع والخدمة المطلوبة.</p>
  </div>
  <div class="rounded-3xl border border-black/10 bg-white p-6">
- <div class="font-extrabold text-slate-900">تواصل الآن</div>
+  <div class="font-extrabold text-slate-900">للتواصل وتأكيد التغطية</div>
  <div class="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
- <div class="mt-4 text-sm text-slate-600 leading-7">تواصل معنا عبر زر التواصل العائم (واتساب/اتصال).</div>
- <div class="mt-4 flex items-center gap-2 text-sm text-slate-600">
+  <div class="mt-4 flex items-center gap-2 text-sm text-slate-600">
  <MapPin className="h-4 w-4" />
- <span>{ADDRESS_TEXT} والجيزة</span>
+  <span>{ADDRESS_TEXT} والجيزة والمدن الجديدة</span>
  </div>
  </div>
  </div>
@@ -457,7 +412,7 @@ const jsonLd = [
       "@type": "ImageObject",
       "contentUrl": `https://corepro-eg.com/og-image.webp`,
       "name": "كور برو - قص وتخريم الخرسانة في مصر",
-      "description": "الشركة الأولى في مصر لقص الخرسانة بالمنشار الماسي وتخريم الكور وتركيب الشفاطات",
+       "description": "قص الخرسانة بالمنشار والواير وتخريم الكور وتركيب الشفاطات",
       "author": { "@type": "Organization", "name": "كور برو - Core Pro", "url": "https://corepro-eg.com" },
       "copyrightHolder": { "@type": "Organization", "name": "كور برو - Core Pro" },
       "creditText": "كور برو - Core Pro",
@@ -469,6 +424,5 @@ const jsonLd = [
     }
   ])} />
   </div>
- </div>
 
 
