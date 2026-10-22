@@ -110,27 +110,10 @@ export default function HurghadaPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في الغردقة — فتحات التكييف والغاز والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Hurghada',
-        addressRegion: 'Hurghada Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 27.2579, longitude: 33.8116 },
       areaServed: ['الغردقة', 'Hurghada', ...HURGHADA_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '38' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات تخريم وقص الخرسانة في الغردقة',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في الغردقة', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص الخرسانة بالمنشار في الغردقة', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'فتحات الغاز والتكييف والسباكة بالغردقة', url: `${DOMAIN}/core` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',

@@ -108,27 +108,10 @@ export default function MarsaAlamPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في مرسى علم — فتحات التكييف والغاز والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Marsa Alam',
-        addressRegion: 'Marsa Alam Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 25.0676, longitude: 34.879 },
       areaServed: ['مرسى علم', 'Marsa Alam', ...MARSAALAM_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '38' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات تخريم وقص الخرسانة في مرسى علم',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في مرسى علم', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص الخرسانة بالمنشار في مرسى علم', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'فتحات الغاز والتكييف والسباكة بمرسى علم', url: `${DOMAIN}/core` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',

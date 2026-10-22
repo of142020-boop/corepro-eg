@@ -144,11 +144,6 @@ export default function SawPage() {
  priceRange: "$$",
  openingHours: "Mo-Su 00:00-23:59",
  sameAs: [DOMAIN, WHATSAPP],
- aggregateRating: {
- "@type": "AggregateRating",
- ratingValue: "4.8",
- reviewCount: "142"
- },
  };
 
  const jsonLdService = {

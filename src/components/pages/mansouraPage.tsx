@@ -110,27 +110,10 @@ export default function MansouraPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو متخصصون في قص الخرسانة بالمنشار وتخريم الكور في المنصورة والدقهلية — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز بدقة هندسية وبدون اهتزاز.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Mansoura',
-        addressRegion: 'Dakahlia Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 31.0364, longitude: 31.3807 },
       areaServed: ['المنصورة', 'Mansoura', 'الدقهلية', ...MANSOURA_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '52' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات قص وتخريم الخرسانة بالمنصورة',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص خرسانة المنصورة بالمنشار الماسي', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في المنصورة', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص خرسانة الدقهلية بالواير الماسي', url: `${DOMAIN}/wire` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',

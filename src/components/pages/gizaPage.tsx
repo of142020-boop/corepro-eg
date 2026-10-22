@@ -104,22 +104,10 @@ export default function GizaPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو - Core Pro متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات في الجيزة بدقة هندسية وأمان كامل.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Giza',
-        addressRegion: 'Giza Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 30.0131, longitude: 31.2089 },
       areaServed: ['الجيزة', 'Giza', '6 أكتوبر', 'الشيخ زايد', ...GIZA_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '112'
-      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'خدمات قص وتخريم الخرسانة بالجيزة',

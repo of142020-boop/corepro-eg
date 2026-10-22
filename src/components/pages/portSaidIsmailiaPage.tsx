@@ -108,27 +108,10 @@ export default function PortSaidIsmailiaPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو المقاول الأول لأعمال قص الخرسانة بالواير الماسي (Wire Sawing) وتخريم الكور في بورسعيد والإسماعيلية. متخصصون في قص الكباري والموانئ والمشاريع القومية.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Port Said & Ismailia',
-        addressRegion: 'Port Said & Ismailia Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 31.2565, longitude: 32.2841 },
       areaServed: ['بورسعيد والإسماعيلية', 'Port Said & Ismailia', ...PORTSAID_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '38' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات تخريم وقص الخرسانة في بورسعيد والإسماعيلية',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في بورسعيد والإسماعيلية', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص الخرسانة بالمنشار في بورسعيد والإسماعيلية', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'فتحات الغاز والتكييف والسباكة ببورسعيد والإسماعيلية', url: `${DOMAIN}/core` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',

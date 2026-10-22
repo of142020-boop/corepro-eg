@@ -7,13 +7,18 @@ import compress from "astro-compress";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://corepro-eg.com',
+  trailingSlash: 'never',
   redirects: {
     '/hoods-alexandria': '/hoods',
   },
   integrations: [react(), sitemap({
-    filter: (page) =>
-      !page.includes('/privacy-policy') &&
-      !page.includes('/terms'),
+    filter: (page) => {
+      const { pathname } = new URL(page);
+      const isCanonicalPath = pathname === '/' || !pathname.endsWith('/');
+      return isCanonicalPath &&
+        !pathname.startsWith('/privacy-policy') &&
+        !pathname.startsWith('/terms');
+    },
     customPages: [
       'https://corepro-eg.com/',
       'https://corepro-eg.com/core',
@@ -45,8 +50,6 @@ export default defineConfig({
       'https://corepro-eg.com/electrical-holes',
       'https://corepro-eg.com/contractor',
       'https://corepro-eg.com/track-saw',
-      'https://corepro-eg.com/concrete-cutting-tagamoa',
-      'https://corepro-eg.com/concrete-cutting-october',
     ],
     serialize(item) {
       if (item.url === 'https://corepro-eg.com/') {

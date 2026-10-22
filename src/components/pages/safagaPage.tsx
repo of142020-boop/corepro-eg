@@ -108,27 +108,10 @@ export default function SafagaPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في سفاجا — فتحات التكييف والغاز والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Safaga',
-        addressRegion: 'Safaga Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 26.7456, longitude: 33.9358 },
       areaServed: ['سفاجا', 'Safaga', ...SAFAGA_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '38' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات تخريم وقص الخرسانة في سفاجا',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في سفاجا', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص الخرسانة بالمنشار في سفاجا', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'فتحات الغاز والتكييف والسباكة بسفاجا', url: `${DOMAIN}/core` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',

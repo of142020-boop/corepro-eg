@@ -111,27 +111,10 @@ export default function AssiutPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو متخصصون في قص الخرسانة بالمنشار وتخريم الكور في أسيوط — فتح أبواب وشبابيك وأسقف وفتحات التكييف والغاز والسباكة بدقة هندسية وبدون اهتزاز.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Assiut',
-        addressRegion: 'Assiut Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 27.1783, longitude: 31.1859 },
       areaServed: ['أسيوط', 'Assiut', ...ASSIUT_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '47' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات قص وتخريم الخرسانة بأسيوط',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص خرسانة أسيوط بالمنشار الماسي', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في أسيوط', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص خرسانة أسيوط بالواير الماسي', url: `${DOMAIN}/wire` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',

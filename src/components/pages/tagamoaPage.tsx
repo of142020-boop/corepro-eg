@@ -121,22 +121,10 @@ export default function TagamoaPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو - Core Pro متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات بالتجمع الخامس بدقة هندسية وأمان كامل.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'New Cairo',
-        addressRegion: 'Cairo Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 31.2001, longitude: 29.9187 },
       areaServed: ['التجمع الخامس', 'New Cairo', ...TAGAMOA_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '173'
-      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'خدمات قص وتخريم الخرسانة بالتجمع الخامس',

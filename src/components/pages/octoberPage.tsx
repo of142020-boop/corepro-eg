@@ -121,22 +121,10 @@ export default function OctoberPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو - Core Pro متخصصون في قص الخرسانة بالمنشار وتخريم الكور وتركيب الشفاطات ب6 أكتوبر والشيخ زايد بدقة هندسية وأمان كامل.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'October',
-        addressRegion: 'Cairo Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 31.2001, longitude: 29.9187 },
       areaServed: ['6 أكتوبر والشيخ زايد', 'October', ...october_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        reviewCount: '124'
-      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'خدمات قص وتخريم الخرسانة ب6 أكتوبر والشيخ زايد',

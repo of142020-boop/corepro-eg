@@ -85,11 +85,6 @@ export default function HoodsPage() {
  priceRange: "$$",
  openingHours: "Mo-Su 00:00-23:59",
  sameAs: [DOMAIN, WHATSAPP],
- aggregateRating: {
- "@type": "AggregateRating",
- ratingValue: "4.9",
- reviewCount: "184"
- },
  };
 
  const jsonLdService = {

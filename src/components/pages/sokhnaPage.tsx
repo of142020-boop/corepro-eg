@@ -108,27 +108,10 @@ export default function AinSokhnaPage() {
       image: `${DOMAIN}/og-image.webp`,
       logo: `${DOMAIN}/logo-header-116x154.webp`,
       description: 'كور برو متخصصون في تخريم الخرسانة بالكور وقص الخرسانة بالمنشار في العين السخنة — فتحات التكييف والغاز والسباكة وفتح الأبواب والشبابيك بدقة هندسية وبدون اهتزاز.',
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'EG',
-        addressLocality: 'Ain Sokhna',
-        addressRegion: 'Ain Sokhna Governorate',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 29.6015, longitude: 32.3168 },
       areaServed: ['العين السخنة', 'Ain Sokhna', ...SOKHNA_AREAS],
       priceRange: '$$',
       openingHours: 'Mo-Su 00:00-23:59',
       sameAs: [DOMAIN, WHATSAPP],
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '38' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'خدمات تخريم وقص الخرسانة في العين السخنة',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'تخريم الخرسانة بالكور في العين السخنة', url: `${DOMAIN}/core` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'قص الخرسانة بالمنشار في العين السخنة', url: `${DOMAIN}/saw` } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'فتحات الغاز والتكييف والسباكة بالعين السخنة', url: `${DOMAIN}/core` } },
-        ],
-      },
     },
     {
       '@context': 'https://schema.org',
