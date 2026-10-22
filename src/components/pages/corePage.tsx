@@ -352,7 +352,7 @@ export default function CorePage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
- أفضل صنايعي وفني كور لعمل أي فتحة كور وتخريم جدار خرساني - 01021507462
+ أفضل صنايعي كور لعمل أي فتحة كور وتخريم جدار خرساني - 01021507462
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
