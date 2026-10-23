@@ -175,7 +175,7 @@ export default function HoodsPage() {
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4 break-words">
-   تركيب شفاط مطبخ ومدخنة وشفاط حمام - 01015218216
+   تأسيس وتركيب شفاط المطبخ - 01015218216
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
