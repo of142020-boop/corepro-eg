@@ -299,6 +299,7 @@ export default function HoodsPage() {
  <p className="text-slate-600 text-sm leading-7">
   يتحدد تركيب الشفاط الحائطي أو السقفي بحسب أبعاد الجهاز ومسار الطرد ونقطة الكهرباء. أما الأنظمة المركزية فتحتاج إلى مراجعة شبكة الدكت وإمكانية الوصول إليها قبل تحديد نطاق العمل.
  </p>
+ <p className="mt-3 text-sm leading-7 text-slate-700">ولمراجعة القياسات قبل الشراء، يوضح <a href="https://drilmax.com/مقاس-شفاط-الحمام/" rel="nofollow" className="text-orange-800 underline">دليل دريل ماكس لمقاس شفاط الحمام</a> الفرق بين أبعاد الجهاز وفتحة التركيب ومخرج الهواء. الدليل منشور على أحد مواقعنا الأخرى.</p>
  </div>
  <div className="p-6 bg-white border border-black/5 rounded-3xl shadow-sm">
   <h3 className="font-black text-slate-900 mb-2">تهوية المطابخ التجارية والمطاعم</h3>
