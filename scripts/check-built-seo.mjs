@@ -31,6 +31,10 @@ walk(root);
 const fail = (route, message) => failures.push(`${route}: ${message}`);
 for (const [route, page] of pages) {
   const { nodes, html } = page;
+  for (const staleImage of ['/images/home/hero.webp', 'sharikat-kas-kharsana', '/images/core/sanayeh-core-egypt.webp', '/images/saw/mokawel-kas-kharsana.webp', '/images/wire/wire-takteaa-kharsana.webp']) {
+    if (html.includes(staleImage)) fail(route, `Image still contains obsolete phone: ${staleImage}`);
+  }
+  if (html.includes('01055550195')) fail(route, 'Obsolete phone remains in HTML');
   const titles = nodes.filter(n => n.tagName === 'title');
   const headings = nodes.filter(n => n.tagName === 'h1');
   const descriptions = nodes.filter(n => n.tagName === 'meta' && attr(n, 'name') === 'description');

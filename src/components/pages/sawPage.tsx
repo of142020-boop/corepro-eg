@@ -48,7 +48,7 @@ const ADDRESS_TEXT = "الحي العاشر مدينة نصـر";
 
 const SERVICE_NAME = "قص وتقطيع الخرسانة بالمنشار";
 
-const IMG_HERO = { src: "/images/saw/mokawel-kas-kharsana.webp", width: 800, height: 800 };
+const IMG_HERO = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 2400, height: 1792 };
 const IMG_1 = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 800, height: 800 };
 const IMG_2 = { src: "/images/saw/kas-kharsana-menshar-2.webp", width: 800, height: 800 };
 const IMG_3 = { src: "/images/saw/kas-kharsana-menshar-3.webp", width: 800, height: 800 };

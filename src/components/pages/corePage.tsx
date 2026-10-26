@@ -51,7 +51,7 @@ const ADDRESS_TEXT = " الحي العاشر مدينة نصر";
 const SERVICE_NAME = "تخريم الخرسانة بالكور";
 const FOCUS_KEYWORD = "صنايعي كور";
 
-const IMG_HERO = { src: "/images/core/sanayeh-core-egypt.webp", width: 800, height: 800 };
+const IMG_HERO = { src: "/images/core/fatahat-core-beton-1.webp", width: 2400, height: 1792 };
 const IMG_1 = { src: "/images/core/fatahat-core-beton-1.webp", width: 800, height: 800 };
 const IMG_2 = { src: "/images/core/fatahat-core-beton-2.webp", width: 800, height: 800 };
 const IMG_3 = { src: "/images/core/fatahat-core-beton-3.webp", width: 800, height: 800 };
@@ -198,7 +198,7 @@ export default function CorePage() {
     {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/core/sanayeh-core-egypt.webp`,
+      "contentUrl": `${DOMAIN}/images/core/fatahat-core-beton-1.webp`,
       "name": "تخريم الخرسانة بالكور الماسي - كور برو",
       "description": "تخريم الخرسانة بماكينة الكور الماسي مع التبريد المائي",
       "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },

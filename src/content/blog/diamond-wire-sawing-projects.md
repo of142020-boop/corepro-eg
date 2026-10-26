@@ -6,7 +6,7 @@ pubDate: "2026-04-08T11:00:00Z"
 category: "المشروعات الكبرى"
 featured: true
 tags: ["واير تقطيع خرسانة", "القص بالواير", "تقطيع الكباري", "Wire Sawing Egypt"]
-heroImage: "/images/wire/wire-takteaa-kharsana.webp"
+heroImage: "/images/wire/kas-kharsana-wire-1.webp"
 heroImageAlt: "قص الخرسانة بالواير الماسي للكتل المترية"
 ---
 
