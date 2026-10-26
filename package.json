@@ -6,6 +6,7 @@
     "dev": "astro dev --host 0.0.0.0",
     "start": "astro dev --host 0.0.0.0",
     "build": "astro build",
+    "seo:check": "node scripts/check-built-seo.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "index-now": "node scripts/google-index.mjs",
@@ -49,6 +50,7 @@
     "@types/node": "^20",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "parse5": "^7.3.0",
     "typescript": "^5.9.3",
     "xlsx": "^0.18.5"
   },

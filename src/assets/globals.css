@@ -58,6 +58,7 @@ strong, b {
   }
 
   /* === Blog / Prose Typography (RTL) === */
+  section[id], div[id] { scroll-margin-top: 7rem; }
   .prose pre { text-align: left; }
   .prose h2 { @apply text-3xl font-black text-slate-900 mt-12 mb-6 border-r-4 border-emerald-500 pr-4; }
   .prose h3 { @apply text-2xl font-black text-slate-900 mt-10 mb-5; }

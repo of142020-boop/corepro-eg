@@ -1,4 +1,5 @@
 import React from 'react';
+import ServiceContents from '../ServiceContents';
 
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
@@ -312,6 +313,7 @@ export default function CorePage() {
  <div className="mx-auto max-w-6xl px-4 pb-24">
  <div className="grid gap-10 lg:grid-cols-3">
  <div className="lg:col-span-2 space-y-10 min-w-0">
+ <ServiceContents items={[{ id: 'services-list', label: 'خدمات صنايعي كور وفتحات الخرسانة' }, { id: 'core-hole-sizes', label: 'اختيار قطر فتحة الكور' }, { id: 'process', label: 'خطوات تخريم الكور' }, { id: 'pricing', label: 'أسعار فتحات الكور وعوامل التكلفة' }, { id: 'faq', label: 'أسئلة قبل الحجز' }]} />
 
  <Section
  id="what-is-core"
@@ -345,7 +347,7 @@ export default function CorePage() {
 
  <Section
  id="services-list"
- title="خدماتنا الشاملة في تخريم الخرسانة وتأسيس المرافق"
+ title="فتحات كور خرسانة للسباكة والتكييف والغاز"
   subtitle="تختلف متطلبات كل فتحة بحسب الغرض وموضع التنفيذ وسماكة الخرسانة؛ تُراجع التفاصيل قبل تحديد طريقة العمل."
  >
  <div className="space-y-8">
@@ -429,7 +431,7 @@ export default function CorePage() {
 
  <Section
  id="pricing"
- title="ما العوامل التي تحدد تكلفة تخريم الكور؟"
+ title="أسعار فتحات الكور: ما الذي يحدد تكلفة الفتحة؟"
  subtitle="يُحدد السعر بعد معرفة تفاصيل الفتحة ونطاق العمل؛ لا يمكن إعطاء تكلفة دقيقة من القطر وحده."
  >
  <ul className="list-disc pr-6 space-y-2">
@@ -440,8 +442,9 @@ export default function CorePage() {
  <li>موقع المشروع وموعد التنفيذ وأي تجهيزات خاصة يفرضها المكان.</li>
  </ul>
  <p className="mt-4">
- للحصول على تقدير، أرسل عدد الفتحات وأقطارها وسماكات الجدران أو البلاطات وموقع المشروع وصورة للمكان. تُراجع التفاصيل قبل تثبيت نطاق العمل والتكلفة.
+  للحصول على تقدير، أرسل عدد الفتحات وأقطارها وسماكات الجدران أو البلاطات وموقع المشروع وصورة للمكان. تُراجع التفاصيل قبل تثبيت نطاق العمل والتكلفة. راجع <a href="/prices#core-pricing" className="text-emerald-800 underline">تفاصيل تسعير فتحة الكور</a> وما يشمله عرض العمل.
  </p>
+  <p className="mt-4">قبل اختيار مقدم الخدمة، راجع <a href="/blog/best-core-hole-technician" className="text-emerald-800 underline">سبعة أسئلة تسألها لصنايعي الكور</a> حول المقاس والتثبيت والمياه ونطاق العمل.</p>
  </Section>
 
  <Section

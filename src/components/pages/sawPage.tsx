@@ -1,4 +1,5 @@
 import React from 'react';
+import ServiceContents from '../ServiceContents';
 
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
@@ -308,6 +309,7 @@ export default function SawPage() {
  <div className="mx-auto max-w-6xl px-4 pb-24">
  <div className="grid gap-10 lg:grid-cols-3">
  <div className="lg:col-span-2 space-y-10 min-w-0">
+ <ServiceContents items={[{ id: 'services-list', label: 'قص الجدران والأسقف وفتح الأبواب' }, { id: 'laser-tech', label: 'ما هو منشار السكة؟' }, { id: 'water-saw', label: 'المنشار اليدوي أم السكة؟' }, { id: 'pricing', label: 'تكلفة قص الخرسانة' }, { id: 'steps', label: 'خطوات العمل' }, { id: 'faq', label: 'الأسئلة الشائعة' }]} />
 
  <Section
  id="why-sawing"
@@ -339,7 +341,7 @@ export default function SawPage() {
 
  <Section
  id="services-list"
- title="خدماتنا المتكاملة في قص وتقطيع الخرسانة"
+  title="خدمات قص الخرسانة: الجدران والأسقف وفتحات الأبواب"
   subtitle="تُحدد طريقة القص ونطاق العمل بحسب نوع العنصر وأبعاده وإمكانية تثبيت المعدات والوصول إلى الموقع."
  >
  <div className="space-y-10">
@@ -455,8 +457,9 @@ export default function SawPage() {
   <li><strong>التجهيزات المحيطة:</strong> حماية التشطيبات واحتواء مياه التبريد والتخلص من المخلفات.</li>
  </ul>
  <p className="mt-6 font-bold text-sky-700">
-  أرسل صورة أو مخططاً، ومقاسات منطقة القص وسماكة العنصر وموقع العمل، لنراجع نطاق التنفيذ والتكلفة المتوقعة.
+  أرسل صورة أو مخططاً، ومقاسات منطقة القص وسماكة العنصر وموقع العمل، لنراجع نطاق التنفيذ والتكلفة المتوقعة. اقرأ <a href="/prices#saw-pricing" className="text-emerald-800 underline">عوامل سعر متر قص الخرسانة</a> قبل طلب عرض العمل.
  </p>
+  <p className="mt-4">عند مقارنة المقاولين، استخدم <a href="/blog/best-concrete-cutting-contractor" className="text-emerald-800 underline">دليل مراجعة عروض قص الخرسانة</a> لتوضيح ما يشمله كل عرض من تجهيز ورفع ونقل مخلفات.</p>
  </div>
  </div>
  </Section>

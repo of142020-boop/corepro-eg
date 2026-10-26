@@ -2,17 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/gypsumHolesPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import applications from '../../data/service-applications.json';
+const service = applications.gypsum;
 ---
 
-<Layout
-  title="عمل فتحات في الجبس والأسقف الجبسية | درايول و GRC - 01021507462"
-  description="متخصصون في عمل فتحات الجبس والأسقف الجبسية (درايول، GRC) بدقة عالية وبدون تشقق. فتحات كاسيت وشفاطات وإضاءة. اتصل الآن 01021507462."
-  canonical="https://corepro-eg.com/gypsum-holes"
-  ogImageAlt="عمل فتحات الجبس والأسقف الجبسية - كور برو"
->
-  <BreadcrumbNav items={[
-    { label: "الرئيسية", href: "/" },
-    { label: "فتحات الجبس والأسقف الجبسية" }
-  ]} />
-  <PageComponent client:load />
+<Layout title={`${service.title} - 01021507462`} description={service.description} canonical={`https://corepro-eg.com/${service.slug}`}>
+  <BreadcrumbNav items={[{ label: 'الرئيسية', href: '/' }, { label: service.parentLabel, href: `/${service.parent}` }, { label: service.title }]} />
+  <PageComponent />
 </Layout>

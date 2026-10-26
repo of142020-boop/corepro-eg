@@ -1,9 +1,9 @@
 ---
 import { Phone, ArrowUp } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { getPageContact } from '../lib/contact';
 
-const PHONE = "01021507462";
-const WHATSAPP = "https://wa.me/201021507462";
+const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
 ---
 
 {/* Desktop: icons only */}
@@ -93,33 +93,4 @@ const WHATSAPP = "https://wa.me/201021507462";
     });
   }
 
-  // ---- Custom Phones per page ----
-  const updatePhoneNumbers = (newPhone: string, newWa: string, oldPhone: string) => {
-    // 1. Update all links
-    document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
-      (el as HTMLAnchorElement).href = `tel:${newPhone}`;
-    });
-
-    document.querySelectorAll('a[href^="https://wa.me/"]').forEach((el) => {
-      (el as HTMLAnchorElement).href = newWa;
-    });
-
-    // 2. Update visible text anywhere on the page
-    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
-    let node;
-    while ((node = walk.nextNode())) {
-      if (node.nodeValue && node.nodeValue.includes(oldPhone)) {
-        node.nodeValue = node.nodeValue.replace(new RegExp(oldPhone, 'g'), newPhone);
-      }
-    }
-  };
-
-  const path = window.location.pathname.replace(/\/$/, ""); // Normalize path
-  const OLD_PHONE = '01021507462';
-
-  if (path === '/hoods') {
-    updatePhoneNumbers('01015218216', 'https://wa.me/201015218216', OLD_PHONE);
-  } else if (path === '/concrete-cutting-alexandria') {
-    updatePhoneNumbers('01094496839', 'https://wa.me/201094496839', OLD_PHONE);
-  }
 </script>

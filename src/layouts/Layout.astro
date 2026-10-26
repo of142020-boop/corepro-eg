@@ -9,6 +9,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Extras from "../components/Extras.astro";
 import Lightbox from "../components/Lightbox.astro";
+import { getPageContact } from '../lib/contact';
 
 interface Props {
     title?: string;
@@ -30,7 +31,7 @@ interface Props {
 
 const {
     title = "كور برو مصر: قص وتخريم الخرسانة | تركيب شفاطات مطابخ - 01021507462",
-    description = "شركة كور برو - Core Pro الأولى في قص الخرسانة بالمنشار (ليزر) وتخريم الكور لعمل الفتحات. فني تركيب شفاط المطبخ وتركيب مداخن وشفاطات حمام.",
+    description = "خدمات كور برو لقص الخرسانة بالمنشار والواير وتخريم الكور وتركيب شفاط المطبخ. أرسل تفاصيل الموقع والمقاسات لمراجعة التنفيذ والتكلفة.",
     image = "/og-image.webp",
     noindex = false,
     canonical,
@@ -46,6 +47,7 @@ const {
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const pageContact = getPageContact(currentPath);
 const canonicalUrl = canonical || Astro.url.href;
 const ogImageUrl = image.startsWith("http")
     ? image
@@ -132,7 +134,7 @@ const optimizedHero = await getImage({
         <!-- Business Contact Data (AI & Open Graph) -->
         <meta
             property="business:contact_data:phone_number"
-            content="+201021507462"
+            content={pageContact.international}
         />
         <meta property="business:contact_data:locality" content="Cairo" />
         <meta property="business:contact_data:country_name" content="Egypt" />
@@ -147,15 +149,11 @@ const optimizedHero = await getImage({
                     url: "https://corepro-eg.com",
                     name: "كور برو - Core Pro",
                     inLanguage: "ar-EG",
-                    potentialAction: {
-                        "@type": "SearchAction",
-                        target: "https://corepro-eg.com/blog?q={search_term_string}",
-                        "query-input": "required name=search_term_string",
-                    },
                 },
                 {
                     "@context": "https://schema.org",
                     "@type": "Organization",
+                    "@id": "https://corepro-eg.com/#organization",
                     name: "كور برو - Core Pro",
                     url: "https://corepro-eg.com",
                     logo: {

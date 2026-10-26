@@ -176,7 +176,7 @@ export default function ProjectsPage() {
           <div className="mx-auto max-w-6xl">
             <div className="space-y-16">
               {projects.map((project) => (
-                <div key={project.id} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 flex flex-col md:flex-row group">
+                <div key={project.id} id={`project-${project.id}`} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 flex flex-col md:flex-row group">
                   {/* Image Side with Multiple Photos Badge */}
                   <div 
                     className="w-full md:w-5/12 relative aspect-[4/3] md:aspect-auto overflow-hidden bg-slate-100 cursor-pointer"
@@ -255,14 +255,14 @@ export default function ProjectsPage() {
                <div className="relative z-10 max-w-2xl mx-auto">
                  <h2 className="text-3xl md:text-4xl font-black mb-6">هل لديك تحدي إنشائي مشابه؟</h2>
                  <p className="text-lg md:text-xl text-emerald-50 mb-10 leading-relaxed">
-                   تواصل معنا الآن وسيقوم مهندسونا بزيارة الموقع لتقديم أفضل الحلول الآمنة لقص أو تخريم الخرسانة.
+                   أرسل صور الموقع والمقاسات والمخططات لمراجعة إمكانية التنفيذ والتجهيزات المطلوبة قبل تحديد الموعد.
                  </p>
                  <a 
                    href={`tel:${PHONE_NUM}`} 
                    className="inline-flex items-center justify-center gap-3 bg-white text-emerald-700 px-8 py-4 rounded-2xl font-black text-xl hover:bg-slate-50 transition-colors shadow-xl"
                  >
                    <Phone className="w-6 h-6" />
-                   طلب معاينة مجانية
+                   أرسل تفاصيل العمل
                  </a>
                </div>
             </div>

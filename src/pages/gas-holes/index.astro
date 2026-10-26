@@ -2,17 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import PageComponent from '../../components/pages/gasHolesPage';
 import BreadcrumbNav from '../../components/BreadcrumbNav.astro';
+import applications from '../../data/service-applications.json';
+const service = applications.gas;
 ---
 
-<Layout
-  title="تخريم للغاز الطبيعي بالكور | فتحات غاز معتمدة - 01021507462"
-  description="متخصصون في تخريم للغاز الطبيعي بالكور بالقطر المعتمد من شركات الغاز في مصر. تخريم فتحة عداد الغاز - سخان الغاز - بوتاجاز. بدون اهتزاز وبدون غبار. اتصل 01021507462."
-  canonical="https://corepro-eg.com/gas-holes"
-  ogImageAlt="تخريم للغاز الطبيعي بالكور - كور برو مصر"
->
-  <BreadcrumbNav items={[
-    { label: "الرئيسية", href: "/" },
-    { label: "عمل فتحات الغاز الطبيعي" }
-  ]} />
-  <PageComponent client:load />
+<Layout title={`${service.title} - 01021507462`} description={service.description} canonical={`https://corepro-eg.com/${service.slug}`}>
+  <BreadcrumbNav items={[{ label: 'الرئيسية', href: '/' }, { label: service.parentLabel, href: `/${service.parent}` }, { label: service.title }]} />
+  <PageComponent />
 </Layout>

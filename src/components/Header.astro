@@ -3,10 +3,10 @@ import { Image } from "astro:assets";
 import { Phone, MapPin, Menu, X, ChevronLeft, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import logoImg from "../assets/logo-header.webp";
+import { getPageContact } from '../lib/contact';
 
 const BRAND = "كور برو - Core Pro";
-const PHONE = "01021507462";
-const WHATSAPP = "https://wa.me/201021507462";
+const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
 const ADDRESS = "الحي العاشر مدينة نصر ";
 
 const nav = [
@@ -90,7 +90,7 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
  صفحات مهمة
  <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
  </button>
- <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-12 right-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2 transition-all duration-200">
+ <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 absolute top-full left-0 w-64 bg-white border rounded-2xl shadow-xl p-4 space-y-2 transition-all duration-200">
  {extraPages.map((item) => (
  <a
  href={item.href}

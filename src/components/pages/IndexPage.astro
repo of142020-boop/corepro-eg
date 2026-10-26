@@ -166,7 +166,8 @@ const jsonLd = [
  </div>
 
  {/* Services Grid */}
- <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+ <h2 class="mt-10 text-2xl font-extrabold text-slate-900">خدمات قص الخرسانة وتخريم الكور وتركيب الشفاطات</h2>
+ <div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
  {[
  {
  title: "قص الخرسانة بالمنشار",
@@ -225,7 +226,7 @@ const jsonLd = [
  )}
  </div>
  <div class="p-6">
- <div class="font-extrabold text-lg text-slate-900">{s.title}</div>
+ <h3 class="font-extrabold text-lg text-slate-900">{s.title}</h3>
  <p class="mt-3 text-slate-600 leading-7">{s.desc}</p>
  <ul class="mt-4 space-y-2">
  {s.bullets.map((b) => (
@@ -350,19 +351,19 @@ const jsonLd = [
             <td class="p-4 border-r border-slate-200"><a href="/core" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تخريم بالكور</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
-            <td class="p-4 text-slate-700">شركة تخريم خرسانة / شركة قص خرسانة</td>
+            <td class="p-4 text-slate-700">أعمال المقاولات والكميات المتعددة</td>
             <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
             <td class="p-4 border-r border-slate-200"><a href="/contractor" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">مقاولات الشركات</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
-            <td class="p-4 text-slate-700">عمل فتحات كور خرسانة</td>
+            <td class="p-4 text-slate-700">قص الخرسانة بالواير الماسي</td>
             <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
-            <td class="p-4 border-r border-slate-200"><a href="/core" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تفاصيل الفتحات</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/wire" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">قص الكتل والقواعد</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
-            <td class="p-4 text-slate-700">مقاول قص خرسانه / مقاول فتحات كور</td>
+            <td class="p-4 text-slate-700">قص الجدران والأسقف بالمنشار</td>
             <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
-            <td class="p-4 border-r border-slate-200"><a href="/contractor" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">طلب مقايسة مشروع</a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/saw" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">فتح الأبواب والنوافذ</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
             <td class="p-4 text-slate-700">منشار قص الخرسانة (Track Saw)</td>
@@ -390,7 +391,7 @@ const jsonLd = [
   </details>
   ))}
   </div>
- <div class="grid gap-4 md:grid-cols-2 md:items-center">
+ <div id="cta" class="mt-8 grid gap-4 md:grid-cols-2 md:items-center">
  <div class="text-slate-700 leading-8">
   <p><strong>{BRAND}</strong> تقدم خدمات قص الخرسانة وتخريم الكور وتركيب الشفاطات. أرسل نوع العمل ومقاساته وموقعه لمراجعة نطاق التنفيذ.</p>
   <p class="mt-3">تُحدد تكلفة العمل بعد مراجعة تفاصيل الموقع والخدمة المطلوبة.</p>

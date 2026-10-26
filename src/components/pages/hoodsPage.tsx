@@ -1,4 +1,5 @@
 import React from 'react';
+import ServiceContents from '../ServiceContents';
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
  const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
@@ -71,6 +72,10 @@ export default function HoodsPage() {
  {
   q: "كيف أختار بين الشفاط الهرمي والمسطح أو المدمج؟",
   a: "قارن مقاس الجهاز ومعدل تدفق الهواء ومستوى الصوت وطريقة الطرد وأبعاد الخزانة أو مكان التثبيت وفق مواصفات الشركة المصنّعة. لا يكفي شكل الشفاط أو مساحة المطبخ وحدهما للحكم على الملاءمة؛ أرسل الموديل ومقاسات المكان لمراجعتها.",
+  },
+  {
+  q: "هل يمكن تركيب شفاط المطبخ في السقف المعلق؟",
+  a: "يلزم أن يكون الموديل مناسباً للتركيب السقفي وأن تُراجع الحوامل وهيكل التحميل وفق دليل الجهاز وحالة السقف. لا تكفي فتحة في لوح الجبس لتحديد طريقة التثبيت؛ أرسل رقم الموديل وصورة السقف ومسار الدكت لمراجعتها.",
   },
   {
   q: "ما المعلومات المطلوبة لمعرفة تكلفة التركيب؟",
@@ -220,6 +225,7 @@ export default function HoodsPage() {
  <div className="mx-auto max-w-6xl px-4 pb-24">
  <div className="grid gap-10 lg:grid-cols-3">
  <div className="lg:col-span-2 space-y-10 min-w-0">
+ <ServiceContents items={[{ id: 'hood-installation', label: 'خطوات تركيب شفاط المطبخ' }, { id: 'ceiling-hood', label: 'تركيب شفاط المطبخ في السقف' }, { id: 'hood-types-comparison', label: 'بمدخنة أم بدون مدخنة؟' }, { id: 'duct-installation', label: 'تركيب مدخنة ودكت الشفاط' }, { id: 'pricing', label: 'تكلفة التركيب' }, { id: 'faq', label: 'الأسئلة الشائعة' }]} />
 
   <Section id="why-us" title="ما الذي نراجعه قبل تركيب الشفاط؟" >
  <p>
@@ -265,7 +271,7 @@ export default function HoodsPage() {
 
  <Section
  id="types"
- title="أنواع الشفاطات التي يمكن تجهيزها"
+ title="تركيب شفاط المطبخ الهرمي والمسطح والمدمج"
  subtitle="تختلف متطلبات التثبيت والتهوية بحسب تصميم الجهاز ومواصفاته ومكان تركيبه."
  
  >
@@ -349,7 +355,7 @@ export default function HoodsPage() {
   {/* Compare airflow modes */}
   <Section
     id="hood-types-comparison"
-    title="الطرد الخارجي أم إعادة تدوير الهواء؟"
+    title="تركيب شفاط المطبخ بمدخنة أم بدون مدخنة؟"
     subtitle="اختيار طريقة التشغيل يعتمد على موديل الشفاط وإمكانية تنفيذ مسار طرد مناسب."
   >
     <p>
@@ -382,14 +388,14 @@ export default function HoodsPage() {
       </table>
     </div>
     <div className="not-prose mt-6 rounded-2xl bg-orange-50 border border-orange-200 p-5 text-sm text-slate-700 leading-7">
-      <strong className="text-slate-900">قبل الاختيار:</strong> تأكد من نمط التشغيل الذي يدعمه الموديل، ومقاس المخرج، وإمكانية تمرير الدكت إلى الخارج. شارك رقم الموديل وصورة المكان لنراجع متطلبات التركيب، واتبع تعليمات الشركة المصنّعة للمرشحات والتنظيف.
+      <strong className="text-slate-900">قبل الاختيار:</strong> تأكد من نمط التشغيل الذي يدعمه الموديل، ومقاس المخرج، وإمكانية تمرير الدكت إلى الخارج. شارك رقم الموديل وصورة المكان لنراجع متطلبات التركيب، واتبع تعليمات الشركة المصنّعة للمرشحات والتنظيف. اقرأ أيضاً <a href="/blog/chimney-vs-carbon-filter-hood" className="text-orange-800 underline">مقارنة المدخنة والفلتر الكربوني قبل التركيب</a>.
     </div>
   </Section>
 
   {/* ── قسم جديد: تركيب دكت الشفاط ── */}
   <Section
     id="duct-installation"
-    title="تركيب دكت شفاط المطبخ — كيف يتم بالطريقة الصحيحة؟"
+    title="تركيب مدخنة شفاط مطبخ وتجهيز مسار الدكت"
     subtitle="مسار الدكت وطوله وملاءمته لمخرج الجهاز عوامل تؤثر في تدفق الهواء."
   >
     <p>
@@ -412,6 +418,12 @@ export default function HoodsPage() {
       أرسل موديل الشفاط وصورة مسار الدكت المقترح لمراجعة المقاس والملحقات ونطاق التركيب قبل تحديد الموعد.
     </p>
   </Section>
+
+ <Section id="ceiling-hood" title="تركيب شفاط المطبخ في السقف أو فوق جزيرة" >
+ <p>الشفاط السقفي أو المعلق فوق جزيرة يحتاج إلى موديل مصمم لهذا الاستخدام. تختلف طريقة تثبيته عن الشفاط الحائطي أو شفاط الحمام؛ تُراجع قدرة موضع التثبيت على حمل وزن الجهاز، والخلوص فوق سطح الطهي، ومسار الدكت والوصول للصيانة، وفق دليل الموديل.</p>
+ <p className="mt-4">إذا كان هناك سقف معلق، يجب مراجعة هيكل التحميل والتثبيت مع المختص قبل تركيب الجهاز. أرسل صورة السقف ومقاساته ورقم الموديل ومكان الموقد؛ لا تعتمد ارتفاعاً أو حوامل موحدة لجميع الأجهزة.</p>
+ <p className="mt-4 text-sm">توضح <a href="https://media3.bosch-home.com/Documents/9001482616_N.pdf" className="text-orange-800 underline">تعليمات Bosch لأحد موديلات الشفاط السقفي</a> أهمية مراجعة قدرة السقف والحوامل؛ تُطبق متطلبات كتيب جهازك المحدد عند التنفيذ.</p>
+ </Section>
 
  <Section id="brands" title="تأكيد توافق الشفاط مع موقع التركيب" >
  <p className="mb-6">
