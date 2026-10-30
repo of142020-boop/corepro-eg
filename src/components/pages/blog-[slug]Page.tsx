@@ -16,7 +16,7 @@ import {
 import type { PortableTextComponents } from "@portabletext/react";
 import { client } from "../../sanity/lib/client";
 import { urlFor } from "../../sanity/lib/image";
-import type { SanityImageSource } from "../../sanity/lib/client";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 
 const BRAND = "كور برو - Core Pro";
@@ -91,7 +91,7 @@ export async function generateMetadata({
  params,
 }: {
  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+}) {
  const { slug } = await params;
  const post = await getPost(slug);
 

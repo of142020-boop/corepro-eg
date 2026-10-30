@@ -1,7 +1,6 @@
 ---
-import { getImage } from "astro:assets";
-import heroImg from "../assets/images/home/هيرو.webp";
 import "../assets/globals.css";
+import "../assets/corepro-design.css";
 import "@fontsource/cairo/400.css";
 import "@fontsource/cairo/700.css";
 import "@fontsource/cairo/800.css";
@@ -53,12 +52,6 @@ const ogImageUrl = image.startsWith("http")
     ? image
     : new URL(image, Astro.site).href;
 
-// Radical fix: Preload the EXACT processed image URL from astro:assets
-const optimizedHero = await getImage({
-    src: heroImg,
-    format: "webp",
-    width: 1024,
-});
 ---
 
 <html lang="ar" dir="rtl">
@@ -174,21 +167,11 @@ const optimizedHero = await getImage({
             ])}
         />
 
-        {
-            currentPath === "/" && (
-                <link
-                    rel="preload"
-                    as="image"
-                    href={optimizedHero.src}
-                    fetchpriority="high"
-                    type="image/webp"
-                />
-            )
-        }
         <slot name="head" />
     </head>
     <body
-        class="min-h-screen bg-slate-50 text-slate-900 antialiased"
+        class="cp-site min-h-screen text-slate-900 antialiased"
+        data-page={currentPath === "/" ? "home" : "inner"}
         style="font-family: 'Cairo', sans-serif;"
     >
         <a

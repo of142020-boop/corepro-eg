@@ -1,0 +1,33 @@
+---
+import { ArrowLeft, ShieldCheck } from 'lucide-react';
+---
+<section id="quote" class="cp-section cp-wrap">
+  <div class="cp-quote-panel">
+    <div class="cp-quote-head"><div><p class="cp-eyebrow">لنبدأ بالتفاصيل الصحيحة</p><h2>ما الخدمة التي يحتاجها مشروعك؟</h2></div><p>اختيارات بسيطة تجهز طلبك للقسم المناسب. أضف الصور والمقاسات داخل محادثة واتساب.</p></div>
+    <form id="cp-quote-form" class="cp-quote-form" action="https://wa.me/201021507462" method="get" aria-describedby="cp-quote-notice">
+      <div><label for="cp-quote-service">01. نوع الخدمة</label><select id="cp-quote-service" name="service"><option value="core">تخريم الخرسانة بالكور</option><option value="saw">قص الخرسانة بالمنشار</option><option value="wire">قص بالواير الماسي</option><option value="hoods">تأسيس وتركيب شفاط المطبخ</option></select></div>
+      <div><label for="cp-quote-area">02. منطقة المشروع</label><select id="cp-quote-area" name="area"><option value="cairo">القاهرة والجيزة والمدن الجديدة</option><option value="alexandria">الإسكندرية والساحل الشمالي</option><option value="other">منطقة أخرى — تأكيد التغطية</option></select></div>
+      <button id="cp-quote-submit" type="submit" class="cp-btn cp-btn-orange" disabled>جهّز طلبك على واتساب<ArrowLeft size={18} /></button>
+    </form>
+    <div class="cp-quote-meta"><p aria-live="polite">رقم القسم: <a href="tel:+201021507462" id="cp-quote-phone"><bdi>01021507462</bdi></a></p><p id="cp-quote-notice"><ShieldCheck size={15} />تراجع الرسالة وترسلها بنفسك. التكلفة بعد مراجعة التفاصيل.</p></div>
+    <noscript><p class="mt-4 text-sm"><a class="underline" href="https://wa.me/201021507462">افتح واتساب مباشرة واكتب نوع الخدمة والمنطقة.</a> للشفاطات: <a class="underline" href="tel:01015218216">01015218216</a>.</p></noscript>
+  </div>
+</section>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#cp-quote-form');
+  const service = document.querySelector<HTMLSelectElement>('#cp-quote-service');
+  const area = document.querySelector<HTMLSelectElement>('#cp-quote-area');
+  const phone = document.querySelector<HTMLAnchorElement>('#cp-quote-phone');
+  const submit = document.querySelector<HTMLButtonElement>('#cp-quote-submit');
+  if (form && service && area && phone && submit) {
+    const getPhone = () => service.value === 'hoods' ? '01015218216' : area.value === 'alexandria' ? '01094496839' : '01021507462';
+    const updatePhone = () => { const value = getPhone(); phone.href = `tel:+20${value.slice(1)}`; const label = phone.querySelector('bdi'); if (label) label.textContent = value; };
+    service.addEventListener('change', updatePhone); area.addEventListener('change', updatePhone);
+    submit.disabled = false;
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const message = ['مرحباً كور برو، أود الاستفسار عن تنفيذ عمل.', `الخدمة: ${service.selectedOptions[0].text}`, `المنطقة: ${area.selectedOptions[0].text}`, 'سأرسل صور الموقع والمقاسات لمراجعة التنفيذ والتكلفة والموعد.'].join('\n');
+      window.location.assign(`https://wa.me/20${getPhone().slice(1)}?text=${encodeURIComponent(message)}`);
+    });
+  }
+</script>
