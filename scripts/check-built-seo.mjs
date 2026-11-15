@@ -69,9 +69,20 @@ for (const [route, page] of pages) {
     '/core': 'أفضل صنايعي كور لعمل أي فتحة كور وتخريم جدار خرساني - 01021507462',
     '/saw': 'قص الخرسانة بالمنشار الماسي وفتح الجدران والأسقف - 01021507462',
     '/hoods': 'تأسيس وتركيب شفاط المطبخ - 01015218216',
+    '/hoods-blowers-alexandria': 'تركيب وتأسيس الشفاطات والبلاورات في الإسكندرية - 01094496839',
   };
   if (requiredTitles[route] && (clean(visibleText(headings[0])) !== requiredTitles[route] || clean(visibleText(titles[0])) !== requiredTitles[route])) fail(route, 'requested title/H1 changed');
-  const dedicated = route === '/hoods' ? '201015218216' : route === '/concrete-cutting-alexandria' ? '201094496839' : null;
+  const dedicated = route === '/hoods' ? '201015218216' : ['/concrete-cutting-alexandria', '/hoods-blowers-alexandria'].includes(route) ? '201094496839' : null;
+  if (dedicated) for (const link of nodes.filter(n => n.tagName === 'a')) {
+    const href = attr(link, 'href');
+    if (href.startsWith('https://wa.me/') && new URL(href).pathname !== `/${dedicated}`) fail(route, `wrong dedicated WhatsApp link: ${href}`);
+  }
+  if (['/hoods', '/hoods-blowers-alexandria'].includes(route)) {
+    const service = schemas.find(schema => schema['@type'] === 'Service');
+    const served = JSON.stringify(service?.areaServed || '');
+    if (route === '/hoods' && (served.includes('الإسكندرية') || !served.includes('الجيزة'))) fail(route, 'Cairo hood service area overlaps Alexandria or loses Giza');
+    if (route === '/hoods-blowers-alexandria' && (!served.includes('الإسكندرية') || served.includes('القاهرة'))) fail(route, 'Alexandria hood service area missing or overlapping Cairo');
+  }
   if (dedicated) for (const link of nodes.filter(n => n.tagName === 'a')) {
     const href = attr(link, 'href');
     if (!href.startsWith('tel:')) continue;

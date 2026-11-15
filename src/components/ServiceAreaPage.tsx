@@ -35,6 +35,7 @@ export default function ServiceAreaPage({ area }: { area: Area }) {
           <img src="/images/core/fatahat-core-beton-1.webp" width="800" height="533" fetchPriority="high" loading="eager" alt="ماكينة تخريم كور لعمل فتحة في الخرسانة" className="w-full rounded-3xl border border-slate-200" />
         </header>
         <ServiceContents items={[{ id: 'local-work', label: `تجهيز العمل في ${area.name}` }, { id: 'service-choice', label: 'الكور أم المنشار؟' }, { id: 'quote', label: 'التكلفة والمعلومات المطلوبة' }, { id: 'coverage', label: 'المناطق وتأكيد الوصول' }, { id: 'faq', label: 'الأسئلة الشائعة' }]} />
+        {area.slug === 'concrete-cutting-alexandria' && <aside className="mt-8 rounded-2xl border border-sky-200 bg-sky-50 p-6"><h2 className="text-xl font-bold">تحتاج تركيب شفاط أو بلاور؟</h2><p className="mt-3 leading-8 text-slate-700">للتأسيس والتركيب والدكت وهود المطاعم راجع <a className="font-bold text-sky-800 underline" href="/hoods-blowers-alexandria">خدمات الشفاطات والبلاورات في الإسكندرية</a>. هذه الصفحة تشرح أعمال فتحات الكور وقص الخرسانة.</p></aside>}
         <section id="local-work" className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 md:p-9">
           <h2 className="text-2xl font-black text-slate-900">تجهيز أعمال القص والتخريم في {area.name}</h2>
           <div className="mt-6 space-y-7">{area.topics.map(topic => <div key={topic.title}><h3 className="text-xl font-bold text-slate-900">{topic.title}</h3><p className="mt-2 leading-9 text-slate-700">{topic.text}</p></div>)}</div>

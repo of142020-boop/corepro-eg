@@ -129,7 +129,7 @@ const ogImageUrl = image.startsWith("http")
             property="business:contact_data:phone_number"
             content={pageContact.international}
         />
-        <meta property="business:contact_data:locality" content="Cairo" />
+        <meta property="business:contact_data:locality" content={currentPath === '/hoods-blowers-alexandria' ? 'Alexandria' : 'Cairo'} />
         <meta property="business:contact_data:country_name" content="Egypt" />
 
         <!-- WebSite + Organization Schema (global) -->

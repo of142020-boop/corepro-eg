@@ -13,12 +13,13 @@ const nav = [
 const extra = [
   { href: '/prices', label: 'الأسعار وطلب الخدمة' }, { href: '/contractor', label: 'مقاولات الشركات' },
   { href: '/blog', label: 'المدونة والأدلة' }, { href: '/glossary', label: 'دليل المصطلحات' },
+  { href: '/hoods-blowers-alexandria', label: 'شفاطات وبلاورات الإسكندرية' },
   { href: '/about', label: 'عن كور برو' }, { href: '/privacy-policy', label: 'سياسة الخصوصية' },
   { href: '/terms', label: 'شروط الاستخدام' },
 ];
 const active = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href + '/'));
 ---
-<div class="cp-topbar"><div class="cp-wrap"><span>من أول مقاس… إلى آخر تفصيلة.</span><a href={`tel:${contact.international}`}><Phone size={12} /><bdi>{contact.phone}</bdi></a><span class="cp-topbar-location"><MapPin size={12} />مدينة نصر · تأكيد التغطية حسب موقع المشروع</span></div></div>
+<div class="cp-topbar"><div class="cp-wrap"><span>من أول مقاس… إلى آخر تفصيلة.</span><a href={`tel:${contact.international}`}><Phone size={12} /><bdi>{contact.phone}</bdi></a><span class="cp-topbar-location"><MapPin size={12} />{currentPath === '/hoods-blowers-alexandria' ? 'قسم الإسكندرية · تأكيد التغطية حسب موقع المشروع' : 'مدينة نصر · تأكيد التغطية حسب موقع المشروع'}</span></div></div>
 <header class="cp-header"><div class="cp-wrap cp-navbar">
   <a href="/" class="cp-brand" aria-label="كور برو، الصفحة الرئيسية"><Image src={logoImg} alt="شعار كور برو" width={45} height={60} loading="eager" /><span><b dir="ltr">Core<span>Pro</span><i>.</i></b><small>حلول قص وتخريم الخرسانة</small></span></a>
   <button id="cp-menu-toggle" class="cp-menu-toggle" type="button" aria-label="فتح القائمة" aria-controls="cp-navigation" aria-expanded="false"><Menu size={23} /></button>

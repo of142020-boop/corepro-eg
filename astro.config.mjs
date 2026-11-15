@@ -9,7 +9,7 @@ export default defineConfig({
   site: 'https://corepro-eg.com',
   trailingSlash: 'never',
   redirects: {
-    '/hoods-alexandria': '/hoods',
+    '/hoods-alexandria': '/hoods-blowers-alexandria',
   },
   integrations: [react(), sitemap({
     filter: (page) => {
@@ -25,6 +25,7 @@ export default defineConfig({
       'https://corepro-eg.com/saw',
       'https://corepro-eg.com/blog',
       'https://corepro-eg.com/hoods',
+      'https://corepro-eg.com/hoods-blowers-alexandria',
       'https://corepro-eg.com/wire',
       'https://corepro-eg.com/prices',
       'https://corepro-eg.com/about',

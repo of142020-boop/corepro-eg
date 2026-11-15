@@ -8,7 +8,7 @@ import { getPageContact } from '../lib/contact';
 const BRAND = "كور برو - Core Pro";
 const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
 const EMAIL = "info@corepro-eg.com";
-const ADDRESS = "الحي العاشر مدينة نصر - مصر";
+const ADDRESS = Astro.url.pathname === '/hoods-blowers-alexandria' ? 'المقر: الحي العاشر، مدينة نصر — خدمات الإسكندرية حسب الموقع' : 'الحي العاشر مدينة نصر - مصر';
 const YEAR = new Date().getFullYear();
 const SOCIAL_USER = "corproeg";
 
@@ -83,7 +83,8 @@ const SOCIAL = [
  <a href="/core" class="block hover:text-white transition">تخريم الخرسانة بالكور</a>
  <a href="/saw" class="block hover:text-white transition">قص الخرسانة بالمنشار</a>
  <a href="/wire" class="block hover:text-white transition">واير تقطيع خرسانة</a>
- <a href="/hoods" class="block hover:text-white transition">تركيب الشفاطات</a>
+ <a href="/hoods" class="block hover:text-white transition">شفاطات القاهرة والجيزة</a>
+ <a href="/hoods-blowers-alexandria" class="block hover:text-white transition">شفاطات وبلاورات الإسكندرية</a>
  <a href="/concrete-cutting-alexandria" class="block hover:text-white transition">قص خرسانة الإسكندرية</a>
  <a href="/concrete-cutting-tagamoa" class="block hover:text-white transition">قص خرسانة التجمع</a>
  <a href="/concrete-cutting-october" class="block hover:text-white transition">قص خرسانة أكتوبر</a>

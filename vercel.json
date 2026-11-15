@@ -3,8 +3,8 @@
   "outputDirectory": "dist",
   "framework": "astro",
   "redirects": [
-    { "source": "/hoods-alexandria", "destination": "/hoods", "permanent": true },
-    { "source": "/hoods-alexandria/:path*", "destination": "/hoods", "permanent": true }
+    { "source": "/hoods-alexandria", "destination": "/hoods-blowers-alexandria", "permanent": true },
+    { "source": "/hoods-alexandria/:path*", "destination": "/hoods-blowers-alexandria", "permanent": true }
   ],
   "rewrites": [
     { "source": "/api/auth", "destination": "/api/auth" },

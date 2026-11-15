@@ -90,19 +90,19 @@ export default function HoodsPage() {
  url: DOMAIN,
  telephone: PHONE_INT,
  address: { "@type": "PostalAddress", addressCountry: "EG", addressLocality: "Cairo", streetAddress: ADDRESS_TEXT },
- areaServed: ["القاهرة", "الجيزة", "العاصمة الإدارية", "مدينة نصر", "التجمع الخامس", "6 أكتوبر", "الشيخ زايد", "المعادي", "القليوبية", "الإسكندرية"],
+ areaServed: ["القاهرة", "الجيزة", "العاصمة الإدارية", "مدينة نصر", "التجمع الخامس", "6 أكتوبر", "الشيخ زايد", "المعادي", "القليوبية"],
  sameAs: [DOMAIN, WHATSAPP],
  };
 
  const jsonLdService = {
  "@context": "https://schema.org",
  "@type": "Service",
-  name: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت",
+  name: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت بالقاهرة والجيزة",
  serviceType: "Kitchen Hood & Bathroom Exhaust Fan Installation",
  provider: { "@type": "LocalBusiness", name: BRAND, telephone: PHONE_INT, url: DOMAIN },
- areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "مدينة نصر", "المعادي", "6 أكتوبر", "العاصمة الإدارية", "القليوبية", "الإسكندرية"],
+ areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "مدينة نصر", "المعادي", "6 أكتوبر", "العاصمة الإدارية", "القليوبية"],
  url: CANONICAL,
-  description: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت والفتحات وفق موديل الجهاز ومقاسات الموقع. تُراجع إمكانية الصيانة وقطع الغيار بحسب نوع العطل والموديل.",
+  description: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت والفتحات في القاهرة والجيزة وفق موديل الجهاز ومقاسات الموقع. تُراجع إمكانية الصيانة وقطع الغيار بحسب نوع العطل والموديل.",
  };
 
  const jsonLdFaq = {
@@ -176,7 +176,7 @@ export default function HoodsPage() {
  <div>
  <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm text-orange-800 shadow-sm">
  
-  <span>تركيب شفاطات · تأسيس دكت · تخريم حسب الموقع</span>
+  <span>القاهرة والجيزة · تركيب شفاطات · تأسيس دكت</span>
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-orange-500 pr-4 break-words">
@@ -185,13 +185,14 @@ export default function HoodsPage() {
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
  <p>
-  نقدم خدمة تركيب شفاطات المطبخ والحمام، وتجهيز فتحة التهوية والدكت عند الحاجة. نراجع موديل الجهاز ومكانه وطريقة الطرد قبل تحديد الأعمال المطلوبة؛ أرسل صورة الملصق التعريفي للجهاز وصورة للموقع لتأكيد ملاءمة التركيب.
+  نقدم خدمة تركيب شفاطات المطبخ والحمام في القاهرة والجيزة والمدن الجديدة، وتجهيز فتحة التهوية والدكت عند الحاجة. نراجع موديل الجهاز ومكانه وطريقة الطرد قبل تحديد الأعمال المطلوبة؛ أرسل صورة الملصق التعريفي للجهاز وصورة للموقع لتأكيد ملاءمة التركيب.
  </p>
  <p>
   يمكن تنسيق تخريم الكور وتركيب الشفاط والدكت ضمن نطاق عمل واحد إذا سمحت حالة الجدار ومواصفات الجهاز بذلك. يساعد الكور على حصر العمل حول فتحة دائرية، وقد تتأثر التشطيبات المجاورة بحالة السطح وطريقة الوصول؛ لذلك تُراجع الحماية واحتواء مياه التبريد قبل التنفيذ.
  </p>
  </div>
 
+ <p className="mt-5 rounded-xl border border-sky-200 bg-sky-50 p-4 text-sm leading-7 text-slate-700">مشروعك في الإسكندرية؟ راجع <a href="/hoods-blowers-alexandria" className="font-bold text-sky-800 underline">تركيب وتأسيس الشفاطات والبلاورات بالإسكندرية</a> لمعرفة نطاق الخدمة المحلي وطريقة الحجز.</p>
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
  href={WHATSAPP}
@@ -509,7 +510,7 @@ export default function HoodsPage() {
  { href: "/core", label: "تخريم الخرسانة بالكور" },
  { href: "/saw", label: "قص الخرسانة بالمنشار" },
  { href: "/wire", label: "قص بالواير الماسي" },
- { href: "/concrete-cutting-alexandria", label: "خدماتنا في الإسكندرية" },
+ { href: "/hoods-blowers-alexandria", label: "شفاطات وبلاورات الإسكندرية" },
  ].map((s) => (
  <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-orange-600 hover:underline py-1">
  <span className="text-orange-500">›</span>{s.label}
@@ -528,10 +529,10 @@ export default function HoodsPage() {
  </div>
 
  <div className="p-6 rounded-[40px] bg-white border border-black/10 shadow-sm">
-  <h3 className="font-bold text-slate-900 mb-3 text-sm">مناطق الخدمة</h3>
+  <h3 className="font-bold text-slate-900 mb-3 text-sm">مناطق خدمة القاهرة والجيزة</h3>
   <p className="mb-3 text-xs leading-6 text-slate-600">تختلف إمكانية الوصول حسب عنوان المشروع والموعد؛ تواصل معنا لتأكيد التغطية.</p>
  <div className="flex flex-wrap gap-2">
- {["مدينة نصر", "التجمع الخامس", "المعادي", "الشيخ زايد", "6 أكتوبر", "العاصمة الإدارية", "الجيزة", "القليوبية", "الإسكندرية"].map((area) => (
+ {["مدينة نصر", "التجمع الخامس", "المعادي", "الشيخ زايد", "6 أكتوبر", "العاصمة الإدارية", "الجيزة", "القليوبية"].map((area) => (
  <span key={area} className="text-xs bg-slate-100 text-slate-700 rounded-full px-3 py-1 font-semibold">{area}</span>
  ))}
  </div>
