@@ -66,12 +66,22 @@ for (const [route, page] of pages) {
   }
   const requiredTitles = {
     '/': 'قص وتخريم الخرسانة في مصر | كور برو - 01021507462',
-    '/core': 'أفضل صنايعي كور لعمل أي فتحة كور وتخريم جدار خرساني - 01021507462',
+    '/core': 'صنايعي كور بالقاهرة والجيزة | فتحات وتخريم الخرسانة',
     '/saw': 'قص الخرسانة بالمنشار الماسي وفتح الجدران والأسقف - 01021507462',
     '/hoods': 'تأسيس وتركيب شفاط المطبخ بالقاهرة والجيزة - 01015218216',
     '/hoods-blowers-alexandria': 'تركيب وتأسيس الشفاطات والبلاورات في الإسكندرية - 01094496839',
   };
-  if (requiredTitles[route] && (clean(visibleText(headings[0])) !== requiredTitles[route] || clean(visibleText(titles[0])) !== requiredTitles[route])) fail(route, 'requested title/H1 changed');
+  const requiredHeading = route === '/core' ? 'صنايعي كور بالقاهرة والجيزة لتخريم الخرسانة' : requiredTitles[route];
+  if (requiredTitles[route] && (clean(visibleText(headings[0])) !== requiredHeading || clean(visibleText(titles[0])) !== requiredTitles[route])) fail(route, 'requested title/H1 changed');
+  if (route === '/core') {
+    const service = schemas.find(schema => schema['@type'] === 'Service');
+    if (!service || service.url !== `${origin}/core`) fail(route, 'missing canonical core Service');
+    for (const area of service?.areaServed || []) if (!text.includes(typeof area === 'string' ? area : area.name)) fail(route, 'service area not visible');
+    for (const id of ['services-list', 'core-hole-sizes', 'process', 'pricing', 'work-photos', 'service-areas', 'request', 'faq']) if (!page.ids.has(id)) fail(route, `missing service section ${id}`);
+    if (!nodes.some(n => n.tagName === 'a' && attr(n, 'href') === 'tel:+201021507462')) fail(route, 'missing direct core telephone link');
+    const hero = nodes.find(n => n.tagName === 'img' && attr(n, 'src') === '/images/core/fatahat-core-beton-1.webp');
+    if (attr(hero, 'loading') !== 'eager' || attr(hero, 'fetchpriority') !== 'high') fail(route, 'core hero image not prioritized');
+  }
   const dedicated = route === '/hoods' ? '201015218216' : ['/concrete-cutting-alexandria', '/hoods-blowers-alexandria'].includes(route) ? '201094496839' : null;
   if (dedicated) for (const link of nodes.filter(n => n.tagName === 'a')) {
     const href = attr(link, 'href');

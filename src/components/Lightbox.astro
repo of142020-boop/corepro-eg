@@ -112,6 +112,7 @@
     document.addEventListener('click', (e) => {
       const target = (e.target as HTMLElement).closest('[data-lightbox-src], [data-lightbox-gallery]');
       if (target) {
+        e.preventDefault();
         const galleryAttr = target.getAttribute('data-lightbox-gallery');
         const singleSrc = target.getAttribute('data-lightbox-src');
         const indexAttr = target.getAttribute('data-lightbox-index');

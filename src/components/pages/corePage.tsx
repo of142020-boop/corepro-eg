@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceContents from '../ServiceContents';
+import { coreService, corePhotos } from '../../lib/core-service';
 
 const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
  const actualSrc = typeof src === "object" ? src.src : src;
@@ -11,50 +12,17 @@ const Image = ({ src, alt, fill, className, width, height, priority, fetchpriori
 
 const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
 
-import {
- ShieldCheck,
- Clock,
- MapPin,
- CheckCircle2,
- Drill,
- Wrench,
- Ruler,
- Sparkles,
- Building2,
- HardHat,
- HelpCircle,
- Settings,
- BadgeCheck,
- Target,
- Wind,
- Flame,
- Droplets,
- Fan,
- Layers,
- Phone,
- Search,
- Hammer,
- Zap,
- X,
- Plus,
- Maximize,
-} from "lucide-react";
+import { MapPin, Phone, Maximize } from "lucide-react";
 
 const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
-const CANONICAL = `${DOMAIN}/core`;
+const CANONICAL = coreService.canonical;
 const PHONE_NUM = "01021507462";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201021507462";
-const ADDRESS_TEXT = " الحي العاشر مدينة نصر";
-
-const SERVICE_NAME = "تخريم الخرسانة بالكور";
-const FOCUS_KEYWORD = "صنايعي كور";
-
-const IMG_HERO = { src: "/images/core/fatahat-core-beton-1.webp", width: 2400, height: 1792 };
-const IMG_1 = { src: "/images/core/fatahat-core-beton-1.webp", width: 800, height: 800 };
-const IMG_2 = { src: "/images/core/fatahat-core-beton-2.webp", width: 800, height: 800 };
-const IMG_3 = { src: "/images/core/fatahat-core-beton-3.webp", width: 800, height: 800 };
+const REQUEST_MESSAGE = 'طلب تخريم كور\nالمنطقة: \nالاستخدام: \nعدد الفتحات: \nالقطر المطلوب: \nسماكة الجدار أو السقف إن عُرفت: \nسأرسل صور موضع العمل من الجانبين. أرجو مراجعة إمكانية التنفيذ والتكلفة والموعد.';
+const REQUEST_WHATSAPP = `${WHATSAPP}?text=${encodeURIComponent(REQUEST_MESSAGE)}`;
+const IMG_HERO = corePhotos[0];
 
 function Section({
  title,
@@ -107,6 +75,10 @@ function StatPill({ icon, text }: { icon?: React.ReactNode; text: string }) {
 export default function CorePage() {
  const faq = [
  {
+ q: "هل توفرون صنايعي كور في القاهرة والجيزة والمدن الجديدة؟",
+ a: "نراجع طلبات القاهرة والجيزة، ومنها مدينة نصر والمعادي والتجمع الخامس و6 أكتوبر والشيخ زايد والعاصمة الإدارية، وكذلك القليوبية. أرسل المنطقة والعنوان لتأكيد التغطية وتكلفة الانتقال والموعد؛ ذكر المنطقة لا يعني وجود فرع فيها.",
+ },
+ {
  q: "هل يمكن تخريم الكمرات أو العناصر الإنشائية؟",
  a: "لا يبدأ العمل في كمرة أو عنصر إنشائي قبل مراجعة موقع الفتحة ومخططات المبنى وأخذ موافقة المهندس الإنشائي المسؤول. لا يجوز قطع حديد التسليح من دون توجيه هندسي.",
  },
@@ -136,33 +108,27 @@ export default function CorePage() {
  },
  ];
 
- const jsonLdLocalBusiness = {
+ const jsonLdOrganization = {
  "@context": "https://schema.org",
- "@type": "LocalBusiness",
+ "@type": "Organization",
+ "@id": `${DOMAIN}/#core-provider`,
  name: BRAND,
  url: DOMAIN,
  telephone: PHONE_INT,
- address: {
- "@type": "PostalAddress",
- addressCountry: "EG",
- addressLocality: "Cairo",
- streetAddress: ADDRESS_TEXT,
- },
- areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "العاصمة الإدارية", "6 أكتوبر", "الشيخ زايد", "مدينة نصر", "المعادي", "القليوبية"],
- priceRange: "$$",
- openingHours: "Mo-Su 00:00-23:59",
- sameAs: [DOMAIN, WHATSAPP],
+
  };
 
  const jsonLdService = {
  "@context": "https://schema.org",
  "@type": "Service",
- name: "فتحات كور في الخرسانة المسلحة | صنايعي كور في مصر",
+ "@id": `${CANONICAL}#service`,
+ name: coreService.heading,
  serviceType: "Concrete core drilling",
- provider: { "@type": "LocalBusiness", name: BRAND, telephone: PHONE_INT, url: DOMAIN },
- areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "مدينة نصر", "المعادي", "الشيخ زايد", "6 أكتوبر", "العاصمة الإدارية", "القليوبية"],
+ provider: { "@id": `${DOMAIN}/#core-provider` },
+ areaServed: coreService.areas.map(name => ({ "@type": "Place", name })),
  url: CANONICAL,
- description: "خدمة تخريم كور في الخرسانة لتمرير مواسير الغاز والسباكة والتكييف والتهوية. يتحدد قطر الفتحة وطريقة التنفيذ والتكلفة بحسب سماكة الخرسانة وموقع العمل وظروف الموقع.",
+ description: coreService.description,
+ image: corePhotos.map(photo => `${DOMAIN}${photo.src}`),
  };
 
  const jsonLdFaq = {
@@ -180,52 +146,31 @@ export default function CorePage() {
  "@type": "BreadcrumbList",
  itemListElement: [
  { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
- { "@type": "ListItem", position: 2, name: "فتحات كور في الخرسانة", item: CANONICAL },
+ { "@type": "ListItem", position: 2, name: "صنايعي كور وتخريم الخرسانة", item: CANONICAL },
  ],
  };
 
- const jsonLdSpeakable = {
+ const jsonLdWebPage = {
  "@context": "https://schema.org",
  "@type": "WebPage",
+ "@id": `${CANONICAL}#webpage`,
  url: CANONICAL,
- speakable: {
- "@type": "SpeakableSpecification",
- cssSelector: ["#faq", "h1"],
- },
+ name: coreService.title,
+ description: coreService.description,
+ inLanguage: "ar-EG",
+ mainEntity: { "@id": `${CANONICAL}#service` },
+ primaryImageOfPage: { "@id": `${CANONICAL}#image-1` },
  };
-
- const jsonLdImageObjects = [
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/core/fatahat-core-beton-1.webp`,
-      "name": "تخريم الخرسانة بالكور الماسي - كور برو",
-      "description": "تخريم الخرسانة بماكينة الكور الماسي مع التبريد المائي",
-      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
-      "copyrightHolder": { "@type": "Organization", "name": BRAND },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": CANONICAL,
-      "creator": { "@type": "Organization", "name": BRAND },
-      "license": `${DOMAIN}/terms`,
-      "copyrightNotice": `© 2026 ${BRAND}`,
-      "representativeOfPage": true,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      contentUrl: `${DOMAIN}/images/core/fatahat-core-beton-1.webp`,
-      "name": "ماكينة كور دريل هيدروليكية",
-      "description": "ماكينة كور دريل هيدروليكية أثناء تخريم السقف الخرساني",
-      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
-      "copyrightHolder": { "@type": "Organization", "name": BRAND },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": CANONICAL,
-      "creator": { "@type": "Organization", "name": BRAND },
-      "license": `${DOMAIN}/terms`,
-      "copyrightNotice": `© 2026 ${BRAND}`,
-      "representativeOfPage": false,
-    }
-  ];
+ const jsonLdImageObjects = corePhotos.map((photo, i) => ({
+ "@context": "https://schema.org",
+ "@type": "ImageObject",
+ "@id": `${CANONICAL}#image-${i + 1}`,
+ contentUrl: `${DOMAIN}${photo.src}`,
+ name: photo.caption,
+ description: photo.alt,
+ width: photo.width,
+ height: photo.height,
+ }));
 
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
@@ -233,11 +178,11 @@ export default function CorePage() {
  type="application/ld+json"
  dangerouslySetInnerHTML={{
  __html: JSON.stringify([
- jsonLdLocalBusiness,
+ jsonLdOrganization,
  jsonLdService,
  jsonLdFaq,
   jsonLdBreadcrumb,
- jsonLdSpeakable,
+ jsonLdWebPage,
  ...jsonLdImageObjects,
  ]),
  }}
@@ -253,57 +198,49 @@ export default function CorePage() {
  <div>
  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-800 shadow-sm">
  
- <span>تخريم كور للغاز والسباكة والتكييف · معاينة حسب الموقع</span>
+ <span>القاهرة والجيزة · فتحات كور للجدران والأسقف</span>
  </div>
 
  <h1 className="mt-4 text-2xl md:text-5xl font-black leading-tight text-slate-900 border-r-8 border-emerald-600 pr-4 break-words">
- أفضل صنايعي كور لعمل أي فتحة كور وتخريم جدار خرساني - 01021507462
+ {coreService.heading}
  </h1>
 
  <div className="mt-5 text-slate-800 leading-9 text-lg space-y-4">
  <p>
- ننفذ تخريم الكور في الخرسانة لتمرير مواسير الغاز والسباكة والتكييف والتهوية، باستخدام ماكينة تثبت في موضع العمل وبنطة ماسية بالقطر المناسب. أرسل مقاس الفتحة وصورة الموقع وسماكة الجدار أو السقف إن توفرت، لنراجع إمكانية التنفيذ ونحدد متطلبات المعاينة والتكلفة.
+ تحتاج صنايعي كور لفتحة ماسورة أو تكييف أو تهوية؟ تقدم كور برو خدمة تخريم الخرسانة للجدران والأسقف والبلاطات في القاهرة والجيزة. نراجع استخدام الفتحة وقطرها وسماكة العنصر ومكان التثبيت قبل اختيار البنطة الماسية وتحديد طريقة العمل والتكلفة.
  </p>
  <p>
- تُستخدم فتحات الكور لتمرير مواسير وخطوط الخدمات أو لتجهيز فتحات التهوية. يتحدد أسلوب التنفيذ حسب قطر الفتحة وسماكة العنصر وموقعه وإمكانية تثبيت الماكينة واحتواء مياه التبريد. للمشاريع التي تتضمن عدة فتحات، أرسل المخططات والكميات وموقع العمل ليتسنى تقييم نطاق التنفيذ.
+ لشقة جاهزة أو فيلا تحت التشطيب أو مشروع متعدد الفتحات: أرسل صور المكان والمقاسات والعنوان، وسنوضح ما يحتاج معاينة وما يشمله عرض العمل. يُراجع موضع الفتحة مع مختص التمديدات، وتحتاج العناصر الإنشائية اعتماد المهندس المسؤول قبل التنفيذ.
  </p>
  </div>
 
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
- href={WHATSAPP}
+ href={REQUEST_WHATSAPP}
  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:bg-emerald-700 transition transform hover:-translate-y-1 text-lg md:text-xl"
  >
  <Phone className="h-6 w-6" />
- اتصل بنا الآن
+ أرسل المقاسات على واتساب
  </Link>
+ <a href={`tel:${PHONE_INT}`} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-white px-6 py-4 font-bold text-slate-900">
+ <Phone className="h-5 w-5" aria-hidden="true" /> اتصل <bdi>{PHONE_NUM}</bdi>
+ </a>
  </div>
+ <p className="mt-4 text-sm leading-7 text-slate-600">المنطقة + صورة موضع الفتحة + العدد والقطر والسماكة إن عُرفا. الموعد والتكلفة بعد مراجعة التفاصيل.</p>
  </div>
 
  <div className="rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
- <div
+ <a href={IMG_HERO.src}
  data-lightbox-src={IMG_HERO.src}
- className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
+ aria-label="تكبير صورة تخريم الأرضية بالكور"
+ className="block relative aspect-[4/3] rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
  >
- <Image src={IMG_HERO} alt="صنايعي كور محترف لعمل فتحات كور في الخرسانة - كور برو" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
+ <Image src={IMG_HERO} alt={IMG_HERO.alt} fill priority fetchpriority="high" className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
  <Maximize className="h-10 w-10" />
  </div>
- </div>
- <div className="p-4 grid grid-cols-3 gap-3">
- {[IMG_1, IMG_2, IMG_3].map((img, i) => (
- <div
- key={i}
- data-lightbox-src={img.src}
- className="relative aspect-[4/3] rounded-none overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer"
- >
- <Image src={img} alt={`أعمال فتحات كور وتخريم خرسانة بواسطة صنايعي كور ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
- <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
- <Plus className="h-6 w-6" />
- </div>
- </div>
- ))}
- </div>
+ </a>
+ <p className="p-4 text-sm leading-7 text-slate-600">{IMG_HERO.caption}: مراجعة التثبيت ومخرج العينة وتجميع المياه جزء من تجهيز الموقع.</p>
  </div>
  </div>
  </div>
@@ -313,7 +250,7 @@ export default function CorePage() {
  <div className="mx-auto max-w-6xl px-4 pb-24">
  <div className="grid gap-10 lg:grid-cols-3">
  <div className="lg:col-span-2 space-y-10 min-w-0">
- <ServiceContents items={[{ id: 'services-list', label: 'خدمات صنايعي كور وفتحات الخرسانة' }, { id: 'core-hole-sizes', label: 'اختيار قطر فتحة الكور' }, { id: 'process', label: 'خطوات تخريم الكور' }, { id: 'pricing', label: 'أسعار فتحات الكور وعوامل التكلفة' }, { id: 'faq', label: 'أسئلة قبل الحجز' }]} />
+ <ServiceContents items={[{ id: 'services-list', label: 'خدمات صنايعي كور وفتحات الخرسانة' }, { id: 'core-hole-sizes', label: 'اختيار قطر فتحة الكور' }, { id: 'process', label: 'خطوات تخريم الكور' }, { id: 'pricing', label: 'سعر فتحة الكور' }, { id: 'work-photos', label: 'صور التخريم واتجاهاته' }, { id: 'service-areas', label: 'مناطق الخدمة' }, { id: 'request', label: 'طلب فني كور' }, { id: 'faq', label: 'أسئلة قبل الحجز' }]} />
 
  <Section
  id="what-is-core"
@@ -324,25 +261,8 @@ export default function CorePage() {
  </p>
  </Section>
 
- <Section
- id="importance"
- title="أهمية استخدام ماكينة كور تخريم الخرسانة"
- >
- <p>
- تتكون المعدة عادةً من محرك وقاعدة تثبيت وبنطة ماسية مجوفة. ويُختار نوع البنطة وسرعة التشغيل والتبريد وفق مادة السطح وقطر الفتحة. تساعد هذه الطريقة على إنتاج فتحة دائرية منتظمة؛ أما النتيجة النهائية فتتأثر بحالة الخرسانة والتسليح وطريقة التثبيت.
- </p>
- </Section>
-
- <Section
- id="comparison"
- title="متى نستخدم تخريم الكور؟"
- >
- <p>
- يُنتج التخريم بالكور فتحة دائرية، بينما قد يلائم التكسير بعض الأعمال الأخرى. يختلف مستوى الضوضاء والاهتزاز بحسب المعدة والمادة وطريقة التنفيذ؛ لذلك لا تُعد أي طريقة مناسبة لكل المواقع. عند العمل قرب عناصر إنشائية أو تشطيبات حساسة، يجب مراجعة ظروف الموقع واختيار الأسلوب الملائم قبل البدء.
- </p>
- <p className="mt-4">
- يساعد التخريم بالكور على حصر العمل حول موضع الفتحة، لكنه لا يضمن منع كل ضرر أو اهتزاز. تُفحص المنطقة المحيطة وتُتخذ إجراءات الحماية المناسبة بحسب حالة الموقع.
- </p>
+ <Section id="comparison" title="فتحة دائرية أم فتحة باب أو سلم؟">
+ <p>الكور مناسب لفتحات دائرية لتمرير الخدمات. أما فتحة الباب أو الشباك أو السلم فتحتاج مراجعة أبعاد القطع والعنصر الإنشائي وخطة فصل الجزء الخرساني. تعرف على <a href="/saw" className="text-emerald-800 underline">قص الخرسانة بالمنشار</a> أو <a href="/wire" className="text-emerald-800 underline">القص بالواير الماسي</a> بحسب طبيعة العمل؛ لا يكفي تكبير البنطة أو تجميع فتحات دون اعتماد مناسب.</p>
  </Section>
 
  <Section
@@ -354,13 +274,13 @@ export default function CorePage() {
  <div>
  <h3 className="text-xl font-black text-slate-900 mb-2">1. عمل فتحات الغاز والسباكة الدقيقة</h3>
  <p>
-  تُجهز فتحات لمرور مواسير الغاز والسباكة وفق المقاس والمسار اللذين يحددهما المختص. قبل الحفر يُراجع موضع الفتحة وموقع الخدمات والتسليح، ويتولى فني الغاز المرخص توصيل المواسير واختبارها؛ تخريم الخرسانة وحده لا يُعد توصيلاً أو اعتماداً لشبكة الغاز.
+  تُجهز <a href="/gas-holes" className="text-emerald-800 underline">فتحات مواسير الغاز</a> والسباكة وفق المقاس والمسار اللذين يحددهما المختص. قبل الحفر يُراجع موضع الفتحة وموقع الخدمات والتسليح، ويتولى فني الغاز المرخص توصيل المواسير واختبارها؛ تخريم الخرسانة وحده لا يُعد توصيلاً أو اعتماداً لشبكة الغاز.
  </p>
  </div>
  <div>
  <h3 className="text-xl font-black text-slate-900 mb-2">2. عمل فتحة مدخنة السخان وتمديدات التكييف والتهوية</h3>
  <p>
-  نجهز <strong>فتحات مدخنة السخان</strong> وتمديدات التكييف والتهوية بحسب المقاس والمسار المحددين للمعدة والموقع. يجب أن يراجع فني مختص مواصفات المدخنة وتصريف العادم، وأن يحدد فني التكييف مسارات المواسير قبل الحفر. ونوفر أيضاً خدمة <Link href="/hoods" className="text-emerald-700 underline hover:text-emerald-800">تركيب شفاطات المطبخ</Link> بشكل متكامل.
+  نجهز <strong>فتحات مدخنة السخان</strong> وتمديدات التكييف والتهوية بحسب المقاس والمسار المحددين للمعدة والموقع. يجب أن يراجع فني مختص مواصفات المدخنة وتصريف العادم، وأن يحدد فني التكييف مسارات المواسير قبل الحفر. للفتحات المرتبطة بجهاز شفط، راجع <Link href="/hoods" className="text-emerald-700 underline hover:text-emerald-800">تأسيس وتركيب شفاط المطبخ بالقاهرة والجيزة</Link> لتحديد نطاق التركيب والدكت، وليس التخريم وحده.
  </p>
  <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-slate-700 leading-7">
     ⚠️ <strong>تنبيه السلامة:</strong> لا يكفي حفر الفتحة لضمان سلامة السخان؛ يجب تركيب المدخنة واختبارها وفق تعليمات الشركة المصنّعة وعلى يد فني مؤهل.
@@ -427,6 +347,18 @@ export default function CorePage() {
  <p className="mt-4">
  يتوقف قطر البنطة المتاح على المعدة المستخدمة وسماكة الخرسانة ومكان التثبيت. لذلك نؤكد الإمكانية بعد مراجعة المقاس والموقع، ولا نعتمد جدولاً ثابتاً قد لا يناسب جميع أنواع المواسير أو ظروف المبنى.
  </p>
+ <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+ <table className="w-full min-w-[32rem] text-right text-base">
+ <caption className="p-4 text-right font-bold text-slate-900">المعلومات اللازمة لتحديد المقاس حسب الاستخدام</caption>
+ <thead className="bg-slate-100"><tr><th scope="col" className="p-4">الاستخدام</th><th scope="col" className="p-4">ما الذي ترسله؟</th><th scope="col" className="p-4">ما الذي يُراجع؟</th></tr></thead>
+ <tbody>
+ <tr className="border-t border-slate-200"><th scope="row" className="p-4">ماسورة غاز أو سباكة</th><td className="p-4">القطر الخارجي ومسار الماسورة</td><td className="p-4">الجلبة والخلوص والميل بحسب توجيه فني التمديدات</td></tr>
+ <tr className="border-t border-slate-200"><th scope="row" className="p-4">تمديدات تكييف</th><td className="p-4">مقاسات المواسير والعزل والصرف</td><td className="p-4">حيز مرور المجموعة والميل وموضع الخروج</td></tr>
+ <tr className="border-t border-slate-200"><th scope="row" className="p-4">دكت شفاط أو تهوية</th><td className="p-4">موديل الجهاز ومقاس الدكت المعتمد</td><td className="p-4">مسار الطرد والوصلات وتعليمات التركيب</td></tr>
+ <tr className="border-t border-slate-200"><th scope="row" className="p-4">عدة فتحات في مشروع</th><td className="p-4">مخطط بمواقع الفتحات وأقطارها وعددها</td><td className="p-4">تعارض الخدمات والتسليح وتسلسل التنفيذ والاعتمادات</td></tr>
+ </tbody>
+ </table>
+ </div>
  </Section>
 
  <Section
@@ -445,11 +377,48 @@ export default function CorePage() {
   للحصول على تقدير، أرسل عدد الفتحات وأقطارها وسماكات الجدران أو البلاطات وموقع المشروع وصورة للمكان. تُراجع التفاصيل قبل تثبيت نطاق العمل والتكلفة. راجع <a href="/prices#core-pricing" className="text-emerald-800 underline">تفاصيل تسعير فتحة الكور</a> وما يشمله عرض العمل.
  </p>
   <p className="mt-4">قبل اختيار مقدم الخدمة، راجع <a href="/blog/best-core-hole-technician" className="text-emerald-800 underline">سبعة أسئلة تسألها لصنايعي الكور</a> حول المقاس والتثبيت والمياه ونطاق العمل.</p>
+ <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+ <h3 className="text-lg font-bold">قبل اعتماد عرض السعر</h3>
+ <p>اطلب توضيح الأجور والانتقال وتجهيز الموقع وتجميع المياه وإزالة المخلفات، وما إذا كانت المعاينة مدفوعة أو تخصم من التنفيذ. تغيير القطر أو العدد أو موضع الفتحة بعد الاتفاق قد يغير نطاق العمل والتكلفة.</p>
+ </div>
+ </Section>
+
+ <Section id="work-photos" title="صور تخريم الكور: اتجاه الحفر يغيّر التجهيز">
+ <p>توضح الصور المستخدمة في هذه الصفحة تخريمًا رأسيًا وأفقيًا وفتحات متجاورة. راجع المثال الأقرب لطلبك، ثم أرسل صور موقعك؛ فالمقاس والسماكة والاعتماد المطلوب لا يمكن تأكيدها من صورة مشابهة وحدها.</p>
+ <div className="mt-6 grid gap-6 sm:grid-cols-2">
+ {corePhotos.map(photo => <figure key={photo.src} className="m-0 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+ <a href={photo.src} data-lightbox-src={photo.src} aria-label={`تكبير الصورة: ${photo.caption}`} className="block relative aspect-[4/3] overflow-hidden">
+ <Image src={photo} alt={photo.alt} fill className="object-cover" />
+ </a>
+ <figcaption className="p-5"><strong className="block font-bold text-slate-900">{photo.caption}</strong><span className="mt-2 block text-base leading-8">{photo.detail}</span></figcaption>
+ </figure>)}
+ </div>
+ </Section>
+
+ <Section id="service-areas" title="مناطق خدمة صنايعي كور بالقاهرة والجيزة">
+ <p>نراجع طلبات تخريم الكور في المناطق التالية، ويُؤكد الوصول وتكلفة الانتقال والموعد بعد معرفة العنوان والطابق وتجهيزات الموقع. هذه مناطق خدمة وليست عناوين فروع.</p>
+ <ul className="grid gap-2 sm:grid-cols-2 list-disc">
+ {coreService.areas.map(area => <li key={area}>{area}</li>)}
+ </ul>
+ <p>للتفاصيل المحلية، راجع <a href="/concrete-cutting-tagamoa" className="text-emerald-800 underline">أعمال الكور والقص في التجمع الخامس</a>، أو <a href="/concrete-cutting-october" className="text-emerald-800 underline">خدمات 6 أكتوبر والشيخ زايد</a>. وإذا كان المشروع في الإسكندرية، استخدم <a href="/concrete-cutting-alexandria" className="text-emerald-800 underline">صفحة قص الخرسانة وفتحات الكور بالإسكندرية</a> للتواصل مع القسم المختص.</p>
+ </Section>
+
+ <Section id="request" title="اطلب فني كور: جهّز بيانات الفتحة">
+ <p>تساعد البيانات التالية على مراجعة طلبك وتحديد الحاجة إلى معاينة، بدل تسعير فتحة لا تتضح ظروفها:</p>
+ <ul className="list-disc space-y-2">
+ <li>المنطقة والعنوان والطابق، وإمكانية الوصول لمكان الحفر من الجانبين.</li>
+ <li>صورة عامة للمكان وصورة قريبة للموضع، ومخطط الخدمات إن توفر.</li>
+ <li>عدد الفتحات واستخدام كل فتحة وقطرها، وسماكة الجدار أو السقف إن عُرفت.</li>
+ <li>حالة التشطيب وقيود الصوت والمياه ومواعيد دخول المعدات.</li>
+ <li>اعتماد المهندس عند ارتباط العمل بعنصر إنشائي.</li>
+ </ul>
+ <a href={REQUEST_WHATSAPP} className="mt-4 inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-6 py-4 font-bold text-white">جهّز طلب تخريم الكور على واتساب</a>
+ <p className="mt-3 text-base">يفتح الرابط رسالة جاهزة لتكمل بياناتها وترفق الصور بنفسك؛ لا يؤكد حجزًا تلقائيًا. يمكنك أيضًا الاتصال على <a href={`tel:${PHONE_INT}`} className="text-emerald-800 underline"><bdi>{PHONE_NUM}</bdi></a>.</p>
  </Section>
 
  <Section
  id="faq"
-  title="أسئلة شائعة عن تخريم الكور في الخرسانة"
+  title="أسئلة قبل حجز صنايعي كور"
  >
  <div className="space-y-4">
  {faq.map((item, i) => (
@@ -458,7 +427,7 @@ export default function CorePage() {
  <span>{item.q}</span>
  <span className="text-emerald-600 group-open:rotate-180 transition p-1 bg-emerald-50 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
  </summary>
- <p className="mt-6 text-slate-700 leading-9 text-sm bg-slate-50 p-5 md:p-8 rounded-[32px] border-r-8 border-emerald-500 shadow-inner">{item.a}</p>
+ <p className="mt-6 text-slate-700 leading-9 text-base bg-slate-50 p-5 md:p-8 rounded-[32px] border-r-8 border-emerald-500 shadow-inner">{item.a}</p>
  </details>
  ))}
  </div>
@@ -470,7 +439,7 @@ export default function CorePage() {
  <aside className="space-y-6 min-w-0">
  <div className="p-8 rounded-[40px] bg-white border border-black/10 shadow-lg">
  <h3 className="font-extrabold text-2xl text-slate-900 mb-4">تنفيذ يبدأ بمراجعة الموقع</h3>
- <p className="text-slate-600 text-sm leading-7 mb-6">
+ <p className="text-slate-600 text-base leading-8 mb-6">
  ننفذ فتحات الكور بعد مراجعة الاستخدام ومقاس الفتحة وظروف الموقع، ونوضح نطاق العمل والتكلفة قبل تحديد موعد التنفيذ.
  </p>
  <div className="space-y-4">
@@ -499,9 +468,9 @@ export default function CorePage() {
  <div className="p-8 rounded-[40px] bg-emerald-600 text-white shadow-xl relative overflow-hidden group">
  <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-16 -mt-16 blur-2xl" />
  <h3 className="font-black text-2xl mb-4">اطلب معاينة لتخريم الكور</h3>
- <p className="text-emerald-100 text-sm mb-6 leading-7">سيقوم فريقنا بالرد عليك فوراً وتحديد التكلفة المبدئية وإرسال <strong>فني كور</strong> متخصص لموقعك.</p>
+ <p className="text-emerald-100 text-base mb-6 leading-8">أرسل صور الموقع والمقاسات والعنوان لمراجعة الطلب وتحديد الحاجة إلى معاينة. نؤكد نطاق العمل والتكلفة والموعد قبل الحجز.</p>
  <Link
- href={WHATSAPP}
+ href={REQUEST_WHATSAPP}
  className="block w-full text-center py-5 rounded-3xl bg-white text-emerald-900 font-black text-xl hover:scale-[1.02] transition shadow-lg"
  >
  تواصل واتسـاب
