@@ -68,7 +68,7 @@ for (const [route, page] of pages) {
     '/': 'قص وتخريم الخرسانة في مصر | كور برو - 01021507462',
     '/core': 'أفضل صنايعي كور لعمل أي فتحة كور وتخريم جدار خرساني - 01021507462',
     '/saw': 'قص الخرسانة بالمنشار الماسي وفتح الجدران والأسقف - 01021507462',
-    '/hoods': 'تأسيس وتركيب شفاط المطبخ - 01015218216',
+    '/hoods': 'تأسيس وتركيب شفاط المطبخ بالقاهرة والجيزة - 01015218216',
     '/hoods-blowers-alexandria': 'تركيب وتأسيس الشفاطات والبلاورات في الإسكندرية - 01094496839',
   };
   if (requiredTitles[route] && (clean(visibleText(headings[0])) !== requiredTitles[route] || clean(visibleText(titles[0])) !== requiredTitles[route])) fail(route, 'requested title/H1 changed');
