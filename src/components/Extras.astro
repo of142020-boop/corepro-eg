@@ -3,7 +3,7 @@ import { Phone, ArrowUp } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { getPageContact } from '../lib/contact';
 
-const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
+const { phone: PHONE, international: PHONE_INT, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
 ---
 
 {/* Desktop: icons only */}
@@ -23,7 +23,7 @@ const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
  </a>
 
  <a
- href={`tel:${PHONE}`}
+ href={`tel:${PHONE_INT}`}
  aria-label={`اتصال: ${PHONE}`}
  itemprop="telephone"
  class="tel group relative grid h-12 w-12 place-items-center rounded-full border border-black/10 backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:scale-[1.04] active:scale-[0.98] bg-white text-slate-900 hover:bg-slate-50"
@@ -41,7 +41,7 @@ const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
  <div class="rounded-3xl border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] p-2">
  <div class="grid grid-cols-2 gap-2">
  <a
- href={`tel:${PHONE}`}
+ href={`tel:${PHONE_INT}`}
  itemprop="telephone"
  class="tel inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-3 py-3 font-extrabold text-slate-900"
  aria-label={`اتصال: ${PHONE}`}
@@ -69,20 +69,21 @@ const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
  id="scroll-to-top"
  type="button"
  aria-label="العودة للأعلى"
- class="fixed z-50 hidden md:right-6 md:bottom-[145px] right-4 bottom-20 h-12 w-12 rounded-full border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] grid place-items-center hover:bg-white transition"
+ class="fixed z-50 hidden md:right-6 md:bottom-[145px] right-4 bottom-24 h-12 w-12 rounded-full border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_16px_60px_rgba(0,0,0,0.18)] place-items-center hover:bg-white transition"
 >
  <ArrowUp className="h-5 w-5 text-slate-900" />
 </button>
 
 <script>
-  // ---- Scroll to top ----
   const scrollBtn = document.getElementById('scroll-to-top');
   if (scrollBtn) {
     const onScroll = () => {
       if (window.scrollY > 500) {
         scrollBtn.classList.remove('hidden');
+        scrollBtn.classList.add('grid');
       } else {
         scrollBtn.classList.add('hidden');
+        scrollBtn.classList.remove('grid');
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -92,5 +93,4 @@ const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
 </script>

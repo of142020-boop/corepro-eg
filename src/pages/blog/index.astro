@@ -37,9 +37,7 @@ const jsonLd = {
  description: 'مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات',
  url: `${SITE}/blog`,
  publisher: {
- '@type': 'Organization',
- name: 'كور برو - Core Pro',
- logo: { '@type': 'ImageObject', url: `${SITE}/logo-header-116x154.webp` },
+ '@id': `${SITE}/#organization`,
  },
  blogPost: posts.slice(0, 10).map(p => ({
  '@type': 'BlogPosting',
@@ -56,6 +54,6 @@ const jsonLd = {
  description="مقالات احترافية عن تقنيات قص وتخريم الخرسانة المسلحة، نصائح السلامة، أحدث المعدات، وأفضل الممارسات في مصر."
  canonical={`${SITE}/blog`}
 >
- <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+ <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
  <BlogControls posts={posts as any} client:load />
 </Layout>

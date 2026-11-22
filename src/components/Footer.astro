@@ -1,14 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { MapPin, Phone, ShieldCheck, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import logoImg from "../assets/logo-header.webp";
 import { getPageContact } from '../lib/contact';
 
 const BRAND = "كور برو - Core Pro";
-const { phone: PHONE, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
+const { phone: PHONE, international: PHONE_INT, whatsapp: WHATSAPP } = getPageContact(Astro.url.pathname);
 const EMAIL = "info@corepro-eg.com";
-const ADDRESS = Astro.url.pathname === '/hoods-blowers-alexandria' ? 'المقر: الحي العاشر، مدينة نصر — خدمات الإسكندرية حسب الموقع' : 'الحي العاشر مدينة نصر - مصر';
+const isAlexandriaPage = Astro.url.pathname === '/hoods-blowers-alexandria' || Astro.url.pathname === '/concrete-cutting-alexandria';
+const ADDRESS = isAlexandriaPage ? 'المقر: الحي العاشر، مدينة نصر — خدمات الإسكندرية حسب الموقع' : 'الحي العاشر مدينة نصر - مصر';
 const YEAR = new Date().getFullYear();
 const SOCIAL_USER = "corproeg";
 
@@ -29,8 +30,8 @@ const SOCIAL = [
  <div class="h-12 w-12 rounded-2xl bg-white border border-black/10 shadow-sm grid place-items-center overflow-hidden">
  <Image
  src={logoImg}
- alt={`${BRAND} logo`}
- width={40}
+ alt={`شعار ${BRAND}`}
+ width={30}
  height={40}
  class="h-10 w-auto object-contain"
  loading="lazy"
@@ -50,7 +51,7 @@ const SOCIAL = [
  </div>
  <div class="flex items-center gap-2">
  <Phone className="h-4 w-4 text-white/80" />
- <a class="hover:text-white underline-offset-4 hover:underline" href={`tel:${PHONE}`}>{PHONE}</a>
+ <a class="hover:text-white underline-offset-4 hover:underline" href={`tel:${PHONE_INT}`}><bdi>{PHONE}</bdi></a>
  </div>
  <div class="flex items-center gap-2">
  <Mail className="h-4 w-4 text-white/80" />
@@ -131,24 +132,23 @@ const SOCIAL = [
  <div>
  <div class="text-lg font-extrabold mb-4">احجز معاينة الآن</div>
  <div class="space-y-3">
- <a href={`tel:${PHONE}`} class="flex items-center justify-center gap-2 rounded-2xl bg-white text-slate-900 py-3 font-extrabold hover:bg-slate-200 transition" aria-label="اتصال مباشر">
+ <a href={`tel:${PHONE_INT}`} class="flex items-center justify-center gap-2 rounded-2xl bg-white text-slate-900 py-3 font-extrabold hover:bg-slate-200 transition" aria-label={`اتصال مباشر ${PHONE}`}>
  <Phone className="h-4 w-4" />
  اتصال مباشر
  </a>
- <a href={WHATSAPP} class="flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 py-3 font-extrabold hover:bg-emerald-700 transition" aria-label="محادثة واتساب">
+ <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 py-3 font-extrabold hover:bg-emerald-700 transition" aria-label="محادثة واتساب">
  <FaWhatsapp className="h-4 w-4" />
  واتساب
  </a>
  </div>
  <div class="mt-6 flex items-start gap-2 text-sm text-white/85">
- 
  تحديد طريقة التنفيذ والتجهيزات بعد مراجعة الموقع.
  </div>
  </div>
  </div>
 
  <div class="mt-12 border-t border-white/10 pt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-white/85">
- <div> {YEAR} {BRAND}. جميع الحقوق محفوظة.</div>
+ <div>© {YEAR} {BRAND}. جميع الحقوق محفوظة.</div>
  <div class="flex flex-wrap gap-4">
  <a href="/" class="hover:text-white transition">الرئيسية</a>
  <a href="/core" class="hover:text-white transition">الكور</a>

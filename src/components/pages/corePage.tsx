@@ -14,7 +14,6 @@ const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{chi
 
 import { MapPin, Phone, Maximize } from "lucide-react";
 
-const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = coreService.canonical;
 const PHONE_NUM = "01021507462";
@@ -27,14 +26,12 @@ const IMG_HERO = corePhotos[0];
 function Section({
  title,
  subtitle,
- icon,
  children,
  id,
  level = 2,
 }: {
  title: string;
  subtitle?: string;
- icon?: React.ReactNode;
  children: React.ReactNode;
  id?: string;
  level?: 2 | 3;
@@ -108,23 +105,13 @@ export default function CorePage() {
  },
  ];
 
- const jsonLdOrganization = {
- "@context": "https://schema.org",
- "@type": "Organization",
- "@id": `${DOMAIN}/#core-provider`,
- name: BRAND,
- url: DOMAIN,
- telephone: PHONE_INT,
-
- };
-
  const jsonLdService = {
  "@context": "https://schema.org",
  "@type": "Service",
  "@id": `${CANONICAL}#service`,
  name: coreService.heading,
  serviceType: "Concrete core drilling",
- provider: { "@id": `${DOMAIN}/#core-provider` },
+ provider: { "@id": `${DOMAIN}/#organization` },
  areaServed: coreService.areas.map(name => ({ "@type": "Place", name })),
  url: CANONICAL,
  description: coreService.description,
@@ -139,15 +126,6 @@ export default function CorePage() {
  name: x.q,
  acceptedAnswer: { "@type": "Answer", text: x.a },
  })),
- };
-
- const jsonLdBreadcrumb = {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- itemListElement: [
- { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
- { "@type": "ListItem", position: 2, name: "صنايعي كور وتخريم الخرسانة", item: CANONICAL },
- ],
  };
 
  const jsonLdWebPage = {
@@ -178,10 +156,8 @@ export default function CorePage() {
  type="application/ld+json"
  dangerouslySetInnerHTML={{
  __html: JSON.stringify([
- jsonLdOrganization,
  jsonLdService,
  jsonLdFaq,
-  jsonLdBreadcrumb,
  jsonLdWebPage,
  ...jsonLdImageObjects,
  ]),
@@ -217,6 +193,8 @@ export default function CorePage() {
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
  href={REQUEST_WHATSAPP}
+ target="_blank"
+ rel="noopener noreferrer"
  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:bg-emerald-700 transition transform hover:-translate-y-1 text-lg md:text-xl"
  >
  <Phone className="h-6 w-6" />
@@ -283,7 +261,7 @@ export default function CorePage() {
   نجهز <strong>فتحات مدخنة السخان</strong> وتمديدات التكييف والتهوية بحسب المقاس والمسار المحددين للمعدة والموقع. يجب أن يراجع فني مختص مواصفات المدخنة وتصريف العادم، وأن يحدد فني التكييف مسارات المواسير قبل الحفر. للفتحات المرتبطة بجهاز شفط، راجع <Link href="/hoods" className="text-emerald-700 underline hover:text-emerald-800">تأسيس وتركيب شفاط المطبخ بالقاهرة والجيزة</Link> لتحديد نطاق التركيب والدكت، وليس التخريم وحده.
  </p>
  <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-slate-700 leading-7">
-    ⚠️ <strong>تنبيه السلامة:</strong> لا يكفي حفر الفتحة لضمان سلامة السخان؛ يجب تركيب المدخنة واختبارها وفق تعليمات الشركة المصنّعة وعلى يد فني مؤهل.
+    <strong>تنبيه السلامة:</strong> لا يكفي حفر الفتحة لضمان سلامة السخان؛ يجب تركيب المدخنة واختبارها وفق تعليمات الشركة المصنّعة وعلى يد فني مؤهل.
  </div>
  </div>
  <div>
@@ -412,7 +390,7 @@ export default function CorePage() {
  <li>حالة التشطيب وقيود الصوت والمياه ومواعيد دخول المعدات.</li>
  <li>اعتماد المهندس عند ارتباط العمل بعنصر إنشائي.</li>
  </ul>
- <a href={REQUEST_WHATSAPP} className="mt-4 inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-6 py-4 font-bold text-white">جهّز طلب تخريم الكور على واتساب</a>
+ <a href={REQUEST_WHATSAPP} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-6 py-4 font-bold text-white">جهّز طلب تخريم الكور على واتساب</a>
  <p className="mt-3 text-base">يفتح الرابط رسالة جاهزة لتكمل بياناتها وترفق الصور بنفسك؛ لا يؤكد حجزًا تلقائيًا. يمكنك أيضًا الاتصال على <a href={`tel:${PHONE_INT}`} className="text-emerald-800 underline"><bdi>{PHONE_NUM}</bdi></a>.</p>
  </Section>
 
@@ -458,7 +436,7 @@ export default function CorePage() {
  { href: "/wire", label: "قص بالواير الماسي" },
  ].map((s) => (
  <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-emerald-700 hover:underline py-1">
- <span className="text-emerald-600">›</span>
+ <span className="text-emerald-600" aria-hidden="true">‹</span>
  {s.label}
  </a>
  ))}
@@ -471,9 +449,11 @@ export default function CorePage() {
  <p className="text-emerald-100 text-base mb-6 leading-8">أرسل صور الموقع والمقاسات والعنوان لمراجعة الطلب وتحديد الحاجة إلى معاينة. نؤكد نطاق العمل والتكلفة والموعد قبل الحجز.</p>
  <Link
  href={REQUEST_WHATSAPP}
+ target="_blank"
+ rel="noopener noreferrer"
  className="block w-full text-center py-5 rounded-3xl bg-white text-emerald-900 font-black text-xl hover:scale-[1.02] transition shadow-lg"
  >
- تواصل واتسـاب
+ تواصل واتساب
  </Link>
  </div>
 

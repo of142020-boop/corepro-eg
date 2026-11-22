@@ -1,9 +1,13 @@
 ---
+const EMPTY_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E";
 ---
 <div
   id="global-lightbox"
-  class="fixed inset-0 z-[2000] bg-black/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 cursor-zoom-out"
+  class="fixed inset-0 z-[2000] bg-black/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 items-center justify-center p-4 cursor-zoom-out"
   dir="ltr"
+  role="dialog"
+  aria-modal="true"
+  aria-label="عارض الصور"
 >
   <!-- Top Bar -->
   <div class="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-10 pointer-events-none">
@@ -12,88 +16,104 @@
     </div>
     <button
       id="lightbox-close"
+      type="button"
       class="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition cursor-pointer pointer-events-auto backdrop-blur-sm"
       aria-label="إغلاق"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
   </div>
 
   <!-- Prev/Next Buttons -->
-  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition hidden z-10" aria-label="السابق">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  <button id="lightbox-prev" type="button" class="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition hidden z-10" aria-label="السابق">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
   </button>
-  
-  <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition hidden z-10" aria-label="التالي">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+
+  <button id="lightbox-next" type="button" class="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition hidden z-10" aria-label="التالي">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
   </button>
 
   <div class="relative w-full h-full flex items-center justify-center">
     <img
       id="lightbox-img"
-      src=""
-      alt="Core Pro Gallary"
-      class="max-w-full max-h-full object-contain rounded-none shadow-2xl scale-95 transition-transform duration-300 select-none"
+      src={EMPTY_IMG}
+      alt="معرض صور كور برو"
+      width="1200"
+      height="900"
+      class="max-w-full max-h-full object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300 select-none"
       draggable="false"
     />
   </div>
 </div>
 
 <script>
-  function initLightbox() {
-    const lightbox = document.getElementById('global-lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-    const closeBtn = document.getElementById('lightbox-close');
-    const prevBtn = document.getElementById('lightbox-prev');
-    const nextBtn = document.getElementById('lightbox-next');
-    const counter = document.getElementById('lightbox-counter');
+  const EMPTY_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E";
 
-    if (!lightbox || !lightboxImg) return;
+  function initLightbox() {
+    const win = window as unknown as { __cpLightboxBound?: boolean };
+    if (win.__cpLightboxBound) return;
+    win.__cpLightboxBound = true;
 
     let gallery: string[] = [];
     let currentIndex = 0;
 
+    const getEls = () => ({
+      lightbox: document.getElementById('global-lightbox'),
+      lightboxImg: document.getElementById('lightbox-img') as HTMLImageElement | null,
+      prevBtn: document.getElementById('lightbox-prev'),
+      nextBtn: document.getElementById('lightbox-next'),
+      counter: document.getElementById('lightbox-counter'),
+    });
+
     function updateView() {
-      if (gallery.length > 0) {
-        lightboxImg.src = gallery[currentIndex];
-        if (counter) counter.innerText = `${currentIndex + 1} / ${gallery.length}`;
-        
-        if (gallery.length > 1) {
-          prevBtn?.classList.remove('hidden');
-          nextBtn?.classList.remove('hidden');
-          if (counter) counter.classList.remove('hidden');
-        } else {
-          prevBtn?.classList.add('hidden');
-          nextBtn?.classList.add('hidden');
-          if (counter) counter.classList.add('hidden');
-        }
+      const { lightboxImg, prevBtn, nextBtn, counter } = getEls();
+      if (!lightboxImg || gallery.length === 0) return;
+      lightboxImg.src = gallery[currentIndex];
+      if (counter) counter.innerText = `${currentIndex + 1} / ${gallery.length}`;
+
+      if (gallery.length > 1) {
+        prevBtn?.classList.remove('hidden');
+        nextBtn?.classList.remove('hidden');
+        counter?.classList.remove('hidden');
+      } else {
+        prevBtn?.classList.add('hidden');
+        nextBtn?.classList.add('hidden');
+        counter?.classList.add('hidden');
       }
     }
 
     function openGallery(images: string[], index = 0) {
+      const { lightbox, lightboxImg } = getEls();
+      if (!lightbox || !lightboxImg) return;
       gallery = images;
       currentIndex = index;
       updateView();
 
-      lightbox?.classList.remove('hidden');
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
       setTimeout(() => {
-        lightbox?.classList.add('opacity-100');
-        lightboxImg?.classList.remove('scale-95');
-        lightboxImg?.classList.add('scale-100');
+        lightbox.classList.add('opacity-100');
+        lightboxImg.classList.remove('scale-95');
+        lightboxImg.classList.add('scale-100');
       }, 10);
       document.body.style.overflow = 'hidden';
     }
 
     function close() {
-      lightbox?.classList.remove('opacity-100');
-      lightboxImg?.classList.remove('scale-100');
-      lightboxImg?.classList.add('scale-95');
+      const { lightbox, lightboxImg } = getEls();
+      if (!lightbox || !lightboxImg) return;
+      lightbox.classList.remove('opacity-100');
+      lightboxImg.classList.remove('scale-100');
+      lightboxImg.classList.add('scale-95');
       setTimeout(() => {
-        lightbox?.classList.add('hidden');
-        lightboxImg.src = '';
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = EMPTY_IMG;
         gallery = [];
       }, 300);
-      document.body.style.overflow = '';
+      if (!document.querySelector('[data-modal-open="true"]')) {
+        document.body.style.overflow = '';
+      }
     }
 
     function nextImage() {
@@ -108,22 +128,41 @@
       updateView();
     }
 
-    // Event Delegation for both single images and galleries
     document.addEventListener('click', (e) => {
-      const target = (e.target as HTMLElement).closest('[data-lightbox-src], [data-lightbox-gallery]');
+      const el = e.target as HTMLElement | null;
+      if (!el) return;
+
+      const { lightbox } = getEls();
+      if (lightbox && lightbox.contains(el)) {
+        if (el === lightbox || el.closest('#lightbox-close') || (el.tagName === 'IMG' && el.id !== 'lightbox-img')) {
+          close();
+          return;
+        }
+        if (el.closest('#lightbox-next')) {
+          nextImage();
+          return;
+        }
+        if (el.closest('#lightbox-prev')) {
+          prevImage();
+          return;
+        }
+        return;
+      }
+
+      const target = el.closest('[data-lightbox-src], [data-lightbox-gallery]');
       if (target) {
         e.preventDefault();
         const galleryAttr = target.getAttribute('data-lightbox-gallery');
         const singleSrc = target.getAttribute('data-lightbox-src');
         const indexAttr = target.getAttribute('data-lightbox-index');
         const index = indexAttr ? parseInt(indexAttr, 10) : 0;
-        
+
         if (galleryAttr) {
           try {
             const arr = JSON.parse(galleryAttr);
             if (Array.isArray(arr) && arr.length > 0) openGallery(arr, index);
-          } catch(err) {
-            console.error("Invalid gallery JSON");
+          } catch {
+            // ignore malformed gallery JSON
           }
         } else if (singleSrc) {
           openGallery([singleSrc]);
@@ -131,24 +170,15 @@
       }
     });
 
-    lightbox.addEventListener('click', (e) => {
-      const t = e.target as HTMLElement;
-      if (t === lightbox || t.closest('#lightbox-close') || t.tagName === 'IMG' && t.id !== 'lightbox-img') close();
-      if (t.closest('#lightbox-next')) nextImage();
-      if (t.closest('#lightbox-prev')) prevImage();
-    });
-
-    // Keyboard support
     document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('hidden')) {
+      const { lightbox } = getEls();
+      if (lightbox && !lightbox.classList.contains('hidden')) {
         if (e.key === 'Escape') close();
-        if (e.key === 'ArrowRight') nextImage(); // LTR UI
+        if (e.key === 'ArrowRight') nextImage();
         if (e.key === 'ArrowLeft') prevImage();
       }
     });
   }
 
-  // Init
   initLightbox();
-  document.addEventListener('astro:after-swap', initLightbox);
 </script>

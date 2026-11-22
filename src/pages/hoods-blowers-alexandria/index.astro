@@ -34,7 +34,7 @@ const structuredData = [
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) },
 ];
 ---
-<Layout title={title} description={description} canonical={canonical} geoRegion="EG-ALX" geoPlacename="Alexandria, Egypt" geoPosition="31.2001;29.9187">
+<Layout title={title} description={description} canonical={canonical} image="/images/hoods-alexandria/kitchen-wall-hood-900.webp" ogImageAlt="تركيب وتأسيس الشفاطات والبلاورات في الإسكندرية - كور برو" geoRegion="EG-ALX" geoPlacename="Alexandria, Egypt" geoPosition="31.2001;29.9187">
   <Fragment slot="head"><script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\u003c')} /></Fragment>
   <BreadcrumbNav items={[{ label: 'الرئيسية', href: '/' }, { label: 'الشفاطات والبلاورات في الإسكندرية' }]} />
   <div class="alex-hoods">
@@ -69,7 +69,7 @@ const structuredData = [
         <section id="faq"><h2>أسئلة عن تركيب الشفاطات والبلاورات بالإسكندرية</h2>{faqs.map(item => <details class="alex-faq"><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
         <section class="alex-city-link"><h2>الخدمة خارج الإسكندرية؟</h2><p>للقاهرة والجيزة والمدن الجديدة راجع <a href="/hoods">تأسيس وتركيب شفاط المطبخ بالقاهرة والجيزة</a> واتصل بالقسم المخصص على <bdi>01015218216</bdi>. لطلبات الإسكندرية استخدم أزرار التواصل في هذه الصفحة.</p></section>
       </article>
-      <aside class="alex-sidebar"><div class="alex-card"><p class="cp-eyebrow">قسم الإسكندرية</p><h2>قبل تحديد الموعد</h2><ul><li>المنطقة ونوع المكان</li><li>الموديل وصور الموقع</li><li>تأسيس جديد أم تعديل قائم؟</li><li>الفتحة ومسار الطرد المتاح</li></ul><a class="cp-btn cp-btn-orange" href={contact.whatsapp}>أرسل الصور والتفاصيل</a><a class="alex-side-phone" href={`tel:${contact.international}`}><Phone size={17} /><bdi>{contact.phone}</bdi></a><p class="alex-small">خدمة مستقلة؛ تأكيد النطاق والتغطية والتكلفة قبل الحجز.</p></div><div class="alex-card"><h2>أدلة تساعدك على الاختيار</h2><a href="/blog/chimney-vs-carbon-filter-hood">الطرد الخارجي أم فلتر الكربون؟</a><a href="/blog/hoods-installation-expert">تجهيز تركيب شفاط المطبخ</a><a href="/concrete-cutting-alexandria">خدمات فتحات الكور بالإسكندرية</a><a href="/hoods">تركيب الشفاطات بالقاهرة والجيزة</a></div></aside>
+      <aside class="alex-sidebar"><div class="alex-card"><p class="cp-eyebrow">قسم الإسكندرية</p><h2>قبل تحديد الموعد</h2><ul><li>المنطقة ونوع المكان</li><li>الموديل وصور الموقع</li><li>تأسيس جديد أم تعديل قائم؟</li><li>الفتحة ومسار الطرد المتاح</li></ul><a class="cp-btn cp-btn-orange" href={contact.whatsapp} target="_blank" rel="noopener noreferrer">أرسل الصور والتفاصيل</a><a class="alex-side-phone" href={`tel:${contact.international}`}><Phone size={17} /><bdi>{contact.phone}</bdi></a><p class="alex-small">خدمة مستقلة؛ تأكيد النطاق والتغطية والتكلفة قبل الحجز.</p></div><div class="alex-card"><h2>أدلة تساعدك على الاختيار</h2><a href="/blog/chimney-vs-carbon-filter-hood">الطرد الخارجي أم فلتر الكربون؟</a><a href="/blog/hoods-installation-expert">تجهيز تركيب شفاط المطبخ</a><a href="/concrete-cutting-alexandria">خدمات فتحات الكور بالإسكندرية</a><a href="/hoods">تركيب الشفاطات بالقاهرة والجيزة</a></div></aside>
     </div>
   </div>
 </Layout>

@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import { Maximize, ChevronRight } from "lucide-react";
+import { Maximize, ChevronLeft } from "lucide-react";
 
 export async function getStaticPaths() {
  const posts = await getCollection('blog');
@@ -18,16 +18,22 @@ const { Content } = await render(post);
 
 const SITE = 'https://corepro-eg.com';
 const BRAND = 'كور برو مصر';
+const isAlexandriaPost = slug.includes('alexandria');
+const CTA_PHONE = isAlexandriaPost ? '01094496839' : '01021507462';
+const CTA_PHONE_INT = `+20${CTA_PHONE.slice(1)}`;
+const CTA_WHATSAPP = `https://wa.me/${CTA_PHONE_INT.slice(1)}`;
 
 // Reading time
 const wordCount = (post.body ?? '').trim().split(/\s+/).length;
 const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+const formatReadingTime = (m: number) =>
+ m <= 1 ? 'دقيقة واحدة للقراءة' : m === 2 ? 'دقيقتان للقراءة' : m <= 10 ? `${m} دقائق قراءة` : `${m} دقيقة قراءة`;
 
-// Related posts (same category, exclude current)
+// Related posts (same category, deterministic order, exclude current)
 const allPosts = await getCollection('blog');
 const relatedRaw = allPosts
  .filter(p => p.slug !== slug && p.data.category && p.data.category === post.data.category)
- .sort(() => Math.random() - 0.5)
+ .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
  .slice(0, 3);
 const relatedPosts = relatedRaw.length ? relatedRaw : allPosts.filter(p => p.slug !== slug).slice(0, 3);
 
@@ -55,7 +61,7 @@ const shareLinks = {
  twitter: `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`,
 };
 
-// JSON-LD
+// JSON-LD (references global @id Organization from Layout.astro)
 const jsonLd = {
  '@context': 'https://schema.org',
  '@type': 'Article',
@@ -64,12 +70,8 @@ const jsonLd = {
  image: ogImage,
  datePublished: publishedIso,
  dateModified: modifiedIso,
- author: { '@type': 'Organization', name: BRAND, url: SITE },
- publisher: {
- '@type': 'Organization',
- name: BRAND,
- logo: { '@type': 'ImageObject', url: `${SITE}/logo-header-116x154.webp` },
- },
+ author: { '@id': `${SITE}/#organization` },
+ publisher: { '@id': `${SITE}/#organization` },
  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
  ...(post.data.tags?.length ? { keywords: post.data.tags.join(', ') } : {}),
  ...(post.data.category ? { articleSection: post.data.category } : {}),
@@ -78,7 +80,7 @@ const breadcrumbLd = {
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: SITE },
+ { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE}/` },
  { '@type': 'ListItem', position: 2, name: 'المدونة', item: `${SITE}/blog` },
  { '@type': 'ListItem', position: 3, name: seoTitle, item: canonical },
  ],
@@ -86,7 +88,7 @@ const breadcrumbLd = {
 ---
 
 <Layout
- title={`${seoTitle} | مدونة ${BRAND}`}
+ title={`${seoTitle} | كور برو`}
  description={post.data.description}
  image={ogImage}
  canonical={canonical}
@@ -97,11 +99,11 @@ const breadcrumbLd = {
  articleSection={post.data.category}
  tags={post.data.tags}
 >
- <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
- <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} slot="head" />
+ <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+ <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} slot="head" />
 
- <!-- Reading Progress Bar -->
- <div id="reading-progress" class="fixed top-0 left-0 z-[9999] h-1 bg-emerald-500 transition-all duration-100" style="width:0%"></div>
+ <!-- Reading Progress Bar (RTL: grows from right) -->
+ <div id="reading-progress" class="fixed top-0 right-0 z-[9999] h-1 bg-emerald-500 transition-all duration-100" style="width:0%"></div>
  <script>
  const bar = document.getElementById('reading-progress');
  function updateProgress() {
@@ -109,7 +111,8 @@ const breadcrumbLd = {
  if (!bar || !article) return;
  const scrolled = window.scrollY;
  const totalH = document.documentElement.scrollHeight - window.innerHeight;
- bar.style.width = Math.min(100, (scrolled / totalH) * 100) + '%';
+ const pct = totalH > 0 ? Math.min(100, Math.max(0, (scrolled / totalH) * 100)) : 0;
+ bar.style.width = pct + '%';
  }
  window.addEventListener('scroll', updateProgress, { passive: true });
  updateProgress();
@@ -121,11 +124,11 @@ const breadcrumbLd = {
  <div class="mx-auto max-w-5xl px-4 py-12 md:py-20">
 
  <!-- Breadcrumb -->
- <nav aria-label="مسار التصفح" class="mb-8 flex items-center justify-end gap-2 text-sm text-slate-500 font-bold">
+ <nav aria-label="مسار التصفح" class="mb-8 flex flex-wrap items-center justify-start gap-2 text-sm text-slate-500 font-bold">
  <a href="/" class="hover:text-emerald-600 transition">الرئيسية</a>
- <ChevronRight className="h-4 w-4" />
+ <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden="true" />
  <a href="/blog" class="hover:text-emerald-600 transition">المدونة</a>
- <ChevronRight className="h-4 w-4" />
+ <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden="true" />
  <span class="text-slate-900 line-clamp-1">{post.data.title}</span>
  </nav>
 
@@ -142,24 +145,24 @@ const breadcrumbLd = {
  </span>
  )}
 
- <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight border-r-8 border-emerald-600 pr-5">
+ <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight border-r-4 border-orange-500 pr-5">
  {post.data.title}
  </h1>
 
- <div class="mt-6 flex flex-wrap items-center justify-end gap-4 text-sm text-slate-500 font-bold">
- <time datetime={publishedIso}> {formatDate(post.data.pubDate)}</time>
- <span>⏱ {readingTime} دقائق قراءة</span>
- <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+ <div class="mt-6 flex flex-wrap items-center justify-start gap-4 text-sm text-slate-600 font-bold">
+ <time datetime={publishedIso}>{formatDate(post.data.pubDate)}</time>
+ <span>{formatReadingTime(readingTime)}</span>
+ <span class="w-1.5 h-1.5 rounded-full bg-slate-300" aria-hidden="true"></span>
  <span>{BRAND}</span>
  {post.data.updatedDate && (
- <span class="text-xs text-slate-400">
+ <span class="text-xs text-slate-500">
  تحديث: <time datetime={modifiedIso}>{formatDate(post.data.updatedDate)}</time>
  </span>
  )}
  </div>
 
  {post.data.tags && post.data.tags.length > 0 && (
- <div class="mt-5 flex flex-wrap justify-end gap-2">
+ <div class="mt-5 flex flex-wrap justify-start gap-2">
  {post.data.tags.map((tag) => (
  <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold">{tag}</span>
  ))}
@@ -167,27 +170,25 @@ const breadcrumbLd = {
  )}
  </div>
 
- <div
- class="relative aspect-square rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden cursor-pointer group"
+ {post.data.heroImage && (
+ <a
+ href={post.data.heroImage}
  data-lightbox-src={post.data.heroImage}
+ aria-label={`تكبير صورة المقال: ${post.data.title}`}
+ class="block relative aspect-[4/3] rounded-2xl border-4 border-white bg-white shadow-2xl overflow-hidden cursor-pointer group"
  >
- {post.data.heroImage ? (
- <>
  <img
  src={post.data.heroImage}
  alt={post.data.heroImageAlt || post.data.title}
- width="800" height="800"
+ width="800" height="600"
  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
  loading="eager" fetchpriority="high"
  />
  <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
- <Maximize className="h-12 w-12" />
+ <Maximize className="h-12 w-12" aria-hidden="true" />
  </div>
- </>
- ) : (
- <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300 text-6xl"></div>
+ </a>
  )}
- </div>
  </div>
  </div>
  </header>
@@ -195,7 +196,7 @@ const breadcrumbLd = {
  <!-- Body -->
  <div class="mx-auto max-w-3xl px-4 pt-16">
  {post.data.description && (
- <p class="text-lg text-slate-600 leading-8 mb-10 text-right font-medium border-r-4 border-emerald-400 pr-4 bg-emerald-50 py-4 rounded-l-2xl">
+ <p class="text-lg text-slate-700 leading-8 mb-10 text-right font-medium border-r-4 border-emerald-400 pr-4 bg-emerald-50 py-4 pl-4 rounded-l-2xl">
  {post.data.description}
  </p>
  )}
@@ -206,18 +207,18 @@ const breadcrumbLd = {
 
  <!-- Share Buttons -->
  <div class="mt-16 p-6 bg-slate-50 rounded-2xl border border-slate-200" dir="rtl">
- <p class="text-sm font-black text-slate-700 mb-4 text-right"> شارك هذا المقال:</p>
- <div class="flex flex-wrap gap-3 justify-end">
+ <p class="text-sm font-black text-slate-700 mb-4 text-right">شارك هذا المقال:</p>
+ <div class="flex flex-wrap gap-3 justify-start">
  <a href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer"
- class="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition">
- واتسآب
+ class="flex items-center gap-2 bg-[#166534] text-white px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition">
+ واتساب
  </a>
  <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer"
  class="flex items-center gap-2 bg-[#1877F2] text-white px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition">
  فيسبوك
  </a>
  <a href={shareLinks.telegram} target="_blank" rel="noopener noreferrer"
- class="flex items-center gap-2 bg-[#2AABEE] text-white px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition">
+ class="flex items-center gap-2 bg-[#0284c7] text-white px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition">
  تيليجرام
  </a>
  <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer"
@@ -228,18 +229,18 @@ const breadcrumbLd = {
  </div>
 
  <!-- CTA -->
- <div class="mt-12 p-10 rounded-none border-4 border-slate-900 bg-slate-900 text-white shadow-2xl relative overflow-hidden">
+ <div class="mt-12 p-8 md:p-10 rounded-3xl border border-slate-800 bg-slate-900 text-white shadow-2xl relative overflow-hidden">
  <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-600/20 blur-3xl -mr-24 -mt-24"></div>
- <h3 class="text-3xl font-black mb-4 relative z-10">هل لديك مشروع إنشائي؟</h3>
- <p class="text-slate-300 text-lg mb-8 relative z-10">فريق متخصص بخبرة طويلة في قص وتخريم الخرسانة بكافة أنواعها. تواصل معنا لمعاينة فنية مجانية وعرض سعر.</p>
+ <h2 class="text-2xl md:text-3xl font-black mb-4 relative z-10">هل لديك عمل قص أو تخريم خرسانة؟</h2>
+ <p class="text-slate-300 text-base md:text-lg mb-8 relative z-10 leading-8">أرسل صور الموقع والمقاسات والعنوان لمراجعة طريقة التنفيذ والتجهيزات وتحديد التكلفة والموعد قبل الحجز.</p>
  <div class="flex flex-wrap gap-4 relative z-10">
- <a href="https://wa.me/201021507462" target="_blank" rel="noopener noreferrer"
- class="flex-1 min-w-[200px] bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 rounded-none text-center text-xl shadow-lg transition transform hover:-translate-y-1">
- تواصل معنا الآن (واتس اب)
+ <a href={CTA_WHATSAPP} target="_blank" rel="noopener noreferrer"
+ class="flex-1 min-w-[200px] bg-orange-500 hover:bg-orange-400 text-slate-950 font-black py-4 rounded-2xl text-center text-lg shadow-lg transition transform hover:-translate-y-0.5">
+ أرسل التفاصيل على واتساب
  </a>
- <a href="tel:01021507462"
- class="flex-1 min-w-[200px] bg-white text-slate-900 font-black py-5 rounded-none text-center text-xl shadow-lg transition hover:bg-slate-50">
- اتصل بنا: 01021507462
+ <a href={`tel:${CTA_PHONE_INT}`}
+ class="flex-1 min-w-[200px] bg-white text-slate-900 font-black py-4 rounded-2xl text-center text-lg shadow-lg transition hover:bg-slate-50">
+ اتصل بنا: <bdi>{CTA_PHONE}</bdi>
  </a>
  </div>
  </div>
@@ -276,7 +277,7 @@ const breadcrumbLd = {
  <h3 class="mt-1 text-base font-black text-slate-900 group-hover:text-emerald-700 line-clamp-2 transition">
  {related.data.title}
  </h3>
- <p class="mt-1 text-xs text-slate-500 line-clamp-2">{related.data.description}</p>
+ <p class="mt-1 text-xs text-slate-600 line-clamp-2">{related.data.description}</p>
  </div>
  </a>
  ))}

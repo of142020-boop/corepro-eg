@@ -2,8 +2,10 @@
 import "../assets/globals.css";
 import "../assets/corepro-design.css";
 import "@fontsource/cairo/400.css";
+import "@fontsource/cairo/600.css";
 import "@fontsource/cairo/700.css";
 import "@fontsource/cairo/800.css";
+import "@fontsource/cairo/900.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Extras from "../components/Extras.astro";
@@ -51,6 +53,12 @@ const canonicalUrl = canonical || Astro.url.href;
 const ogImageUrl = image.startsWith("http")
     ? image
     : new URL(image, Astro.site).href;
+const isDefaultOgImage = image === "/og-image.webp";
+const businessLocality =
+    currentPath === "/hoods-blowers-alexandria" ||
+    currentPath === "/concrete-cutting-alexandria"
+        ? "Alexandria"
+        : geoPlacename.split(",")[0]?.trim() || "Cairo";
 
 ---
 
@@ -69,7 +77,7 @@ const ogImageUrl = image.startsWith("http")
 
         <!-- Favicons & Manifest -->
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/logo-header-116x154.webp" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
 
         <!-- Open Graph -->
@@ -80,8 +88,14 @@ const ogImageUrl = image.startsWith("http")
         <meta property="og:site_name" content="كور برو - Core Pro" />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:alt" content={ogImageAlt || title} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        {
+            isDefaultOgImage && (
+                <>
+                    <meta property="og:image:width" content="640" />
+                    <meta property="og:image:height" content="640" />
+                </>
+            )
+        }
         <meta property="og:locale" content="ar_EG" />
         {
             publishedTime && (
@@ -109,9 +123,7 @@ const ogImageUrl = image.startsWith("http")
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageUrl} />
 
-        <!-- Performance: DNS preconnect -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!-- Performance: DNS prefetch -->
         <link rel="dns-prefetch" href="https://wa.me" />
 
         <!-- hreflang: Arabic Egypt target -->
@@ -129,11 +141,12 @@ const ogImageUrl = image.startsWith("http")
             property="business:contact_data:phone_number"
             content={pageContact.international}
         />
-        <meta property="business:contact_data:locality" content={currentPath === '/hoods-blowers-alexandria' ? 'Alexandria' : 'Cairo'} />
+        <meta property="business:contact_data:locality" content={businessLocality} />
         <meta property="business:contact_data:country_name" content="Egypt" />
 
         <!-- WebSite + Organization Schema (global) -->
         <script
+            is:inline
             type="application/ld+json"
             set:html={JSON.stringify([
                 {
@@ -176,7 +189,7 @@ const ogImageUrl = image.startsWith("http")
     >
         <a
             href="#content"
-            class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:shadow"
+            class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:right-3 focus:z-[9999] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow"
         >
             تخطي إلى المحتوى
         </a>

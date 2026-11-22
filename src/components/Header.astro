@@ -18,8 +18,10 @@ const extra = [
   { href: '/terms', label: 'شروط الاستخدام' },
 ];
 const active = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href + '/'));
+const isAlexandriaPage = currentPath === '/hoods-blowers-alexandria' || currentPath === '/concrete-cutting-alexandria';
+const isHome = currentPath === '/';
 ---
-<div class="cp-topbar"><div class="cp-wrap"><span>من أول مقاس… إلى آخر تفصيلة.</span><a href={`tel:${contact.international}`}><Phone size={12} /><bdi>{contact.phone}</bdi></a><span class="cp-topbar-location"><MapPin size={12} />{currentPath === '/hoods-blowers-alexandria' ? 'قسم الإسكندرية · تأكيد التغطية حسب موقع المشروع' : 'مدينة نصر · تأكيد التغطية حسب موقع المشروع'}</span></div></div>
+<div class="cp-topbar"><div class="cp-wrap"><span>من أول مقاس… إلى آخر تفصيلة.</span><a href={`tel:${contact.international}`}><Phone size={12} /><bdi>{contact.phone}</bdi></a><span class="cp-topbar-location"><MapPin size={12} />{isAlexandriaPage ? 'قسم الإسكندرية · تأكيد التغطية حسب موقع المشروع' : 'مدينة نصر · تأكيد التغطية حسب موقع المشروع'}</span></div></div>
 <header class="cp-header"><div class="cp-wrap cp-navbar">
   <a href="/" class="cp-brand" aria-label="كور برو، الصفحة الرئيسية"><Image src={logoImg} alt="شعار كور برو" width={45} height={60} loading="eager" /><span><b dir="ltr">Core<span>Pro</span><i>.</i></b><small>حلول قص وتخريم الخرسانة</small></span></a>
   <button id="cp-menu-toggle" class="cp-menu-toggle" type="button" aria-label="فتح القائمة" aria-controls="cp-navigation" aria-expanded="false"><Menu size={23} /></button>
@@ -28,7 +30,7 @@ const active = (href: string) => currentPath === href || (href !== '/' && curren
     <details class="cp-nav-more"><summary>المزيد<ChevronDown size={14} /></summary><div>{extra.map(item => <a href={item.href} aria-current={active(item.href) ? 'page' : undefined}>{item.label}</a>)}</div></details>
     <a class="cp-nav-mobile-call" href={`tel:${contact.international}`}>اتصل: <bdi>{contact.phone}</bdi></a>
   </nav>
-  <div class="cp-nav-actions"><a class="cp-phone-icon" href={`tel:${contact.international}`} aria-label={`اتصال ${contact.phone}`}><Phone size={19} /></a><a class="cp-btn cp-btn-orange" href={currentPath === '/' ? '#quote' : contact.whatsapp}>اطلب مراجعة مشروعك<ArrowLeft size={17} /></a></div>
+  <div class="cp-nav-actions"><a class="cp-phone-icon" href={`tel:${contact.international}`} aria-label={`اتصال ${contact.phone}`}><Phone size={19} /></a><a class="cp-btn cp-btn-orange" href={isHome ? '#quote' : contact.whatsapp} target={isHome ? undefined : '_blank'} rel={isHome ? undefined : 'noopener noreferrer'}>اطلب مراجعة مشروعك<ArrowLeft size={17} /></a></div>
 </div></header>
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('#cp-menu-toggle');

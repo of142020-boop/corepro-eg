@@ -13,26 +13,18 @@ const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{chi
 
 import {
  ShieldCheck,
- Clock,
  MapPin,
  CheckCircle2,
- Sparkles,
  BadgeCheck,
  Target,
  Wrench,
  Ruler,
- HelpCircle,
  Building2,
  HardHat,
- Settings,
  Layers,
  Hammer,
- Maximize2,
- MoveRight,
  Phone,
- Scissors,
  Search,
- Zap,
  X,
  Plus,
  Maximize,
@@ -48,10 +40,10 @@ const ADDRESS_TEXT = "الحي العاشر مدينة نصـر";
 
 const SERVICE_NAME = "قص وتقطيع الخرسانة بالمنشار";
 
-const IMG_HERO = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 2400, height: 1792 };
-const IMG_1 = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 800, height: 800 };
-const IMG_2 = { src: "/images/saw/kas-kharsana-menshar-2.webp", width: 800, height: 800 };
-const IMG_3 = { src: "/images/saw/kas-kharsana-menshar-3.webp", width: 800, height: 800 };
+const IMG_HERO = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 1280, height: 956 };
+const IMG_1 = { src: "/images/saw/kas-kharsana-menshar-1.webp", width: 1280, height: 956 };
+const IMG_2 = { src: "/images/saw/kas-kharsana-menshar-2.webp", width: 1280, height: 956 };
+const IMG_3 = { src: "/images/saw/kas-kharsana-menshar-3.webp", width: 1280, height: 956 };
 
 function Section({
  title,
@@ -133,29 +125,13 @@ export default function SawPage() {
  },
  ];
 
- const jsonLdLocalBusiness = {
- "@context": "https://schema.org",
- "@type": "LocalBusiness",
- name: BRAND,
- url: DOMAIN,
- telephone: PHONE_INT,
- address: {
- "@type": "PostalAddress",
- addressCountry: "EG",
- addressLocality: "Cairo",
- streetAddress: ADDRESS_TEXT,
- },
- areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "العاصمة الإدارية", "6 أكتوبر", "الشيخ زايد", "مدينة نصر", "المعادي", "القليوبية"],
- priceRange: "$$",
- sameAs: [DOMAIN, WHATSAPP],
- };
-
  const jsonLdService = {
  "@context": "https://schema.org",
  "@type": "Service",
+ "@id": `${CANONICAL}#service`,
  name: "قص الخرسانة بالمنشار في مصر | تقطيع الخرسانة المسلحة بدقة",
  serviceType: "Concrete Sawing and Cutting",
- provider: { "@type": "LocalBusiness", name: BRAND, telephone: PHONE_INT, url: DOMAIN },
+ provider: { "@id": `${DOMAIN}/#organization` },
  areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "مدينة نصر", "المعادي", "الشيخ زايد", "6 أكتوبر", "العاصمة الإدارية", "القليوبية"],
  url: CANONICAL,
  description: "خدمة قص الجدران والأسقف والأرضيات الخرسانية بالمنشار الماسي لفتح الأبواب والنوافذ وتنفيذ التعديلات بعد مراجعة المقاسات وظروف الموقع.",
@@ -171,57 +147,48 @@ export default function SawPage() {
  })),
  };
 
- const jsonLdBreadcrumb = {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- itemListElement: [
- { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
- { "@type": "ListItem", position: 2, name: "قص الخرسانة بالمنشار", item: CANONICAL },
- ],
- };
-
  const jsonLdSpeakable = {
  "@context": "https://schema.org",
  "@type": "WebPage",
  url: CANONICAL,
  speakable: {
  "@type": "SpeakableSpecification",
-  cssSelector: ["#faq", "h1"],
+ cssSelector: ["#faq", "h1"],
  },
  };
 
-  const jsonLdImageObjects = [
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/saw/hero.webp`,
-      "name": "قص الخرسانة بالمنشار الماسي - كور برو",
-      "description": "منشار ماسي مثبت على سكة لقص الخرسانة وفق المقاسات وظروف الموقع",
-      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
-      "copyrightHolder": { "@type": "Organization", "name": BRAND },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": CANONICAL,
-      "creator": { "@type": "Organization", "name": BRAND },
-      "license": `${DOMAIN}/terms`,
-      "copyrightNotice": `© 2026 ${BRAND}`,
-      "representativeOfPage": true,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/saw/kas-kharsana-menshar-1.webp`,
-      "name": "منشار قص الخرسانة - عمل ميداني",
-      "description": "منشار ماسي ضخم أثناء قص جدار خرساني مع التبريد المائي",
-      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
-      "copyrightHolder": { "@type": "Organization", "name": BRAND },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": CANONICAL,
-      "creator": { "@type": "Organization", "name": BRAND },
-      "license": `${DOMAIN}/terms`,
-      "copyrightNotice": `© 2026 ${BRAND}`,
-      "representativeOfPage": false,
-    }
-  ];
+ const jsonLdImageObjects = [
+ {
+ "@context": "https://schema.org",
+ "@type": "ImageObject",
+ contentUrl: `${DOMAIN}/images/saw/kas-kharsana-menshar-1.webp`,
+ name: "قص الخرسانة بالمنشار الماسي - كور برو",
+ description: "منشار ماسي مثبت على سكة لقص الخرسانة وفق المقاسات وظروف الموقع",
+ author: { "@id": `${DOMAIN}/#organization` },
+ copyrightHolder: { "@id": `${DOMAIN}/#organization` },
+ creditText: "كور برو - Core Pro",
+ acquireLicensePage: CANONICAL,
+ creator: { "@id": `${DOMAIN}/#organization` },
+ license: `${DOMAIN}/terms`,
+ copyrightNotice: `© 2026 ${BRAND}`,
+ representativeOfPage: true,
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ImageObject",
+ contentUrl: `${DOMAIN}/images/saw/kas-kharsana-menshar-2.webp`,
+ name: "منشار قص الخرسانة - عمل ميداني",
+ description: "قص جدار خرساني مسلح بالمنشار الماسي مع التبريد المائي",
+ author: { "@id": `${DOMAIN}/#organization` },
+ copyrightHolder: { "@id": `${DOMAIN}/#organization` },
+ creditText: "كور برو - Core Pro",
+ acquireLicensePage: CANONICAL,
+ creator: { "@id": `${DOMAIN}/#organization` },
+ license: `${DOMAIN}/terms`,
+ copyrightNotice: `© 2026 ${BRAND}`,
+ representativeOfPage: false,
+ },
+ ];
 
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
@@ -229,10 +196,8 @@ export default function SawPage() {
  type="application/ld+json"
  dangerouslySetInnerHTML={{
  __html: JSON.stringify([
- jsonLdLocalBusiness,
  jsonLdService,
  jsonLdFaq,
- jsonLdBreadcrumb,
  jsonLdSpeakable,
  ...jsonLdImageObjects,
  ]),
@@ -268,36 +233,45 @@ export default function SawPage() {
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
  href={WHATSAPP}
+ target="_blank"
+ rel="noopener noreferrer"
  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-sky-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(59,130,246,0.3)] hover:bg-sky-700 transition transform hover:-translate-y-1 text-lg md:text-xl"
  >
- <Phone className="h-6 w-6" />
- اطلب المعاينة الآن
+ <Phone className="h-6 w-6" aria-hidden="true" />
+ اطلب المعاينة عبر واتساب
  </Link>
+ <a href={`tel:${PHONE_INT}`} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-white px-6 py-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+ <Phone className="h-5 w-5" aria-hidden="true" /> اتصل <bdi>{PHONE}</bdi>
+ </a>
  </div>
  </div>
 
- <div className="rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
- <div
+ <div className="rounded-2xl border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
+ <a
+ href={IMG_HERO.src}
  data-lightbox-src={IMG_HERO.src}
- className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
+ aria-label="تكبير صورة قص الخرسانة بالمنشار الماسي"
+ className="block relative aspect-square rounded-xl overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer"
  >
- <Image src={IMG_HERO} alt="مقاول قص خرسانة مسلحة بالمنشار - كور برو" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
+ <Image src={IMG_HERO} alt="مقاول قص خرسانة مسلحة بالمنشار - كور برو" fill priority fetchpriority="high" className="object-cover group-hover:scale-105 transition-transform duration-500" />
  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
- <Maximize className="h-10 w-10" />
+ <Maximize className="h-10 w-10" aria-hidden="true" />
  </div>
- </div>
+ </a>
  <div className="p-4 grid grid-cols-3 gap-3">
  {[IMG_1, IMG_2, IMG_3].map((img, i) => (
- <div
+ <a
  key={i}
+ href={img.src}
  data-lightbox-src={img.src}
- className="relative aspect-[4/3] rounded-none overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer"
+ aria-label={`تكبير صورة أعمال قص الخرسانة بالمنشار ${i + 1}`}
+ className="block relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer"
  >
- <Image src={img} alt={`تنفيذ أعمال قص خرسانة وتقطيع جدران بالمنشار بواسطة مقاول متخصص ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
+ <Image src={img} alt={`تنفيذ أعمال قص خرسانة وتقطيع جدران بالمنشار بواسطة مقاول متخصص ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
- <Plus className="h-6 w-6" />
+ <Plus className="h-6 w-6" aria-hidden="true" />
  </div>
- </div>
+ </a>
  ))}
  </div>
  </div>
@@ -529,8 +503,8 @@ export default function SawPage() {
     </div>
     <div className="not-prose mt-5 rounded-2xl bg-slate-900 text-white p-5 flex items-center gap-4">
       <div>
-        <div className="font-black text-sky-400 text-lg">01021507462</div>
-        <div className="text-slate-400 text-xs mt-1">تواصل معنا لتأكيد الوصول لمنطقتك</div>
+        <a href={`tel:${PHONE_INT}`} className="font-black text-sky-400 text-lg hover:underline"><bdi>{PHONE}</bdi></a>
+        <div className="text-slate-300 text-xs mt-1">تواصل معنا لتأكيد الوصول لمنطقتك</div>
       </div>
     </div>
   </Section>
@@ -561,7 +535,7 @@ export default function SawPage() {
  { href: "/concrete-cutting-alexandria", label: "خدماتنا في الإسكندرية" },
  ].map((s) => (
  <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-sky-700 hover:underline py-1">
- <span className="text-sky-600">›</span>
+ <span className="text-sky-600" aria-hidden="true">‹</span>
  {s.label}
  </a>
  ))}
@@ -574,9 +548,11 @@ export default function SawPage() {
   <p className="text-sky-100 text-sm mb-6 leading-7">أرسل تفاصيل المشروع لتحديد إمكانية التنفيذ ومتطلبات المعاينة.</p>
  <Link
  href={WHATSAPP}
+ target="_blank"
+ rel="noopener noreferrer"
  className="block w-full text-center py-5 rounded-3xl bg-white text-sky-900 font-black text-xl hover:scale-[1.02] transition shadow-lg"
  >
- تواصل واتسـاب
+ تواصل واتساب
  </Link>
  </div>
 
@@ -594,19 +570,19 @@ export default function SawPage() {
           أرسل تفاصيل المشروع
        </div>
        <h2 className="text-2xl md:text-4xl font-black mb-4 leading-tight">
-         هل تحتاج إلى قص خرسانة بالمنشار بأسرع وقت؟
+         هل تحتاج إلى قص خرسانة بالمنشار؟
        </h2>
        <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
           أرسل المقاسات وصورة الموقع، وسنراجع تفاصيل القص ونوضح الخطوات اللازمة لتقدير التكلفة.
        </p>
-       <div className="mt-4 text-2xl font-black text-sky-400">{PHONE}</div>
+       <a href={`tel:${PHONE_INT}`} className="mt-4 inline-block text-2xl font-black text-sky-400 hover:underline"><bdi>{PHONE}</bdi></a>
      </div>
      <div className="flex flex-col gap-3 shrink-0 w-full md:w-auto min-w-[220px]">
-       <Link href={WHATSAPP} className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 transition text-white px-8 py-4 rounded-2xl font-black text-xl">
-         <Phone className="w-5 h-5" /> تواصل واتساب
+       <Link href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 transition text-white px-8 py-4 rounded-2xl font-black text-xl">
+         <Phone className="w-5 h-5" aria-hidden="true" /> تواصل واتساب
        </Link>
-       <a href={`tel:${PHONE}`} className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 hover:bg-slate-100 transition px-8 py-4 rounded-2xl font-black text-xl">
-         <Phone className="w-5 h-5" /> اتصل الآن
+       <a href={`tel:${PHONE_INT}`} className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 hover:bg-slate-100 transition px-8 py-4 rounded-2xl font-black text-xl">
+         <Phone className="w-5 h-5" aria-hidden="true" /> اتصل الآن
        </a>
      </div>
    </div>

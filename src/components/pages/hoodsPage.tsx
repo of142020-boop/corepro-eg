@@ -16,13 +16,12 @@ const CANONICAL = `${DOMAIN}/hoods`;
 const PHONE_NUM = "01015218216";
 const PHONE_INT = "+20" + PHONE_NUM.replace(/^0/, "");
 const WHATSAPP = "https://wa.me/201015218216";
-const ADDRESS_TEXT = "الحي العاشر مدينة نصر";
-const IMG_HERO = { src: "/images/hoods/fani-tarkib-shafat-matbakh.webp", width: 800, height: 800 };
-const IMG_1 = { src: "/images/hoods/tarkib-shafat-hamam-1.webp", width: 800, height: 800 };
-const IMG_2 = { src: "/images/hoods/tarkib-shafat-hamam-2.webp", width: 800, height: 800 };
-const IMG_3 = { src: "/images/hoods/tarkib-shafat-hamam-3.webp", width: 800, height: 800 };
+const IMG_HERO = { src: "/images/hoods/fani-tarkib-shafat-matbakh.webp", width: 1280, height: 1280 };
+const IMG_1 = { src: "/images/hoods/tarkib-shafat-hamam-1.webp", width: 1280, height: 956 };
+const IMG_2 = { src: "/images/hoods/tarkib-shafat-hamam-2.webp", width: 1280, height: 956 };
+const IMG_3 = { src: "/images/hoods/tarkib-shafat-hamam-3.webp", width: 1280, height: 956 };
 
-function Section({ title, subtitle, icon, children, id, level = 2 }: { title: string; subtitle?: string; icon?: React.ReactNode; children: React.ReactNode; id?: string; level?: 2 | 3; }) {
+function Section({ title, subtitle, children, id, level = 2 }: { title: string; subtitle?: string; children: React.ReactNode; id?: string; level?: 2 | 3; }) {
  const HeadingTag = level === 2 ? 'h2' : 'h3';
  return (
  <section id={id} className={`rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-6 md:p-10 shadow-[0_12px_50px_rgba(0,0,0,0.08)] ${level === 3 ? 'mx-4 md:mx-8' : ''}`}>
@@ -83,26 +82,26 @@ export default function HoodsPage() {
  },
  ];
 
- const jsonLdLocalBusiness = {
- "@context": "https://schema.org",
- "@type": "LocalBusiness",
- name: BRAND,
- url: DOMAIN,
- telephone: PHONE_INT,
- address: { "@type": "PostalAddress", addressCountry: "EG", addressLocality: "Cairo", streetAddress: ADDRESS_TEXT },
- areaServed: ["القاهرة", "الجيزة", "العاصمة الإدارية", "مدينة نصر", "التجمع الخامس", "6 أكتوبر", "الشيخ زايد", "المعادي", "القليوبية"],
- sameAs: [DOMAIN, WHATSAPP],
- };
-
  const jsonLdService = {
  "@context": "https://schema.org",
  "@type": "Service",
-  name: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت بالقاهرة والجيزة",
+ "@id": `${CANONICAL}#service`,
+ name: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت بالقاهرة والجيزة",
  serviceType: "Kitchen Hood & Bathroom Exhaust Fan Installation",
- provider: { "@type": "LocalBusiness", name: BRAND, telephone: PHONE_INT, url: DOMAIN },
+ provider: { "@id": `${DOMAIN}/#organization` },
  areaServed: ["القاهرة الكبرى", "الجيزة", "التجمع الخامس", "مدينة نصر", "المعادي", "6 أكتوبر", "العاصمة الإدارية", "القليوبية"],
  url: CANONICAL,
-  description: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت والفتحات في القاهرة والجيزة وفق موديل الجهاز ومقاسات الموقع. تُراجع إمكانية الصيانة وقطع الغيار بحسب نوع العطل والموديل.",
+ description: "تركيب شفاطات المطبخ والحمام وتأسيس الدكت والفتحات في القاهرة والجيزة وفق موديل الجهاز ومقاسات الموقع. تُراجع إمكانية الصيانة وقطع الغيار بحسب نوع العطل والموديل.",
+ availableChannel: {
+ "@type": "ServiceChannel",
+ serviceUrl: CANONICAL,
+ servicePhone: {
+ "@type": "ContactPoint",
+ telephone: PHONE_INT,
+ contactType: "حجز خدمات الشفاطات بالقاهرة والجيزة",
+ availableLanguage: "Arabic",
+ },
+ },
  };
 
  const jsonLdFaq = {
@@ -111,61 +110,52 @@ export default function HoodsPage() {
  mainEntity: faq.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })),
  };
 
- const jsonLdBreadcrumb = {
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- itemListElement: [
- { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
- { "@type": "ListItem", position: 2, name: "تركيب الشفاطات بالقاهرة والجيزة", item: CANONICAL },
- ],
- };
-
  const jsonLdSpeakable = {
  "@context": "https://schema.org",
  "@type": "WebPage",
  url: CANONICAL,
  speakable: {
  "@type": "SpeakableSpecification",
-  cssSelector: ["#faq", "h1"],
+ cssSelector: ["#faq", "h1"],
  },
  };
 
-  const jsonLdImageObjects = [
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "contentUrl": `${DOMAIN}/images/hoods/hero.webp`,
-      "name": "تركيب شفاطات المطابخ - كور برو",
-       "description": "صورة توضيحية لخدمة تركيب شفاطات المطابخ",
-      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
-      "copyrightHolder": { "@type": "Organization", "name": BRAND },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": CANONICAL,
-      "creator": { "@type": "Organization", "name": BRAND },
-      "license": `${DOMAIN}/terms`,
-      "copyrightNotice": `© 2026 ${BRAND}`,
-      "representativeOfPage": true,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      contentUrl: `${DOMAIN}/images/hoods/tarkib-shafat-hamam-1.webp`,
-      "name": "شفاطات مطابخ مركبة على السطح",
-      "description": "شفاطات مطابخ بمنافذ خارجية محكمة مركبة على سطح المبنى",
-      "author": { "@type": "Organization", "name": BRAND, "url": DOMAIN },
-      "copyrightHolder": { "@type": "Organization", "name": BRAND },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": CANONICAL,
-      "creator": { "@type": "Organization", "name": BRAND },
-      "license": `${DOMAIN}/terms`,
-      "copyrightNotice": `© 2026 ${BRAND}`,
-      "representativeOfPage": false,
-    }
-  ];
+ const jsonLdImageObjects = [
+ {
+ "@context": "https://schema.org",
+ "@type": "ImageObject",
+ contentUrl: `${DOMAIN}/images/hoods/fani-tarkib-shafat-matbakh.webp`,
+ name: "تركيب شفاطات المطابخ بالقاهرة والجيزة - كور برو",
+ description: "فني تركيب شفاط مطبخ وتأسيس هوايات الشفاطات بالقاهرة والجيزة",
+ author: { "@id": `${DOMAIN}/#organization` },
+ copyrightHolder: { "@id": `${DOMAIN}/#organization` },
+ creditText: "كور برو - Core Pro",
+ acquireLicensePage: CANONICAL,
+ creator: { "@id": `${DOMAIN}/#organization` },
+ license: `${DOMAIN}/terms`,
+ copyrightNotice: `© 2026 ${BRAND}`,
+ representativeOfPage: true,
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "ImageObject",
+ contentUrl: `${DOMAIN}/images/hoods/tarkib-shafat-hamam-1.webp`,
+ name: "أعمال فتح وتخريم وتركيب شفاطات مطبخ وحمام",
+ description: "شفاطات بمنافذ خارجية محكمة وتوصيل دكت التهوية",
+ author: { "@id": `${DOMAIN}/#organization` },
+ copyrightHolder: { "@id": `${DOMAIN}/#organization` },
+ creditText: "كور برو - Core Pro",
+ acquireLicensePage: CANONICAL,
+ creator: { "@id": `${DOMAIN}/#organization` },
+ license: `${DOMAIN}/terms`,
+ copyrightNotice: `© 2026 ${BRAND}`,
+ representativeOfPage: false,
+ },
+ ];
 
  return (
  <div className="bg-slate-50 overflow-x-hidden" dir="rtl">
-  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdLocalBusiness, jsonLdService, jsonLdFaq, jsonLdBreadcrumb, jsonLdSpeakable, ...jsonLdImageObjects]) }} />
+ <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdService, jsonLdFaq, jsonLdSpeakable, ...jsonLdImageObjects]) }} />
 
  {/* HERO */}
  <section className="relative overflow-hidden">
@@ -196,25 +186,30 @@ export default function HoodsPage() {
  <div className="mt-8 flex flex-wrap gap-4">
  <Link
  href={WHATSAPP}
- className="inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-600 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:bg-orange-700 transition transform hover:-translate-y-1 text-lg md:text-xl"
+ target="_blank"
+ rel="noopener noreferrer"
+ className="inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-700 px-6 py-4 md:px-10 md:py-5 font-black text-white shadow-[0_20px_40px_rgba(194,65,12,0.28)] hover:bg-orange-800 transition transform hover:-translate-y-1 text-lg md:text-xl"
  >
- <Phone className="h-6 w-6" />
- احجز موعد التركيب
+ <Phone className="h-6 w-6" aria-hidden="true" />
+ احجز موعد التركيب عبر واتساب
  </Link>
+ <a href={`tel:${PHONE_INT}`} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-white px-6 py-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+ <Phone className="h-5 w-5" aria-hidden="true" /> اتصل <bdi>{PHONE_NUM}</bdi>
+ </a>
  </div>
  </div>
 
- <div className="rounded-none border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
- <div data-lightbox-src={IMG_HERO.src} className="relative aspect-square rounded-none overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer">
- <Image src={IMG_HERO} alt="فني تركيب شفاط مطبخ محترف وتأسيس هوايات الشفاطات - كور برو" fill priority className="object-cover group-hover:scale-105 transition-transform duration-500 rounded-none" />
- <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><Maximize className="h-10 w-10" /></div>
- </div>
+ <div className="rounded-2xl border-4 border-white bg-white shadow-2xl overflow-hidden p-4 relative">
+ <a href={IMG_HERO.src} data-lightbox-src={IMG_HERO.src} aria-label="تكبير صورة تركيب شفاط المطبخ" className="block relative aspect-square rounded-xl overflow-hidden bg-slate-100 shadow-inner group w-full cursor-pointer">
+ <Image src={IMG_HERO} alt="فني تركيب شفاط مطبخ محترف وتأسيس هوايات الشفاطات - كور برو" fill priority fetchpriority="high" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+ <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><Maximize className="h-10 w-10" aria-hidden="true" /></div>
+ </a>
  <div className="p-4 grid grid-cols-3 gap-3">
  {[IMG_1, IMG_2, IMG_3].map((img, i) => (
- <div key={i} data-lightbox-src={img.src} className="relative aspect-[4/3] rounded-none overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer">
- <Image src={img} alt={`أعمال فتح وتخريم وتركيب شفاطات مطبخ وحمام احترافية ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500 rounded-none" />
- <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><Plus className="h-6 w-6" /></div>
- </div>
+ <a key={i} href={img.src} data-lightbox-src={img.src} aria-label={`تكبير صورة أعمال الشفاطات ${i + 1}`} className="block relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-slate-100 shadow-sm group cursor-pointer">
+ <Image src={img} alt={`أعمال فتح وتخريم وتركيب شفاطات مطبخ وحمام احترافية ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+ <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><Plus className="h-6 w-6" aria-hidden="true" /></div>
+ </a>
  ))}
  </div>
  </div>
@@ -280,7 +275,7 @@ export default function HoodsPage() {
  <div className="p-6 bg-white border border-black/5 rounded-3xl shadow-sm">
  <h3 className="font-black text-slate-900 mb-2">تركيب شفاط هرمي بمدخنة</h3>
  <p className="text-slate-600 text-sm leading-7">
-  قد يحتاج الشفاط الهرمي ذي الطرد الخارجي إلى مسار دكت وفتحة خروج. يُحدد موضع الخروج واتجاه الدكت بعد مراجعة دليل الجهاز والجدار وموقع الخدمات.
+  قد يحتاج الشفاط الهرمي ذو الطرد الخارجي إلى مسار دكت وفتحة خروج. يُحدد موضع الخروج واتجاه الدكت بعد مراجعة دليل الجهاز والجدار وموقع الخدمات.
  </p>
  </div>
  <div className="p-6 bg-orange-50 border border-orange-100 rounded-3xl shadow-sm">
@@ -300,7 +295,7 @@ export default function HoodsPage() {
  <p className="text-slate-600 text-sm leading-7">
   يتحدد تركيب الشفاط الحائطي أو السقفي بحسب أبعاد الجهاز ومسار الطرد ونقطة الكهرباء. أما الأنظمة المركزية فتحتاج إلى مراجعة شبكة الدكت وإمكانية الوصول إليها قبل تحديد نطاق العمل.
  </p>
- <p className="mt-3 text-sm leading-7 text-slate-700">ولمراجعة القياسات قبل الشراء، يوضح <a href="https://drilmax.com/مقاس-شفاط-الحمام/" rel="nofollow" className="text-orange-800 underline">دليل دريل ماكس لمقاس شفاط الحمام</a> الفرق بين أبعاد الجهاز وفتحة التركيب ومخرج الهواء. الدليل منشور على أحد مواقعنا الأخرى.</p>
+ <p className="mt-3 text-sm leading-7 text-slate-700">ولمراجعة القياسات قبل الشراء، يوضح <a href="https://drilmax.com/مقاس-شفاط-الحمام/" target="_blank" rel="nofollow noopener noreferrer" className="text-orange-800 underline">دليل دريل ماكس لمقاس شفاط الحمام</a> الفرق بين أبعاد الجهاز وفتحة التركيب ومخرج الهواء. الدليل منشور على أحد مواقعنا الأخرى.</p>
  </div>
  <div className="p-6 bg-white border border-black/5 rounded-3xl shadow-sm">
   <h3 className="font-black text-slate-900 mb-2">تهوية المطابخ التجارية والمطاعم</h3>
@@ -424,7 +419,7 @@ export default function HoodsPage() {
  <Section id="ceiling-hood" title="تركيب شفاط المطبخ في السقف أو فوق جزيرة" >
  <p>الشفاط السقفي أو المعلق فوق جزيرة يحتاج إلى موديل مصمم لهذا الاستخدام. تختلف طريقة تثبيته عن الشفاط الحائطي أو شفاط الحمام؛ تُراجع قدرة موضع التثبيت على حمل وزن الجهاز، والخلوص فوق سطح الطهي، ومسار الدكت والوصول للصيانة، وفق دليل الموديل.</p>
  <p className="mt-4">إذا كان هناك سقف معلق، يجب مراجعة هيكل التحميل والتثبيت مع المختص قبل تركيب الجهاز. أرسل صورة السقف ومقاساته ورقم الموديل ومكان الموقد؛ لا تعتمد ارتفاعاً أو حوامل موحدة لجميع الأجهزة.</p>
- <p className="mt-4 text-sm">توضح <a href="https://media3.bosch-home.com/Documents/9001482616_N.pdf" className="text-orange-800 underline">تعليمات Bosch لأحد موديلات الشفاط السقفي</a> أهمية مراجعة قدرة السقف والحوامل؛ تُطبق متطلبات كتيب جهازك المحدد عند التنفيذ.</p>
+ <p className="mt-4 text-sm">توضح <a href="https://media3.bosch-home.com/Documents/9001482616_N.pdf" target="_blank" rel="noopener noreferrer" className="text-orange-800 underline">تعليمات Bosch لأحد موديلات الشفاط السقفي</a> أهمية مراجعة قدرة السقف والحوامل؛ تُطبق متطلبات كتيب جهازك المحدد عند التنفيذ.</p>
  </Section>
 
  <Section id="brands" title="تأكيد توافق الشفاط مع موقع التركيب" >
@@ -466,8 +461,8 @@ export default function HoodsPage() {
   { problem: "رجوع الهواء أو الروائح", solution: "يُراجع نمط التشغيل ومسار الطرد والوصلات والملحقات المتوافقة مع الموديل." },
  ].map((item, i) => (
  <div key={i} className="rounded-2xl border border-black/10 bg-white p-4 shadow-sm">
- <p className="font-black text-slate-900 text-sm mb-1"> {item.problem}</p>
- <p className="text-slate-600 text-xs leading-6"> {item.solution}</p>
+ <p className="font-black text-slate-900 text-sm mb-1">{item.problem}</p>
+ <p className="text-slate-600 text-xs leading-6">{item.solution}</p>
  </div>
  ))}
  </div>
@@ -512,19 +507,19 @@ export default function HoodsPage() {
  { href: "/wire", label: "قص بالواير الماسي" },
  { href: "/hoods-blowers-alexandria", label: "شفاطات وبلاورات الإسكندرية" },
  ].map((s) => (
- <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-orange-600 hover:underline py-1">
- <span className="text-orange-500">›</span>{s.label}
+ <a key={s.href} href={s.href} className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-orange-700 hover:underline py-1">
+ <span className="text-orange-600" aria-hidden="true">‹</span>{s.label}
  </a>
  ))}
  </div>
  </div>
 
- <div className="p-8 rounded-[40px] bg-orange-500 text-white shadow-xl relative overflow-hidden">
- <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-16 -mt-16 blur-2xl" />
+ <div className="p-8 rounded-[40px] bg-orange-700 text-white shadow-xl relative overflow-hidden">
+ <div className="absolute top-0 right-0 w-32 h-32 bg-white/15 rounded-full -mr-16 -mt-16 blur-2xl" />
  <h3 className="font-black text-2xl mb-4">احجز فني التركيب</h3>
-  <p className="text-orange-100 text-sm mb-6 leading-7">أرسل رقم الموديل وصورة الموقع لتحديد إمكانية التركيب والتجهيزات المطلوبة.</p>
- <Link href={WHATSAPP} className="block w-full text-center py-5 rounded-3xl bg-white text-orange-900 font-black text-xl hover:scale-[1.02] transition shadow-lg">
- تواصل واتسـاب
+  <p className="text-orange-50 text-sm mb-6 leading-7">أرسل رقم الموديل وصورة الموقع لتحديد إمكانية التركيب والتجهيزات المطلوبة.</p>
+ <Link href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-5 rounded-3xl bg-white text-orange-900 font-black text-xl hover:scale-[1.02] transition shadow-lg">
+ تواصل واتساب
  </Link>
  </div>
 

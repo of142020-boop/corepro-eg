@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { BookOpen, Search, Book, PenTool, Hash, Info, FileText } from 'lucide-react';
+import { useState } from 'react';
+import { BookOpen, Search, Hash, Info } from 'lucide-react';
 
-const BRAND = "كور برو - Core Pro";
 const DOMAIN = "https://corepro-eg.com";
 const CANONICAL = `${DOMAIN}/glossary`;
 const PHONE = "01021507462";
@@ -60,21 +59,14 @@ const terms = [
 
 export default function GlossaryPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const normalizedQuery = searchTerm.trim().toLowerCase();
 
-  const filteredTerms = terms.filter(t => 
-    t.term.includes(searchTerm) || 
-    t.description.includes(searchTerm) || 
-    t.synonyms.some(s => s.includes(searchTerm))
+  const filteredTerms = terms.filter(t =>
+    !normalizedQuery ||
+    t.term.toLowerCase().includes(normalizedQuery) ||
+    t.description.toLowerCase().includes(normalizedQuery) ||
+    t.synonyms.some(s => s.toLowerCase().includes(normalizedQuery))
   );
-
-  const jsonLdBreadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "الرئيسية", item: DOMAIN },
-      { "@type": "ListItem", position: 2, name: "دليل مصطلحات الخرسانة", item: CANONICAL },
-    ],
-  };
 
   const jsonLdDefinedTermSet = {
     "@context": "https://schema.org",
@@ -102,7 +94,7 @@ export default function GlossaryPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen overflow-x-hidden" dir="rtl">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdBreadcrumb, jsonLdDefinedTermSet, jsonLdSpeakable]) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdDefinedTermSet, jsonLdSpeakable]) }} />
       
       {/* HEADER */}
       <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24">

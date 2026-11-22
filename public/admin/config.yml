@@ -5,7 +5,6 @@ backend:
   base_url: https://corepro-eg.com
   auth_endpoint: /api/auth
 
-local_backend: true
 publish_mode: editorial_workflow
 media_folder: public/images/blog
 public_folder: /images/blog

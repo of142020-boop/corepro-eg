@@ -1,50 +1,42 @@
-
-const Image = ({ src, alt, fill, className, width, height, priority, fetchpriority, ...rest }: any) => {
- const actualSrc = typeof src === "object" ? src.src : src;
- const actualW = width || (typeof src === "object" ? src.width : undefined) || (fill ? 800 : undefined);
- const actualH = height || (typeof src === "object" ? src.height : undefined) || (fill ? 800 : undefined);
- const fillClasses = fill ? "absolute inset-0 w-full h-full object-cover" : "";
- return <img src={actualSrc} alt={alt} width={actualW} height={actualH} className={[fillClasses, className].filter(Boolean).join(" ")} {...rest} loading={priority ? "eager" : "lazy"} fetchPriority={fetchpriority} />;
-};
-const Link = ({ href, children, ...rest }: any) => <a href={href} {...rest}>{children}</a>;
-
-
-
 export default function PrivacyPolicyPage() {
  return (
- <section className="space-y-8">
- <h1 className="text-3xl font-extrabold text-slate-900">
+ <div className="bg-slate-50 py-12 md:py-16" dir="rtl">
+ <div className="mx-auto max-w-4xl px-4">
+ <section className="rounded-3xl border border-slate-200 bg-white p-6 md:p-10 shadow-sm space-y-6">
+ <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 border-r-4 border-orange-500 pr-4">
  سياسة الخصوصية
  </h1>
 
  <p className="leading-8 text-slate-700">
  نحن نحترم خصوصيتك ونلتزم بحماية أي معلومات شخصية يتم
- مشاركتها معنا عبر الموقع.
+ مشاركتها معنا عبر الموقع أو قنوات التواصل المباشر.
  </p>
 
- <h2 className="text-xl font-bold text-slate-900">
+ <h2 className="text-xl font-bold text-slate-900 pt-2">
  المعلومات التي نجمعها
  </h2>
  <p className="text-slate-700 leading-8">
- قد نقوم بجمع بيانات مثل الاسم ورقم الهاتف عند التواصل معنا،
- وذلك فقط بغرض الرد على الاستفسارات أو تقديم الخدمة المطلوبة.
+ قد نقوم بجمع بيانات مثل الاسم ورقم الهاتف وعنوان الموقع وتفاصيل العمل عند التواصل معنا،
+ وذلك فقط بغرض الرد على الاستفسارات أو تقييم وتنفيذ الخدمة المطلوبة.
  </p>
 
- <h2 className="text-xl font-bold text-slate-900">
+ <h2 className="text-xl font-bold text-slate-900 pt-2">
  كيفية استخدام البيانات
  </h2>
  <p className="text-slate-700 leading-8">
- نستخدم المعلومات لتحسين خدماتنا والتواصل مع العملاء،
- ولا نقوم ببيع أو مشاركة البيانات مع أطراف خارجية.
+ نستخدم المعلومات لتحسين خدماتنا والتواصل مع العملاء وتنسيق المواعيد،
+ ولا نقوم ببيع أو مشاركة البيانات مع أطراف خارجية لأغراض تسويقية.
  </p>
 
- <h2 className="text-xl font-bold text-slate-900">
+ <h2 className="text-xl font-bold text-slate-900 pt-2">
  الحماية
  </h2>
  <p className="text-slate-700 leading-8">
- نتخذ إجراءات تقنية وتنظيمية لحماية بيانات المستخدمين
+ نتخذ إجراءات تقنية وتنظيمية مناسبة لحماية بيانات المستخدمين
  من الوصول غير المصرح به.
  </p>
  </section>
+ </div>
+ </div>
  );
 }

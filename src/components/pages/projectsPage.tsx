@@ -12,18 +12,30 @@ const Image = ({ src, alt, fill, className, width, height, ...rest }: any) => {
 };
 
 const PHONE_NUM = "01021507462";
+const PHONE_INT = "+201021507462";
+const WHATSAPP = "https://wa.me/201021507462";
 
 export default function ProjectsPage() {
   const [activeProjectGrid, setActiveProjectGrid] = useState<any>(null);
 
-  // Disable scroll when grid modal is open
+  // Disable scroll & support Escape when grid modal is open
   useEffect(() => {
-    if (activeProjectGrid) {
-      document.body.style.overflow = 'hidden';
-    } else {
+    if (!activeProjectGrid) {
       document.body.style.overflow = '';
+      return;
     }
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e: KeyboardEvent) => {
+      const lb = document.getElementById('global-lightbox');
+      if (e.key === 'Escape' && (!lb || lb.classList.contains('hidden'))) {
+        setActiveProjectGrid(null);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
   }, [activeProjectGrid]);
 
   const portSaidGallery = [
@@ -121,7 +133,7 @@ export default function ProjectsPage() {
       location: "ميناء بور سعيد",
       cover: "/images/projects/port-said/photo_21_2026-06-23_03-12-45.webp",
       gallery: portSaidGallery,
-      problem: "العمل على ارتفاع شاهق (16 متر) لقص جزء من سور مخازن بقطر خرسانة ضخم يصل إلى 120 سم، بالإضافة لفتح أبواب بارتفاع 6 أمتار. التحدي الأساسي كان في الارتفاع الخطير والسمك غير العادي للخرسانة.",
+      problem: "العمل على ارتفاع شاهق (16 متراً) لقص جزء من سور مخازن بسُمك خرسانة ضخم يصل إلى 120 سم، بالإضافة لفتح أبواب بارتفاع 6 أمتار. التحدي الأساسي كان في الارتفاع والسمك الكبير للخرسانة.",
       solution: "تم استخدام ماكينة قص الخرسانة بالواير الماسي (Diamond Wire Sawing) لتنفيذ القطع بسلامة تامة واحترافية عالية رغم الارتفاع وصعوبة الوصول، مما سمح بتركيب الجمالون الحديدي بنجاح تام.",
       highlights: ["سمك الخرسانة 120 سم", "العمل على ارتفاع 16 متر", "قص بماكينة الواير"]
     },
@@ -147,26 +159,26 @@ export default function ProjectsPage() {
     },
     {
       id: 3,
-      title: "توسعة أبواب أسانسيرين تم إنشاؤهم بالخطأ في سوق الحبشي الحضري",
+      title: "توسعة أبواب أسانسيرين تم إنشاؤهما بالخطأ في سوق الحبشي الحضري",
       location: "سوق الحبشي الحضري، المنيا",
       cover: "/images/projects/minya-elevator/cover.webp",
       gallery: minyaGallery,
-      problem: "أبواب أسانسيرين في سوق الحبشي الحضري بالمنيا تم إنشاؤهم بمقاسات خاطئة أضيق من المقاس المطلوب، مما جعل تركيب الأسانسير مستحيلاً. التحدي كان في توسعة فتحات الأبواب بدقة شديدة داخل مبنى قائم ومكتمل الإنشاء دون التأثير على السلامة الإنشائية للمبنى.",
-      solution: "تم الاعتماد على منشار الخرسانة الماسي (Wall Saw) وماكينة الكور الماسي لتوسعة الفتحتين بدقة هندسية عالية، مع ضمان انتظام وحيادية حواف القطع. تم تنفيذ العمل بشكل احترافي بدون أي اهتزازات تضر بالمبنى، وتم تسليم الفتحات بالمقاسات الصحيحة جاهزة لتركيب الأسانسير.",
+      problem: "أبواب أسانسيرين في سوق الحبشي الحضري بالمنيا تم إنشاؤهما بمقاسات خاطئة أضيق من المقاس المطلوب، مما جعل تركيب الأسانسير غير ممكن. التحدي كان في توسعة فتحات الأبواب بدقة داخل مبنى قائم ومكتمل الإنشاء دون التأثير على السلامة الإنشائية للمبنى.",
+      solution: "تم الاعتماد على منشار الخرسانة الماسي (Wall Saw) وماكينة الكور الماسي لتوسعة الفتحتين بدقة هندسية عالية، مع ضمان استقامة ونعومة حواف القطع. تم تنفيذ العمل بشكل احترافي وتسليم الفتحات بالمقاسات الصحيحة جاهزة لتركيب الأسانسير.",
       highlights: ["توسعة فتحات أسانسير", "منشار خرسانة ماسي", "تخريم بالكور", "40 صورة توثيقية", "المنيا"]
     }
   ];
 
   return (
     <>
-      <main className="bg-slate-50 min-h-screen overflow-x-hidden" dir="rtl">
+      <div className="bg-slate-50 min-h-screen overflow-x-hidden" dir="rtl">
         {/* Hero Section */}
         <section className="bg-slate-900 text-white py-20 px-4 relative overflow-hidden">
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.8),transparent_70%)]" />
           <div className="mx-auto max-w-4xl text-center relative z-10">
-            <h1 className="text-4xl md:text-6xl font-black mb-6">سابقة الأعمال</h1>
+            <h1 className="text-4xl md:text-6xl font-black mb-6 border-0">سابقة الأعمال</h1>
             <p className="text-xl text-slate-300 leading-9 font-medium">
-              تصفح أحدث مشاريعنا الهندسية في قص وتخريم الخرسانة. نحن لا نقدم مجرد خدمة، بل نقدم حلولاً إنشائية آمنة لأعقد التحديات في كبرى المشاريع المصرية.
+              تصفح أحدث مشاريعنا الهندسية في قص وتخريم الخرسانة. نقدم حلولاً عملية مدروسة لتحديات القص والتخريم في المشاريع المصرية.
             </p>
           </div>
         </section>
@@ -178,8 +190,10 @@ export default function ProjectsPage() {
               {projects.map((project) => (
                 <div key={project.id} id={`project-${project.id}`} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 flex flex-col md:flex-row group">
                   {/* Image Side with Multiple Photos Badge */}
-                  <div 
-                    className="w-full md:w-5/12 relative aspect-[4/3] md:aspect-auto overflow-hidden bg-slate-100 cursor-pointer"
+                  <button
+                    type="button"
+                    aria-label={`عرض صور مشروع: ${project.title} (${project.gallery.length} صورة)`}
+                    className="w-full md:w-5/12 relative aspect-[4/3] md:aspect-auto overflow-hidden bg-slate-100 cursor-pointer text-right block"
                     onClick={() => setActiveProjectGrid(project)}
                   >
                     <Image 
@@ -189,11 +203,8 @@ export default function ProjectsPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
 
-                    {/* Status Badge */}
-                    
-                    
                     {/* Permanent Badge showing multiple photos exist */}
-                    <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl flex items-center gap-2 shadow-lg">
+                    <div className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-md text-white font-bold px-4 py-2 rounded-xl flex items-center gap-2 shadow-lg">
                       <Images className="w-5 h-5" />
                       +{project.gallery.length} صورة
                     </div>
@@ -202,7 +213,7 @@ export default function ProjectsPage() {
                       <Building2 className="w-4 h-4 text-emerald-600" />
                       {project.location}
                     </div>
-                  </div>
+                  </button>
 
                   {/* Content Side */}
                   <div className="w-full md:w-7/12 p-8 md:p-12 flex flex-col">
@@ -211,11 +222,6 @@ export default function ProjectsPage() {
                     <div className="space-y-6 flex-1">
                       {/* Problem */}
                       <div className="bg-rose-50 p-6 rounded-2xl border border-rose-100">
-                        <div className="flex flex-wrap items-center gap-3 mb-4">
-                          <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-800 ring-1 ring-inset ring-slate-200">
-                            {project.location}
-                          </span>
-                        </div>
                         <h3 className="font-bold text-rose-800 mb-2 flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-rose-500"></span> التحدي والمشكلة
                         </h3>
@@ -253,26 +259,40 @@ export default function ProjectsPage() {
             {/* CTA Section */}
             <div className="mt-20 bg-emerald-600 rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden">
                <div className="relative z-10 max-w-2xl mx-auto">
-                 <h2 className="text-3xl md:text-4xl font-black mb-6">هل لديك تحدي إنشائي مشابه؟</h2>
+                 <h2 className="text-3xl md:text-4xl font-black mb-6">هل لديك تحدٍ إنشائي مشابه؟</h2>
                  <p className="text-lg md:text-xl text-emerald-50 mb-10 leading-relaxed">
                    أرسل صور الموقع والمقاسات والمخططات لمراجعة إمكانية التنفيذ والتجهيزات المطلوبة قبل تحديد الموعد.
                  </p>
-                 <a 
-                   href={`tel:${PHONE_NUM}`} 
-                   className="inline-flex items-center justify-center gap-3 bg-white text-emerald-700 px-8 py-4 rounded-2xl font-black text-xl hover:bg-slate-50 transition-colors shadow-xl"
-                 >
-                   <Phone className="w-6 h-6" />
-                   أرسل تفاصيل العمل
-                 </a>
+                 <div className="flex flex-wrap items-center justify-center gap-4">
+                   <a 
+                     href={WHATSAPP}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="inline-flex items-center justify-center gap-3 bg-white text-emerald-800 px-8 py-4 rounded-2xl font-black text-xl hover:bg-slate-50 transition-colors shadow-xl"
+                   >
+                     أرسل تفاصيل العمل على واتساب
+                   </a>
+                   <a 
+                     href={`tel:${PHONE_INT}`} 
+                     className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl font-black text-xl hover:bg-slate-800 transition-colors shadow-xl"
+                   >
+                     <Phone className="w-6 h-6" />
+                     اتصل: <bdi>{PHONE_NUM}</bdi>
+                   </a>
+                 </div>
                </div>
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
       {/* Fullscreen Photo Grid Modal */}
       {activeProjectGrid && (
         <div 
+          data-modal-open="true"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`صور مشروع ${activeProjectGrid.title}`}
           className="fixed inset-0 z-[1000] bg-white flex flex-col overflow-hidden animate-in fade-in duration-300"
           dir="rtl"
         >
@@ -283,6 +303,7 @@ export default function ProjectsPage() {
               <p className="text-sm text-slate-500">{activeProjectGrid.gallery.length} صورة متاحة</p>
             </div>
             <button 
+              type="button"
               onClick={() => setActiveProjectGrid(null)}
               className="p-2 rounded-full hover:bg-slate-100 transition-colors"
               aria-label="إغلاق الشبكة"

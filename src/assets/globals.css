@@ -19,10 +19,6 @@ body {
     linear-gradient(to bottom, rgb(var(--bg)), rgb(241 245 249));
 }
 
-strong, b {
-  font-weight: normal;
-}
-
 @layer components {
   .container-page {
     @apply mx-auto w-full max-w-6xl px-4;

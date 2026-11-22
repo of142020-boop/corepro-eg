@@ -71,7 +71,7 @@ const jsonLd = [
 ---
 
 <div class="cp-home">
- <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+ <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
  <section class="cp-hero"><div class="cp-wrap">
    <div class="cp-hero-grid">
      <div class="cp-hero-copy cp-reveal">
@@ -134,7 +134,7 @@ const jsonLd = [
  <div class="mb-6 flex items-start gap-3">
  <div>
  <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">مناطق الخدمة (الأكثر طلباً)</h2>
- <p class="mt-2 text-slate-600 leading-7">اضغط على منطقتك لمعرفة التفاصيل الخاصة بها</p>
+ <p class="mt-2 text-slate-600 leading-7">تصفح صفحات المناطق المتاحة أو تواصل معنا لتأكيد التغطية في منطقتك</p>
  </div>
  </div>
  <div class="grid gap-3 md:grid-cols-2">
@@ -181,33 +181,38 @@ const jsonLd = [
         <tbody class="divide-y divide-slate-100 font-bold">
           <tr class="hover:bg-slate-50 transition">
             <td class="p-4 text-slate-700">صنايعي كور / فني تخريم</td>
-            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201021507462" class="hover:underline"><bdi>01021507462</bdi></a></td>
             <td class="p-4 border-r border-slate-200"><a href="/core" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تخريم بالكور</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
             <td class="p-4 text-slate-700">أعمال المقاولات والكميات المتعددة</td>
-            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201021507462" class="hover:underline"><bdi>01021507462</bdi></a></td>
             <td class="p-4 border-r border-slate-200"><a href="/contractor" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">مقاولات الشركات</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
             <td class="p-4 text-slate-700">قص الخرسانة بالواير الماسي</td>
-            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201021507462" class="hover:underline"><bdi>01021507462</bdi></a></td>
             <td class="p-4 border-r border-slate-200"><a href="/wire" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">قص الكتل والقواعد</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
             <td class="p-4 text-slate-700">قص الجدران والأسقف بالمنشار</td>
-            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201021507462" class="hover:underline"><bdi>01021507462</bdi></a></td>
             <td class="p-4 border-r border-slate-200"><a href="/saw" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">فتح الأبواب والنوافذ</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
             <td class="p-4 text-slate-700">منشار قص الخرسانة (Track Saw)</td>
-            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01021507462" class="hover:underline">01021507462</a></td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201021507462" class="hover:underline"><bdi>01021507462</bdi></a></td>
             <td class="p-4 border-r border-slate-200"><a href="/track-saw" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">قص مستقيم بالمنشار</a></td>
           </tr>
           <tr class="hover:bg-slate-50 transition">
-            <td class="p-4 text-slate-700">فني تركيب شفاطات مطبخ / حمام</td>
-            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:01015218216" class="hover:underline">01015218216</a></td>
+            <td class="p-4 text-slate-700">فني تركيب شفاطات مطبخ / حمام (القاهرة والجيزة)</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201015218216" class="hover:underline"><bdi>01015218216</bdi></a></td>
             <td class="p-4 border-r border-slate-200"><a href="/hoods" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">تركيب وتأسيس شفاطات</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-4 text-slate-700">خدمات الإسكندرية (قص، كور، شفاطات وبلاورات)</td>
+            <td class="p-4 border-r border-slate-200 text-sky-700"><a href="tel:+201094496839" class="hover:underline"><bdi>01094496839</bdi></a></td>
+            <td class="p-4 border-r border-slate-200"><a href="/concrete-cutting-alexandria" class="text-emerald-600 hover:text-emerald-700 underline underline-offset-4">قسم الإسكندرية</a></td>
           </tr>
         </tbody>
       </table>
@@ -232,7 +237,7 @@ const jsonLd = [
  </div>
  <div class="rounded-3xl border border-black/10 bg-white p-6">
   <div class="font-extrabold text-slate-900">للتواصل وتأكيد التغطية</div>
- <div class="mt-1 text-2xl font-extrabold text-sky-700">{PHONE}</div>
+ <a href={`tel:${PHONE_INT}`} class="mt-1 inline-block text-2xl font-extrabold text-sky-700 hover:underline"><bdi>{PHONE}</bdi></a>
   <div class="mt-4 flex items-center gap-2 text-sm text-slate-600">
  <MapPin className="h-4 w-4" />
   <span>{ADDRESS_TEXT} والجيزة والمدن الجديدة</span>
@@ -241,24 +246,6 @@ const jsonLd = [
  </div>
  </section>
  </div>
-  <script type="application/ld+json" set:html={JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "contentUrl": `https://corepro-eg.com/og-image.webp`,
-      "name": "كور برو - قص وتخريم الخرسانة في مصر",
-       "description": "قص الخرسانة بالمنشار والواير وتخريم الكور وتركيب الشفاطات",
-      "author": { "@type": "Organization", "name": "كور برو - Core Pro", "url": "https://corepro-eg.com" },
-      "copyrightHolder": { "@type": "Organization", "name": "كور برو - Core Pro" },
-      "creditText": "كور برو - Core Pro",
-      "acquireLicensePage": "https://corepro-eg.com/",
-      "creator": { "@type": "Organization", "name": "كور برو - Core Pro" },
-      "license": `https://corepro-eg.com/terms`,
-      "copyrightNotice": `© 2026 كور برو - Core Pro`,
-      "representativeOfPage": true
-    }
-  ])} />
-
  </div>
 </div>
 <script>

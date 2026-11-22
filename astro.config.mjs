@@ -1,8 +1,13 @@
+import fs from 'node:fs';
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import compress from "astro-compress";
+
+const seoLabIntegrations = fs.existsSync(new URL('./scripts/seo-lab-dev-api.mjs', import.meta.url))
+  ? [(await import('./scripts/seo-lab-dev-api.mjs')).default()]
+  : [];
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +16,7 @@ export default defineConfig({
   redirects: {
     '/hoods-alexandria': '/hoods-blowers-alexandria',
   },
-  integrations: [react(), sitemap({
+  integrations: [react(), ...seoLabIntegrations, sitemap({
     filter: (page) => {
       const { pathname } = new URL(page);
       const isCanonicalPath = pathname === '/' || !pathname.endsWith('/');
@@ -108,7 +113,7 @@ export default defineConfig({
     }
   }), compress()],
   build: {
-    inlineStylesheets: 'always'
+    inlineStylesheets: 'auto'
   },
   vite: {
     plugins: [tailwindcss()]
